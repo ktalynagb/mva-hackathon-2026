@@ -1,0 +1,29 @@
+# MVA Hackathon 2026 — dependencias Python
+# Instalar con: pip install -r requirements.txt
+
+# Acceso a HuggingFace
+huggingface_hub[cli]>=0.24.0
+
+# Análisis de datos
+pandas>=2.0.0
+numpy>=1.26.0
+scipy>=1.12.0
+
+# VCF (puro Python, funciona en Windows/Linux/macOS)
+pyvcf3>=1.0.3
+
+# Notebooks y visualización
+jupyter>=1.0.0
+ipykernel>=6.0.0
+matplotlib>=3.8.0
+
+# Utilidades
+requests>=2.31.0
+tqdm>=4.66.0
+
+# ─── Nota sobre pysam / cyvcf2 ───────────────────────────────────────────────
+# pysam y cyvcf2 son sólo Linux/macOS (requieren htslib compilado).
+# Para análisis avanzado de BAM/CRAM en Windows, usar WSL2 o un contenedor Docker.
+# Si corres en Linux/macOS, puedes agregar:
+#   pysam>=0.22.0
+#   cyvcf2>=0.31.0

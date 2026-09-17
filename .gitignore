@@ -1,0 +1,50 @@
+# ── Datos del hackathon (nunca versionar) ────────────────────────────────────
+data/
+*.vcf
+*.vcf.gz
+*.tbi
+*.bam
+*.bam.bai
+*.cram
+*.cram.crai
+*.fastq
+*.fastq.gz
+*.fq.gz
+
+# ── Credenciales y secretos ──────────────────────────────────────────────────
+.env
+.env.*
+*.token
+huggingface_token*
+hf_token*
+
+# ── Entorno virtual Python ───────────────────────────────────────────────────
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ── Jupyter ──────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb~
+
+# ── Resultados pesados (agregar manualmente los que sí quieran versionarse) ──
+results/*.csv
+results/*.tsv
+results/*.pkl
+results/*.parquet
+
+# ── Sistema operativo ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDEs ─────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
