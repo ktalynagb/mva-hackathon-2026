@@ -67,39 +67,60 @@ Hackaton_MVA_/
 
 ## Cómo reproducir
 
-> **Sección pendiente de completar** — se actualizará una vez definida la pipeline de análisis.
-
-### Requisitos previos
-
-- Python 3.10+
-- Acceso aprobado al dataset `SageBio/mva-hackathon-2026-data` en Hugging Face
-- Token de Hugging Face con permisos de lectura
-
-### Instalación
+### 1. Clonar el repositorio
 
 ```bash
-# Clonar el repositorio
-git clone <URL-del-repo>
-cd Hackaton_MVA_
+git clone https://github.com/ktalynagb/mva-hackathon-2026.git
+cd mva-hackathon-2026
+```
 
-# Crear entorno virtual
+### 2. Crear entorno virtual e instalar dependencias
+
+```bash
+# Windows
 python -m venv .venv
-.venv\Scripts\activate   # Windows
-# source .venv/bin/activate  # Linux/macOS
+.venv\Scripts\activate
+
+# Linux / macOS
+python -m venv .venv
+source .venv/bin/activate
 
 # Instalar dependencias
 pip install -r requirements.txt
-
-# Autenticarse en Hugging Face
-hf auth login
+pip install python-docx   # para leer el fenotipo clínico
 ```
 
-### Descarga de datos
+### 3. Autenticarse en Hugging Face
+
+Necesitas una cuenta en [huggingface.co](https://huggingface.co) con acceso aprobado al dataset `SageBio/mva-hackathon-2026-data` (solicitud manual requerida).
 
 ```bash
-# (Una vez autenticado y con acceso aprobado)
-python scripts/download_data.py
+python scripts/hf_login.py
+# Pega tu token cuando lo pida (Settings → Access Tokens en hf.co)
 ```
+
+### 4. Descargar los datos necesarios para Track 2
+
+> Los FASTQs (~79 GB) **no son necesarios** para Track 2. Solo descargamos el VCF + fenotipo (~303 MB).
+
+```bash
+python scripts/download_data.py --file README.md
+python scripts/download_data.py --file "Challenge_Clinical_Phenotype_1.docx"
+python scripts/download_data.py --file "WGS_EX2312012_HGWCNDSX7.vcf.gz.tbi"
+python scripts/download_data.py --file "WGS_EX2312012_HGWCNDSX7.vcf.gz"
+```
+
+Los archivos quedan en `data/raw/`.
+
+### 5. Exploración inicial
+
+Abre y corre el notebook de exploración:
+
+```bash
+jupyter notebook notebooks/01_exploracion_inicial.ipynb
+```
+
+Este notebook te lleva por: verificación del entorno → fenotipo clínico HPO → estadísticas del VCF → estrategia de análisis propuesta.
 
 ---
 
