@@ -1,0 +1,48 @@
+{
+  "variante_1": {
+    "posicion": "15:40209701",
+    "cambio_vcf": "T>G",
+    "rsid": "rs759242053",
+    "transcrito_canonico": "ENST00000287598 (BUB1B)",
+    "hgvsc": "c.2210T>G",
+    "hgvsp": "p.Leu737Ter",
+    "consecuencia": "stop_gained",
+    "cadd_phred": 36.0,
+    "cadd_rawscore": 10.837736,
+    "clinvar": "Pathogenic",
+    "clinvar_id": "533901",
+    "af_exome_gnomad4": 7.87e-05,
+    "af_genome_gnomad4": 3.29e-05,
+    "hom_gnomad": 0,
+    "mecanismo": "PTC → NMD probable → alelo nulo → pérdida de función (LOF)",
+    "criterio_acmg": "PVS1 (Muy fuerte)",
+    "interpretacion": "PATOGÉNICA (confirmada ClinVar)"
+  },
+  "variante_2": {
+    "posicion": "15:40220612",
+    "cambio_vcf": "T>G",
+    "rsid": null,
+    "transcrito_canonico": "ENST00000287598 (BUB1B)",
+    "hgvsc": "c.3006T>G",
+    "hgvsp": "p.Asn1002Lys",
+    "consecuencia": "missense_variant",
+    "cadd_phred": 24.5,
+    "cadd_rawscore": 4.167419,
+    "clinvar": "no_registrada",
+    "clinvar_id": null,
+    "af_exome_gnomad4": 6.84e-07,
+    "af_genome_gnomad4": null,
+    "hom_gnomad": 0,
+    "mecanismo": "missense dominio pseudo-kinasa → desestabilización MCC (top 0.35% CADD)",
+    "criterio_acmg": "PM2 (ultra-rara, 1 alelo en gnomAD v4) + PP3 (CADD 24.5 ≥ 20)",
+    "interpretacion": "Probablemente patogénica"
+  },
+  "patron_herencia": "heterocigotica_compuesta_AR",
+  "fuentes": {
+    "gnomad": "gnomAD v4 (GRCh38)",
+    "cadd": "CADD v1.7 GRCh38",
+    "clinvar": "ClinVar (consultado 2026-10-01)",
+    "vcf": "WGS_EX2312012_HGWCNDSX7.vcf.gz"
+  },
+  "conclusion": "BUB1B het. compuesta CONFIRMADA: alelo 1 p.Leu737Ter es Patogénica en ClinVar (CADD=36). Alelo 2 p.Asn1002Lys es ultra-rara (1 alelo en 1.46M exomas gnomAD) con CADD=24.5, Probablemente Patogénica. Juntas causan haploinsuficiencia compuesta de BUBR1 → SAC disfuncional → mosaicismo aneuplo → MVA."
+}
