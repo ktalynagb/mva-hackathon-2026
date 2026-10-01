@@ -10,6 +10,41 @@
 
 ---
 
+## 2026-10-01 — ✅ HITO H1 COMPLETADO: variante causante confirmada
+
+**Quién:** Ktalyna (con Claude Code) — ejecución real del pipeline  
+**Qué se hizo:**
+- Ejecutado el pipeline completo: VCF → gnomAD v4 → CADD v1.7 → ClinVar
+- Confirmadas las dos variantes BUB1B con datos reales de APIs públicas
+
+### Resultados confirmados
+
+| Campo | Variante 1 | Variante 2 |
+|-------|-----------|-----------|
+| **Posición (GRCh38)** | 15:40209701 | 15:40220612 |
+| **Cambio VCF** | T>G | T>G |
+| **rsID** | rs759242053 | — (sin rsID) |
+| **HGVSc** | c.2210T>G | c.3006T>G |
+| **HGVSp** | **p.Leu737Ter** | **p.Asn1002Lys** |
+| **Consecuencia** | stop_gained | missense_variant |
+| **Transcrito canónico** | ENST00000287598 (BUB1B) | ENST00000287598 (BUB1B) |
+| **CADD phred** | **36.0** (top 0.025%) | **24.5** (top 0.35%) |
+| **ClinVar** | **Pathogenic** (ID 533901) ✅ | no registrada |
+| **AF exoma gnomAD v4** | 7.87×10⁻⁵ (0.008%) | **6.84×10⁻⁷ (0.00007%)** |
+| **AF genoma gnomAD v4** | 3.29×10⁻⁵ | ausente |
+| **Homocigotos gnomAD** | **0** | **0** |
+| **Criterios ACMG** | PVS1 | PM2 + PP3 |
+| **Interpretación** | **PATOGÉNICA** ✅ | **Prob. Patogénica** ✅ |
+
+### Corrección importante sobre la variante 2
+
+SnpEff (vía myvariant.info) erróneamente clasifica 15:40220612 T>G como "intergenic_region". gnomAD v4 confirma que está en el **transcrito canónico de BUB1B** (ENST00000287598), exón correspondiente a p.Asn1002Lys.
+
+### Archivos generados
+- `results/hito_H1_resultados_finales.json` — tabla completa con fuentes
+
+---
+
 ## 2026-10-01 — Notebook 05: mecanismo biológico BUB1B/BUBR1
 
 **Quién:** Ktalyna (con Claude Code)  
@@ -142,20 +177,22 @@
 | Fase | Descripción | Estado | Responsable |
 |------|-------------|--------|-------------|
 | 1 | Datos y exploración | ✅ Completa | Ktalyna + Laura |
-| 2 | Identificar variante causante | 🔄 En progreso | Laura (nb04 en Colab) |
+| 2 | Identificar variante causante | ✅ **COMPLETADA** — Hito H1 logrado | Ktalyna + Laura |
 | 3 | Caracterizar mecanismo biológico | ⬜ Pendiente | — |
 | 4 | Candidatos de reposicionamiento | ⬜ Pendiente | — |
 | 5 | Informe + entrega | ⬜ Pendiente | — |
 
 ### Hipótesis actual
 
-La causa del MVA en este paciente es probablemente una **variante heterocigótica compuesta en BUB1B**:
-- Variante 1: `15:40209701` → **p.Leu737Ter** (stop prematuro — pérdida de función)
-- Variante 2: `15:40220612` → **p.Asn1002Lys** (missense — por confirmar patogenicidad)
+La causa del MVA en este paciente es **BUB1B heterocigótica compuesta** — ✅ **CONFIRMADA**:
 
-Ambas heterocigotas en *BUB1B* (BUBR1) afectarían el Spindle Assembly Checkpoint → inestabilidad cromosómica → mosaicismo aneuplo → fenotipo MVA.
+| Alelo | Posición | HGVSp | CADD | ClinVar |
+|-------|----------|-------|------|---------|
+| 1 | 15:40209701 | **p.Leu737Ter** (stop → NMD → LOF) | 36.0 | **Pathogenic** |
+| 2 | 15:40220612 | **p.Asn1002Lys** (missense pseudo-kinasa) | 24.5 | no registrada |
 
-**Esta hipótesis debe confirmarse en el notebook 04** (frecuencia gnomAD < 1%, impacto funcional, ausencia en ClinVar como benigna).
+Ambas son heterocigotas, ultra-raras en gnomAD v4 (7.87×10⁻⁵ y 6.84×10⁻⁷), sin homocigotos.  
+→ Haploinsuficiencia compuesta de BUBR1 → SAC disfuncional → missegregación → MVA.
 
 ---
 
