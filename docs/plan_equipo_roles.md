@@ -117,9 +117,6 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 | Programación/Datos | 20 % | `████░░░░░░░░░░░░░░░░` |
 | Comunicación/Gestión | 15 % | `███░░░░░░░░░░░░░░░░░` |
 
-**Elige este rol si:** has estudiado genética humana o clínica, sabes qué es un patrón de herencia recesivo y un heterocigoto compuesto, y te gusta leer artículos de casos clínicos y argumentar con evidencia.
-**No es para ti si:** nunca has oído hablar de ACMG, ClinVar o gnomAD y no tienes tiempo de aprender esta semana. La semana 1 es intensa.
-
 **Herramientas:** guías ACMG/AMP, ClinVar, gnomAD browser, LOVD, OMIM, PubMed, Franklin/Varsome (como apoyo), lectura de tablas en pandas.
 
 | Semana | Tareas | Entregable | Carga |
@@ -144,9 +141,6 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 | Farmacología | 0 % | `░░░░░░░░░░░░░░░░░░░░` |
 | Programación/Datos | 70 % | `██████████████░░░░░░` |
 | Comunicación/Gestión | 5 % | `█░░░░░░░░░░░░░░░░░░░` |
-
-**Elige este rol si:** te sientes cómoda con Python y pandas, has usado APIs (requests/JSON) y te interesa la genómica. Ya leíste los notebooks 01–03 y entiendes el embudo de filtrado.
-**No es para ti si:** no has programado en Python antes; este rol escribe código desde el día 1.
 
 **Herramientas:** Python, pandas, Jupyter, APIs de gnomAD (GraphQL), myvariant.info, Ensembl VEP REST, CADD, SpliceAI, ClinVar; git.
 
@@ -173,9 +167,6 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 | Programación/Datos | 20 % | `████░░░░░░░░░░░░░░░░` |
 | Comunicación/Gestión | 10 % | `██░░░░░░░░░░░░░░░░░░` |
 
-**Elige este rol si:** te gusta la biología celular (mitosis, puntos de control del ciclo celular, estructura de proteínas), lees papers con facilidad y te interesa hacer diagramas o modelos estructurales.
-**No es para ti si:** prefieres programar a leer literatura. Este rol lee mucho.
-
 **Herramientas:** PubMed, UniProt (BUBR1 = O60566, verificar), AlphaFold DB, ChimeraX o PyMOL, BioRender o Inkscape, Reactome y KEGG.
 
 | Semana | Tareas | Entregable | Carga |
@@ -200,9 +191,6 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 | Farmacología | 50 % | `██████████░░░░░░░░░░` |
 | Programación/Datos | 20 % | `████░░░░░░░░░░░░░░░░` |
 | Comunicación/Gestión | 10 % | `██░░░░░░░░░░░░░░░░░░` |
-
-**Elige este rol si:** tienes formación en farmacología, química farmacéutica, medicina o biotecnología aplicada, y te interesa saber cómo actúa un fármaco, su seguridad y su estado regulatorio.
-**No es para ti si:** no te sientes cómoda evaluando evidencia clínica o preclínica. Este rol aporta el 50 % de la nota (impacto + innovación).
 
 **Herramientas:** DGIdb, Open Targets Platform, ChEMBL, DrugBank, Drug Repurposing Hub (Broad), ClinicalTrials.gov, fichas técnicas FDA/EMA, PubMed.
 
@@ -235,9 +223,6 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 | Programación/Datos | 85 % | `█████████████████░░░` |
 | Comunicación/Gestión | 10 % | `██░░░░░░░░░░░░░░░░░░` |
 
-**Elige este rol si:** te gusta el código limpio, git, los tests y la automatización, y te importa más que "funcione siempre" que "funcione una vez". No necesitas saber biología.
-**No es para ti si:** no has usado git ni la terminal.
-
 **Herramientas:** Python, git/GitHub (ramas, PRs), pytest, YAML, Makefile o `run_pipeline.py`, Docker (opcional), Windows y Linux/WSL/Colab.
 
 | Semana | Tareas | Entregable | Carga |
@@ -262,9 +247,6 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 | Farmacología | 10 % | `██░░░░░░░░░░░░░░░░░░` |
 | Programación/Datos | 5 % | `█░░░░░░░░░░░░░░░░░░░` |
 | Comunicación/Gestión | 60 % | `████████████░░░░░░░░` |
-
-**Elige este rol si:** escribes bien, te gusta organizar, diseñar figuras o editar video, y entiendes la biología lo suficiente para contarla de forma sencilla.
-**No es para ti si:** no podrás estar disponible los días 22 a 24 de octubre. Este rol tiene su pico de carga al final.
 
 **Herramientas:** Markdown, Canva, Figma o PowerPoint, un editor de video (CapCut, DaVinci), Pandoc o un exportador a PDF, Excel (formulario de métodos), el canal del equipo.
 
