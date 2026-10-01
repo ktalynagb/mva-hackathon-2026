@@ -48,24 +48,24 @@ Cada rol suma **100 %** repartido en cuatro áreas de habilidad:
 
 Cada semana corresponde a una fase del [plan de trabajo](plan_de_trabajo.md). Las semanas van de **jueves a miércoles**; la semana 4 es corta (3 días).
 
-| Semana | Fechas | Fase | Pregunta que respondemos |
-|---|---|---|---|
-| **1** | jue 1 – mié 7 oct | Fase 2: variante causante | ¿Qué variante causa el MVA en este paciente y con qué evidencia? |
-| **2** | jue 8 – mié 14 oct | Fase 3: mecanismo | ¿Qué le hace esa variante a la proteína, a la célula y al paciente? |
-| **3** | jue 15 – mié 21 oct | Fase 4: fármacos + borrador | ¿Qué fármacos aprobados actúan sobre ese mecanismo y cuáles son los mejores? |
-| **4** | jue 22 – sáb 24 oct | Fase 5: entrega | ¿Está todo reproducible, revisado, grabado y enviado? |
+| Semana | Fechas | Fase | Pregunta que respondemos | Estado |
+|---|---|---|---|---|
+| **1** | jue 1 – mié 7 oct | Fase 2: variante causante | ¿Qué variante causa el MVA en este paciente y con qué evidencia? | ✅ **Completada** (H1 logrado el 1 oct) |
+| **2** | jue 8 – mié 14 oct | Fase 3: mecanismo | ¿Qué le hace esa variante a la proteína, a la célula y al paciente? | 🔄 En progreso |
+| **3** | jue 15 – mié 21 oct | Fase 4: fármacos + borrador | ¿Qué fármacos aprobados actúan sobre ese mecanismo y cuáles son los mejores? | ⬜ Pendiente |
+| **4** | jue 22 – sáb 24 oct | Fase 5: entrega | ¿Está todo reproducible, revisado, grabado y enviado? | ⬜ Pendiente |
 
 ### Hitos (no negociables)
 
-| Hito | Fecha | Qué debe existir | Responsable |
-|---|---|---|---|
-| **H1** | mié 7 oct | Variante causante confirmada y clasificada con criterios ACMG | R1 (con R2) |
-| **H2** | lun 12 oct | Resumen de mecanismo de 1 página entregado a R4 | R3 |
-| **H3** | mié 14 oct | Mecanismo completo + figura de la vía afectada | R3 |
-| **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos candidatos con ficha | R4 |
-| **H5** | mié 21 oct | Borrador completo del informe + guion del video v2 | R6 |
-| **H6** | vie 23 oct, 12:00 UTC | **Congelación del código** + video final grabado | R5 + R6 |
-| **H7** | sáb 24 oct, 18:00 UTC | **Entrega enviada** (6 h de margen antes del cierre) | R6 |
+| Hito | Fecha | Qué debe existir | Responsable | Estado |
+|---|---|---|---|---|
+| **H1** | mié 7 oct | Variante causante confirmada y clasificada con criterios ACMG | R1 (con R2) | ✅ **COMPLETADO** (1 oct) |
+| **H2** | lun 12 oct | Resumen de mecanismo de 1 página entregado a R4 | R3 | 🔄 Notebook listo, revisar literatura |
+| **H3** | mié 14 oct | Mecanismo completo + figura de la vía afectada | R3 | 🔄 Notebook listo, pulir figuras |
+| **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos candidatos con ficha | R4 | ⬜ Pendiente |
+| **H5** | mié 21 oct | Borrador completo del informe + guion del video v2 | R6 | ⬜ Pendiente |
+| **H6** | vie 23 oct, 12:00 UTC | **Congelación del código** + video final grabado | R5 + R6 | ⬜ Pendiente |
+| **H7** | sáb 24 oct, 18:00 UTC | **Entrega enviada** (6 h de margen antes del cierre) | R6 | ⬜ Pendiente |
 
 ```mermaid
 gantt
@@ -124,8 +124,8 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 
 | Semana | Tareas | Entregable | Carga |
 |---|---|---|---|
-| **1** | Recibir de R2 la tabla de variantes priorizadas. Clasificar las dos variantes de *BUB1B* (p.Leu737Ter y p.Asn1002Lys) con criterios ACMG (p. ej., PVS1, PM2, PM3, PP3, PP4) y justificar cada criterio. Revisar ClinVar, LOVD y casos publicados de MVA tipo 1. Evaluar la **fase (cis/trans)**: sin datos de los padres no se puede confirmar, así que hay que documentarlo como limitación. Hacer la correlación genotipo-fenotipo con los 8 rasgos HPO. | `docs/secciones/01_variante_causante.md` con tabla ACMG. **Hito H1.** | Alta |
-| **2** | Documentar el **diagnóstico diferencial**: por qué no son *CEP57*, *TRIP13* ni los otros 195 genes. Revisar el análisis de sensibilidad de las variantes no-PASS hecho por R2. Apoyar a R3 sobre el efecto esperado de cada alelo. | Sección "Diagnóstico diferencial" en el mismo archivo | Media |
+| **1** | ✅ **COMPLETADO.** Pipeline bioinformático ejecutado (notebooks 01–05). Variantes BUB1B confirmadas: p.Leu737Ter (Pathogenic ClinVar, CADD=36) + p.Asn1002Lys (AF=6.8×10⁻⁷, CADD=24.5). Pendiente: redactar `docs/secciones/01_variante_causante.md` con tabla ACMG formal y la limitación de fase (sin tríos). | `docs/secciones/01_variante_causante.md` — **redactar esta semana** | ~~Alta~~ → **Media** |
+| **2** | Documentar el **diagnóstico diferencial**: por qué no son *CEP57*, *TRIP13* ni los otros 195 genes (datos ya en notebook 04). Apoyar a R3 sobre el efecto esperado de cada alelo (ya documentado en notebook 05). | Sección "Diagnóstico diferencial" en el mismo archivo | Media |
 | **3** | Revisión científica de los candidatos de R4: ¿son coherentes con el genotipo (un alelo nulo + un alelo posiblemente hipomórfico)? Redactar la sección de resultados genéticos del informe. | Comentarios en el PR de R4 + sección del informe | Media |
 | **4** | Revisión final de rigor del informe completo ("¿qué objetaría un revisor?"). Dar el visto bueno científico antes de H7. | Aprobación científica en el PR final | Media |
 
@@ -284,18 +284,19 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 
 **Dueño** = responde por el entregable y toma la decisión final. **Revisor** = aprueba el PR. **Apoyo** = aporta cuando el dueño lo pide.
 
-| Entregable | Dueño | Revisor | Apoyo |
-|---|---|---|---|
-| Notebook 04: priorización de variantes | R2 | R1 | R5 |
-| Clasificación ACMG + diagnóstico diferencial | R1 | R3 | R2 |
-| Marco biológico + mecanismo + figura de la vía | R3 | R1 | R6 |
-| Matriz de priorización de fármacos | R4 | R1 | — |
-| Lista larga y lista corta de candidatos | R4 | R3 | R2 |
-| Pipeline reproducible + tests + escalabilidad | R5 | R2 | — |
-| Informe final (Markdown → PDF) | R6 | R1 | todos |
-| Video pitch de 3 min | R6 | R4 | R3 |
-| Formulario de descripción de métodos | R6 | R5 | todos |
-| Bitácora y coordinación | R6 | — | todos |
+| Entregable | Dueño | Revisor | Apoyo | Estado |
+|---|---|---|---|---|
+| Notebooks 01–03: exploración y 201 genes | R1 (Ktalyna) | R2 | R5 | ✅ Hecho |
+| Notebook 04: priorización gnomAD/CADD/ClinVar | R2 | R1 | R5 | ✅ Hecho (resultados en `results/hito_H1_resultados_finales.json`) |
+| Clasificación ACMG + diagnóstico diferencial | R1 | R3 | R2 | 🔄 Datos listos, falta `docs/secciones/01_variante_causante.md` |
+| Marco biológico + mecanismo + figura de la vía | R3 | R1 | R6 | 🔄 Notebook 05 listo, falta revisión literatura |
+| Matriz de priorización de fármacos | R4 | R1 | — | ⬜ Pendiente (base en `results/resumen_mecanismo_para_R4.json`) |
+| Lista larga y lista corta de candidatos | R4 | R3 | R2 | ⬜ Pendiente |
+| Pipeline reproducible + tests + escalabilidad | R5 | R2 | — | ⬜ Pendiente |
+| Informe final (Markdown → PDF) | R6 | R1 | todos | ⬜ Pendiente |
+| Video pitch de 3 min | R6 | R4 | R3 | ⬜ Pendiente |
+| Formulario de descripción de métodos | R6 | R5 | todos | ⬜ Pendiente |
+| Bitácora y coordinación | R6 | — | todos | 🔄 Al día |
 
 ---
 
@@ -344,7 +345,11 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 
 **Paso 3.** Anótate en la tabla de la sección 7 con un PR, o pídele a R6 que te anote. **Gana quien se anota primero**; si dos personas quieren el mismo rol, se resuelve en el primer sync.
 
-> **Sugerencia, no asignación:** Laura ya avanzó en la priorización de variantes (notebook 04), así que encaja con R2 o R1. Ktalyna montó el repo y la infraestructura, así que encaja con R5 o R6.
+> **Estado actual del proyecto (1 oct):** El Hito H1 ya fue completado — los notebooks 01–05 y el análisis de variantes están listos. El equipo que se incorpore arranca directamente en la Semana 2 (mecanismo + fármacos).
+>
+> **Rol de Ktalyna:** R1 (Genetista/líder científica). Lideró la bioinformática con Claude Code (notebooks 01–05, análisis real de gnomAD/CADD/ClinVar), tiene la visión científica completa del proyecto y actuará de traductora entre el trabajo computacional y el equipo biotecnólogo. La persona que tome R2 construye sobre los notebooks existentes, no los rehace.
+>
+> **Rol de Laura:** encaja con R2 (completar nb04 en el repo, lollipop plot) o R3 (mecanismo, que es su fuerte por el trabajo previo en Colab).
 
 ---
 
@@ -352,7 +357,7 @@ Cada rol tiene: perfil de habilidades, para quién es, herramientas, tareas por 
 
 | Rol | Persona | Usuario GitHub | Usuario HF (acceso aprobado ✓) | Fecha |
 |---|---|---|---|---|
-| R1 — Genetista / líder científica | | | | |
+| R1 — Genetista / líder científica | **Ktalyna Garcia** | `ktalynagb` | `Ktalyna` ✓ | 2026-10-01 |
 | R2 — Bioinformática de variantes | | | | |
 | R3 — Biología molecular y mecanismo | | | | |
 | R4 — Farmacología y reposicionamiento | | | | |
