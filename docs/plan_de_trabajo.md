@@ -50,17 +50,17 @@
 
 ---
 
-## Fase 3 — Caracterizar el Mecanismo Biológico ⬜ Pendiente
+## Fase 3 — Caracterizar el Mecanismo Biológico 🔄 En progreso
 
 **Objetivo:** describir con rigor científico qué hace la variante y cuál es la consecuencia celular.
 
 | Tarea | Notebook | Responsable |
 |-------|----------|-------------|
-| Gen afectado → proteína → función en el SAC | `04_mecanismo_biologico.ipynb` | — |
-| Tipo de efecto molecular: LOF / GOF / dominante negativo | — | — |
-| Consecuencia celular: fallo SAC → missegregación → mosaicismo | — | — |
-| Diagrama de la vía afectada (figura para el informe) | — | — |
-| Revisión de literatura: casos MVA con misma variante o gen | — | — |
+| Gen afectado → proteína → función en el SAC | `05_mecanismo_biologico_bub1b.ipynb` | R3 | 🔄 Notebook listo |
+| Tipo de efecto molecular: LOF / GOF / dominante negativo | idem | R3 | 🔄 Documentado (LOF compuesto) |
+| Consecuencia celular: fallo SAC → missegregación → mosaicismo | idem | R3 | 🔄 Documentado |
+| Diagrama de la vía afectada (figura para el informe) | idem | R3 | 🔄 3 figuras generadas |
+| Revisión de literatura: casos MVA con misma variante o gen | idem | R3 | ⬜ Completar referencias |
 
 **Marco teórico a cubrir:**
 - Spindle Assembly Checkpoint (SAC): BUB1B/BUBR1, MAD1/MAD2, MCC

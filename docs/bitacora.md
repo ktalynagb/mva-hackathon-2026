@@ -10,6 +10,24 @@
 
 ---
 
+## 2026-10-01 — Notebook 05: mecanismo biológico BUB1B/BUBR1
+
+**Quién:** Ktalyna (con Claude Code)  
+**Qué se hizo:**
+- Creado `notebooks/05_mecanismo_biologico_bub1b.ipynb` — mecanismo completo para Hitos H2 y H3
+- Documenta: estructura BUBR1 (5 dominios), SAC normal, efecto de p.Leu737Ter (NMD/LOF) y p.Asn1002Lys (missense pseudo-kinasa), cascada hasta mosaicismo, fenotipo clínico
+- Genera 3 figuras: dominios BUBR1 · SAC normal vs disfuncional · cascada fisiopatológica
+- Produce `results/resumen_mecanismo_para_R4.json` (6 targets farmacológicos para R4) y `results/hito_H3_mecanismo_completo.json`
+
+**Targets identificados para R4:**
+- APC/C · CDC20 · PLK1 (Volasertib) · Aurora B (Barasertib) · Hsp90 (estabilizador alelo missense) · p53 pathway
+
+**Pendiente (R3):**
+- [ ] Revisar y completar secciones de literatura (referencias en celda 7)
+- [ ] Confirmar CADD de p.Asn1002Lys (notebook 04) antes de entregar a R4
+
+---
+
 ## 2026-10-01 — Notebook 04: priorización gnomAD y variante causante
 
 **Quién:** Ktalyna (con Claude Code)  
