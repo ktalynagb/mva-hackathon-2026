@@ -2,6 +2,8 @@
 
 **MVA Hackathon 2026 · Deadline: 24 de octubre de 2026, 23:59 UTC**
 
+> Quién hace qué y en qué semana está en el **[plan de equipo y roles](plan_equipo_roles.md)**. Los responsables de las tablas de abajo corresponden a esos roles (R1–R6).
+
 ---
 
 ## Fase 1 — Datos y Exploración ✅ Completada
