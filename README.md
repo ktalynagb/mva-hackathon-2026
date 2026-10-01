@@ -33,13 +33,21 @@ Hackaton_MVA_/
 │   └── raw/            # Archivos descargados de HuggingFace (VCF, HPO)
 ├── notebooks/          # Jupyter notebooks de exploración y análisis
 ├── scripts/            # Scripts Python reproducibles (análisis, procesamiento)
-├── docs/               # Informe final (PDF/Markdown) y documentación
+├── docs/               # Informe final, plan de trabajo, roles del equipo y bitácora
 ├── results/            # Salidas del análisis: candidatos, tablas, figuras
 ├── .gitignore
 ├── CLAUDE.md           # Contexto del proyecto para sesiones de Claude Code
 ├── requirements.txt    # Dependencias Python
 └── README.md
 ```
+
+---
+
+## Equipo y organización
+
+- **[Plan de equipo y roles](docs/plan_equipo_roles.md)**: 6 roles con su perfil de habilidades, tareas por semana e hitos. **Léelo antes de empezar y elige tu rol.**
+- [Plan de trabajo por fases](docs/plan_de_trabajo.md)
+- [Bitácora](docs/bitacora.md): seguimiento de avances y decisiones
 
 ---
 

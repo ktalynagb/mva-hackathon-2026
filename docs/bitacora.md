@@ -10,6 +10,23 @@
 
 ---
 
+## 2026-10-01 — Plan de equipo para 6 personas
+
+**Quién:** Ktalyna (con Claude Code)  
+**Qué se hizo:**
+- Se creó `docs/plan_equipo_roles.md` con 6 roles (R1–R6), el perfil de habilidades de cada uno en %, sus tareas por semana, 7 hitos (H1–H7), una matriz de dueños/revisores y reglas de fidelidad al rol
+
+**Decisiones:**
+- Semanas de jueves a miércoles: S1 = variante, S2 = mecanismo, S3 = fármacos + borrador, S4 = entrega
+- Congelación del código el **viernes 23 oct a las 12:00 UTC**; entrega interna el **sábado 24 oct a las 18:00 UTC** (6 h de margen)
+- A partir de ahora: trabajo en ramas `rN/...` y PR con revisor; nada directo a `master`
+
+**Pendiente:**
+- [ ] Las 6 personas eligen rol y se anotan en la sección 7 del plan
+- [ ] Cada integrante confirma su propio acceso aprobado en HF
+
+---
+
 ## 2026-10-01 — Integración del trabajo de Laura al repo
 
 **Quién:** Ktalyna (con Claude Code)  
@@ -109,7 +126,5 @@ Ambas heterocigotas en *BUB1B* (BUBR1) afectarían el Spindle Assembly Checkpoin
 
 - [ ] Laura sube notebook 04 al repo
 - [ ] Laura confirma `config/genes_candidatos.txt`
-- [ ] Asignar responsable para Fase 3 (mecanismo biológico)
-- [ ] Asignar responsable para Fase 4 (fármacos — OpenTargets / DGIdb)
-- [ ] Definir quién hace el video pitch y cuándo
+- [ ] Asignar los 6 roles del [plan de equipo](plan_equipo_roles.md) (Fase 3 = R3, Fase 4 = R4, video = R6)
 - [ ] Completar `methods_description_form.xlsx` antes del 24 oct
