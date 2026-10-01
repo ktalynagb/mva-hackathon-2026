@@ -10,6 +10,25 @@
 
 ---
 
+## 2026-10-01 — Notebook 04: priorización gnomAD y variante causante
+
+**Quién:** Ktalyna (con Claude Code)  
+**Qué se hizo:**
+- Creado `notebooks/04_priorizacion_gnomad_variante_causante.ipynb`
+- Pipeline completo: het. BUB1B → gnomAD v4 (GraphQL) → AF < 1% → myvariant.info (CADD/ClinVar) → tabla de priorización → confirmación het. compuesta
+- Genera `results/bub1b_variantes_priorizadas.csv`, `results/figura_01_priorizacion_bub1b.png`, `results/hito_H1_variante_causante.json`
+- Incluye búsqueda de alternativas en CEP57/TRIP13 para descartar otras causas
+
+**Hipótesis documentada:**
+- BUB1B het. compuesta: `15:40209701 p.Leu737Ter` (stop → NMD → LOF) + `15:40220612 p.Asn1002Lys` (missense dominio kinasa)
+- Criterios ACMG aplicados en el notebook: PVS1, PM1, PM2, PM3, PP2, PP3
+
+**Pendiente (R2):**
+- [ ] Correr el notebook con el VCF real y verificar que gnomAD v4 confirma AF < 1% para ambas variantes
+- [ ] Confirmar CADD score para p.Asn1002Lys (≥ 20 refuerza patogenicidad)
+
+---
+
 ## 2026-10-01 — Plan de equipo para 6 personas
 
 **Quién:** Ktalyna (con Claude Code)  

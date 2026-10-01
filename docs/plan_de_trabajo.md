@@ -25,17 +25,22 @@
 
 ---
 
-## Fase 2 — Identificar la Variante Causante ⬜ Pendiente
+## Fase 2 — Identificar la Variante Causante 🔄 En progreso
 
 **Objetivo:** de las variantes en BUB1B y CEP57, identificar cuál es patogénica.
 
-| Tarea | Notebook | Responsable |
-|-------|----------|-------------|
-| Cruzar variantes BUB1B/CEP57 con gnomAD v4 (API GraphQL) | `03_priorizacion_gnomad.ipynb` | — |
-| Filtrar por frecuencia: AF < 0.01 en todas las poblaciones | — | — |
-| Aplicar criterios funcionales: LOF / missense con CADD ≥ 20 | — | — |
-| Consultar ClinVar para clasificación existente | — | — |
-| **Conclusión:** variante causante + patrón de herencia | — | — |
+| Tarea | Notebook | Responsable | Estado |
+|-------|----------|-------------|--------|
+| Cruzar variantes BUB1B/CEP57 con gnomAD v4 (API GraphQL) | `04_priorizacion_gnomad_variante_causante.ipynb` | R2 | 🔄 Notebook listo, correr con VCF |
+| Filtrar por frecuencia: AF < 0.01 en todas las poblaciones | idem | R2 | 🔄 |
+| Aplicar criterios funcionales: LOF / missense con CADD ≥ 20 | idem | R2 | 🔄 |
+| Consultar ClinVar para clasificación existente | idem | R2 | 🔄 |
+| **Conclusión:** variante causante + patrón de herencia | idem | R2 | ⬜ Pendiente confirmación |
+
+**Hipótesis actual (alta confianza):**
+- `15:40209701` → **p.Leu737Ter** (stop_gained → NMD → LOF)  
+- `15:40220612` → **p.Asn1002Lys** (missense dominio kinasa)  
+- Patrón: BUB1B heterocigótica compuesta → AR
 
 **Criterios de priorización (orden):**
 1. Variante LOF (frameshift, nonsense, splice ±2 pb)
