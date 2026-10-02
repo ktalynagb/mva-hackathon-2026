@@ -359,5 +359,71 @@
       "rsa": 0.0,
       "clase": "helice"
     }
+  },
+  "bolsillo_atp": {
+    "alphafill": {
+      "version": "2.1.1",
+      "modelo_base": "AF-O60566-F1-model_v4.cif.gz"
+    },
+    "colocaciones_de_nucleotido": [
+      {
+        "nucleotido": "ADP",
+        "distancia_min_cadena_lateral_A": 29.8,
+        "distancia_CA_a_centro_nucleotido_A": 31.4,
+        "residuo_en_contacto": false
+      },
+      {
+        "nucleotido": "ADP",
+        "distancia_min_cadena_lateral_A": 28.8,
+        "distancia_CA_a_centro_nucleotido_A": 31.1,
+        "residuo_en_contacto": false
+      },
+      {
+        "nucleotido": "ATP",
+        "distancia_min_cadena_lateral_A": 28.6,
+        "distancia_CA_a_centro_nucleotido_A": 30.7,
+        "residuo_en_contacto": false
+      },
+      {
+        "nucleotido": "ATP",
+        "distancia_min_cadena_lateral_A": 29.2,
+        "distancia_CA_a_centro_nucleotido_A": 31.6,
+        "residuo_en_contacto": false
+      }
+    ],
+    "residuos_en_contacto_con_el_nucleotido": [
+      772,
+      773,
+      774,
+      775,
+      776,
+      777,
+      778,
+      779,
+      780,
+      781,
+      782,
+      792,
+      793,
+      794,
+      795,
+      804,
+      834,
+      836,
+      838,
+      841,
+      842,
+      843,
+      846,
+      886,
+      889,
+      910,
+      911,
+      913,
+      914,
+      931
+    ],
+    "rmsd_CA_dominio_modelo_alphafill_vs_modelo_usado_A": 0.22,
+    "nota": "posiciones aproximadas: transplantadas por homologia (identidad 25-28 %), con choques estericos"
   }
 }
