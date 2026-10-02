@@ -80,7 +80,7 @@ Base: `notebooks/05_mecanismo_biologico_bub1b.ipynb` ya tiene las 3 figuras y el
 |---|---|---|---|---|---|---|---|
 | B1 | Revisión bibliográfica: dominios de BUBR1, su papel en el SAC y el MCC, ratones hipomórficos de BubR1, genotipos típicos de MVA tipo 1. Con referencias | `docs/secciones/02_marco_biologico.md` | 🧬✍️ | 10 oct | — | Ktalyna | 🔄 borrador con 18 citas verificadas en PubMed; falta leer textos completos |
 | B2 | Confirmar si p.Leu737Ter activa el NMD (regla de 50–55 nt antes de la última unión exón-exón) | nota con fuente en notebook 05 y sección 4 de `01_variante_causante.md` | 🧬 | 10 oct | — | Ktalyna | ✅ NMD predicho (PTC a 747 nt de la última unión); falta revisión |
-| B3 | Ubicar p.Asn1002Lys en la estructura de AlphaFold: confianza (pLDDT), entorno y cambio de carga | `scripts/evidencia_alelo2.py` + sección de `01_variante_causante.md` | 🧬💻 | 12 oct | — | Ktalyna | ✅ pLDDT 91, 3 enlaces H que se perderían, conservado en 7/7 especies; falta revisión |
+| B3 | Ubicar p.Asn1002Lys en la estructura de AlphaFold: confianza (pLDDT), entorno y cambio de carga | `scripts/evidencia_alelo2.py` + sección de `01_variante_causante.md` | 🧬💻 | 12 oct | — | Ktalyna | ✅ hecho; falta calcular ΔΔG (FoldX/DynaMut2/ThermoMPNN) y revisión |
 | B4 | **(H2)** Resumen del mecanismo en 1 página, escrito para quien elige fármacos | `docs/secciones/02b_resumen_mecanismo.md` | 🧬✍️ | **12 oct** | B1, B2 | | ⬜ |
 | B5 | **(H3)** Pulir la figura de la vía (variante → SAC débil → aneuploidía → fenotipo) con el estilo del informe | `results/figura_02c_…png` final | ✍️🧬 | **14 oct** | B4, E2 | | ⬜ |
 

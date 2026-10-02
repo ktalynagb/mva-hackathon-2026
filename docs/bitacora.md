@@ -23,6 +23,12 @@
 - AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
 - Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
 
+**Hipótesis del equipo sobre p.Asn1002Lys puestas a prueba (2 oct)** → sección "Hipótesis del equipo" de `01_variante_causante.md`
+- Glicosilación: descartada (N-A-N-D no es el motivo N-X-S/T)
+- N1002 mayormente enterrado, en el extremo de una hélice, con 3 enlaces H que la lisina perdería; a 29 Å del bolsillo de ATP
+- Hallazgo: UniProt anota la variante MVA1 p.Leu1012Pro como heterocigota compuesta con una mutación sin sentido (mismo tipo de genotipo del paciente), a 12 Å de N1002 y totalmente enterrada
+- Estabilidad/degradación: plausible, falta calcular ΔΔG
+
 **Revisión exhaustiva del dataset y del sitio del reto en Hugging Face (2 oct)**
 - El dataset tiene una sola rama, sin versiones ocultas ni PR; son 13 archivos y todos son del paciente (VCF, FASTQ, documento clínico). No hay datos de los padres, y la organización no tiene otros datasets públicos
 - La fase de las dos variantes no se puede resolver con lo disponible (variante intermedia a 6,8 y 4,1 kb)

@@ -1,9 +1,11 @@
 """Evidencia adicional para p.Asn1002Lys (BUB1B, UniProt O60566, residuo 1002).
 
-Consulta tres fuentes publicas y guarda un resumen en results/evidencia_alelo2.json:
+Consulta fuentes publicas y guarda un resumen en results/evidencia_alelo2.json:
   1. ClinVar (NCBI E-utilities): clasificaciones de los cambios de aminoacido de BUB1B.
   2. AlphaFold DB: confianza (pLDDT), vecinos y enlaces de hidrogeno alrededor del residuo.
   3. UniProt: conservacion del residuo en ortologos de vertebrados.
+  4. UniProt y AlphaFold: sitios de glicosilacion, variante de MVA1 cercana (L1012P) y
+     estructura local (accesibilidad al solvente, estructura secundaria, distancias).
 
 Uso:  python scripts/evidencia_alelo2.py
 No usa datos del paciente: solo bases publicas.
@@ -16,6 +18,7 @@ from pathlib import Path
 
 import numpy as np
 import requests
+from scipy.spatial import cKDTree
 
 RESIDUO = 1002
 UNIPROT = "O60566"
@@ -148,9 +151,91 @@ def conservacion():
             "residuo_conservado_en": f"{sum(f['residuo'] == humano[RESIDUO - 1] for f in filas)} de {len(filas)}"}
 
 
+MAX_ASA = {"ALA": 129, "ARG": 274, "ASN": 195, "ASP": 193, "CYS": 167, "GLN": 225, "GLU": 223, "GLY": 104,
+           "HIS": 224, "ILE": 197, "LEU": 201, "LYS": 236, "MET": 224, "PHE": 240, "PRO": 159, "SER": 155,
+           "THR": 172, "TRP": 285, "TYR": 263, "VAL": 174}
+RADIOS = {"C": 1.7, "N": 1.55, "O": 1.52, "S": 1.8}
+
+
+def diedro(p0, p1, p2, p3):
+    b0, b1, b2 = p0 - p1, p2 - p1, p3 - p2
+    b1 = b1 / np.linalg.norm(b1)
+    v, w = b0 - np.dot(b0, b1) * b1, b2 - np.dot(b2, b1) * b1
+    return float(np.degrees(np.arctan2(np.dot(np.cross(b1, v), w), np.dot(v, w))))
+
+
+def uniprot_y_estructura():
+    u = get(f"https://rest.uniprot.org/uniprotkb/{UNIPROT}.json").json()
+    seq = u["sequence"]["value"]
+    rasgos = []
+    for f in u["features"]:
+        a, b = f["location"]["start"]["value"], f["location"]["end"]["value"]
+        if f["type"] in ("Glycosylation", "Modified residue", "Natural variant", "Active site", "Binding site")                 and (f["type"] in ("Glycosylation", "Natural variant") or 985 <= a <= 1020 or f["type"] != "Modified residue"):
+            if f["type"] in ("Glycosylation",) or 985 <= a <= 1020 or f["type"] in ("Active site", "Binding site"):
+                rasgos.append({"tipo": f["type"], "inicio": a, "fin": b, "descripcion": f.get("description", "")})
+    sequones = [m.start() + 1 for m in re.finditer(r"(?=N[^P][ST])", seq)]
+
+    info = get(f"https://alphafold.ebi.ac.uk/api/prediction/{UNIPROT}").json()[0]
+    atomos, res = [], {}
+    for l in get(info["pdbUrl"]).text.splitlines():
+        if l.startswith("ATOM"):
+            r, n = int(l[22:26]), l[12:16].strip()
+            xyz = np.array([float(l[30:38]), float(l[38:46]), float(l[46:54])])
+            atomos.append((r, l[76:78].strip() or n[0], xyz))
+            res.setdefault(r, {"aa": l[17:20], "at": {}})["at"][n] = xyz
+    X = np.array([a[2] for a in atomos])
+    R = np.array([RADIOS.get(a[1], 1.7) for a in atomos])
+    rid = np.array([a[0] for a in atomos])
+    i = np.arange(200) + 0.5
+    fi, th = np.arccos(1 - 2 * i / 200), np.pi * (1 + 5 ** 0.5) * i
+    esfera = np.c_[np.cos(th) * np.sin(fi), np.sin(th) * np.sin(fi), np.cos(fi)]
+    arbol, sasa = cKDTree(X), np.zeros(len(X))
+    for k in range(len(X)):
+        rr = R[k] + 1.4
+        pts = X[k] + rr * esfera
+        vec = [j for j in arbol.query_ball_point(X[k], rr + R.max() + 1.4) if j != k]
+        libre = (np.linalg.norm(pts[:, None, :] - X[vec][None, :, :], axis=2) >= (R[vec] + 1.4)[None, :]).all(axis=1)             if vec else np.ones(200, bool)
+        sasa[k] = 4 * np.pi * rr ** 2 * libre.mean()
+    rsa = lambda r: float(sasa[rid == r].sum() / MAX_ASA[res[r]["aa"]])
+    dominio = [rsa(r) for r in range(766, 1051)]
+
+    def fipsi(r):
+        a = res
+        return (diedro(a[r - 1]["at"]["C"], a[r]["at"]["N"], a[r]["at"]["CA"], a[r]["at"]["C"]),
+                diedro(a[r]["at"]["N"], a[r]["at"]["CA"], a[r]["at"]["C"], a[r + 1]["at"]["N"]))
+
+    def clase(fp):
+        f, p = fp
+        if -110 <= f <= -30 and -80 <= p <= -5:
+            return "helice"
+        return "hoja" if f < -45 and (p > 90 or p < -150) else "bucle"
+
+    lado = [v for k, v in res[RESIDUO]["at"].items() if k not in ("N", "CA", "C", "O")]
+    sitio_atp = list(range(772, 781)) + [795]
+    d_atp = min(float(np.linalg.norm(res[r]["at"][k] - s)) for r in sitio_atp for k in res[r]["at"] for s in lado)
+    ca = res[RESIDUO]["at"]["CA"]
+    cargados = sorted((round(float(np.linalg.norm(res[r]["at"]["CA"] - ca)), 1), r, res[r]["aa"])
+                      for r in res if r != RESIDUO and res[r]["aa"] in ("ASP", "GLU", "LYS", "ARG")
+                      and np.linalg.norm(res[r]["at"]["CA"] - ca) <= 10)
+    d1012 = float(np.linalg.norm(res[1012]["at"]["CA"] - ca))
+    return {"uniprot": {"rasgos_relevantes": rasgos, "sequones_N_glicosilacion": sequones,
+                        "residuo_es_sequon": (seq[RESIDUO] not in "P" and seq[RESIDUO + 1] in "ST"),
+                        "contexto_996_1008": seq[995:1008]},
+            "estructura": {"rsa_residuo": rsa(RESIDUO), "rsa_mediana_dominio_quinasa": float(np.median(dominio)),
+                           "percentil_rsa": float(100 * np.mean(np.array(dominio) <= rsa(RESIDUO))),
+                           "rsa_996_1008": {str(r): round(rsa(r), 2) for r in range(996, 1009)},
+                           "fi_psi_residuo": [round(x) for x in fipsi(RESIDUO)],
+                           "clase_996_1008": {str(r): clase(fipsi(r)) for r in range(996, 1009)},
+                           "distancia_minima_a_sitio_ATP_A": round(d_atp, 1),
+                           "cargados_a_10A_CA": cargados,
+                           "L1012_MVA1": {"distancia_CA_A": round(d1012, 1), "rsa": round(rsa(1012), 2),
+                                          "clase": clase(fipsi(1012))}}}
+
+
 if __name__ == "__main__":
     salida = {"residuo": f"p.Asn{RESIDUO}Lys", "uniprot": UNIPROT,
-              "clinvar": clinvar(), "alphafold": alphafold(), "conservacion": conservacion()}
+              "clinvar": clinvar(), "alphafold": alphafold(), "conservacion": conservacion(),
+              **uniprot_y_estructura()}
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(salida, indent=2, ensure_ascii=False, default=float) + "\n", encoding="utf-8")
     print("Guardado:", OUT)
