@@ -1,0 +1,89 @@
+{
+  "herramienta": "ThermoMPNN (modelo thermoMPNN_default.pt)",
+  "convencion": "positivo = desestabiliza (kcal/mol)",
+  "estructura": "AlphaFold DB AF-O60566-F1",
+  "N1002K": {
+    "modelo_completo": {
+      "ddg": 1.51,
+      "percentil_en_dominio": 72.1
+    },
+    "modelo_dominio": {
+      "ddg": 1.51,
+      "percentil_en_dominio": 75.2
+    }
+  },
+  "L1012P_MVA1_conocida": {
+    "modelo_completo": {
+      "ddg": 3.11,
+      "percentil_en_dominio": 97.7
+    },
+    "modelo_dominio": {
+      "ddg": 3.11,
+      "percentil_en_dominio": 98.7
+    }
+  },
+  "posicion_1002_todas_las_sustituciones": {
+    "P": 2.6,
+    "I": 2.28,
+    "V": 2.02,
+    "E": 1.87,
+    "W": 1.76,
+    "F": 1.75,
+    "Q": 1.75,
+    "Y": 1.73,
+    "M": 1.7,
+    "L": 1.64,
+    "G": 1.55,
+    "T": 1.55,
+    "K": 1.51,
+    "A": 1.48,
+    "R": 1.42,
+    "H": 1.2,
+    "D": 1.18,
+    "C": 1.02,
+    "S": 0.94
+  },
+  "coherencia_completo_vs_dominio": {
+    "n": 5415,
+    "spearman": 0.947,
+    "pearson": 0.938,
+    "diferencia_media_abs": 0.13
+  },
+  "controles": {
+    "ddg_medio_a_prolina": 1.91,
+    "ddg_medio_a_alanina": 0.87,
+    "nucleo_hidrofobico_ddg_medio_a_D_K_P_G": 2.53,
+    "expuestos_ddg_medio": 0.19,
+    "n_posiciones_nucleo": 63,
+    "n_posiciones_expuestas": 35
+  },
+  "ddg_medio_por_aminoacido_destino": {
+    "P": 1.91,
+    "D": 1.58,
+    "G": 1.39,
+    "E": 1.37,
+    "N": 1.26,
+    "K": 1.13,
+    "Q": 1.12,
+    "S": 1.09,
+    "R": 1.06,
+    "H": 1.02,
+    "T": 1.0,
+    "A": 0.87,
+    "Y": 0.65,
+    "W": 0.64,
+    "V": 0.61,
+    "F": 0.56,
+    "M": 0.52,
+    "I": 0.47,
+    "L": 0.41,
+    "C": 0.41
+  },
+  "version_herramienta": {
+    "repositorio": "https://github.com/Kuhlman-Lab/ThermoMPNN",
+    "commit": "370f76ec62bd929f7425e311d8df04a0d094990f",
+    "torch": "2.14.1+cpu",
+    "pytorch_lightning": "2.6.6",
+    "sha256_modelo_16": "af449118ccfb4e34"
+  }
+}

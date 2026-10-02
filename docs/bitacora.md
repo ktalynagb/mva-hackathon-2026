@@ -23,6 +23,12 @@
 - AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
 - Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
 
+**Cálculo de estabilidad de p.Asn1002Lys con ThermoMPNN (2 oct)** → `scripts/estabilidad_alelo2.py`, `results/estabilidad_alelo2.json`
+- ΔΔG de N1002K = +1,5 kcal/mol (desestabiliza de forma moderada); la variante conocida de MVA1 p.Leu1012Pro da +3,1
+- Todas las sustituciones en 1002 desestabilizan; resultado igual con la proteína completa y con el dominio (Spearman 0,95)
+- Controles superados (numeración, identidad, signo). Encaja con un alelo hipomórfico; la degradación rápida no queda demostrada
+- No cambia la clasificación ACMG (la herramienta no está calibrada para PP3)
+
 **Hipótesis del equipo sobre p.Asn1002Lys puestas a prueba (2 oct)** → sección "Hipótesis del equipo" de `01_variante_causante.md`
 - Glicosilación: descartada (N-A-N-D no es el motivo N-X-S/T)
 - N1002 mayormente enterrado, en el extremo de una hélice, con 3 enlaces H que la lisina perdería; a 29 Å del bolsillo de ATP
