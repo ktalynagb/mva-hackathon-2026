@@ -1,6 +1,51 @@
 {
   "residuo": "p.Asn1002Lys",
-  "uniprot": "O60566",
+  "uniprot": {
+    "rasgos_relevantes": [
+      {
+        "tipo": "Active site",
+        "inicio": 882,
+        "fin": 882,
+        "descripcion": "Proton acceptor"
+      },
+      {
+        "tipo": "Binding site",
+        "inicio": 772,
+        "fin": 780,
+        "descripcion": ""
+      },
+      {
+        "tipo": "Binding site",
+        "inicio": 795,
+        "fin": 795,
+        "descripcion": ""
+      },
+      {
+        "tipo": "Modified residue",
+        "inicio": 1008,
+        "fin": 1008,
+        "descripcion": "Phosphothreonine; by PLK1"
+      },
+      {
+        "tipo": "Natural variant",
+        "inicio": 1012,
+        "fin": 1012,
+        "descripcion": "in MVA1; heterozygous compound with nonsense mutation; dbSNP:rs28989185"
+      }
+    ],
+    "sequones_N_glicosilacion": [
+      52,
+      97,
+      268,
+      541,
+      598,
+      711,
+      944,
+      983
+    ],
+    "residuo_es_sequon": false,
+    "contexto_996_1008": "FFVRILNANDEAT"
+  },
   "clinvar": {
     "registros_totales": 2501,
     "cambios_aa_patogenicos_o_prob_patogenicos": [
@@ -247,5 +292,72 @@
       }
     ],
     "residuo_conservado_en": "7 de 7"
+  },
+  "estructura": {
+    "rsa_residuo": 0.12921631578066037,
+    "rsa_mediana_dominio_quinasa": 0.15750102497409113,
+    "percentil_rsa": 46.31578947368421,
+    "rsa_996_1008": {
+      "996": 0.01,
+      "997": 0.02,
+      "998": 0.26,
+      "999": 0.21,
+      "1000": 0.01,
+      "1001": 0.03,
+      "1002": 0.13,
+      "1003": 0.04,
+      "1004": 0.54,
+      "1005": 0.7,
+      "1006": 0.41,
+      "1007": 0.53,
+      "1008": 0.06
+    },
+    "fi_psi_residuo": [
+      -127,
+      37
+    ],
+    "clase_996_1008": {
+      "996": "helice",
+      "997": "helice",
+      "998": "helice",
+      "999": "helice",
+      "1000": "helice",
+      "1001": "helice",
+      "1002": "bucle",
+      "1003": "helice",
+      "1004": "bucle",
+      "1005": "bucle",
+      "1006": "hoja",
+      "1007": "hoja",
+      "1008": "helice"
+    },
+    "distancia_minima_a_sitio_ATP_A": 29.1,
+    "cargados_a_10A_CA": [
+      [
+        5.4,
+        999,
+        "ARG"
+      ],
+      [
+        9.0,
+        979,
+        "LYS"
+      ],
+      [
+        9.2,
+        1005,
+        "ASP"
+      ],
+      [
+        9.4,
+        1006,
+        "GLU"
+      ]
+    ],
+    "L1012_MVA1": {
+      "distancia_CA_A": 12.3,
+      "rsa": 0.0,
+      "clase": "helice"
+    }
   }
 }

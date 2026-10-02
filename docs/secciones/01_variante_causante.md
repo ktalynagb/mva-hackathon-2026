@@ -67,11 +67,27 @@ Reproducible con `python scripts/evidencia_alelo2.py` (resultados en `results/ev
 | Fuente | Hallazgo | Qué implica |
 |---|---|---|
 | ClinVar (2501 registros de *BUB1B*) | El mismo cambio de aminoácido ya está registrado como **VUS** (p.Asn1002Lys por c.3006T>A; el paciente tiene c.3006T>G), de un remitente. En el único cambio de aminoácido patogénico de todo el gen (p.Gln467His, probablemente patogénico) no hay respaldo cercano. Los 23 cambios de aminoácido en los residuos 996–1008 son VUS o benignos. | No hay base para PM1 ni PM5. PS1 no aplica (el registro previo es VUS). |
-| AlphaFold (modelo v6) | pLDDT del residuo = **91,1** (muy alta confianza; media del dominio quinasa 81,9). Enterramiento medio (16 vecinos a 10 Å, igual que el promedio del dominio). La cadena lateral de la Asn1002 forma 3 enlaces de hidrógeno con el esqueleto de Trp978 y Val998. A 6,9 Å está Arg999, con carga positiva. | Compatible con un papel estructural: la lisina perdería esos enlaces y añadiría carga positiva junto a Arg999. Es un análisis geométrico aproximado, no una simulación. |
+| AlphaFold (modelo v6) | pLDDT del residuo = **91,1** (muy alta confianza; media del dominio quinasa 81,9). Mayormente enterrado (accesibilidad relativa 0,13; mediana del dominio 0,16). La cadena lateral de la Asn1002 forma 3 enlaces de hidrógeno con el esqueleto de Trp978 y Val998. A 6,9 Å está Arg999, con carga positiva. | Compatible con un papel estructural: la lisina perdería esos enlaces y añadiría carga positiva junto a Arg999. Es un análisis geométrico aproximado, no una simulación. |
 | Conservación (7 vertebrados) | El residuo es **asparagina en las 7 especies** (ratón, rata, vaca, perro, pollo y dos *Xenopus*). El motivo ILNA es idéntico en todas. | Residuo muy conservado; apoya que es importante. Alineamiento simple, a revisar con uno múltiple. |
 | PubMed | Ningún artículo describe p.Asn1002Lys. Cercanos: variantes missense heterocigotas W722R y A739S en familias con pérdida gestacional recurrente y separación prematura de cromátidas (PMID 42434306), y un caso de MVA con p.Ser788Cfsx29 (PMID 40555658). Solo leí los resúmenes. | Sin casos publicados (PS4). Los cercanos muestran que variantes de esa región pueden afectar a BUBR1, pero no son el mismo cambio. |
 
 **Efecto en la clasificación.** Conservación, estructura y predictores son el mismo tipo de evidencia (PP3) y no se suman de forma independiente. Todo apunta en la misma dirección, pero ninguna es evidencia fuerte, así que el alelo 2 **sigue como VUS**, ahora con un perfil de "VUS que se inclina a patogénica". Subiría con: fase *trans* demostrada (PM3), un ensayo funcional (PS3) o casos publicados con el mismo cambio (PS4).
+
+### Hipótesis del equipo y su verificación
+
+Aportes del grupo (2 oct) puestos a prueba con datos. Todo sale de `scripts/evidencia_alelo2.py` (UniProt y modelo de AlphaFold).
+
+| Hipótesis | Resultado | Lectura |
+|---|---|---|
+| Asn → Lys cambia un aminoácido polar y pequeño por uno grande con carga positiva | **Confirmado.** N1002 está mayormente enterrado (accesibilidad relativa 0,13). Queda en el extremo de una hélice (residuos 996–1001; ángulos φ/ψ = −127°/37°) y su cadena lateral forma 3 enlaces de hidrógeno con el esqueleto de Trp978 y Val998, que la lisina no puede reproducir. Cerca hay cargas positivas (Arg999 a 5,4 Å, Lys979 a 9,0 Å); Asp1005 y Glu1006 (a ~9 Å) están expuestos y solo podrían compensar en parte. | Apoya una desestabilización local. Es un análisis geométrico, no una simulación. |
+| La asparagina podría ser un sitio de glicosilación | **Descartado.** El contexto es N-A-N-D (no es el motivo N-X-S/T) y UniProt no anota glicosilación en BUBR1; sus motivos N-X-S/T están en otras posiciones (52, 97, 268, 541, 598, 711, 944, 983). | Coincide con lo planteado por el grupo: no importa para este caso. |
+| El plegamiento se vuelve inestable y la proteína se degrada antes de tiempo | **Plausible, no demostrado.** La variante conocida de MVA1 **p.Leu1012Pro** (UniProt: "heterocigota compuesta con una mutación sin sentido", es decir, el mismo tipo de genotipo del paciente) cae a 12,3 Å de N1002, en la misma región de hélices, y su residuo está completamente enterrado (accesibilidad 0,0): una prolina en una hélice enterrada es un cambio desestabilizante clásico. | Hace más creíble que cambios en esta región desestabilicen el dominio. Falta un cálculo de estabilidad (ΔΔG) o un experimento (nivel de BUBR1 por Western blot). |
+| El dominio pierde estructura y no puede unirse a otras proteínas | **Parcial.** N1002 está a 29 Å del bolsillo de unión a ATP (residuos 772–780 y 795), así que no afecta ese sitio. El efecto vendría de la estabilidad del dominio, no del bolsillo. La pseudoquinasa favorece el reclutamiento de PP2A-B56 (Gama Braga 2020), una pérdida de unión testeable. | La pérdida de unión es una hipótesis, no una conclusión. |
+| El gen es de copia única: una variante en cada copia basta | **Correcto**, pero la fase no se puede comprobar con este dataset. | Ver sección 7. |
+
+**Efecto en la clasificación.** No cambia: el alelo 2 sigue como VUS inclinada a patogénica. No hay base para PM1 (en la región, ClinVar solo tiene variantes de significado incierto o benignas) ni para PM5 (L1012P es otro residuo). Lo que sí aporta es un precedente de genotipo: un caso de MVA1 con una mutación sin sentido más un missense en esta misma región.
+
+Pendiente, para el que quiera tomarlo: calcular ΔΔG de N1002K y L1012P sobre el modelo de AlphaFold con una herramienta de estabilidad (por ejemplo FoldX, DynaMut2 o ThermoMPNN) y comparar.
 
 ## 4. NMD de p.Leu737Ter (tarea B2)
 
