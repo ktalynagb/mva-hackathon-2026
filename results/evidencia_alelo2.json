@@ -1,0 +1,251 @@
+{
+  "residuo": "p.Asn1002Lys",
+  "uniprot": "O60566",
+  "clinvar": {
+    "registros_totales": 2501,
+    "cambios_aa_patogenicos_o_prob_patogenicos": [
+      {
+        "cambio": "NM_001211.6(BUB1B):c.1401G>T (p.Gln467His)",
+        "clase": "Likely pathogenic",
+        "revision": "criteria provided, single submitter"
+      }
+    ],
+    "cambios_aa_en_ventana_1002_mas_menos_6": [
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3014A>G (p.Asp1005Gly)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3020C>T (p.Ala1007Val)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3017A>T (p.Glu1006Val)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3006T>A (p.Asn1002Lys)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3010A>G (p.Asn1004Asp)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.2986T>G (p.Phe996Val)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3022A>C (p.Thr1008Pro)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.2987T>C (p.Phe996Ser)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3002T>C (p.Leu1001Pro)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3013G>A (p.Asp1005Asn)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3007G>A (p.Ala1003Thr)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3019G>A (p.Ala1007Thr)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3015T>G (p.Asp1005Glu)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3013G>C (p.Asp1005His)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3010A>C (p.Asn1004His)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.2999T>G (p.Ile1000Ser)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.2996G>T (p.Arg999Leu)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.2988C>G (p.Phe996Leu)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3020C>G (p.Ala1007Gly)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3022A>G (p.Thr1008Ala)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.2995C>T (p.Arg999Trp)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.2996G>A (p.Arg999Gln)",
+        "clase": "Uncertain significance"
+      },
+      {
+        "cambio": "NM_001211.6(BUB1B):c.3011A>G (p.Asn1004Ser)",
+        "clase": "Benign/Likely benign"
+      }
+    ]
+  },
+  "alphafold": {
+    "version_modelo": 6,
+    "plddt_residuo": 91.06,
+    "plddt_medio_dominio_quinasa": 81.94494736842105,
+    "vecinos_cb_10A": 16,
+    "vecinos_cb_10A_media_dominio": 16.308771929824562,
+    "percentil_enterramiento": 49.824561403508774,
+    "residuos_a_8A": [
+      [
+        4.6,
+        977,
+        "PHE"
+      ],
+      [
+        5.1,
+        1001,
+        "LEU"
+      ],
+      [
+        5.6,
+        978,
+        "TRP"
+      ],
+      [
+        6.1,
+        998,
+        "VAL"
+      ],
+      [
+        6.2,
+        1003,
+        "ALA"
+      ],
+      [
+        6.2,
+        1004,
+        "ASN"
+      ],
+      [
+        6.9,
+        999,
+        "ARG"
+      ],
+      [
+        7.9,
+        1000,
+        "ILE"
+      ]
+    ],
+    "enlaces_N_O_a_3_5A": [
+      [
+        "978",
+        "TRP",
+        "N",
+        "OD1"
+      ],
+      [
+        "978",
+        "TRP",
+        "O",
+        "ND2"
+      ],
+      [
+        "998",
+        "VAL",
+        "O",
+        "N"
+      ],
+      [
+        "998",
+        "VAL",
+        "O",
+        "ND2"
+      ],
+      [
+        "1004",
+        "ASN",
+        "N",
+        "O"
+      ],
+      [
+        "1004",
+        "ASN",
+        "ND2",
+        "O"
+      ]
+    ]
+  },
+  "conservacion": {
+    "humano_996_1008": "FFVRILNANDEAT",
+    "especies": [
+      {
+        "especie": "Bos taurus",
+        "acceso": "F1MWP1",
+        "residuo": "N",
+        "ventana_996_1008": "FFLRILNASDEST",
+        "identidad_dominio_quinasa": 0.9
+      },
+      {
+        "especie": "Gallus gallus",
+        "acceso": "A0A8V0ZYE8",
+        "residuo": "N",
+        "ventana_996_1008": "FFRQILNADGKST",
+        "identidad_dominio_quinasa": 0.52
+      },
+      {
+        "especie": "Xenopus laevis",
+        "acceso": "Q8JGT8",
+        "residuo": "N",
+        "ventana_996_1008": "FFTKILNAEGPST",
+        "identidad_dominio_quinasa": 0.42
+      },
+      {
+        "especie": "Xenopus tropicalis",
+        "acceso": "F6TGK2",
+        "residuo": "N",
+        "ventana_996_1008": "FFTKILNAEGPST",
+        "identidad_dominio_quinasa": 0.44
+      },
+      {
+        "especie": "Rattus norvegicus",
+        "acceso": "F1LMI1",
+        "residuo": "N",
+        "ventana_996_1008": "FFVQILNASDKST",
+        "identidad_dominio_quinasa": 0.8
+      },
+      {
+        "especie": "Canis lupus familiaris",
+        "acceso": "A0A8I3PXH1",
+        "residuo": "N",
+        "ventana_996_1008": "LFVRILNASDEST",
+        "identidad_dominio_quinasa": 0.87
+      },
+      {
+        "especie": "Mus musculus",
+        "acceso": "Q9Z1S0",
+        "residuo": "N",
+        "ventana_996_1008": "FFVRILNASDKST",
+        "identidad_dominio_quinasa": 0.8
+      }
+    ],
+    "residuo_conservado_en": "7 de 7"
+  }
+}

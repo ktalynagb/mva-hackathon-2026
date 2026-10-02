@@ -18,6 +18,11 @@
 - NMD de p.Leu737Ter: PTC en c.2210 (exón 17/23), última unión exón-exón a 747 nt → NMD predicho (sin datos de ARN)
 - Calidad de lectura (A4): fracción alt 0,54 y 0,46, GQ 99, sin señal de mosaicismo; sin etiquetas de fase en el VCF
 
+**Evidencia adicional del alelo 2 (B3, parte de B1):** `scripts/evidencia_alelo2.py` → `results/evidencia_alelo2.json`
+- ClinVar (2501 registros): p.Asn1002Lys ya figura como VUS (c.3006T>A); sin cambios patogénicos de aminoácido cerca → sin PM1/PM5
+- AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
+- Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
+
 **Correcciones al trabajo anterior:**
 - Alelo 2 p.Asn1002Lys: era "probablemente patogénica (PM2+PP3)"; con puntos ACMG es **VUS** (REVEL 0,472 indeterminado, BayesDel tolerado)
 - Alelo 1: ClinVar Pathogenic es de un único remitente; con criterios propios son 9 puntos (probablemente patogénica)
