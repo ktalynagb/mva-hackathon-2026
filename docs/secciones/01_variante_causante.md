@@ -138,6 +138,8 @@ El paciente es heterocigoto para una variante probablemente patogénica de pérd
 
 Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la enfermedad. Como el cuadro clínico es grave, *trans* es mucho más probable, pero no está demostrado.
 
+**Dato externo.** El código público del reto (página oficial en Hugging Face) describe la respuesta de Track 1 como una "respuesta compuesta heterocigota clínicamente validada" (*clinically validated compound-heterozygous answer key*), validada por el NHS. Esto respalda que el caso es una heterocigosis compuesta, es decir, dos variantes. No dice en qué gen ni cuáles son, así que no confirma nuestras dos variantes.
+
 ## 7. Limitaciones
 
 1. **Fase sin resolver, y no resoluble con este dataset.** El dataset de Hugging Face (13 archivos) contiene solo al paciente: su VCF, sus lecturas crudas (FASTQ) y el documento clínico, que de los padres solo menciona abortos recurrentes. Las variantes están a 10,9 kb y los registros del VCF no traen etiquetas de fase (`PGT`/`PID`). Tampoco se puede encadenar la fase con las lecturas crudas: entre ambas hay una sola heterocigota intermedia (15:40216470), a 6,8 kb de la primera y 4,1 kb de la segunda, muy por encima del tamaño de fragmento de lecturas cortas (~0,5 kb). El faseo estadístico no es fiable para variantes tan raras. Argumento indirecto a favor de *trans*: si estuvieran en el mismo cromosoma (*cis*), el paciente tendría una copia normal de *BUB1B* y no se esperaría la enfermedad.
@@ -152,6 +154,12 @@ Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la
 - RT-PCR del alelo 1 para demostrar el NMD.
 - Ensayo funcional de p.Asn1002Lys (estabilidad de BUBR1 y señal del SAC en fibroblastos del paciente).
 - Cariotipo o FISH que muestre aneuploidías en mosaico.
+- **Evaluación automática del reto (Track 1).** El sitio oficial puntúa al instante una pareja de variantes contra la respuesta clínicamente validada. Fila de envío para nuestra hipótesis principal (coordenadas GRCh38, `proband_id` tal como figura en el dataset):
+
+```
+proband_id,chrom_1,pos_1,ref_1,alt_1,chrom_2,pos_2,ref_2,alt_2,epcr,finding_type,notes
+WGS_EX2312012,chr15,40209701,T,G,chr15,40220612,T,G,0.85,primary,BUB1B compound het: p.Leu737Ter + p.Asn1002Lys
+```
 
 ## 9. Referencias
 

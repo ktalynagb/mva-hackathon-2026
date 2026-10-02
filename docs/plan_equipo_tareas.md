@@ -70,6 +70,7 @@ Ya sabemos la respuesta: **BUB1B heterocigótica compuesta**, p.Leu737Ter + p.As
 | A4 | Revisar la calidad de lectura de las 2 variantes (AD, DP, GQ). ¿La fracción alélica es ≈ 0,5 o sugiere mosaicismo? | tabla en `01_variante_causante.md` (falta pasarla a una celda del notebook 04) | 💻🧬 | 11 oct | A1 | | 🔄 datos listos (fracción alt 0,54 y 0,46) |
 | A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_bub1b_lollipop.png` | 💻 | 13 oct | A1 | | ⬜ |
 | A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura | ⬜ |
+| A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto: da una evaluación automática inmediata contra la respuesta clínicamente validada (hasta 6 envíos por persona). Un solo envío con la hipótesis principal | archivo CSV (formato en `docs/secciones/01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ |
 
 ### Área B — Mecanismo biológico 🧬
 
@@ -111,16 +112,25 @@ Base: `results/resumen_mecanismo_para_R4.json` ya lista 6 dianas (CDC20/APC/C, P
 
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
-| E1 | Confirmar que cada integrante tiene su **propio** acceso aprobado en Hugging Face | lista en el canal | ✍️ | 5 oct | — | | ⬜ |
+| E1 | Confirmar que cada integrante tiene su **propio** acceso aprobado en Hugging Face y **designar a una sola persona** que envía el Track 2 en nombre del equipo (los envíos duplicados no se revisan) | lista en el canal | ✍️ | 5 oct | — | | ⬜ |
 | E2 | Plantilla del informe con sus secciones y guía de estilo de figuras (paleta, fuentes) | `docs/informe_final.md` | ✍️ | 9 oct | — | | ⬜ |
 | E3 | Leer `methods_description_form.xlsx` y anotar qué tarea responde cada pregunta | `docs/mapa_formulario.md` | ✍️ | 10 oct | — | | ⬜ |
 | E4 | Guion del video v1 (3 min: problema · caso · variante · mecanismo · fármacos · escalabilidad) | `docs/guion_pitch.md` | ✍️ | 14 oct | — | | ⬜ |
 | E5 | **(H5)** Integrar el borrador completo del informe | `docs/informe_final.md` completo | ✍️ | **21 oct** | A2, B4, C5 | | ⬜ |
 | E6 | Grabar y editar el video final | enlace al video | ✍️ | 23 oct | E4, C5 | | ⬜ |
-| E7 | **(H7)** Completar el formulario de métodos, exportar el informe a PDF y enviar | entrega enviada | ✍️ | **24 oct 18:00 UTC** | E5, E6, D6 | | ⬜ |
-| E8 | Bitácora semanal y registro de uso de IA (herramienta y para qué) | `docs/bitacora.md` | ✍️ | cada jueves | — | | 🔄 continuo |
+| E7 | **(H7)** Completar el formulario de métodos, exportar el informe a PDF y enviar por el sitio del reto: informe `<usuario>_track2_report.pdf`, enlace al repositorio GitHub y enlace al video (YouTube o Vimeo) | entrega enviada | ✍️ | **24 oct 18:00 UTC** | E5, E6, D6 | | ⬜ |
+| E8 | Bitácora semanal y registro de uso de IA. El reto exige, para cada herramienta de IA: **proveedor, plan o nivel, y configuración de datos** (por ejemplo, si se usa para entrenar) | `docs/bitacora.md` | ✍️ | cada jueves | — | | 🔄 continuo |
 
 ---
+
+### Requisitos de entrega del reto (leídos en el sitio oficial, 2 oct)
+
+- **Un solo envío por equipo** al Track 2: hasta 3 intentos, pero el panel revisa solo el último y solo el de la persona designada.
+- **Informe** en PDF o Markdown, con el nombre de usuario o del equipo en el archivo (`<usuario>_track2_report.pdf`). Debe incluir el mecanismo de la variante (pérdida o ganancia de función, vía afectada, consecuencia) como base de la propuesta.
+- **Repositorio de GitHub**: puede ser privado durante el hackatón, pero **debe hacerse público al terminar**. Por eso nada del paciente puede estar en el repo.
+- **Video de 3 minutos** subido a **YouTube o Vimeo** (el enlace es obligatorio).
+- **Uso de IA**: en la descripción de métodos, proveedor, plan o nivel y configuración de datos de cada herramienta.
+- **Track 1 es opcional** y se puede hacer en paralelo: evalúa la variante de forma automática y entrega la puntuación al instante.
 
 ## 5. Reglas del equipo
 
