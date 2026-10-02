@@ -6,6 +6,8 @@ Consulta fuentes publicas y guarda un resumen en results/evidencia_alelo2.json:
   3. UniProt: conservacion del residuo en ortologos de vertebrados.
   4. UniProt y AlphaFold: sitios de glicosilacion, variante de MVA1 cercana (L1012P) y
      estructura local (accesibilidad al solvente, estructura secundaria, distancias).
+  5. AlphaFill: posicion del ATP/ADP en el modelo (transplantado desde estructuras homologas) y distancia
+     al residuo.
 
 Uso:  python scripts/evidencia_alelo2.py
 No usa datos del paciente: solo bases publicas.
@@ -21,6 +23,7 @@ import requests
 from scipy.spatial import cKDTree
 
 RESIDUO = 1002
+DOMINIO_QUINASA = (766, 1050)
 UNIPROT = "O60566"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 ORTOLOGOS = {"Bos taurus": 9913, "Gallus gallus": 9031, "Xenopus laevis": 8355,
@@ -232,10 +235,68 @@ def uniprot_y_estructura():
                                           "clase": clase(fipsi(1012))}}}
 
 
+def bolsillo_atp():
+    """Distancia del residuo al bolsillo de ATP, usando los nucleotidos que AlphaFill transplanta al modelo."""
+    resumen = get(f"https://alphafill.eu/v1/aff/{UNIPROT}/json").json()
+    lineas = get(f"https://alphafill.eu/v1/aff/{UNIPROT}").text.splitlines()
+    i = next(k for k, l in enumerate(lineas) if l.startswith("_atom_site.group_PDB"))
+    cols = []
+    while lineas[i].startswith("_atom_site."):
+        cols.append(lineas[i].split(".")[1].strip())
+        i += 1
+    ix = {c: n for n, c in enumerate(cols)}
+    atomos = []
+    while i < len(lineas) and not lineas[i].startswith("#"):
+        p = lineas[i].split()
+        if len(p) >= len(cols):
+            atomos.append(p)
+        i += 1
+    xyz = lambda a: np.array([float(a[ix["Cartn_x"]]), float(a[ix["Cartn_y"]]), float(a[ix["Cartn_z"]])])
+    resid = lambda a: int(a[ix["auth_seq_id"]])
+    prot = [a for a in atomos if a[ix["group_PDB"]] == "ATOM"]
+    objetivo = [a for a in prot if resid(a) == RESIDUO]
+    assert objetivo and objetivo[0][ix["label_comp_id"]] == "ASN", "el residuo no es ASN en el modelo de AlphaFill"
+    lateral = [xyz(a) for a in objetivo if a[ix["label_atom_id"]] not in ("N", "CA", "C", "O")]
+    ca = [xyz(a) for a in objetivo if a[ix["label_atom_id"]] == "CA"][0]
+    nucleotidos = {"ADP", "ANP", "ATP", "AMP", "ACP", "AGS", "APC"}
+    grupos = {}
+    for a in atomos:
+        if a[ix["group_PDB"]] == "HETATM" and a[ix["label_comp_id"]] in nucleotidos:
+            grupos.setdefault((a[ix["label_comp_id"]], a[ix["label_asym_id"]]), []).append(a)
+    colocaciones, pocket = [], set()
+    for (comp, asym), L in grupos.items():
+        P = np.array([xyz(a) for a in L])
+        contacto = {resid(a) for a in prot if np.linalg.norm(P - xyz(a), axis=1).min() <= 4.5}
+        pocket |= contacto
+        colocaciones.append({"nucleotido": comp,
+                             "distancia_min_cadena_lateral_A": round(min(float(np.linalg.norm(P - s_, axis=1).min()) for s_ in lateral), 1),
+                             "distancia_CA_a_centro_nucleotido_A": round(float(np.linalg.norm(ca - P.mean(axis=0))), 1),
+                             "residuo_en_contacto": RESIDUO in contacto})
+    # el modelo base de AlphaFill puede ser una version distinta de AlphaFold: se comprueba que sea equivalente
+    v6 = {}
+    info = get(f"https://alphafold.ebi.ac.uk/api/prediction/{UNIPROT}").json()[0]
+    for l in get(info["pdbUrl"]).text.splitlines():
+        if l.startswith("ATOM") and l[12:16].strip() == "CA":
+            v6[int(l[22:26])] = np.array([float(l[30:38]), float(l[38:46]), float(l[46:54])])
+    v4 = {resid(a): xyz(a) for a in prot if a[ix["label_atom_id"]] == "CA"}
+    comunes = [r for r in range(DOMINIO_QUINASA[0], DOMINIO_QUINASA[1] + 1) if r in v4 and r in v6]
+    A, B = np.array([v4[r] for r in comunes]), np.array([v6[r] for r in comunes])
+    Ac, Bc = A - A.mean(0), B - B.mean(0)
+    U, _, Vt = np.linalg.svd(Bc.T @ Ac)
+    if np.linalg.det(U @ Vt) < 0:
+        U[:, -1] *= -1
+    rmsd = float(np.sqrt(((Bc @ (U @ Vt) - Ac) ** 2).sum(1).mean()))
+    return {"alphafill": {"version": resumen["alphafill_version"], "modelo_base": resumen["file"].split("/")[-1]},
+            "colocaciones_de_nucleotido": colocaciones,
+            "residuos_en_contacto_con_el_nucleotido": sorted(pocket),
+            "rmsd_CA_dominio_modelo_alphafill_vs_modelo_usado_A": round(rmsd, 2),
+            "nota": "posiciones aproximadas: transplantadas por homologia (identidad 25-28 %), con choques estericos"}
+
+
 if __name__ == "__main__":
     salida = {"residuo": f"p.Asn{RESIDUO}Lys", "uniprot": UNIPROT,
               "clinvar": clinvar(), "alphafold": alphafold(), "conservacion": conservacion(),
-              **uniprot_y_estructura()}
+              **uniprot_y_estructura(), "bolsillo_atp": bolsillo_atp()}
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(salida, indent=2, ensure_ascii=False, default=float) + "\n", encoding="utf-8")
     print("Guardado:", OUT)
