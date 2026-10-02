@@ -45,7 +45,7 @@ Hackaton_MVA_/
 
 ## Equipo y organización
 
-- **[Plan de equipo y roles](docs/plan_equipo_roles.md)**: 6 roles con su perfil de habilidades, tareas por semana e hitos. **Léelo antes de empezar y elige tu rol.**
+- **[Plan de equipo por tareas](docs/plan_equipo_tareas.md)**: tablero de tareas por área (variante, mecanismo, fármacos, código, informe) con fechas e hitos. **Léelo antes de empezar y toma una tarea libre.**
 - [Plan de trabajo por fases](docs/plan_de_trabajo.md)
 - [Bitácora](docs/bitacora.md): seguimiento de avances y decisiones
 

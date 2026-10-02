@@ -10,6 +10,22 @@
 
 ---
 
+## 2026-10-02 — Cambio de organización: de roles a tareas
+
+**Quién:** Ktalyna (con Claude Code)  
+**Decisión:** el equipo no llegó a un acuerdo sobre los 6 roles fijos. Se trabajará **por tareas**: el plan se dividió en 5 áreas (A variante · B mecanismo · C fármacos · D código · E informe) con tareas pequeñas identificadas por ID, fecha y dependencias. Cada persona toma hasta 2 tareas a la vez.
+
+**Qué cambió:**
+- `docs/plan_equipo_roles.md` → `docs/plan_equipo_tareas.md` (tablero de tareas, guía "¿por dónde empiezo?", reglas y checklist)
+- Ramas nuevas: `tarea/<ID>-descripcion` (ej. `tarea/B1-marco-biologico`)
+- `plan_de_trabajo.md` y README apuntan al nuevo tablero
+- Las menciones a R1–R6 en notebooks y entradas anteriores equivalen a: R1/R2 → A · R3 → B · R4 → C · R5 → D · R6 → E
+
+**Pendiente:**
+- [ ] Cada integrante toma su primera tarea y se anota en el tablero
+
+---
+
 ## 2026-10-01 — ✅ HITO H1 COMPLETADO: variante causante confirmada
 
 **Quién:** Ktalyna (con Claude Code) — ejecución real del pipeline  
@@ -178,9 +194,9 @@ SnpEff (vía myvariant.info) erróneamente clasifica 15:40220612 T>G como "inter
 |------|-------------|--------|-------------|
 | 1 | Datos y exploración | ✅ Completa | Ktalyna + Laura |
 | 2 | Identificar variante causante | ✅ **COMPLETADA** — Hito H1 logrado | Ktalyna + Laura |
-| 3 | Caracterizar mecanismo biológico | ⬜ Pendiente | — |
-| 4 | Candidatos de reposicionamiento | ⬜ Pendiente | — |
-| 5 | Informe + entrega | ⬜ Pendiente | — |
+| 3 | Caracterizar mecanismo biológico | 🔄 En curso (notebook 05 listo) | Área B |
+| 4 | Candidatos de reposicionamiento | ⬜ Pendiente | Área C |
+| 5 | Informe + entrega | ⬜ Pendiente | Área E |
 
 ### Hipótesis actual
 
@@ -198,7 +214,7 @@ Ambas son heterocigotas, ultra-raras en gnomAD v4 (7.87×10⁻⁵ y 6.84×10⁻�
 
 ## Pendientes globales
 
-- [ ] Laura sube notebook 04 al repo
-- [ ] Laura confirma `config/genes_candidatos.txt`
-- [ ] Asignar los 6 roles del [plan de equipo](plan_equipo_roles.md) (Fase 3 = R3, Fase 4 = R4, video = R6)
-- [ ] Completar `methods_description_form.xlsx` antes del 24 oct
+- [ ] Fusionar PR #1 y #2 (tarea D1)
+- [ ] Laura confirma `config/genes_candidatos.txt` (tarea A6)
+- [ ] Cada integrante toma tareas del [tablero](plan_equipo_tareas.md)
+- [ ] Completar `methods_description_form.xlsx` antes del 24 oct (tarea E7)
