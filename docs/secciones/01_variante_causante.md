@@ -81,13 +81,33 @@ Aportes del grupo (2 oct) puestos a prueba con datos. Todo sale de `scripts/evid
 |---|---|---|
 | Asn → Lys cambia un aminoácido polar y pequeño por uno grande con carga positiva | **Confirmado.** N1002 está mayormente enterrado (accesibilidad relativa 0,13). Queda en el extremo de una hélice (residuos 996–1001; ángulos φ/ψ = −127°/37°) y su cadena lateral forma 3 enlaces de hidrógeno con el esqueleto de Trp978 y Val998, que la lisina no puede reproducir. Cerca hay cargas positivas (Arg999 a 5,4 Å, Lys979 a 9,0 Å); Asp1005 y Glu1006 (a ~9 Å) están expuestos y solo podrían compensar en parte. | Apoya una desestabilización local. Es un análisis geométrico, no una simulación. |
 | La asparagina podría ser un sitio de glicosilación | **Descartado.** El contexto es N-A-N-D (no es el motivo N-X-S/T) y UniProt no anota glicosilación en BUBR1; sus motivos N-X-S/T están en otras posiciones (52, 97, 268, 541, 598, 711, 944, 983). | Coincide con lo planteado por el grupo: no importa para este caso. |
-| El plegamiento se vuelve inestable y la proteína se degrada antes de tiempo | **Plausible, no demostrado.** La variante conocida de MVA1 **p.Leu1012Pro** (UniProt: "heterocigota compuesta con una mutación sin sentido", es decir, el mismo tipo de genotipo del paciente) cae a 12,3 Å de N1002, en la misma región de hélices, y su residuo está completamente enterrado (accesibilidad 0,0): una prolina en una hélice enterrada es un cambio desestabilizante clásico. | Hace más creíble que cambios en esta región desestabilicen el dominio. Falta un cálculo de estabilidad (ΔΔG) o un experimento (nivel de BUBR1 por Western blot). |
+| El plegamiento se vuelve inestable y la proteína se degrada antes de tiempo | **Desestabilización moderada confirmada por cálculo; la degradación no se demuestra.** ΔΔG de N1002K = **+1,5 kcal/mol** (positivo = desestabiliza). La variante conocida de MVA1 **p.Leu1012Pro** (UniProt: "heterocigota compuesta con una mutación sin sentido", el mismo tipo de genotipo del paciente) da +3,1 y cae a 12,3 Å de N1002, en la misma región de hélices. Detalle en el cálculo de estabilidad más abajo. | Apoya que el dominio queda menos estable, sin llegar a probar una vida media corta. Falta un experimento (nivel de BUBR1 por Western blot). |
 | El dominio pierde estructura y no puede unirse a otras proteínas | **Parcial.** N1002 está a 29 Å del bolsillo de unión a ATP (residuos 772–780 y 795), así que no afecta ese sitio. El efecto vendría de la estabilidad del dominio, no del bolsillo. La pseudoquinasa favorece el reclutamiento de PP2A-B56 (Gama Braga 2020), una pérdida de unión testeable. | La pérdida de unión es una hipótesis, no una conclusión. |
 | El gen es de copia única: una variante en cada copia basta | **Correcto**, pero la fase no se puede comprobar con este dataset. | Ver sección 7. |
 
 **Efecto en la clasificación.** No cambia: el alelo 2 sigue como VUS inclinada a patogénica. No hay base para PM1 (en la región, ClinVar solo tiene variantes de significado incierto o benignas) ni para PM5 (L1012P es otro residuo). Lo que sí aporta es un precedente de genotipo: un caso de MVA1 con una mutación sin sentido más un missense en esta misma región.
 
-Pendiente, para el que quiera tomarlo: calcular ΔΔG de N1002K y L1012P sobre el modelo de AlphaFold con una herramienta de estabilidad (por ejemplo FoldX, DynaMut2 o ThermoMPNN) y comparar.
+#### Cálculo de estabilidad (ΔΔG) con ThermoMPNN
+
+Se usó ThermoMPNN (Dieckhaus et al. 2024, PNAS, PMID por verificar), que predice el cambio de estabilidad de cada sustitución a partir de la estructura. Se corrió sobre el modelo de AlphaFold de la proteína completa y sobre el dominio quinasa (766–1050) por separado. Convención: **positivo = desestabiliza, negativo = estabiliza**. Reproducible con `scripts/estabilidad_alelo2.py` (versión exacta de la herramienta en `results/estabilidad_alelo2.json`).
+
+| Sustitución | ΔΔG (kcal/mol) | Posición entre todas las sustituciones del dominio |
+|---|---|---|
+| **p.Asn1002Lys** (paciente) | **+1,5** | percentil 72–75 |
+| p.Leu1012Pro (variante conocida de MVA1) | +3,1 | percentil 98–99 |
+
+- **Todas las sustituciones en la posición 1002 desestabilizan** (de +0,9 a +2,6): la asparagina es la mejor opción en ese sitio. La lisina queda en un punto intermedio (13.ª de 19, de mayor a menor efecto).
+- **La predicción es la misma con la proteína completa y con el dominio** (coincidencia de las dos corridas: Spearman 0,95; N1002K da +1,51 en ambas).
+- **Controles del propio cálculo.** La numeración coincide con UniProt en los 21.000 casos; cambiar un residuo por sí mismo da exactamente 0; las sustituciones a prolina desestabilizan más que a alanina (+1,9 frente a +0,9); en residuos hidrofóbicos enterrados (63 posiciones) pasar a D, K, P o G da +2,5, frente a +0,2 en residuos expuestos. Esto confirma el signo y que el modelo se comporta como se espera.
+
+**Lectura.** N1002K desestabiliza el dominio de forma **moderada**, aproximadamente la mitad que p.Leu1012Pro. Un efecto de este tamaño encaja con un alelo **hipomórfico** (pérdida parcial de función), que es justo el papel que se espera del segundo alelo junto a uno nulo. No basta por sí solo para afirmar que la proteína se degrada rápido.
+
+**Limitaciones.**
+- Es una predicción sobre un modelo estático de AlphaFold (confianza alta en este residuo, pLDDT 91); la incertidumbre típica de estos predictores es del orden de 1 kcal/mol, comparable al efecto predicho. No lo verifiqué contra datos experimentales en este caso.
+- Mide estabilidad termodinámica del dominio aislado, no vida media en la célula, y no captura efectos sobre la unión a otras proteínas (por ejemplo PP2A-B56) ni sobre la proteína completa en contexto.
+- No es una herramienta calibrada para el criterio PP3 de ACMG, así que **no cambia la clasificación**: el alelo 2 sigue como VUS inclinada a patogénica.
+
+**Para confirmarlo en el laboratorio:** nivel de BUBR1 por Western blot en células del paciente, con y sin inhibidor del proteasoma (MG132), y una prueba de unión a PP2A-B56.
 
 ## 4. NMD de p.Leu737Ter (tarea B2)
 
