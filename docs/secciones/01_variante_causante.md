@@ -6,7 +6,7 @@ Fuentes: VCF del paciente (GRCh38) · gnomAD v4 · CADD v1.7 · myvariant.info (
 ## 1. Conclusión en tres líneas
 
 - Alelo 1, **p.Leu737Ter**: variante de pérdida de función con NMD predicho. Clasificación: **Probablemente patogénica** con nuestros criterios (9 puntos) y reportada como **Patogénica** en ClinVar por un solo remitente.
-- Alelo 2, **p.Asn1002Lys**: ultra-rara, pero la evidencia computacional discrepa. Con criterios ACMG estrictos es una **VUS** (1 a 2 puntos).
+- Alelo 2, **p.Asn1002Lys**: ultra-rara, el residuo está muy conservado y encaja estructuralmente como dañino, pero los predictores discrepan y no hay casos ni datos funcionales. Con criterios ACMG estrictos es una **VUS** (1 a 2 puntos), inclinada a patogénica.
 - El diagnóstico **BUB1B bialélico es muy probable pero no está confirmado formalmente**: falta establecer que las dos variantes están en alelos distintos (fase *trans*) y no hay datos funcionales.
 
 > Esto corrige la redacción anterior del Hito H1 ("confirmada", alelo 2 "probablemente patogénica"). Los datos son los mismos; cambia la lectura de cuánto prueban.
@@ -60,6 +60,19 @@ Usamos el sistema de puntos de Tavtigian et al. (2020): muy fuerte = 8, fuerte =
 | PS3 | No | 0 | Sin datos funcionales. |
 | **Total** | | **1 a 2** | **VUS** |
 
+### Evidencia adicional para el alelo 2
+
+Reproducible con `python scripts/evidencia_alelo2.py` (resultados en `results/evidencia_alelo2.json`).
+
+| Fuente | Hallazgo | Qué implica |
+|---|---|---|
+| ClinVar (2501 registros de *BUB1B*) | El mismo cambio de aminoácido ya está registrado como **VUS** (p.Asn1002Lys por c.3006T>A; el paciente tiene c.3006T>G), de un remitente. En el único cambio de aminoácido patogénico de todo el gen (p.Gln467His, probablemente patogénico) no hay respaldo cercano. Los 23 cambios de aminoácido en los residuos 996–1008 son VUS o benignos. | No hay base para PM1 ni PM5. PS1 no aplica (el registro previo es VUS). |
+| AlphaFold (modelo v6) | pLDDT del residuo = **91,1** (muy alta confianza; media del dominio quinasa 81,9). Enterramiento medio (16 vecinos a 10 Å, igual que el promedio del dominio). La cadena lateral de la Asn1002 forma 3 enlaces de hidrógeno con el esqueleto de Trp978 y Val998. A 6,9 Å está Arg999, con carga positiva. | Compatible con un papel estructural: la lisina perdería esos enlaces y añadiría carga positiva junto a Arg999. Es un análisis geométrico aproximado, no una simulación. |
+| Conservación (7 vertebrados) | El residuo es **asparagina en las 7 especies** (ratón, rata, vaca, perro, pollo y dos *Xenopus*). El motivo ILNA es idéntico en todas. | Residuo muy conservado; apoya que es importante. Alineamiento simple, a revisar con uno múltiple. |
+| PubMed | Ningún artículo describe p.Asn1002Lys. Cercanos: variantes missense heterocigotas W722R y A739S en familias con pérdida gestacional recurrente y separación prematura de cromátidas (PMID 42434306), y un caso de MVA con p.Ser788Cfsx29 (PMID 40555658). Solo leí los resúmenes. | Sin casos publicados (PS4). Los cercanos muestran que variantes de esa región pueden afectar a BUBR1, pero no son el mismo cambio. |
+
+**Efecto en la clasificación.** Conservación, estructura y predictores son el mismo tipo de evidencia (PP3) y no se suman de forma independiente. Todo apunta en la misma dirección, pero ninguna es evidencia fuerte, así que el alelo 2 **sigue como VUS**, ahora con un perfil de "VUS que se inclina a patogénica". Subiría con: fase *trans* demostrada (PM3), un ensayo funcional (PS3) o casos publicados con el mismo cambio (PS4).
+
 ## 4. NMD de p.Leu737Ter (tarea B2)
 
 Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 1050 aa.
@@ -100,4 +113,6 @@ Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la
 
 ## 8. Referencias por verificar (tarea B1)
 
-Hanks et al. 2004, *Nat Genet* · Tavtigian et al. 2020, *Hum Mutat* · Pejaver et al. 2022, *Am J Hum Genet* · Richards et al. 2015, *Genet Med* (guía ACMG/AMP) · Abou Tayoun et al. 2018, *Hum Mutat* (PVS1). Citadas de memoria; comprobar autores, volumen y páginas antes del informe.
+Existencia confirmada en PubMed (falta leer el texto completo): Hanks et al. 2004, *Nat Genet* (PMID 15475955) · Matsuura et al. 2006, *Am J Med Genet A* (PMID 16411201) · Wei et al. 2026, *Front Endocrinol* (PMID 42434306) · Qu et al. 2025, *Zhonghua Yi Xue Yi Chuan Xue Za Zhi* (PMID 40555658).
+
+Citadas de memoria, sin comprobar: Tavtigian et al. 2020, *Hum Mutat* · Pejaver et al. 2022, *Am J Hum Genet* · Richards et al. 2015, *Genet Med* (guía ACMG/AMP) · Abou Tayoun et al. 2018, *Hum Mutat* (PVS1). Comprobar autores, volumen y páginas antes del informe.
