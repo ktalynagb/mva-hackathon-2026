@@ -23,6 +23,12 @@
 - AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
 - Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
 
+**Tarea A3: diagnóstico diferencial** → sección 5 de `docs/secciones/01_variante_causante.md`, `scripts/diagnostico_diferencial.py`
+- 187 genes del panel (se añadió MAD2L1BP, MVA descrito en 2023): solo 11 variantes raras funcionales, todas heterocigotas. BUB1B es el único gen con LOF + otra variante rara funcional
+- CEP57, TRIP13, MAD2L1BP, BUB1, BUB3, MAD2L1, CDC20 y ESPL1: sin variantes raras funcionales
+- No evaluado: variantes estructurales/CNV y no codificantes (un caso publicado de MVA tuvo una variante reguladora de BUB1B)
+- Error corregido en el proceso: la primera versión marcó 31 variantes comunes como "ausentes de gnomAD" (la lista por gen de gnomAD omite algunas); ahora se consulta cada variante funcional directamente
+
 **Tarea B1 (borrador): marco biológico** → `docs/secciones/02_marco_biologico.md`
 - Coordenadas de dominios verificadas (UniProt y Zhang 2026): GLEBS 408–418, KARD 669–674, pseudoquinasa 766–1050; la tabla del notebook 05 estaba mal y la figura 02a se regeneró
 - Tabla de literatura reemplazada por 18 citas verificadas en PubMed. Se eliminaron 5 que no existían o no decían lo afirmado (Malureanu 2009, Elowe 2012, Rivero 2016, Simonetti 2019, Holland y Cleveland 2012)

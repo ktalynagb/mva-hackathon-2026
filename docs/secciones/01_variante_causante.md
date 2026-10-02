@@ -90,28 +90,70 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 
 **Límite:** es una predicción por regla. No hay datos de ARN del paciente. Se confirmaría con RT-PCR en fibroblastos o linfocitos, con y sin ciclohexamida.
 
-## 5. Interpretación combinada
+## 5. Diagnóstico diferencial (tarea A3)
+
+**Pregunta:** ¿algún otro gen del panel podría explicar el MVA del paciente?
+
+**Método** (`python scripts/diagnostico_diferencial.py`):
+1. Variantes PASS del paciente dentro de los 187 genes distintos de `config/genes_candidatos.txt` (unas 16.000; algunas se cuentan en más de un gen porque ciertos alias comparten locus).
+2. Frecuencia en gnomAD v4 (se conservan las raras: AF < 1 % o ausentes) y consecuencia (gnomAD o Ensembl VEP).
+3. Se dejan las variantes funcionales: pérdida de función (stop, cambio de marco, sitio de empalme, pérdida de inicio o de stop), missense y en el marco.
+4. Patrón recesivo compatible: al menos 1 homocigota o 2 heterocigotas en el mismo gen.
+
+**Resultado:** solo **11 variantes raras funcionales en 10 genes**, todas heterocigotas. Las posiciones de las variantes de los genes que no son *BUB1B* no se incluyen aquí; el script las regenera en `results/` (los `.tsv` están en `.gitignore`).
+
+| Gen | Consecuencia | AF gnomAD v4 | ¿Recesivo? |
+| --- | --- | --- | --- |
+| **BUB1B** | stop_gained | 7,9×10⁻⁵ | **Sí, 2 variantes** |
+| **BUB1B** | missense | 6,8×10⁻⁷ |  |
+| SMC1B | sitio de empalme (aceptor) | 0,73 % (5 homocigotos en gnomAD) | No, solo 1 |
+| ANAPC2 | missense | 1,6×10⁻⁴ | No |
+| ATM | missense | 8,4×10⁻⁴ (7 homocigotos) | No |
+| CENPO | missense | 0,38 % (17 homocigotos) | No |
+| MAD1L1 | missense | 0,46 % (23 homocigotos) | No |
+| SASS6 | missense | 0,25 % (6 homocigotos) | No |
+| SMC4 | missense | 6,6×10⁻⁷ | No |
+| TUBB8 | missense | 0,92 % | No |
+| TUBGCP6 | missense | 1,1×10⁻⁴ | No |
+
+**Los genes de MVA conocidos quedan descartados en cuanto a variantes codificantes:**
+- ***CEP57***: 4 variantes PASS, ninguna rara ni funcional.
+- ***TRIP13***: 3 variantes PASS, ninguna rara ni funcional.
+- ***MAD2L1BP*** (p31comet, MVA descrito en 2023): 4 variantes PASS, ninguna rara ni funcional.
+- *BUB1*, *BUB3*, *MAD2L1*, *CDC20*, *ESPL1*: sin variantes raras funcionales.
+
+**Lectura.** *BUB1B* es el único gen del panel donde una variante de pérdida de función se acompaña de otra variante rara funcional. No hay ninguna variante rara funcional homocigota en los 187 genes, así que tampoco hay una explicación recesiva por homocigosis. Los demás genes tienen a lo sumo una variante heterocigota, que no basta para un modelo recesivo, y la mayoría son frecuentes en gnomAD, con homocigotos sanos.
+
+**Limitaciones de este análisis:**
+- Solo variantes PASS en los genes de la lista. Un gen de MVA que no esté en el panel no se evalúa.
+- **No se evalúan variantes estructurales ni de número de copias** (por ejemplo, deleciones de un exón en *BUB1B* o *CEP57*) ni variantes no codificantes. Un caso publicado de MVA combinó una variante de cambio de marco con una variante en elementos reguladores de *BUB1B* (Qu 2025, PMID 40555658, solo resumen).
+- La consecuencia de las variantes ausentes de gnomAD viene de VEP (la más severa en cualquier transcrito), que puede sobrestimar el efecto en el transcrito canónico.
+- Un umbral de AF del 1 % deja pasar variantes demasiado frecuentes para una enfermedad tan rara; aquí no cambió el resultado.
+
+> Una primera versión del barrido marcó 31 variantes comunes como "ausentes de gnomAD" porque la lista de variantes por gen de gnomAD omite algunas. Se corrigió consultando cada variante funcional directamente.
+
+## 6. Interpretación combinada
 
 El paciente es heterocigoto para una variante probablemente patogénica de pérdida de función y para una variante rara de significado incierto en el mismo gen, cuya enfermedad recesiva (MVA1) encaja con el fenotipo. Es un genotipo típico de MVA1 si ambas están en *trans*: un alelo nulo más un alelo hipomórfico, porque la pérdida total en los dos alelos probablemente sería incompatible con la vida (hipótesis a verificar en B1).
 
 Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la enfermedad. Como el cuadro clínico es grave, *trans* es mucho más probable, pero no está demostrado.
 
-## 6. Limitaciones
+## 7. Limitaciones
 
 1. **Fase sin resolver.** Las variantes están a 10,9 kb. Las lecturas cortas no las abarcan y los registros del VCF no traen etiquetas de fase (`PGT`/`PID`). El dataset no incluye a los padres.
 2. **Alelo 2 sin evidencia funcional.** Su clasificación depende de predictores que discrepan.
 3. **NMD no medido** (sección 4).
 4. **ClinVar del alelo 1** viene de un único remitente. Conviene revisar los detalles del registro 533901.
-5. **Diagnóstico diferencial pendiente** (tarea A3): descartar *CEP57*, *TRIP13* y el resto del panel.
+5. **Variantes estructurales y no codificantes sin evaluar** (sección 5).
 
-## 7. Qué lo confirmaría
+## 8. Qué lo confirmaría
 
 - Genotipar a los padres (Sanger o panel dirigido) para establecer la fase.
 - RT-PCR del alelo 1 para demostrar el NMD.
 - Ensayo funcional de p.Asn1002Lys (estabilidad de BUBR1 y señal del SAC en fibroblastos del paciente).
 - Cariotipo o FISH que muestre aneuploidías en mosaico.
 
-## 8. Referencias por verificar (tarea B1)
+## 9. Referencias
 
 Existencia confirmada en PubMed (falta leer el texto completo): Hanks et al. 2004, *Nat Genet* (PMID 15475955) · Matsuura et al. 2006, *Am J Med Genet A* (PMID 16411201) · Wei et al. 2026, *Front Endocrinol* (PMID 42434306) · Qu et al. 2025, *Zhonghua Yi Xue Yi Chuan Xue Za Zhi* (PMID 40555658).
 
