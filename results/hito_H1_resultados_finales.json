@@ -15,8 +15,9 @@
     "af_genome_gnomad4": 3.29e-05,
     "hom_gnomad": 0,
     "mecanismo": "PTC → NMD probable → alelo nulo → pérdida de función (LOF)",
-    "criterio_acmg": "PVS1 (Muy fuerte)",
-    "interpretacion": "PATOGÉNICA (confirmada ClinVar)"
+    "criterio_acmg": "PVS1 (8) + PM2_Supporting (1) = 9 puntos",
+    "interpretacion": "PROBABLEMENTE PATOGENICA con criterios propios; reportada Pathogenic en ClinVar (1 remitente con criterios)",
+    "nmd_predicho": "PTC en c.2210 (exon 17/23); ultima union exon-exon c.2957/2958; distancia 747 nt (>50-55 nt). Prediccion por regla, sin datos de ARN"
   },
   "variante_2": {
     "posicion": "15:40220612",
@@ -34,8 +35,16 @@
     "af_genome_gnomad4": null,
     "hom_gnomad": 0,
     "mecanismo": "missense dominio pseudo-kinasa → desestabilización MCC (top 0.35% CADD)",
-    "criterio_acmg": "PM2 (ultra-rara, 1 alelo en gnomAD v4) + PP3 (CADD 24.5 ≥ 20)",
-    "interpretacion": "Probablemente patogénica"
+    "criterio_acmg": "PM2_Supporting (1) + PP3 discutible (0-1) = 1 a 2 puntos",
+    "interpretacion": "VUS con criterios ACMG estrictos; probable causa por contexto (gen recesivo concordante con el fenotipo, alelo en trans con LOF no demostrado)",
+    "predictores": {
+      "cadd_phred": 24.5,
+      "alphamissense": 0.92,
+      "polyphen2_hdiv": 1.0,
+      "sift": 0.0,
+      "revel": 0.472,
+      "bayesdel_add_af": 0.0487
+    }
   },
   "patron_herencia": "heterocigotica_compuesta_AR",
   "fuentes": {
@@ -44,5 +53,5 @@
     "clinvar": "ClinVar (consultado 2026-10-01)",
     "vcf": "WGS_EX2312012_HGWCNDSX7.vcf.gz"
   },
-  "conclusion": "BUB1B het. compuesta CONFIRMADA: alelo 1 p.Leu737Ter es Patogénica en ClinVar (CADD=36). Alelo 2 p.Asn1002Lys es ultra-rara (1 alelo en 1.46M exomas gnomAD) con CADD=24.5, Probablemente Patogénica. Juntas causan haploinsuficiencia compuesta de BUBR1 → SAC disfuncional → mosaicismo aneuplo → MVA."
+  "conclusion": "BUB1B bialelico MUY PROBABLE, no confirmado formalmente. Alelo 1 p.Leu737Ter: probablemente patogenico (9 puntos; ClinVar Pathogenic, 1 remitente), NMD predicho. Alelo 2 p.Asn1002Lys: ultra-raro (1 alelo en gnomAD v4) pero VUS por ACMG estricto (REVEL 0.472 indeterminado). Faltan: fase trans (sin padres), datos funcionales y de ARN. Detalle en docs/secciones/01_variante_causante.md."
 }
