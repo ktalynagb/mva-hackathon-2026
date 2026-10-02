@@ -23,6 +23,11 @@
 - AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
 - Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
 
+**Tarea B1 (borrador): marco biológico** → `docs/secciones/02_marco_biologico.md`
+- Coordenadas de dominios verificadas (UniProt y Zhang 2026): GLEBS 408–418, KARD 669–674, pseudoquinasa 766–1050; la tabla del notebook 05 estaba mal y la figura 02a se regeneró
+- Tabla de literatura reemplazada por 18 citas verificadas en PubMed. Se eliminaron 5 que no existían o no decían lo afirmado (Malureanu 2009, Elowe 2012, Rivero 2016, Simonetti 2019, Holland y Cleveland 2012)
+- Hallazgo: Sieben 2020 modela en ratón la variante de MVA BUBR1 p.Leu1012Pro, a 10 residuos de p.Asn1002 (contexto, no evidencia ACMG); la sarcopenia se asocia a mTORC1, que conecta con la atrofia muscular del paciente
+
 **Correcciones al trabajo anterior:**
 - Alelo 2 p.Asn1002Lys: era "probablemente patogénica (PM2+PP3)"; con puntos ACMG es **VUS** (REVEL 0,472 indeterminado, BayesDel tolerado)
 - Alelo 1: ClinVar Pathogenic es de un único remitente; con criterios propios son 9 puntos (probablemente patogénica)
