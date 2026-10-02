@@ -23,6 +23,12 @@
 - AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
 - Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
 
+**Revisión exhaustiva del dataset y del sitio del reto en Hugging Face (2 oct)**
+- El dataset tiene una sola rama, sin versiones ocultas ni PR; son 13 archivos y todos son del paciente (VCF, FASTQ, documento clínico). No hay datos de los padres, y la organización no tiene otros datasets públicos
+- La fase de las dos variantes no se puede resolver con lo disponible (variante intermedia a 6,8 y 4,1 kb)
+- Requisitos de entrega del Track 2 leídos del sitio oficial: un solo envío por equipo, repo público al terminar, video en YouTube o Vimeo, y declaración de IA con proveedor, plan y configuración de datos. Añadidos al tablero
+- El Track 1 del sitio puntúa la pareja de variantes al instante contra la respuesta validada: añadida la tarea A7
+
 **Tarea A3: diagnóstico diferencial** → sección 5 de `docs/secciones/01_variante_causante.md`, `scripts/diagnostico_diferencial.py`
 - 187 genes del panel (se añadió MAD2L1BP, MVA descrito en 2023): solo 11 variantes raras funcionales, todas heterocigotas. BUB1B es el único gen con LOF + otra variante rara funcional
 - CEP57, TRIP13, MAD2L1BP, BUB1, BUB3, MAD2L1, CDC20 y ESPL1: sin variantes raras funcionales
