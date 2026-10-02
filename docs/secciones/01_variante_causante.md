@@ -140,7 +140,7 @@ Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la
 
 ## 7. Limitaciones
 
-1. **Fase sin resolver.** Las variantes están a 10,9 kb. Las lecturas cortas no las abarcan y los registros del VCF no traen etiquetas de fase (`PGT`/`PID`). El dataset no incluye a los padres.
+1. **Fase sin resolver, y no resoluble con este dataset.** El dataset de Hugging Face (13 archivos) contiene solo al paciente: su VCF, sus lecturas crudas (FASTQ) y el documento clínico, que de los padres solo menciona abortos recurrentes. Las variantes están a 10,9 kb y los registros del VCF no traen etiquetas de fase (`PGT`/`PID`). Tampoco se puede encadenar la fase con las lecturas crudas: entre ambas hay una sola heterocigota intermedia (15:40216470), a 6,8 kb de la primera y 4,1 kb de la segunda, muy por encima del tamaño de fragmento de lecturas cortas (~0,5 kb). El faseo estadístico no es fiable para variantes tan raras. Argumento indirecto a favor de *trans*: si estuvieran en el mismo cromosoma (*cis*), el paciente tendría una copia normal de *BUB1B* y no se esperaría la enfermedad.
 2. **Alelo 2 sin evidencia funcional.** Su clasificación depende de predictores que discrepan.
 3. **NMD no medido** (sección 4).
 4. **ClinVar del alelo 1** viene de un único remitente. Conviene revisar los detalles del registro 533901.
