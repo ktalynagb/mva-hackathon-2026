@@ -25,6 +25,10 @@ Coordenadas de UniProt O60566 y Zhang et al. 2026 (PMID 42477419).
 | KARD (LxxIxE) | 669–674 | Une la fosfatasa PP2A-B56: estabiliza la unión al microtúbulo y apaga el SAC |
 | Pseudoquinasa | 766–1050 | Pseudoquinasa inusual: no necesita catalizar, pero sus residuos de unión a ATP sostienen su forma. Favorece el reclutamiento de PP2A-B56 |
 
+**¿Dónde se unen MAD2 y CDC20?** En el extremo N-terminal y la región central, no en la pseudoquinasa. MAD2 se une al dominio TPR (los residuos 1–220 bastan en ensayos de unión, y los residuos que lo median quedan antes de la caja KEN1; estructura PDB 6TLJ). CDC20 se une a los motivos KEN, ABBA y cajas D de esa región. Esa zona es en gran parte desordenada, salvo el TPR; la pseudoquinasa es el otro dominio estructurado (Zhang 2026, PMID 42477419). La pseudoquinasa sí es una plataforma de interacción, pero con otros socios (PP2A-B56) y su efecto sobre el MCC sería indirecto.
+
+**Consecuencia para el caso.** p.Leu737Ter corta la proteína antes de la pseudoquinasa, así que un producto truncado conservaría los sitios de unión a MAD2 y CDC20 y perdería PP2A-B56. Con NMD predicho, ese producto no debería existir. En p.Asn1002Lys, el efecto previsto es sobre la estabilidad del dominio y el reclutamiento de PP2A-B56, no sobre la unión directa a MAD2/CDC20.
+
 **Dónde caen las variantes del paciente**
 - **p.Leu737Ter** (residuo 737): después de TPR, KEN, cajas D, GLEBS y KARD, y antes de la pseudoquinasa. Un producto truncado conservaría esos elementos y perdería toda la pseudoquinasa. Con NMD predicho (`01_variante_causante.md`, sección 4), lo esperable es que no se produzca proteína de este alelo.
 - **p.Asn1002Lys** (residuo 1002): dentro de la pseudoquinasa.
