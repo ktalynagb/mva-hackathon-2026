@@ -70,7 +70,7 @@ Ya sabemos la respuesta: **BUB1B heterocigótica compuesta**, p.Leu737Ter + p.As
 | A4 | Revisar la calidad de lectura de las 2 variantes (AD, DP, GQ). ¿La fracción alélica es ≈ 0,5 o sugiere mosaicismo? | tabla en `01_variante_causante.md` (falta pasarla a una celda del notebook 04) | 💻🧬 | 11 oct | A1 | | 🔄 datos listos (fracción alt 0,54 y 0,46) |
 | A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_bub1b_lollipop.png` | 💻 | 13 oct | A1 | | ⬜ |
 | A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura | ⬜ |
-| A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto: da una evaluación automática inmediata contra la respuesta clínicamente validada (hasta 6 envíos por persona). Un solo envío con la hipótesis principal | archivo CSV (formato en `docs/secciones/01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ |
+| A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto (evaluación automática inmediata, hasta 6 envíos por persona). **Ojo:** el formulario exige también enlace de GitHub e informe (.md o .pdf), y el envío aparece en el marcador público con el nombre de usuario | CSV + informe `<usuario>_track1_report.md` (formato en `01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ pendiente de iniciar sesión en Hugging Face |
 
 ### Área B — Mecanismo biológico 🧬
 
