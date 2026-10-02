@@ -10,6 +10,23 @@
 
 ---
 
+## 2026-10-02 — Tareas A2 y B2: clasificación ACMG y NMD (corrige la lectura del H1)
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/A2-B2-variante-acmg-nmd`  
+**Qué se hizo:**
+- `docs/secciones/01_variante_causante.md`: tabla ACMG con puntajes, calidad de llamadas, NMD, limitaciones y qué lo confirmaría
+- NMD de p.Leu737Ter: PTC en c.2210 (exón 17/23), última unión exón-exón a 747 nt → NMD predicho (sin datos de ARN)
+- Calidad de lectura (A4): fracción alt 0,54 y 0,46, GQ 99, sin señal de mosaicismo; sin etiquetas de fase en el VCF
+
+**Correcciones al trabajo anterior:**
+- Alelo 2 p.Asn1002Lys: era "probablemente patogénica (PM2+PP3)"; con puntos ACMG es **VUS** (REVEL 0,472 indeterminado, BayesDel tolerado)
+- Alelo 1: ClinVar Pathogenic es de un único remitente; con criterios propios son 9 puntos (probablemente patogénica)
+- El diagnóstico BUB1B bialélico es **muy probable, no confirmado**: falta fase *trans* (sin padres) y datos funcionales
+- Notebook 05: exón 21 → 17, c.2210T>A → T>G, "313 aa" → 314, quitados PM1/PP2 sin respaldo, y marcados como **sin verificar** los límites de dominios (UniProt: dominio quinasa 766–1050, p.Leu737 queda antes) y la tabla de literatura (de memoria)
+- El PDF del H1 que circuló tenía el mapa de dominios con esas coordenadas sin verificar; regenerado
+
+---
+
 ## 2026-10-02 — Cambio de organización: de roles a tareas
 
 **Quién:** Ktalyna (con Claude Code)  

@@ -65,9 +65,9 @@ Ya sabemos la respuesta: **BUB1B heterocigótica compuesta**, p.Leu737Ter + p.As
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
 | A1 | Priorizar variantes con gnomAD, CADD y ClinVar | `notebooks/04_…ipynb` + `results/hito_H1_resultados_finales.json` | 💻🧬 | 7 oct | — | Ktalyna, Laura | ✅ |
-| A2 | Redactar la variante causante con tabla ACMG formal. Incluir la limitación: sin muestras de los padres no se confirma que las variantes estén en alelos distintos (fase *trans*) | `docs/secciones/01_variante_causante.md` | 🧬✍️ | 9 oct | A1 | | ⬜ |
+| A2 | Redactar la variante causante con tabla ACMG formal. Incluir la limitación: sin muestras de los padres no se confirma que las variantes estén en alelos distintos (fase *trans*) | `docs/secciones/01_variante_causante.md` | 🧬✍️ | 9 oct | A1 | Ktalyna | 🔄 borrador en PR, falta revisión |
 | A3 | Diagnóstico diferencial: por qué no son *CEP57*, *TRIP13* ni los otros genes del panel | sección en el mismo archivo | 🧬 | 11 oct | A1 | | ⬜ |
-| A4 | Revisar la calidad de lectura de las 2 variantes (AD, DP, GQ). ¿La fracción alélica es ≈ 0,5 o sugiere mosaicismo? | celda nueva en notebook 04 | 💻🧬 | 11 oct | A1 | | ⬜ |
+| A4 | Revisar la calidad de lectura de las 2 variantes (AD, DP, GQ). ¿La fracción alélica es ≈ 0,5 o sugiere mosaicismo? | tabla en `01_variante_causante.md` (falta pasarla a una celda del notebook 04) | 💻🧬 | 11 oct | A1 | | 🔄 datos listos (fracción alt 0,54 y 0,46) |
 | A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_bub1b_lollipop.png` | 💻 | 13 oct | A1 | | ⬜ |
 | A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura | ⬜ |
 
@@ -78,7 +78,7 @@ Base: `notebooks/05_mecanismo_biologico_bub1b.ipynb` ya tiene las 3 figuras y el
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
 | B1 | Revisión bibliográfica: dominios de BUBR1, su papel en el SAC y el MCC, ratones hipomórficos de BubR1, genotipos típicos de MVA tipo 1. Con referencias | `docs/secciones/02_marco_biologico.md` | 🧬✍️ | 10 oct | — | | ⬜ |
-| B2 | Confirmar si p.Leu737Ter activa el NMD (regla de 50–55 nt antes de la última unión exón-exón) | nota con fuente en notebook 05 | 🧬 | 10 oct | — | | ⬜ |
+| B2 | Confirmar si p.Leu737Ter activa el NMD (regla de 50–55 nt antes de la última unión exón-exón) | nota con fuente en notebook 05 y sección 4 de `01_variante_causante.md` | 🧬 | 10 oct | — | Ktalyna | ✅ NMD predicho (PTC a 747 nt de la última unión); falta revisión |
 | B3 | Ubicar p.Asn1002Lys en la estructura de AlphaFold: confianza (pLDDT), entorno y cambio de carga | figura + párrafo | 🧬💻 | 12 oct | — | | ⬜ |
 | B4 | **(H2)** Resumen del mecanismo en 1 página, escrito para quien elige fármacos | `docs/secciones/02b_resumen_mecanismo.md` | 🧬✍️ | **12 oct** | B1, B2 | | ⬜ |
 | B5 | **(H3)** Pulir la figura de la vía (variante → SAC débil → aneuploidía → fenotipo) con el estilo del informe | `results/figura_02c_…png` final | ✍️🧬 | **14 oct** | B4, E2 | | ⬜ |
