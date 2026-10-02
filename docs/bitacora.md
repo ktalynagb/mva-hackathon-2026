@@ -10,6 +10,57 @@
 
 ---
 
+## 2026-10-02 — Tareas A2 y B2: clasificación ACMG y NMD (corrige la lectura del H1)
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/A2-B2-variante-acmg-nmd`  
+**Qué se hizo:**
+- `docs/secciones/01_variante_causante.md`: tabla ACMG con puntajes, calidad de llamadas, NMD, limitaciones y qué lo confirmaría
+- NMD de p.Leu737Ter: PTC en c.2210 (exón 17/23), última unión exón-exón a 747 nt → NMD predicho (sin datos de ARN)
+- Calidad de lectura (A4): fracción alt 0,54 y 0,46, GQ 99, sin señal de mosaicismo; sin etiquetas de fase en el VCF
+
+**Evidencia adicional del alelo 2 (B3, parte de B1):** `scripts/evidencia_alelo2.py` → `results/evidencia_alelo2.json`
+- ClinVar (2501 registros): p.Asn1002Lys ya figura como VUS (c.3006T>A); sin cambios patogénicos de aminoácido cerca → sin PM1/PM5
+- AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
+- Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
+
+**Cálculo de estabilidad de p.Asn1002Lys con ThermoMPNN (2 oct)** → `scripts/estabilidad_alelo2.py`, `results/estabilidad_alelo2.json`
+- ΔΔG de N1002K = +1,5 kcal/mol (desestabiliza de forma moderada); la variante conocida de MVA1 p.Leu1012Pro da +3,1
+- Todas las sustituciones en 1002 desestabilizan; resultado igual con la proteína completa y con el dominio (Spearman 0,95)
+- Controles superados (numeración, identidad, signo). Encaja con un alelo hipomórfico; la degradación rápida no queda demostrada
+- No cambia la clasificación ACMG (la herramienta no está calibrada para PP3)
+
+**Hipótesis del equipo sobre p.Asn1002Lys puestas a prueba (2 oct)** → sección "Hipótesis del equipo" de `01_variante_causante.md`
+- Glicosilación: descartada (N-A-N-D no es el motivo N-X-S/T)
+- N1002 mayormente enterrado, en el extremo de una hélice, con 3 enlaces H que la lisina perdería; a 29 Å del bolsillo de ATP
+- Hallazgo: UniProt anota la variante MVA1 p.Leu1012Pro como heterocigota compuesta con una mutación sin sentido (mismo tipo de genotipo del paciente), a 12 Å de N1002 y totalmente enterrada
+- Estabilidad/degradación: plausible, falta calcular ΔΔG
+
+**Revisión exhaustiva del dataset y del sitio del reto en Hugging Face (2 oct)**
+- El dataset tiene una sola rama, sin versiones ocultas ni PR; son 13 archivos y todos son del paciente (VCF, FASTQ, documento clínico). No hay datos de los padres, y la organización no tiene otros datasets públicos
+- La fase de las dos variantes no se puede resolver con lo disponible (variante intermedia a 6,8 y 4,1 kb)
+- Requisitos de entrega del Track 2 leídos del sitio oficial: un solo envío por equipo, repo público al terminar, video en YouTube o Vimeo, y declaración de IA con proveedor, plan y configuración de datos. Añadidos al tablero
+- El Track 1 del sitio puntúa la pareja de variantes al instante contra la respuesta validada: añadida la tarea A7
+
+**Tarea A3: diagnóstico diferencial** → sección 5 de `docs/secciones/01_variante_causante.md`, `scripts/diagnostico_diferencial.py`
+- 187 genes del panel (se añadió MAD2L1BP, MVA descrito en 2023): solo 11 variantes raras funcionales, todas heterocigotas. BUB1B es el único gen con LOF + otra variante rara funcional
+- CEP57, TRIP13, MAD2L1BP, BUB1, BUB3, MAD2L1, CDC20 y ESPL1: sin variantes raras funcionales
+- No evaluado: variantes estructurales/CNV y no codificantes (un caso publicado de MVA tuvo una variante reguladora de BUB1B)
+- Error corregido en el proceso: la primera versión marcó 31 variantes comunes como "ausentes de gnomAD" (la lista por gen de gnomAD omite algunas); ahora se consulta cada variante funcional directamente
+
+**Tarea B1 (borrador): marco biológico** → `docs/secciones/02_marco_biologico.md`
+- Coordenadas de dominios verificadas (UniProt y Zhang 2026): GLEBS 408–418, KARD 669–674, pseudoquinasa 766–1050; la tabla del notebook 05 estaba mal y la figura 02a se regeneró
+- Tabla de literatura reemplazada por 18 citas verificadas en PubMed. Se eliminaron 5 que no existían o no decían lo afirmado (Malureanu 2009, Elowe 2012, Rivero 2016, Simonetti 2019, Holland y Cleveland 2012)
+- Hallazgo: Sieben 2020 modela en ratón la variante de MVA BUBR1 p.Leu1012Pro, a 10 residuos de p.Asn1002 (contexto, no evidencia ACMG); la sarcopenia se asocia a mTORC1, que conecta con la atrofia muscular del paciente
+
+**Correcciones al trabajo anterior:**
+- Alelo 2 p.Asn1002Lys: era "probablemente patogénica (PM2+PP3)"; con puntos ACMG es **VUS** (REVEL 0,472 indeterminado, BayesDel tolerado)
+- Alelo 1: ClinVar Pathogenic es de un único remitente; con criterios propios son 9 puntos (probablemente patogénica)
+- El diagnóstico BUB1B bialélico es **muy probable, no confirmado**: falta fase *trans* (sin padres) y datos funcionales
+- Notebook 05: exón 21 → 17, c.2210T>A → T>G, "313 aa" → 314, quitados PM1/PP2 sin respaldo, y marcados como **sin verificar** los límites de dominios (UniProt: dominio quinasa 766–1050, p.Leu737 queda antes) y la tabla de literatura (de memoria)
+- El PDF del H1 que circuló tenía el mapa de dominios con esas coordenadas sin verificar; regenerado
+
+---
+
 ## 2026-10-02 — Cambio de organización: de roles a tareas
 
 **Quién:** Ktalyna (con Claude Code)  
