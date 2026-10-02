@@ -10,6 +10,94 @@
 
 ---
 
+## 2026-10-02 — Cambio de organización: de roles a tareas
+
+**Quién:** Ktalyna (con Claude Code)  
+**Decisión:** el equipo no llegó a un acuerdo sobre los 6 roles fijos. Se trabajará **por tareas**: el plan se dividió en 5 áreas (A variante · B mecanismo · C fármacos · D código · E informe) con tareas pequeñas identificadas por ID, fecha y dependencias. Cada persona toma hasta 2 tareas a la vez.
+
+**Qué cambió:**
+- `docs/plan_equipo_roles.md` → `docs/plan_equipo_tareas.md` (tablero de tareas, guía "¿por dónde empiezo?", reglas y checklist)
+- Ramas nuevas: `tarea/<ID>-descripcion` (ej. `tarea/B1-marco-biologico`)
+- `plan_de_trabajo.md` y README apuntan al nuevo tablero
+- Las menciones a R1–R6 en notebooks y entradas anteriores equivalen a: R1/R2 → A · R3 → B · R4 → C · R5 → D · R6 → E
+
+**Pendiente:**
+- [ ] Cada integrante toma su primera tarea y se anota en el tablero
+
+---
+
+## 2026-10-01 — ✅ HITO H1 COMPLETADO: variante causante confirmada
+
+**Quién:** Ktalyna (con Claude Code) — ejecución real del pipeline  
+**Qué se hizo:**
+- Ejecutado el pipeline completo: VCF → gnomAD v4 → CADD v1.7 → ClinVar
+- Confirmadas las dos variantes BUB1B con datos reales de APIs públicas
+
+### Resultados confirmados
+
+| Campo | Variante 1 | Variante 2 |
+|-------|-----------|-----------|
+| **Posición (GRCh38)** | 15:40209701 | 15:40220612 |
+| **Cambio VCF** | T>G | T>G |
+| **rsID** | rs759242053 | — (sin rsID) |
+| **HGVSc** | c.2210T>G | c.3006T>G |
+| **HGVSp** | **p.Leu737Ter** | **p.Asn1002Lys** |
+| **Consecuencia** | stop_gained | missense_variant |
+| **Transcrito canónico** | ENST00000287598 (BUB1B) | ENST00000287598 (BUB1B) |
+| **CADD phred** | **36.0** (top 0.025%) | **24.5** (top 0.35%) |
+| **ClinVar** | **Pathogenic** (ID 533901) ✅ | no registrada |
+| **AF exoma gnomAD v4** | 7.87×10⁻⁵ (0.008%) | **6.84×10⁻⁷ (0.00007%)** |
+| **AF genoma gnomAD v4** | 3.29×10⁻⁵ | ausente |
+| **Homocigotos gnomAD** | **0** | **0** |
+| **Criterios ACMG** | PVS1 | PM2 + PP3 |
+| **Interpretación** | **PATOGÉNICA** ✅ | **Prob. Patogénica** ✅ |
+
+### Corrección importante sobre la variante 2
+
+SnpEff (vía myvariant.info) erróneamente clasifica 15:40220612 T>G como "intergenic_region". gnomAD v4 confirma que está en el **transcrito canónico de BUB1B** (ENST00000287598), exón correspondiente a p.Asn1002Lys.
+
+### Archivos generados
+- `results/hito_H1_resultados_finales.json` — tabla completa con fuentes
+
+---
+
+## 2026-10-01 — Notebook 05: mecanismo biológico BUB1B/BUBR1
+
+**Quién:** Ktalyna (con Claude Code)  
+**Qué se hizo:**
+- Creado `notebooks/05_mecanismo_biologico_bub1b.ipynb` — mecanismo completo para Hitos H2 y H3
+- Documenta: estructura BUBR1 (5 dominios), SAC normal, efecto de p.Leu737Ter (NMD/LOF) y p.Asn1002Lys (missense pseudo-kinasa), cascada hasta mosaicismo, fenotipo clínico
+- Genera 3 figuras: dominios BUBR1 · SAC normal vs disfuncional · cascada fisiopatológica
+- Produce `results/resumen_mecanismo_para_R4.json` (6 targets farmacológicos para R4) y `results/hito_H3_mecanismo_completo.json`
+
+**Targets identificados para R4:**
+- APC/C · CDC20 · PLK1 (Volasertib) · Aurora B (Barasertib) · Hsp90 (estabilizador alelo missense) · p53 pathway
+
+**Pendiente (R3):**
+- [ ] Revisar y completar secciones de literatura (referencias en celda 7)
+- [ ] Confirmar CADD de p.Asn1002Lys (notebook 04) antes de entregar a R4
+
+---
+
+## 2026-10-01 — Notebook 04: priorización gnomAD y variante causante
+
+**Quién:** Ktalyna (con Claude Code)  
+**Qué se hizo:**
+- Creado `notebooks/04_priorizacion_gnomad_variante_causante.ipynb`
+- Pipeline completo: het. BUB1B → gnomAD v4 (GraphQL) → AF < 1% → myvariant.info (CADD/ClinVar) → tabla de priorización → confirmación het. compuesta
+- Genera `results/bub1b_variantes_priorizadas.csv`, `results/figura_01_priorizacion_bub1b.png`, `results/hito_H1_variante_causante.json`
+- Incluye búsqueda de alternativas en CEP57/TRIP13 para descartar otras causas
+
+**Hipótesis documentada:**
+- BUB1B het. compuesta: `15:40209701 p.Leu737Ter` (stop → NMD → LOF) + `15:40220612 p.Asn1002Lys` (missense dominio kinasa)
+- Criterios ACMG aplicados en el notebook: PVS1, PM1, PM2, PM3, PP2, PP3
+
+**Pendiente (R2):**
+- [ ] Correr el notebook con el VCF real y verificar que gnomAD v4 confirma AF < 1% para ambas variantes
+- [ ] Confirmar CADD score para p.Asn1002Lys (≥ 20 refuerza patogenicidad)
+
+---
+
 ## 2026-10-01 — Plan de equipo para 6 personas
 
 **Quién:** Ktalyna (con Claude Code)  
@@ -105,26 +193,28 @@
 | Fase | Descripción | Estado | Responsable |
 |------|-------------|--------|-------------|
 | 1 | Datos y exploración | ✅ Completa | Ktalyna + Laura |
-| 2 | Identificar variante causante | 🔄 En progreso | Laura (nb04 en Colab) |
-| 3 | Caracterizar mecanismo biológico | ⬜ Pendiente | — |
-| 4 | Candidatos de reposicionamiento | ⬜ Pendiente | — |
-| 5 | Informe + entrega | ⬜ Pendiente | — |
+| 2 | Identificar variante causante | ✅ **COMPLETADA** — Hito H1 logrado | Ktalyna + Laura |
+| 3 | Caracterizar mecanismo biológico | 🔄 En curso (notebook 05 listo) | Área B |
+| 4 | Candidatos de reposicionamiento | ⬜ Pendiente | Área C |
+| 5 | Informe + entrega | ⬜ Pendiente | Área E |
 
 ### Hipótesis actual
 
-La causa del MVA en este paciente es probablemente una **variante heterocigótica compuesta en BUB1B**:
-- Variante 1: `15:40209701` → **p.Leu737Ter** (stop prematuro — pérdida de función)
-- Variante 2: `15:40220612` → **p.Asn1002Lys** (missense — por confirmar patogenicidad)
+La causa del MVA en este paciente es **BUB1B heterocigótica compuesta** — ✅ **CONFIRMADA**:
 
-Ambas heterocigotas en *BUB1B* (BUBR1) afectarían el Spindle Assembly Checkpoint → inestabilidad cromosómica → mosaicismo aneuplo → fenotipo MVA.
+| Alelo | Posición | HGVSp | CADD | ClinVar |
+|-------|----------|-------|------|---------|
+| 1 | 15:40209701 | **p.Leu737Ter** (stop → NMD → LOF) | 36.0 | **Pathogenic** |
+| 2 | 15:40220612 | **p.Asn1002Lys** (missense pseudo-kinasa) | 24.5 | no registrada |
 
-**Esta hipótesis debe confirmarse en el notebook 04** (frecuencia gnomAD < 1%, impacto funcional, ausencia en ClinVar como benigna).
+Ambas son heterocigotas, ultra-raras en gnomAD v4 (7.87×10⁻⁵ y 6.84×10⁻⁷), sin homocigotos.  
+→ Haploinsuficiencia compuesta de BUBR1 → SAC disfuncional → missegregación → MVA.
 
 ---
 
 ## Pendientes globales
 
-- [ ] Laura sube notebook 04 al repo
-- [ ] Laura confirma `config/genes_candidatos.txt`
-- [ ] Asignar los 6 roles del [plan de equipo](plan_equipo_roles.md) (Fase 3 = R3, Fase 4 = R4, video = R6)
-- [ ] Completar `methods_description_form.xlsx` antes del 24 oct
+- [ ] Fusionar PR #1 y #2 (tarea D1)
+- [ ] Laura confirma `config/genes_candidatos.txt` (tarea A6)
+- [ ] Cada integrante toma tareas del [tablero](plan_equipo_tareas.md)
+- [ ] Completar `methods_description_form.xlsx` antes del 24 oct (tarea E7)
