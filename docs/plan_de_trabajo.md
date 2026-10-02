@@ -2,7 +2,7 @@
 
 **MVA Hackathon 2026 · Deadline: 24 de octubre de 2026, 23:59 UTC**
 
-> Quién hace qué y en qué semana está en el **[plan de equipo y roles](plan_equipo_roles.md)**. Los responsables de las tablas de abajo corresponden a esos roles (R1–R6).
+> Quién hace qué está en el **[plan de equipo por tareas](plan_equipo_tareas.md)**. La columna *Tarea* de las tablas de abajo remite a los IDs de ese tablero (A1, B2…).
 
 ---
 
@@ -25,17 +25,24 @@
 
 ---
 
-## Fase 2 — Identificar la Variante Causante ⬜ Pendiente
+## Fase 2 — Identificar la Variante Causante ✅ Completada (1 oct)
 
 **Objetivo:** de las variantes en BUB1B y CEP57, identificar cuál es patogénica.
 
-| Tarea | Notebook | Responsable |
-|-------|----------|-------------|
-| Cruzar variantes BUB1B/CEP57 con gnomAD v4 (API GraphQL) | `03_priorizacion_gnomad.ipynb` | — |
-| Filtrar por frecuencia: AF < 0.01 en todas las poblaciones | — | — |
-| Aplicar criterios funcionales: LOF / missense con CADD ≥ 20 | — | — |
-| Consultar ClinVar para clasificación existente | — | — |
-| **Conclusión:** variante causante + patrón de herencia | — | — |
+| Paso | Notebook | Tarea | Estado |
+|-------|----------|-------------|--------|
+| Cruzar variantes BUB1B/CEP57 con gnomAD v4 (API GraphQL) | `04_priorizacion_gnomad_variante_causante.ipynb` | A1 | ✅ |
+| Filtrar por frecuencia: AF < 0.01 en todas las poblaciones | idem | A1 | ✅ |
+| Aplicar criterios funcionales: LOF / missense con CADD ≥ 20 | idem | A1 | ✅ |
+| Consultar ClinVar para clasificación existente | idem | A1 | ✅ |
+| **Conclusión:** variante causante + patrón de herencia | idem | A1 | ✅ |
+| Redacción ACMG formal + diagnóstico diferencial | `docs/secciones/01_variante_causante.md` | A2, A3 | ⬜ |
+| Calidad de lectura de las variantes + lollipop plot | notebook 04 | A4, A5 | ⬜ |
+
+**Resultado confirmado:**
+- `15:40209701` → **p.Leu737Ter** (stop_gained · CADD 36 · ClinVar Pathogenic)  
+- `15:40220612` → **p.Asn1002Lys** (missense · CADD 24.5 · AF 6.84×10⁻⁷)  
+- Patrón: BUB1B heterocigótica compuesta → AR
 
 **Criterios de priorización (orden):**
 1. Variante LOF (frameshift, nonsense, splice ±2 pb)
@@ -45,17 +52,17 @@
 
 ---
 
-## Fase 3 — Caracterizar el Mecanismo Biológico ⬜ Pendiente
+## Fase 3 — Caracterizar el Mecanismo Biológico 🔄 En progreso
 
 **Objetivo:** describir con rigor científico qué hace la variante y cuál es la consecuencia celular.
 
-| Tarea | Notebook | Responsable |
-|-------|----------|-------------|
-| Gen afectado → proteína → función en el SAC | `04_mecanismo_biologico.ipynb` | — |
-| Tipo de efecto molecular: LOF / GOF / dominante negativo | — | — |
-| Consecuencia celular: fallo SAC → missegregación → mosaicismo | — | — |
-| Diagrama de la vía afectada (figura para el informe) | — | — |
-| Revisión de literatura: casos MVA con misma variante o gen | — | — |
+| Paso | Notebook | Tarea | Estado |
+|-------|----------|-------------|--------|
+| Gen afectado → proteína → función en el SAC | `05_mecanismo_biologico_bub1b.ipynb` | B1 | 🔄 Borrador en notebook |
+| Tipo de efecto molecular: LOF / GOF / dominante negativo | idem | B2, B3 | 🔄 Documentado (LOF compuesto), falta confirmar NMD y estructura |
+| Consecuencia celular: fallo SAC → missegregación → mosaicismo | idem | B4 | 🔄 Documentado |
+| Diagrama de la vía afectada (figura para el informe) | idem | B5 | 🔄 3 figuras generadas |
+| Revisión de literatura: casos MVA con misma variante o gen | idem | B1 | ⬜ Completar referencias |
 
 **Marco teórico a cubrir:**
 - Spindle Assembly Checkpoint (SAC): BUB1B/BUBR1, MAD1/MAD2, MCC
@@ -68,13 +75,13 @@
 
 **Objetivo:** proponer fármacos aprobados (FDA/EMA) con mecanismo relevante para la vía afectada.
 
-| Tarea | Notebook | Responsable |
+| Paso | Notebook | Tarea |
 |-------|----------|-------------|
-| Consultar OpenTargets para el gen identificado | `05_candidatos_farmacos.ipynb` | — |
-| Consultar ChEMBL / DrugBank por targets en la vía SAC | — | — |
-| Filtrar por: aprobación FDA/EMA, seguridad pediátrica, evidencia | — | — |
-| Rankear candidatos con justificación mecanística | — | — |
-| Tabla final: top 3-5 candidatos con dosis, indicación actual, propuesta | — | — |
+| Definir criterios y pesos de priorización | `docs/secciones/03_criterios.md` | C1 |
+| Consultar OpenTargets / DGIdb para el gen identificado y su red | `06_candidatos_farmacos.ipynb` | C3 |
+| Consultar ChEMBL / DrugBank por targets en la vía SAC | idem | C2, C3 |
+| Filtrar y rankear: aprobación FDA/EMA, seguridad pediátrica, evidencia | `results/candidatos_farmacos.tsv` | C4 |
+| Tabla final: top 3-5 candidatos con dosis, indicación actual, propuesta | `docs/secciones/04_candidatos.md` | C5, C6 |
 
 **Fuentes a consultar:**
 - [OpenTargets Platform](https://platform.opentargets.org/)
