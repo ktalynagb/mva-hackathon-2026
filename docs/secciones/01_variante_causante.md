@@ -89,7 +89,7 @@ Aportes del grupo (2 oct) puestos a prueba con datos. Todo sale de `scripts/evid
 
 #### Cálculo de estabilidad (ΔΔG) con ThermoMPNN
 
-Se usó ThermoMPNN (Dieckhaus et al. 2024, PNAS, PMID por verificar), que predice el cambio de estabilidad de cada sustitución a partir de la estructura. Se corrió sobre el modelo de AlphaFold de la proteína completa y sobre el dominio quinasa (766–1050) por separado. Convención: **positivo = desestabiliza, negativo = estabiliza**. Reproducible con `scripts/estabilidad_alelo2.py` (versión exacta de la herramienta en `results/estabilidad_alelo2.json`).
+Se usó ThermoMPNN (Dieckhaus et al. 2024, PNAS 121:e2314853121, PMID 38285937), que predice el cambio de estabilidad de cada sustitución a partir de la estructura. Se corrió sobre el modelo de AlphaFold de la proteína completa y sobre el dominio quinasa (766–1050) por separado. Convención: **positivo = desestabiliza, negativo = estabiliza**. Reproducible con `scripts/estabilidad_alelo2.py` (versión exacta de la herramienta en `results/estabilidad_alelo2.json`).
 
 | Sustitución | ΔΔG (kcal/mol) | Posición entre todas las sustituciones del dominio |
 |---|---|---|
