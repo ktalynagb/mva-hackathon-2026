@@ -34,7 +34,7 @@ SIMBOLO_ACTUAL = {"SAS6": "SASS6", "CCDC155": "KASH5", "H3F3A": "H3-3A", "H3F3B"
 
 # Revisiones a mano. Son advertencias, no sustituyen el texto original: verificar antes de citar.
 NOTAS = {
-    "MAD2L1BP": "La enfermedad (MVA, fallo ovarico) no tiene respaldo claro; verificar en OMIM antes de citar.",
+    "MAD2L1BP": "MVA descrito en 2023 (ver seccion 5 de docs/secciones/01_variante_causante.md); verificar la parte de fallo ovarico.",
     "TRIP13": "El archivo dice 'MVA 3'; en OMIM ese numero corresponde a CENATAC. TRIP13 se asocia a MVA con tumor de Wilms (bialelico). Verificar.",
     "SAS6": "Simbolo vigente SASS6. 'Formacion del cartilago del centriolo' es un error: es la rueda de carro (cartwheel).",
     "PCNT": "Taybi-Linder corresponde a RNU4ATAC, no a PCNT; PCNT: MOPD II y Seckel tipo 4.",
