@@ -9,9 +9,13 @@ Para cada gen de config/genes_candidatos.txt:
 Salida (results/):
   diagnostico_diferencial_genes.tsv      una fila por gen
   diagnostico_diferencial_variantes.tsv  variantes raras funcionales, solo de genes del panel
-Uso:  python scripts/diagnostico_diferencial.py
+  Con --solo-nuevos los archivos llevan el sufijo _nuevos y no pisan el analisis del panel.
+Uso:  python scripts/diagnostico_diferencial.py                # todo el panel
+      python scripts/diagnostico_diferencial.py --solo-nuevos  # solo los genes de los grupos del equipo
+                                                               # (bloque AUTO de genes_candidatos.txt)
 Requiere el VCF descargado (data/raw/) y conexion a gnomAD y Ensembl.
 """
+import argparse
 import csv
 import gzip
 import json
@@ -40,9 +44,18 @@ QUERY = """query($g:String!){ gene(gene_symbol:$g, reference_genome:GRCh38){
     exome{ac an ac_hom} genome{ac an ac_hom} } } }"""
 
 
-def leer_genes():
-    return [l.split()[0] for l in GENES.read_text(encoding="utf-8").splitlines()
-            if l.strip() and not l.startswith("#")]
+INI_AUTO, FIN_AUTO = "# >>> AUTO", "# <<< AUTO"
+
+
+def leer_genes(solo_nuevos=False):
+    """Simbolos de genes_candidatos.txt. Con solo_nuevos, solo los del bloque AUTO
+    (los que agrego scripts/unir_grupos_genes.py desde los CSV del equipo)."""
+    lineas = GENES.read_text(encoding="utf-8").splitlines()
+    if solo_nuevos:
+        ini = next(i for i, l in enumerate(lineas) if l.startswith(INI_AUTO))
+        fin = next(i for i, l in enumerate(lineas) if l.startswith(FIN_AUTO))
+        lineas = lineas[ini + 1:fin]
+    return list(dict.fromkeys(l.split()[0] for l in lineas if l.strip() and not l.startswith("#")))
 
 
 def simbolo_oficial(alias):
@@ -175,7 +188,12 @@ def vep_lote(variantes):
 
 
 def main():
-    simbolos = leer_genes()
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--solo-nuevos", action="store_true",
+                    help="analizar solo los genes del bloque AUTO de genes_candidatos.txt")
+    sufijo = "_nuevos" if ap.parse_args().solo_nuevos else ""
+    simbolos = leer_genes(bool(sufijo))
+    print(f"{len(simbolos)} genes a analizar")
     gen_info, regiones, no_analizados = {}, {}, {}
     for s in simbolos:
         g, motivo = gnomad_gen(s)
@@ -242,12 +260,12 @@ def main():
     OUT.mkdir(exist_ok=True)
     cols = ["gen", "analizado", "motivo", "variantes_pass", "raras_o_ausentes", "raras_funcionales", "lof", "hom_funcionales", "het_funcionales",
             "sin_anotar", "patron_recesivo"]
-    with open(OUT / "diagnostico_diferencial_genes.tsv", "w", newline="", encoding="utf-8") as f:
+    with open(OUT / f"diagnostico_diferencial{sufijo}_genes.tsv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, cols, delimiter="\t")
         w.writeheader()
         w.writerows(sorted(resumen, key=lambda r: (not r["analizado"], -r.get("lof", 0), -r.get("raras_funcionales", 0), r["gen"])))
     cols_v = ["gen", "chrom", "pos", "ref", "alt", "zig", "consecuencia", "af", "hom_gnomad", "en_gnomad", "dp", "gq"]
-    with open(OUT / "diagnostico_diferencial_variantes.tsv", "w", newline="", encoding="utf-8") as f:
+    with open(OUT / f"diagnostico_diferencial{sufijo}_variantes.tsv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, cols_v, delimiter="\t", extrasaction="ignore")
         w.writeheader()
         w.writerows(sorted(filas_var, key=lambda v: (v["gen"], v["pos"])))
