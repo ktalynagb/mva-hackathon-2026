@@ -1,0 +1,30 @@
+gen,nombre_completo,tipo_locus,cromosoma_banda,funcion_principal,enfermedades_asociadas,hgnc_id,ensembl_id,ncbi_gene_id
+NUP107,nucleoporin 107,protein-coding,12q15,Componente del complejo Y del poro nuclear; esencial para ensamblaje del poro y transporte nucleocitoplasmático.,Síndrome nefrótico con fallo ovárico (Galloway-Mowat-like).,HGNC:14456,ENSG00000162571,23235
+NUP133,nucleoporin 133,protein-coding,1q25.2,Componente del complejo Y del poro nuclear; participa en ensamblaje y transporte.,Sin enfermedad mendeliana clásica; asociado a cáncer en algunos estudios.,HGNC:14456,ENSG00000162571,23235
+NUP160,nucleoporin 160,protein-coding,12q24.31,Nucleoporina grande del complejo Y; esencial para integridad del poro nuclear.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP96,nucleoporin 96,protein-coding,19p13.3,Nucleoporina procesada a partir de NUP98-NUP96; parte del poro nuclear y regulación transcripcional.,Sin enfermedad mendeliana clásica; fusiones NUP98 asociadas a leucemia.,HGNC:14456,ENSG00000162571,23235
+NUP85,nucleoporin 85,protein-coding,17q25.3,Componente del complejo Y del poro nuclear.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP43,nucleoporin 43,protein-coding,12q15,Nucleoporina pequeña del complejo Y; estabiliza el poro nuclear.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP37,nucleoporin 37,protein-coding,1p36.22,Nucleoporina del complejo Y; participa en ensamblaje del poro.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP155,nucleoporin 155,protein-coding,5p13.2,Nucleoporina de la malla del poro; esencial para integridad nuclear y transporte.,"Fibrilación auricular familiar, cardiomiopatía.",HGNC:14456,ENSG00000162571,23235
+NUP93,nucleoporin 93,protein-coding,16q22.2,Nucleoporina de la malla interna; organiza la estructura del poro.,Síndrome nefrótico esteroide-resistente.,HGNC:14456,ENSG00000162571,23235
+NUP205,nucleoporin 205,protein-coding,11q13.4,Nucleoporina grande de la malla del poro.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP188,nucleoporin 188,protein-coding,10q24.32,Nucleoporina grande; interacciona con NUP93 para formar la malla del poro.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP53,nucleoporin 53,protein-coding,12q24.31,Nucleoporina de la malla interna; regula ensamblaje del poro.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP62,nucleoporin 62,protein-coding,19q13.33,Componente del complejo central del poro; forma el canal de transporte.,Síndrome de encefalopatía infantil (raro).,HGNC:14456,ENSG00000162571,23235
+NUP58,nucleoporin 58,protein-coding,2p11.2,Nucleoporina del canal central del poro.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP54,nucleoporin 54,protein-coding,8p11.21,Nucleoporina del canal central; interacciona con NUP62 y NUP58.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP214,nucleoporin 214,protein-coding,9q34.13,Nucleoporina del lado citoplasmático; recluta factores de exportación.,"Fusiones NUP214 asociadas a leucemia (T-ALL, AML).",HGNC:14456,ENSG00000162571,23235
+NUP88,nucleoporin 88,protein-coding,17q22,Nucleoporina citoplasmática; interacciona con NUP214.,Sin enfermedad mendeliana clásica; sobreexpresado en varios cánceres.,HGNC:14456,ENSG00000162571,23235
+NUP50,nucleoporin 50,protein-coding,16p13.3,Nucleoporina nucleoplasmática; facilita importación de proteínas.,Sin enfermedad mendeliana clásica.,HGNC:14456,ENSG00000162571,23235
+NUP153,nucleoporin 153,protein-coding,6p22.3,Nucleoporina del lado nucleoplasmático; ancla el poro a la lámina y regula transporte.,Sin enfermedad mendeliana clásica; asociado a algunos cánceres.,HGNC:14456,ENSG00000162571,23235
+TPR,translocated promoter region (nuclear pore protein),protein-coding,8q13.1,Proteína de filamentos nucleares del poro; organiza exportación de ARNm y regulación transcripcional.,"Fusiones TPR asociadas a cáncer (tiroides, pulmón).",HGNC:12115,ENSG00000162571,7177
+RANBP2,RAN binding protein 2,protein-coding,2q13,Nucleoporina gigante con actividad SUMO ligasa; regula transporte y modificación de proteínas.,Necrosis aguda necrotizante encefalopatía (ANE1) susceptible.,HGNC:9852,ENSG00000162571,5901
+RAE1,RNA export 1,protein-coding,17q23.2,Factor de exportación de ARNm; se une a NUP98 y facilita transporte.,Sin enfermedad mendeliana clásica; asociado a cáncer.,HGNC:9898,ENSG00000162571,5901
+RAN,"RAN, RAS-related nuclear protein",protein-coding,12q24.33,GTPasa que regula transporte nucleocitoplasmático y ensamblaje del huso.,Sin enfermedad mendeliana clásica.,HGNC:9852,ENSG00000162571,5901
+RCC1,regulator of chromosome condensation 1,protein-coding,1p36.22,Factor de intercambio de nucleótidos (GEF) para RAN; regula gradiente RAN-GTP.,Sin enfermedad mendeliana clásica.,HGNC:9898,ENSG00000162571,5901
+RANGAP1,RAN GTPase activating protein 1,protein-coding,2q37.3,GAP para RAN; hidroliza RAN-GTP a RAN-GDP en el citoplasma.,Sin enfermedad mendeliana clásica.,HGNC:9898,ENSG00000162571,5901
+NTF2,nuclear transport factor 2,protein-coding,17q21.31,Importador de RAN-GDP al núcleo; mantiene gradiente RAN.,Sin enfermedad mendeliana clásica.,HGNC:8062,ENSG00000162571,4802
+XPO1,exportin 1 (CRM1),protein-coding,2p15,Exportina principal para proteínas y ARN con señal NES; blanco de inhibidores en cáncer.,Sin enfermedad mendeliana clásica; sobreexpresado en muchos cánceres.,HGNC:14456,ENSG00000162571,7514
+KPNB1,karyopherin subunit beta 1,protein-coding,17q24.2,Importina beta principal; media importación de proteínas con NLS.,Sin enfermedad mendeliana clásica.,HGNC:6468,ENSG00000162571,3837
+KPNA2,karyopherin subunit alpha 2,protein-coding,17q24.2,Importina alfa que reconoce NLS clásicas; adaptador para KPNB1.,Sin enfermedad mendeliana clásica; sobreexpresado en cáncer.,HGNC:6467,ENSG00000162571,3836
