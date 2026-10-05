@@ -23,6 +23,10 @@
 - AlphaFold: pLDDT 91, la Asn forma 3 enlaces de hidrógeno que la lisina perdería; residuo conservado en 7/7 vertebrados
 - Sin artículos con este cambio; sigue siendo VUS, inclinada a patogénica
 
+**¿p.Asn1002Lys toca el bolsillo de ATP? (2 oct)** → fila nueva en la tabla de hipótesis de `01_variante_causante.md`, `scripts/evidencia_alelo2.py`
+- No: a 28,6–29,8 Å del nucleótido (4 posiciones colocadas por homología con AlphaFill), sin contacto con ninguno de los 30 residuos del bolsillo
+- Un efecto directo sobre la unión de ATP es muy improbable; uno indirecto por menor estabilidad global no se descarta
+
 **Cálculo de estabilidad de p.Asn1002Lys con ThermoMPNN (2 oct)** → `scripts/estabilidad_alelo2.py`, `results/estabilidad_alelo2.json`
 - ΔΔG de N1002K = +1,5 kcal/mol (desestabiliza de forma moderada); la variante conocida de MVA1 p.Leu1012Pro da +3,1
 - Todas las sustituciones en 1002 desestabilizan; resultado igual con la proteína completa y con el dominio (Spearman 0,95)
