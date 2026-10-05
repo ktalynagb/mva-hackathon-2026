@@ -207,3 +207,116 @@ NUMA1
 TPX2
 XRCC2
 XRCC3
+# >>> AUTO: grupos del equipo (scripts/unir_grupos_genes.py) >>>
+# ── grupo1_checkpoint_mitotico (7 nuevos) ──
+CDC27
+CDC16
+CDC23
+KNTC1
+SKA1
+SKA2
+SKA3
+# ── grupo2_centrosomas_microcefalia (5 nuevos) ──
+CDK5RAP2
+ASPM
+WDR62
+CIT
+NIN
+# ── grupo3_envoltura_nuclear_lamina (16 nuevos) ──
+LMNA
+LMNB1
+LMNB2
+EMD
+BANF1
+TMPO
+SUN1
+SUN2
+SYNE1
+SYNE2
+LBR
+LEMD3
+TMEM201
+TMEM120B
+TMEM120A
+KASH5  # en el archivo: CCDC155
+# ── grupo4_poro_nuclear_transporte (29 nuevos) ──
+NUP107
+NUP133
+NUP160
+NUP98  # en el archivo: NUP96
+NUP85
+NUP43
+NUP37
+NUP155
+NUP93
+NUP205
+NUP188
+NUP35  # en el archivo: NUP53
+NUP62
+NUP58
+NUP54
+NUP214
+NUP88
+NUP50
+NUP153
+TPR
+RANBP2
+RAE1
+RAN
+RCC1
+RANGAP1
+NUTF2  # en el archivo: NTF2
+XPO1
+KPNB1
+KPNA2
+# ── grupo5_cromatina_histonas (22 nuevos) ──
+HDAC3
+HDAC1
+HDAC2
+SMARCA4
+SMARCB1
+ARID1A
+ARID1B
+CHD4
+CHD3
+ATRX
+DAXX
+H3-3A  # en el archivo: H3F3A
+H3-3B  # en el archivo: H3F3B
+H2AZ1  # en el archivo: H2AFZ
+SUZ12
+EZH2
+EED
+KMT2A
+KMT2D
+KDM5B
+KDM6A
+KDM6B
+# ── grupo6_reparacion_adn_estabilidad_genomica (17 nuevos) ──
+RAD52
+RAD54L
+SLX4
+ERCC4
+UBE2T
+BLM
+WRN
+RECQL4
+ERCC2
+ERCC3
+ERCC5
+XPA
+XPC
+MRE11  # en el archivo: MRE11A
+RAD50
+NBN
+SHPRH
+# ── grupo7_ciclo_celular_cdk (8 nuevos) ──
+CCNB3
+WEE1
+CDC25C
+INCENP
+BIRC5
+HGS
+ARRB1
+ARRB2
+# <<< AUTO <<<

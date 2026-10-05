@@ -10,6 +10,27 @@
 
 ---
 
+## 2026-10-05 — Genes de los grupos del equipo: CSV corregidos y lista ampliada
+
+**Quién:** Ktalyna (con Claude Code)
+**Qué se hizo:**
+- Los 8 CSV del equipo (166 genes) se guardaron sin tocar en `config/grupos_genes/originales/` y se unificaron con `scripts/unir_grupos_genes.py` en `config/genes_candidatos_anotados.csv`
+- `config/genes_candidatos.txt` pasa de 188 a 292 símbolos (104 nuevos, en un bloque entre marcas AUTO; el script se puede volver a correr)
+- Se fusionó `tarea/B3-bolsillo-atp` (p.Asn1002Lys no toca el bolsillo de ATP)
+
+**Hallazgos:**
+- ⚠️ Las columnas `hgnc_id`, `ensembl_id` y `ncbi_gene_id` están corruptas en 7 de 8 archivos (p. ej. `ENSG00000162571` en 72 de 95 filas) y se descartaron. En el archivo de reparación de ADN faltan 2 columnas. Las coordenadas salen de `scripts/resolve_genes.py` por símbolo
+- Errores de contenido marcados en `nota_revision` (el texto original no se modificó): PCNT/Taybi-Linder, NIN/pseudoacondroplasia, SAS6 ("cartílago"), TRIP13 "MVA 3", MAD2L1BP/MVA, y símbolos desactualizados (CCDC155, H3F3A/B, H2AFZ, MRE11A, NTF2, NUP53, NUP96)
+- HGS, ARRB1 y ARRB2 no son del ciclo celular: baja prioridad
+
+**Pendiente:**
+- [ ] Correr `scripts/resolve_genes.py` con red para resolver las coordenadas de los 104 genes nuevos (esta sesión no tuvo acceso a MyGene.info)
+- [ ] Verificar en OMIM las filas con nota "verificar" antes de citarlas
+- [ ] Repetir con red el cálculo del bolsillo de ATP (AlphaFold/AlphaFill estaban bloqueados); el resultado vigente es el de la rama B3
+- [ ] Análisis de sensibilidad de variantes no-PASS (todo el pipeline descarta lo que no sea PASS)
+
+---
+
 ## 2026-10-02 — Tareas A2 y B2: clasificación ACMG y NMD (corrige la lectura del H1)
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/A2-B2-variante-acmg-nmd`  
