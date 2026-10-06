@@ -10,6 +10,25 @@
 
 ---
 
+## 2026-10-06 — Cuaderno 06 de fármacos (adelanto de una compañera que se retira)
+
+**Quién:** Ktalyna (con Claude Code)
+**Qué se hizo:**
+- Una compañera que dejó el equipo subió `notebooks/06_agente_reposicionamiento_farmacos.ipynb` (agente LangChain + Gemini) con una lista inicial de fármacos para 6 blancos. Ya está en `master`
+- Se revisó el cuaderno y se anotó el estado en el Área C de `docs/plan_equipo_tareas.md`
+
+**Hallazgos (revisión del cuaderno):**
+- ⚠️ La lista **no es validable tal como está**: varios fármacos no están aprobados por FDA/EMA, y bajo Hsp90 y p53 hay fármacos que no actúan sobre esos blancos
+- La extracción de DGIdb falló en la ejecución guardada (API v2) y el filtro FDA/EMA es solo una instrucción del prompt
+- Quedan sin responsable las tareas C1 a C6; la lista corta (H4) vence el **17 de octubre**
+
+**Pendiente:**
+- [ ] Paso de verificación: rehacer C3 con DGIdb v5 y Open Targets, comprobar la aprobación FDA/EMA contra una fuente y puntuar con la matriz de C1
+- [ ] Asignar responsable del Área C
+- [ ] Preguntarle por privado qué celda produjo la lista del mensaje y si DGIdb funcionó alguna vez
+
+---
+
 ## 2026-10-05 — Genes de los grupos del equipo: CSV corregidos y lista ampliada
 
 **Quién:** Ktalyna (con Claude Code)
