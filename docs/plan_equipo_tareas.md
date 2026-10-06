@@ -88,6 +88,8 @@ Base: `notebooks/05_mecanismo_biologico_bub1b.ipynb` ya tiene las 3 figuras y el
 
 Base: `results/resumen_mecanismo_para_R4.json` ya lista 6 dianas (CDC20/APC/C, PLK1, Aurora B, Hsp90, eje p53, mTOR). Son hipótesis para verificar.
 
+> **Adelanto (5 oct):** una compañera que dejó el equipo subió `notebooks/06_agente_reposicionamiento_farmacos.ipynb`, un agente LangChain + Gemini con una lista inicial de fármacos para 6 blancos (APC/C, CDC20, PLK1, Aurora B, Hsp90, p53; no incluye mTOR). **Es un borrador, no una lista validada.** Antes de usarla falta un paso de verificación: (1) varios fármacos listados no están aprobados por FDA/EMA (Volasertib, Rigosertib, Barasertib, Dinaciclib); (2) bajo Hsp90 y p53 aparecen fármacos que no actúan sobre ese blanco (Crizotinib, Trametinib, Everolimus, Doxorrubicina); (3) la consulta a DGIdb usa la API v2 y falló en la ejecución guardada, así que el informe no usó datos recuperados; (4) la aprobación FDA/EMA solo es una instrucción del prompt, no se comprueba contra ninguna base. Siguiente paso: rehacer C3 con DGIdb v5 y Open Targets, comprobar la aprobación contra una fuente (openFDA o DrugBank) y puntuar con la matriz de C1.
+
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
 | C1 | Definir la matriz de priorización y sus pesos: aprobación FDA/EMA, solidez del mecanismo, seguridad pediátrica, interacción con el tratamiento del rabdomiosarcoma, evidencia existente | `docs/secciones/03_criterios.md` | 💊 | 10 oct | — | | ⬜ |
