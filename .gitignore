@@ -37,6 +37,8 @@ results/*.csv
 results/*.tsv
 results/*.pkl
 results/*.parquet
+# respuestas de gnomAD/VEP con variantes del paciente (borrar al cierre)
+results/cache/
 
 # ── Sistema operativo ────────────────────────────────────────────────────────
 .DS_Store
