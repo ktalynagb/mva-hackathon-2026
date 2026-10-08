@@ -172,6 +172,28 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 
 > Una primera versión del barrido marcó 31 variantes comunes como "ausentes de gnomAD" porque la lista de variantes por gen de gnomAD omite algunas. Se corrigió consultando cada variante funcional directamente.
 
+### 5b. Genes nuevos de los grupos del equipo (104 genes)
+
+**Método:** `python scripts/diagnostico_diferencial.py --solo-nuevos` sobre el bloque AUTO de `config/genes_candidatos.txt`. Corrido el 6 oct en una máquina con el VCF (Laura). Los 104 genes se resolvieron en gnomAD: hay 8765 variantes PASS del paciente y ninguna variante rara quedó sin anotar por VEP.
+
+**Verificación adicional:** cada variante rara funcional se volvió a anotar con Ensembl VEP en el transcrito **MANE Select**, que es la versión de referencia clínica del gen. El script, en cambio, toma la consecuencia más severa en cualquier transcrito.
+
+**Resultado:** 7 variantes raras funcionales en 6 genes, todas heterocigotas. **3 de las 7 eran falsas alarmas**: en el transcrito MANE caen en un intrón, y el efecto severo solo aparece en transcritos secundarios (en *SYNE2*, uno marcado para NMD).
+
+| Gen | Consecuencia (script) | Consecuencia en MANE | AF gnomAD v4 | ¿Cuenta? |
+| --- | --- | --- | --- | --- |
+| ARID1B | stop_gained | intrón | 9×10⁻⁶ | No, falsa alarma |
+| SMARCA4 | missense | intrón | 0,67 % (66 homocigotos) | No, falsa alarma |
+| SYNE2 | stop_lost | intrón | 6,4×10⁻⁴ (1 homocigoto) | No, falsa alarma |
+| SYNE2 | missense | missense (conservador; VUS en ClinVar para EDMD5, dominante) | 2,8×10⁻⁴ | 1 sola variante |
+| KDM6B | inserción en el marco | duplicación de 1 prolina en una región repetitiva | ausente | No, 1 sola variante |
+| RAD54L | missense | missense | 0,38 % (15 homocigotos) | No, frecuente |
+| SUZ12 | missense | missense | 0,46 % (35 homocigotos) | No, frecuente |
+
+**Lectura.** El script marcó *SYNE2* con patrón recesivo (2 heterocigotas), pero una de las dos es intrónica en el transcrito MANE. Queda una sola missense de significado incierto, en un gen de más de 6.000 aminoácidos donde las variantes raras son esperables. **Ninguno de los 104 genes nuevos explica el MVA**, y *BUB1B* sigue siendo el único gen con dos variantes dañinas.
+
+**Consecuencia para el método:** la limitación de arriba ("la más severa en cualquier transcrito") no es teórica: aquí produjo 3 de 7 alertas. Falta repetir el barrido de los 187 genes con la consecuencia en MANE. Con las 11 variantes de arriba el resultado no debería cambiar, porque ninguna formaba un patrón recesivo aparte de *BUB1B*, pero algunas filas de la tabla podrían ser intrónicas.
+
 ## 6. Interpretación combinada
 
 El paciente es heterocigoto para una variante probablemente patogénica de pérdida de función y para una variante rara de significado incierto en el mismo gen, cuya enfermedad recesiva (MVA1) encaja con el fenotipo. Es un genotipo típico de MVA1 si ambas están en *trans*: un alelo nulo más un alelo hipomórfico, porque la pérdida total en los dos alelos probablemente sería incompatible con la vida (hipótesis a verificar en B1).
