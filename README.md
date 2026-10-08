@@ -130,6 +130,39 @@ jupyter notebook notebooks/01_exploracion_inicial.ipynb
 
 Este notebook te lleva por: verificación del entorno → fenotipo clínico HPO → estadísticas del VCF → estrategia de análisis propuesta.
 
+### 6. Correr todo el análisis con un comando
+
+```bash
+python run_pipeline.py            # todos los pasos
+python run_pipeline.py --listar   # ver los pasos
+python run_pipeline.py --solo farmacos,figuras
+```
+
+| Paso | Script | Salida | Necesita el VCF |
+|---|---|---|---|
+| `genes` | `scripts/unir_grupos_genes.py` | `config/genes_candidatos.txt` | no |
+| `diagnostico` | `scripts/diagnostico_diferencial.py` | `results/diagnostico_diferencial_*.tsv` (no se versionan) | **sí** |
+| `alelo2` | `scripts/evidencia_alelo2.py` | `results/evidencia_alelo2.json` | no |
+| `farmacos` | `scripts/lista_larga_farmacos.py` | `results/candidatos_farmacos.tsv` | no |
+| `figuras` | `scripts/figuras_informe.py` | `results/figura_1_*.png`, `figura_2_*.png` | no |
+
+El cálculo de estabilidad (`scripts/estabilidad_alelo2.py`) usa la salida de ThermoMPNN, que se corre aparte (instrucciones en el propio script). Se agrega con `--thermompnn DIR`.
+
+Todos los pasos consultan APIs públicas y guardan una caché local. Para la reproducción exacta, instala `requirements-lock.txt`, que fija las versiones con las que se generaron los resultados (Python 3.13).
+
+---
+
+## Escalabilidad: cómo usarlo con otro paciente
+
+| Parte | ¿Sirve para otro paciente? | Qué cambiar |
+|---|---|---|
+| Diagnóstico diferencial (290 genes de mitosis, cinetocoro, centrosoma, cohesina, reparación y ciclo celular) | **Sí**, sin cambios de código | Poner su VCF (GRCh38) en `data/raw/` y correr `python run_pipeline.py --solo diagnostico`. El panel se edita en `config/genes_candidatos.txt` |
+| Clasificación ACMG, NMD y estructura | Parcial: el método es general, pero `evidencia_alelo2.py` está escrito para el residuo 1002 de BUBR1 | Cambiar el residuo y la proteína en el script |
+| Lista larga de fármacos | **Sí** para otro paciente con MVA por *BUB1B*: las líneas terapéuticas dependen del mecanismo, no de la variante | Para otro gen (*CEP57*, *TRIP13*), editar las semillas y la dirección de acción en `config/lineas_terapeuticas.json` |
+| Priorización (matriz C1) | **Sí**: filtros y criterios no dependen del caso | Solo K2 (edad del paciente) y K4 (órganos afectados) |
+
+Ningún paso sube datos del paciente al repositorio. Las cachés con variantes del paciente quedan en `data/cache/` y `results/cache/`, que están excluidas por `.gitignore`.
+
 ---
 
 ## Video pitch

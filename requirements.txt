@@ -1,8 +1,9 @@
 # MVA Hackathon 2026 — dependencias Python
 # Instalar con: pip install -r requirements.txt
+# Versiones exactas con las que se generaron los resultados: requirements-lock.txt (Python 3.13)
 
 # Acceso a HuggingFace
-huggingface_hub[cli]>=0.24.0
+huggingface_hub>=0.24.0
 
 # Análisis de datos
 pandas>=2.0.0
