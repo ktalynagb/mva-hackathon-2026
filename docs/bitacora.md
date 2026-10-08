@@ -10,6 +10,25 @@
 
 ---
 
+## 2026-10-06 — Diagnóstico diferencial de los 104 genes nuevos
+
+**Quién:** Laura (con Claude Code) · rama `tarea/A3-genes-nuevos`
+**Qué se hizo:**
+- Se corrió `python scripts/diagnostico_diferencial.py --solo-nuevos` con el VCF local (Colab conectado a un entorno local). Los 104 genes se resolvieron en gnomAD y no quedaron variantes sin anotar
+- Se volvieron a anotar las 7 variantes raras funcionales con Ensembl VEP en el transcrito MANE Select
+- Resumen en la sección 5b de `docs/secciones/01_variante_causante.md`
+
+**Hallazgos:**
+- ✅ Ningún gen nuevo explica el MVA: *BUB1B* sigue siendo el único con dos variantes dañinas
+- ⚠️ *SYNE2* salió con patrón recesivo, pero es una falsa alarma: una de sus 2 variantes es intrónica en MANE
+- ⚠️ 3 de las 7 alertas (*ARID1B* stop, *SMARCA4* missense, *SYNE2* stop_lost) solo eran graves en transcritos secundarios. El script usa la consecuencia más severa en cualquier transcrito
+
+**Pendiente:**
+- [ ] Usar la consecuencia en MANE dentro de `scripts/diagnostico_diferencial.py` y repetir el barrido de los 187 genes
+- [ ] Análisis de sensibilidad de variantes no-PASS (sigue sin hacerse)
+
+---
+
 ## 2026-10-06 — Cuaderno 06 de fármacos (adelanto de una compañera que se retira)
 
 **Quién:** Ktalyna (con Claude Code)
