@@ -106,6 +106,8 @@ Se usó ThermoMPNN (Dieckhaus et al. 2024, PNAS 121:e2314853121, PMID 38285937),
 
 **Lectura.** N1002K desestabiliza el dominio de forma **moderada**, aproximadamente la mitad que p.Leu1012Pro. Un efecto de este tamaño encaja con un alelo **hipomórfico** (pérdida parcial de función), que es justo el papel que se espera del segundo alelo junto a uno nulo. No basta por sí solo para afirmar que la proteína se degrada rápido.
 
+**Precedente experimental.** En células de pacientes con MVA, todos los missense del dominio quinasa estudiados (I909T, L1012P, R814H, R727C, L844F) bajan la cantidad de BUBR1 de 5 a 10 veces por mal plegamiento y degradación, y llevarlos a niveles normales restaura el checkpoint (Suijkerbuijk 2010, PMID 20516114). Uno (Q921H) se comportó como el normal. Es otro residuo, así que no suma puntos ACMG, pero hace de N1002K un candidato natural a la misma clase "inestable".
+
 **Limitaciones.**
 - Es una predicción sobre un modelo estático de AlphaFold (confianza alta en este residuo, pLDDT 91); la incertidumbre típica de estos predictores es del orden de 1 kcal/mol, comparable al efecto predicho. No lo verifiqué contra datos experimentales en este caso.
 - Mide estabilidad termodinámica del dominio aislado, no vida media en la célula, y no captura efectos sobre la unión a otras proteínas (por ejemplo PP2A-B56) ni sobre la proteína completa en contexto.
@@ -196,7 +198,7 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 
 ## 6. Interpretación combinada
 
-El paciente es heterocigoto para una variante probablemente patogénica de pérdida de función y para una variante rara de significado incierto en el mismo gen, cuya enfermedad recesiva (MVA1) encaja con el fenotipo. Es un genotipo típico de MVA1 si ambas están en *trans*: un alelo nulo más un alelo hipomórfico, porque la pérdida total en los dos alelos probablemente sería incompatible con la vida (hipótesis a verificar en B1).
+El paciente es heterocigoto para una variante probablemente patogénica de pérdida de función y para una variante rara de significado incierto en el mismo gen, cuya enfermedad recesiva (MVA1) encaja con el fenotipo. Es un genotipo típico de MVA1 si ambas están en *trans*: un alelo nulo más un alelo hipomórfico. Las mutaciones bialélicas de *BUB1B* suelen combinar una sin sentido con un missense del dominio quinasa (Sieben 2020), y la pérdida total de BUBR1 es letal en el embrión de ratón (Wang 2004; detalle en `02_marco_biologico.md`, secciones 5 y 6). El caso publicado más parecido (truncamiento en el codón 753 + p.Leu1012Pro, a 10 residuos de N1002) está en la sección 5 de ese archivo.
 
 Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la enfermedad. Como el cuadro clínico es grave, *trans* es mucho más probable, pero no está demostrado.
 
@@ -227,4 +229,6 @@ WGS_EX2312012,chr15,40209701,T,G,chr15,40220612,T,G,0.85,primary,BUB1B compound 
 
 Existencia confirmada en PubMed (falta leer el texto completo): Hanks et al. 2004, *Nat Genet* (PMID 15475955) · Matsuura et al. 2006, *Am J Med Genet A* (PMID 16411201) · Wei et al. 2026, *Front Endocrinol* (PMID 42434306) · Qu et al. 2025, *Zhonghua Yi Xue Yi Chuan Xue Za Zhi* (PMID 40555658).
 
-Citadas de memoria, sin comprobar: Tavtigian et al. 2020, *Hum Mutat* · Pejaver et al. 2022, *Am J Hum Genet* · Richards et al. 2015, *Genet Med* (guía ACMG/AMP) · Abou Tayoun et al. 2018, *Hum Mutat* (PVS1). Comprobar autores, volumen y páginas antes del informe.
+Guías de clasificación, comprobadas en PubMed el 8 oct: Richards et al. 2015, *Genet Med* 17:405–24 (guía ACMG/AMP; PMID 25741868) · Tavtigian et al. 2020, *Hum Mutat* 41:1734–7 (sistema de puntos; PMID 32720330) · Abou Tayoun et al. 2018, *Hum Mutat* 39:1517–24 (PVS1; PMID 30192042) · Pejaver et al. 2022, *Am J Hum Genet* 109:2163–77 (calibración PP3/BP4; PMID 36413997).
+
+Mecanismo del alelo 2 (texto completo): Suijkerbuijk et al. 2010, *Cancer Res* 70:4891–900 (PMID 20516114): los missense del dominio quinasa de BUBR1 en MVA reducen la cantidad de proteína por mal plegamiento.
