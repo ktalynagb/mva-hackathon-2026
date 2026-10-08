@@ -132,31 +132,38 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 
 **Límite:** es una predicción por regla. No hay datos de ARN del paciente. Se confirmaría con RT-PCR en fibroblastos o linfocitos, con y sin ciclohexamida.
 
-## 5. Diagnóstico diferencial (tarea A3)
+## 5. Diagnóstico diferencial (tareas A3 y A8)
 
 **Pregunta:** ¿algún otro gen del panel podría explicar el MVA del paciente?
 
-**Método** (`python scripts/diagnostico_diferencial.py`):
-1. Variantes PASS del paciente dentro de los 187 genes distintos de `config/genes_candidatos.txt` (unas 16.000; algunas se cuentan en más de un gen porque ciertos alias comparten locus).
-2. Frecuencia en gnomAD v4 (se conservan las raras: AF < 1 % o ausentes) y consecuencia (gnomAD o Ensembl VEP).
-3. Se dejan las variantes funcionales: pérdida de función (stop, cambio de marco, sitio de empalme, pérdida de inicio o de stop), missense y en el marco.
-4. Patrón recesivo compatible: al menos 1 homocigota o 2 heterocigotas en el mismo gen.
+**Método** (`python scripts/diagnostico_diferencial.py`, o el paso `diagnostico` de `run_pipeline.py`; versión del 8 oct):
+1. Variantes PASS del paciente dentro de los **290 símbolos** de `config/genes_candidatos.txt`: los 187 del panel original y los 104 de los grupos del equipo, menos el alias redundante EB1 (ver nota). Son unas 22.700 variantes; algunas se cuentan en más de un gen porque ciertos alias comparten locus.
+2. Frecuencia en gnomAD v4 (se conservan las raras: AF < 1 % o ausentes) y una primera consecuencia (gnomAD o Ensembl VEP, la más severa en cualquier transcrito).
+3. Las variantes raras que parecen funcionales (pérdida de función, missense o en el marco) se **vuelven a anotar con VEP en el transcrito MANE Select del mismo gen**, que es la versión de referencia clínica. **Esa consecuencia es la que decide.**
+4. Patrón recesivo compatible: al menos 1 homocigota o 2 heterocigotas funcionales en el mismo gen.
 
-**Resultado:** solo **11 variantes raras funcionales en 10 genes**, todas heterocigotas. Las posiciones de las variantes de los genes que no son *BUB1B* no se incluyen aquí; el script las regenera en `results/` (los `.tsv` están en `.gitignore`).
+**Resultado:** 18 alertas en algún transcrito; **13 se mantienen en MANE**, en 12 genes y todas heterocigotas. Las posiciones de las variantes de los genes que no son *BUB1B* no se incluyen aquí: el script las regenera en `results/` (los `.tsv` están en `.gitignore`).
 
-| Gen | Consecuencia | AF gnomAD v4 | ¿Recesivo? |
-| --- | --- | --- | --- |
-| **BUB1B** | stop_gained | 7,9×10⁻⁵ | **Sí, 2 variantes** |
-| **BUB1B** | missense | 6,8×10⁻⁷ |  |
-| SMC1B | sitio de empalme (aceptor) | 0,73 % (5 homocigotos en gnomAD) | No, solo 1 |
-| ANAPC2 | missense | 1,6×10⁻⁴ | No |
-| ATM | missense | 8,4×10⁻⁴ (7 homocigotos) | No |
-| CENPO | missense | 0,38 % (17 homocigotos) | No |
-| MAD1L1 | missense | 0,46 % (23 homocigotos) | No |
-| SASS6 | missense | 0,25 % (6 homocigotos) | No |
-| SMC4 | missense | 6,6×10⁻⁷ | No |
-| TUBB8 | missense | 0,92 % | No |
-| TUBGCP6 | missense | 1,1×10⁻⁴ | No |
+| Gen | Consecuencia en algún transcrito | En MANE | AF gnomAD v4 | ¿Cuenta? |
+| --- | --- | --- | --- | --- |
+| **BUB1B** | stop_gained | stop_gained (p.Leu737Ter) | 7,9×10⁻⁵ | **Sí · patrón recesivo (2 variantes)** |
+| **BUB1B** | missense | missense (p.Asn1002Lys) | 6,8×10⁻⁷ | **Sí** |
+| ATM | missense | missense | 8,4×10⁻⁴ (7 homocigotos) | 1 sola, frecuente |
+| CENPO | missense | missense | 0,38 % (17 homocigotos) | 1 sola, frecuente |
+| KDM6B | inserción en el marco | duplicación de 1 prolina en una región repetitiva | ausente | 1 sola |
+| MAD1L1 | missense | missense | 0,46 % (23 homocigotos) | 1 sola, frecuente |
+| RAD54L | missense | missense | 0,38 % (15 homocigotos) | 1 sola, frecuente |
+| SASS6 | missense | missense | 0,25 % (6 homocigotos) | 1 sola, frecuente |
+| SMC4 | missense | missense | 6,6×10⁻⁷ | 1 sola |
+| SUZ12 | missense | missense | 0,46 % (35 homocigotos) | 1 sola, frecuente |
+| SYNE2 | missense | missense (conservador; VUS en ClinVar para EDMD5, dominante) | 2,8×10⁻⁴ | 1 sola |
+| TUBB8 | missense | missense | 0,92 % | 1 sola, frecuente |
+| TUBGCP6 | missense | missense | 1,1×10⁻⁴ | 1 sola |
+| ANAPC2 | missense | **intrón** | 1,6×10⁻⁴ | No, falsa alarma |
+| ARID1B | stop_gained | **intrón** | 9×10⁻⁶ | No, falsa alarma |
+| SMARCA4 | missense | **intrón** | 0,67 % (66 homocigotos) | No, falsa alarma |
+| SMC1B | sitio de empalme (aceptor) | **intrón** | 0,73 % (5 homocigotos) | No, falsa alarma |
+| SYNE2 | stop_lost | **intrón** | 6,4×10⁻⁴ (1 homocigoto) | No, falsa alarma |
 
 **Los genes de MVA conocidos quedan descartados en cuanto a variantes codificantes:**
 - ***CEP57***: 4 variantes PASS, ninguna rara ni funcional.
@@ -164,37 +171,21 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 - ***MAD2L1BP*** (p31comet, MVA descrito en 2023): 4 variantes PASS, ninguna rara ni funcional.
 - *BUB1*, *BUB3*, *MAD2L1*, *CDC20*, *ESPL1*: sin variantes raras funcionales.
 
-**Lectura.** *BUB1B* es el único gen del panel donde una variante de pérdida de función se acompaña de otra variante rara funcional. No hay ninguna variante rara funcional homocigota en los 187 genes, así que tampoco hay una explicación recesiva por homocigosis. Los demás genes tienen a lo sumo una variante heterocigota, que no basta para un modelo recesivo, y la mayoría son frecuentes en gnomAD, con homocigotos sanos.
+**Lectura.** *BUB1B* es el **único gen de los 290** con dos variantes raras funcionales, y la única pérdida de función que se mantiene en MANE es p.Leu737Ter. No hay ninguna variante rara funcional homocigota, así que tampoco hay una explicación recesiva por homocigosis. Los demás genes tienen a lo sumo una variante heterocigota, que no basta para un modelo recesivo, y la mayoría son frecuentes en gnomAD, con homocigotos sanos. Con la consecuencia de cualquier transcrito, *SYNE2* aparecía con patrón recesivo; en MANE le queda una sola missense.
+
+**Historia del método.**
+- Laura detectó el problema el 6 oct, al revisar a mano en MANE los 104 genes nuevos: 3 de 7 alertas eran falsas.
+- El 8 oct se incorporó la anotación MANE al script (tarea A8). El barrido completo reproduce esas 3 falsas alarmas y encuentra 2 más en el panel original: ANAPC2 y el sitio de empalme de SMC1B.
 
 **Limitaciones de este análisis:**
-- Solo variantes PASS en los genes de la lista. Un gen de MVA que no esté en el panel no se evalúa.
+- Solo variantes PASS en los genes de la lista. Un gen de MVA que no esté en el panel no se evalúa. Las variantes no-PASS de los 6 genes principales se revisan aparte (notebook 02b, tarea A9).
 - **No se evalúan variantes estructurales ni de número de copias** (por ejemplo, deleciones de un exón en *BUB1B* o *CEP57*) ni variantes no codificantes. Un caso publicado de MVA combinó una variante de cambio de marco con una variante en elementos reguladores de *BUB1B* (Qu 2025, PMID 40555658, solo resumen).
-- La consecuencia de las variantes ausentes de gnomAD viene de VEP (la más severa en cualquier transcrito), que puede sobrestimar el efecto en el transcrito canónico.
+- Una alerta descartada en MANE podría importar si el gen expresa de forma relevante otro transcrito en el tejido afectado. Ninguna de las 5 descartadas formaba un patrón recesivo, así que no cambia la conclusión.
 - Un umbral de AF del 1 % deja pasar variantes demasiado frecuentes para una enfermedad tan rara; aquí no cambió el resultado.
 
-> Una primera versión del barrido marcó 31 variantes comunes como "ausentes de gnomAD" porque la lista de variantes por gen de gnomAD omite algunas. Se corrigió consultando cada variante funcional directamente.
-
-### 5b. Genes nuevos de los grupos del equipo (104 genes)
-
-**Método:** `python scripts/diagnostico_diferencial.py --solo-nuevos` sobre el bloque AUTO de `config/genes_candidatos.txt`. Corrido el 6 oct en una máquina con el VCF (Laura). Los 104 genes se resolvieron en gnomAD: hay 8765 variantes PASS del paciente y ninguna variante rara quedó sin anotar por VEP.
-
-**Verificación adicional:** cada variante rara funcional se volvió a anotar con Ensembl VEP en el transcrito **MANE Select**, que es la versión de referencia clínica del gen. El script, en cambio, toma la consecuencia más severa en cualquier transcrito.
-
-**Resultado:** 7 variantes raras funcionales en 6 genes, todas heterocigotas. **3 de las 7 eran falsas alarmas**: en el transcrito MANE caen en un intrón, y el efecto severo solo aparece en transcritos secundarios (en *SYNE2*, uno marcado para NMD).
-
-| Gen | Consecuencia (script) | Consecuencia en MANE | AF gnomAD v4 | ¿Cuenta? |
-| --- | --- | --- | --- | --- |
-| ARID1B | stop_gained | intrón | 9×10⁻⁶ | No, falsa alarma |
-| SMARCA4 | missense | intrón | 0,67 % (66 homocigotos) | No, falsa alarma |
-| SYNE2 | stop_lost | intrón | 6,4×10⁻⁴ (1 homocigoto) | No, falsa alarma |
-| SYNE2 | missense | missense (conservador; VUS en ClinVar para EDMD5, dominante) | 2,8×10⁻⁴ | 1 sola variante |
-| KDM6B | inserción en el marco | duplicación de 1 prolina en una región repetitiva | ausente | No, 1 sola variante |
-| RAD54L | missense | missense | 0,38 % (15 homocigotos) | No, frecuente |
-| SUZ12 | missense | missense | 0,46 % (35 homocigotos) | No, frecuente |
-
-**Lectura.** El script marcó *SYNE2* con patrón recesivo (2 heterocigotas), pero una de las dos es intrónica en el transcrito MANE. Queda una sola missense de significado incierto, en un gen de más de 6.000 aminoácidos donde las variantes raras son esperables. **Ninguno de los 104 genes nuevos explica el MVA**, y *BUB1B* sigue siendo el único gen con dos variantes dañinas.
-
-**Consecuencia para el método:** la limitación de arriba ("la más severa en cualquier transcrito") no es teórica: aquí produjo 3 de 7 alertas. Falta repetir el barrido de los 187 genes con la consecuencia en MANE. Con las 11 variantes de arriba el resultado no debería cambiar, porque ninguna formaba un patrón recesivo aparte de *BUB1B*, pero algunas filas de la tabla podrían ser intrónicas.
+> Correcciones del barrido:
+> - Una primera versión marcó 31 variantes comunes como "ausentes de gnomAD", porque la lista de variantes por gen de gnomAD omite algunas. Se corrigió consultando cada variante funcional directamente.
+> - El 8 oct se quitó el símbolo EB1 del panel: el buscador de alias lo resolvía como *ANKS1B*, pero EB1 es *MAPRE1*, que ya estaba en la lista. *ANKS1B* no tenía variantes raras funcionales.
 
 ## 6. Interpretación combinada
 
