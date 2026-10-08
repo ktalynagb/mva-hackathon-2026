@@ -10,6 +10,20 @@
 
 ---
 
+## 2026-10-08 (noche) — Figuras 1 y 2 del informe (A5, B5)
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/A5-B5-figuras`
+**Qué se hizo:**
+- `scripts/figuras_informe.py` genera las dos figuras con la guía de estilo del informe (paleta Okabe-Ito validada para daltonismo; alelo 1 bermellón, alelo 2 azul, fármacos verde)
+- **Figura 1** (`results/figura_1_bubr1_variantes.png`): BUBR1 con dominios, las 2 variantes del paciente y las 12 variantes de MVA de Suijkerbuijk 2010, agrupadas por efecto sobre la cantidad de proteína
+- **Figura 2** (`results/figura_2_via_mecanismo.png`): la vía del genotipo al fenotipo, con el punto de acción de cada línea terapéutica y las dos advertencias (HSP90, antimitóticos)
+- Ambas enlazadas en `docs/informe_final.md` con su pie de figura
+
+**Pendiente:**
+- [ ] Revisión 🧬 de la figura 2 (Hito H3, 14 oct)
+
+---
+
 ## 2026-10-08 (tarde) — Lista larga de fármacos (C3)
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C3-lista-larga`
