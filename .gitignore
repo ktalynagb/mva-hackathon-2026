@@ -37,6 +37,8 @@ results/*.csv
 results/*.tsv
 results/*.pkl
 results/*.parquet
+# lista larga de fármacos (C3): datos públicos, sin información del paciente
+!results/candidatos_farmacos.tsv
 # respuestas de gnomAD/VEP con variantes del paciente (borrar al cierre)
 results/cache/
 

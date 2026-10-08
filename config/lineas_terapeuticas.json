@@ -1,0 +1,48 @@
+{
+  "_nota": "Lineas terapeuticas de docs/secciones/02b_resumen_mecanismo.md. 'accion' es la direccion buscada sobre cada grupo de genes (tipos de interaccion de DGIdb / actionType de Open Targets, en minusculas).",
+  "lineas": {
+    "1_subir_bubr1": {
+      "descripcion": "Subir la cantidad de BUBR1 mutante (proteostasis)",
+      "grupos": [
+        {"genes": ["HSF1", "HSPA1A", "HSPA1B"], "accion": ["activator", "inducer", "agonist", "positive modulator", "positive allosteric modulator", "chaperone", "stabilizer"],
+         "nota": "Amplificar la respuesta de choque termico (HSP70)"},
+        {"genes": ["PSMB5", "PSMB1", "PSMB2"], "accion": ["inhibitor"],
+         "nota": "Inhibir el proteasoma sube la BUBR1 mutante en celulas (MG132; Suijkerbuijk 2010), pero es citotoxico"}
+      ]
+    },
+    "2_mtorc1": {
+      "descripcion": "Frenar mTORC1 (sarcopenia, envejecimiento)",
+      "grupos": [
+        {"genes": ["MTOR", "RPTOR"], "accion": ["inhibitor", "negative allosteric modulator", "blocker"], "nota": "Inhibidores de mTOR (los rapalogos van en curados: FKBP1A como semilla trae inhibidores de calcineurina)"},
+        {"genes": ["PRKAA1", "PRKAA2"], "accion": ["activator", "agonist", "positive allosteric modulator"], "nota": "Activar AMPK frena mTORC1"}
+      ]
+    },
+    "3_senolitico": {
+      "descripcion": "Eliminar celulas senescentes",
+      "grupos": [
+        {"genes": ["BCL2", "BCL2L1", "BCL2L2"], "accion": ["inhibitor", "antagonist"], "nota": "Inhibidores BCL-2/BCL-xL (senoliticos)"}
+      ]
+    },
+    "4_tumor": {
+      "descripcion": "Tratar el rabdomiosarcoma sin empeorar la aneuploidia",
+      "enfermedad_open_targets": "MONDO_0005212"
+    }
+  },
+  "excluir_si_inhibe": ["HSP90AA1", "HSP90AB1", "HSP90B1", "PLK1", "AURKA", "AURKB", "TTK", "CDC20", "ANAPC1", "ANAPC2", "ANAPC11", "BUB1", "CDK1"],
+  "precaucion_antimitotico": ["TUBB", "TUBA1A", "TUBA4A", "TUBB1", "TUBB3", "TUBB4B", "KIF11", "CENPE"],
+  "estandar_rms": ["VINCRISTINE", "DACTINOMYCIN", "CYCLOPHOSPHAMIDE", "IFOSFAMIDE", "DOXORUBICIN", "ETOPOSIDE", "IRINOTECAN", "VINORELBINE", "TEMOZOLOMIDE", "TOPOTECAN", "MESNA"],
+  "soporte": ["FILGRASTIM", "LIPEGFILGRASTIM", "PEGFILGRASTIM", "SARGRAMOSTIM", "PLERIXAFOR", "DEXRAZOXANE", "ANTILYMPHOCYTE IMMUNOGLOBULIN (RABBIT)", "MYCOPHENOLATE MOFETIL", "TACROLIMUS", "BUSULFAN", "MELPHALAN", "THIOTEPA", "FLUDARABINE"],
+  "curados": [
+    {"farmaco": "ARIMOCLOMOL", "linea": "1_subir_bubr1", "diana": "HSF1 (coinductor de la respuesta de choque termico)",
+     "motivo": "Amplifica HSP70 en una enfermedad de proteina mal plegada (Niemann-Pick C); aprobado desde 2 anos", "fuente": "FDA NDA 214927; PMID 36455410"},
+    {"farmaco": "SODIUM PHENYLBUTYRATE", "linea": "1_subir_bubr1", "diana": "chaperona quimica (sin diana unica)",
+     "motivo": "Rescata mutantes missense mal plegados en celulas (nefrina, GlyT2); son proteinas de membrana, no citosolicas como BUBR1", "fuente": "PMID 15213260; PMID 33794243"},
+    {"farmaco": "SIROLIMUS", "linea": "2_mtorc1", "diana": "MTOR (complejo FKBP12-mTOR)",
+     "motivo": "Inhibidor de mTORC1 de referencia; la rapamicina frena el deterioro por edad en raton (citado por Sieben 2020)", "fuente": "PMID 31738183"},
+    {"farmaco": "EVEROLIMUS", "linea": "2_mtorc1", "diana": "MTOR (complejo FKBP12-mTOR)", "motivo": "Rapalogo con uso pediatrico (TSC)", "fuente": "Drugs@FDA"},
+    {"farmaco": "TEMSIROLIMUS", "linea": "2_mtorc1", "diana": "MTOR (complejo FKBP12-mTOR)",
+     "motivo": "Une lineas 2 y 4: mejor supervivencia en recaida de rabdomiosarcoma (fase II), sin beneficio en riesgo intermedio (fase III)", "fuente": "PMID 31513481; PMID 38936378"},
+    {"farmaco": "DASATINIB", "linea": "3_senolitico", "diana": "SRC/ABL y efrinas (senolitico)",
+     "motivo": "Senolitico descrito con quercetina; aprobado en pediatria desde 1 ano", "fuente": "PMID 25754370"}
+  ]
+}
