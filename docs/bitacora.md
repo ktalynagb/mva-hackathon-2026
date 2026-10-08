@@ -3,10 +3,55 @@
 **Track 2 — Reposicionamiento de Fármacos**  
 **Repo:** https://github.com/ktalynagb/mva-hackathon-2026  
 **Deadline:** 24 de octubre de 2026, 23:59 UTC  
-**Equipo:** Ktalyna · Laura
+**Equipo:** Ktalyna · Laura · Josefina · (completar)
 
 > Registra qué se hizo, quién lo hizo, qué se decidió y qué sigue.  
 > Cada entrada nueva va **arriba**. Formato: `## YYYY-MM-DD — Título`.
+
+---
+
+## 2026-10-08 — Cierre de B1, H2 en revisión, matriz de fármacos y borrador del informe
+
+**Quién:** Ktalyna (con Claude Code)
+**Qué se hizo:**
+- Se fusionó el PR #5 de Laura (104 genes nuevos)
+- **B1** (PR #6): Suijkerbuijk 2010 y Sieben 2020 leídos en texto completo; guías ACMG verificadas en PubMed
+- **B4 / Hito H2** (PR #6): `docs/secciones/02b_resumen_mecanismo.md`, una página para el área C
+- **C1** (PR #7): `docs/secciones/03_criterios.md`, matriz con filtros de exclusión y 6 criterios ponderados
+- **E2 y E4** (PR #8): `docs/informe_final.md` con el borrador de variante y mecanismo ya integrado, guía de estilo, tabla de uso de IA y `docs/guion_pitch.md`
+- Tablero actualizado: estados de A2, A3, B2, B3 y D1; tareas nuevas A8 (barrido con MANE) y A9 (conclusión del notebook 02b); estado 👀 para tareas en revisión
+
+**Hallazgos:**
+- ✅ **En el MVA bialélico falta proteína, no función.** Todos los missense del dominio quinasa estudiados bajan BUBR1 de 5 a 10 veces por mal plegamiento, y llevarlos a niveles normales restaura el checkpoint (Suijkerbuijk 2010). p.Asn1002Lys está en ese dominio
+- ✅ **Caso publicado casi idéntico al nuestro:** truncamiento en el codón 753 (c.2211insGTTA, el nucleótido contiguo a nuestro c.2210) + p.Leu1012Pro. Ese paciente murió a los 3,6 meses
+- ✅ La pérdida total de BUBR1 es letal en el embrión de ratón (Wang 2004): ya no es una hipótesis sin fuente
+- ⚠️ **HSP90 deja de ser diana:** inhibirla baja aún más la BUBR1 mutante. Estaba propuesta en el notebook 05 y en el cuaderno 06
+- ⚠️ El formulario de métodos no está en el dataset de Hugging Face: E3 queda bloqueada
+
+**Decisiones:**
+- Las tareas en PR abierto pasan a 👀 y no cuentan para el máximo de 2 en curso
+- La lista corta de fármacos debe cubrir al menos dos líneas terapéuticas distintas
+
+**Pendiente:**
+- [ ] Revisión 🧬 del PR #6 y revisión 💊 de los PR #6 y #7
+- [ ] Bajar `methods_description_form.xlsx` del sitio del reto (E3)
+- [ ] Decidir el idioma del informe y del video
+- [ ] Cada persona completa su fila en la tabla de uso de IA (sección 2.6 del informe)
+- [ ] Asignar responsables del área C (C2 a C6) y de E1 y A7, que están vencidas
+
+---
+
+## 2026-10-07 — Análisis de sensibilidad de variantes no-PASS
+
+**Quién:** Josefina · subido directo a `master`
+**Qué se hizo:**
+- `notebooks/02b_sensibilidad_nonpass_genes_mva.ipynb`: revisa las variantes que el filtro de calidad descartó en los 6 genes principales
+
+**Hallazgos:**
+- 6 variantes no-PASS: 5 en *MAD1L1* y 1 en *BUB1B* (deleción de 1 pb, QUAL 19,8). Todas con baja calidad de mapeo o de lectura (filtros QD2, MQ40, LowQual)
+
+**Pendiente:**
+- [ ] Josefina: escribir la conclusión en el notebook (tarea A9)
 
 ---
 
@@ -309,13 +354,13 @@ SnpEff (vía myvariant.info) erróneamente clasifica 15:40220612 T>G como "inter
 |------|-------------|--------|-------------|
 | 1 | Datos y exploración | ✅ Completa | Ktalyna + Laura |
 | 2 | Identificar variante causante | ✅ **COMPLETADA** — Hito H1 logrado | Ktalyna + Laura |
-| 3 | Caracterizar mecanismo biológico | 🔄 En curso (notebook 05 listo) | Área B |
-| 4 | Candidatos de reposicionamiento | ⬜ Pendiente | Área C |
-| 5 | Informe + entrega | ⬜ Pendiente | Área E |
+| 3 | Caracterizar mecanismo biológico | 🔄 B1 y B4 (H2) en revisión, PR #6; falta B5 (H3, 14 oct) | Área B |
+| 4 | Candidatos de reposicionamiento | 🔄 C1 en revisión, PR #7; C2 a C6 sin responsable | Área C |
+| 5 | Informe + entrega | 🔄 Plantilla y guion en revisión, PR #8 | Área E |
 
 ### Hipótesis actual
 
-La causa del MVA en este paciente es **BUB1B heterocigótica compuesta** — ✅ **CONFIRMADA**:
+La causa del MVA en este paciente es **BUB1B heterocigótica compuesta**, muy probable pero sin confirmación formal: falta demostrar la fase *trans* y el alelo 2 es VUS (ver `secciones/01_variante_causante.md`):
 
 | Alelo | Posición | HGVSp | CADD | ClinVar |
 |-------|----------|-------|------|---------|
@@ -323,13 +368,14 @@ La causa del MVA en este paciente es **BUB1B heterocigótica compuesta** — ✅
 | 2 | 15:40220612 | **p.Asn1002Lys** (missense pseudo-kinasa) | 24.5 | no registrada |
 
 Ambas son heterocigotas, ultra-raras en gnomAD v4 (7.87×10⁻⁵ y 6.84×10⁻⁷), sin homocigotos.  
-→ Haploinsuficiencia compuesta de BUBR1 → SAC disfuncional → missegregación → MVA.
+→ Alelo nulo + alelo hipomórfico inestable → poca BUBR1 → SAC débil → errores de segregación → MVA.
 
 ---
 
 ## Pendientes globales
 
-- [ ] Fusionar PR #1 y #2 (tarea D1)
+- [x] Fusionar PR #1 y #2 (tarea D1)
+- [ ] Revisar y fusionar los PR #6, #7 y #8
 - [ ] Laura confirma `config/genes_candidatos.txt` (tarea A6)
 - [ ] Cada integrante toma tareas del [tablero](plan_equipo_tareas.md)
 - [ ] Completar `methods_description_form.xlsx` antes del 24 oct (tarea E7)
