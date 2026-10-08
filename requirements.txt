@@ -17,8 +17,9 @@ jupyter>=1.0.0
 ipykernel>=6.0.0
 matplotlib>=3.8.0
 
-# Lectura de documentos clínicos
+# Lectura de documentos clínicos y del listado de medicamentos de la EMA
 python-docx>=1.1.0
+openpyxl>=3.1.0
 
 # Utilidades
 requests>=2.31.0
