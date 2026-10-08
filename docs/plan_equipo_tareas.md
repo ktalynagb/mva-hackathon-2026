@@ -49,7 +49,7 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 |---|---|---|---|---|
 | **H1** | 7 oct | Variante causante confirmada | A1 | ✅ 1 oct |
 | **H2** | lun 12 oct | Resumen de mecanismo de 1 página | B4 | 👀 PR #6 |
-| **H3** | mié 14 oct | Mecanismo completo + figura de la vía | B5 | ⬜ |
+| **H3** | mié 14 oct | Mecanismo completo + figura de la vía | B5 | 👀 figura lista (8 oct) |
 | **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos con ficha | C5 | ⬜ |
 | **H5** | mié 21 oct | Borrador completo del informe | E5 | ⬜ |
 | **H6** | vie 23 oct, 12:00 UTC | Código congelado + tag `v1.0-entrega` | D6 | ⬜ |
@@ -69,7 +69,7 @@ Ya sabemos la respuesta: **BUB1B heterocigótica compuesta**, p.Leu737Ter + p.As
 | A2 | Redactar la variante causante con tabla ACMG formal. Incluir la limitación: sin muestras de los padres no se confirma que las variantes estén en alelos distintos (fase *trans*) | `docs/secciones/01_variante_causante.md` | 🧬✍️ | 9 oct | A1 | Ktalyna | ✅ PR #3 |
 | A3 | Diagnóstico diferencial: por qué no son *CEP57*, *TRIP13* ni los otros genes del panel | sección 5 de `01_variante_causante.md` + `scripts/diagnostico_diferencial.py` | 🧬 | 11 oct | A1 | Ktalyna, Laura | ✅ PR #3 y #5. Solo BUB1B tiene LOF + 2.ª variante rara; CEP57/TRIP13/MAD2L1BP sin variantes raras funcionales. 104 genes nuevos: ninguno explica el MVA; 3 de 7 alertas eran falsas por usar transcritos no MANE (sigue en A8) |
 | A4 | Revisar la calidad de lectura de las 2 variantes (AD, DP, GQ). ¿La fracción alélica es ≈ 0,5 o sugiere mosaicismo? | tabla en `01_variante_causante.md` (falta pasarla a una celda del notebook 04) | 💻🧬 | 11 oct | A1 | | 🔄 datos listos (fracción alt 0,54 y 0,46) |
-| A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_bub1b_lollipop.png` | 💻 | 13 oct | A1 | | ⬜ |
+| A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_1_bubr1_variantes.png` (`scripts/figuras_informe.py`) | 💻 | 13 oct | A1 | Ktalyna | 👀 incluye las variantes de MVA de Suijkerbuijk 2010 para comparar |
 | A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura | ⬜ |
 | A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto (evaluación automática inmediata, hasta 6 envíos por persona). **Ojo:** el formulario exige también enlace de GitHub e informe (.md o .pdf), y el envío aparece en el marcador público con el nombre de usuario | CSV + informe `<usuario>_track1_report.md` (formato en `01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ **vencida**, pendiente de iniciar sesión en Hugging Face |
 | A8 | Usar la consecuencia en el transcrito **MANE Select** dentro de `scripts/diagnostico_diferencial.py` y repetir el barrido de los 187 genes. Actualizar la tabla de la sección 5 | script + sección 5 de `01_variante_causante.md` | 💻🧬 | 13 oct | A3 | | ⬜ |
@@ -85,7 +85,7 @@ Base: `notebooks/05_mecanismo_biologico_bub1b.ipynb` ya tiene las 3 figuras y el
 | B2 | Confirmar si p.Leu737Ter activa el NMD (regla de 50–55 nt antes de la última unión exón-exón) | nota con fuente en notebook 05 y sección 4 de `01_variante_causante.md` | 🧬 | 10 oct | — | Ktalyna | ✅ PR #3. NMD predicho (PTC a 747 nt de la última unión) |
 | B3 | Ubicar p.Asn1002Lys en la estructura de AlphaFold: confianza (pLDDT), entorno y cambio de carga, y estimar su efecto en la estabilidad | `scripts/evidencia_alelo2.py`, `scripts/estabilidad_alelo2.py` + sección de `01_variante_causante.md` | 🧬💻 | 12 oct | — | Ktalyna | ✅ PR #3 y #4. ΔΔG de N1002K = +1,5 kcal/mol (moderado); no toca el bolsillo de ATP |
 | B4 | **(H2)** Resumen del mecanismo en 1 página, escrito para quien elige fármacos | `docs/secciones/02b_resumen_mecanismo.md` | 🧬✍️ | **12 oct** | B1, B2 | Ktalyna | 👀 PR #6: 4 líneas terapéuticas y 2 advertencias; falta revisión 💊 |
-| B5 | **(H3)** Pulir la figura de la vía (variante → SAC débil → aneuploidía → fenotipo) con el estilo del informe | `results/figura_02c_…png` final | ✍️🧬 | **14 oct** | B4, E2 | | ⬜ |
+| B5 | **(H3)** Pulir la figura de la vía (variante → SAC débil → aneuploidía → fenotipo) con el estilo del informe | `results/figura_2_via_mecanismo.png` (`scripts/figuras_informe.py`) | ✍️🧬 | **14 oct** | B4, E2 | Ktalyna | 👀 con los puntos de acción de las 4 líneas y las 2 advertencias |
 
 ### Área C — Fármacos para reposicionamiento 💊
 

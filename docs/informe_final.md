@@ -75,7 +75,9 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 - **Diagnóstico diferencial:** en ninguno de los 291 genes del panel aparece otro patrón recesivo con variantes raras funcionales. *CEP57*, *TRIP13* y *MAD2L1BP* no tienen variantes raras funcionales. [Repetir el barrido con MANE · seguimiento de A3]
 - **Limitación principal:** sin muestras de los padres no se puede demostrar que las variantes estén en alelos distintos (*trans*).
-- **Figura 1** [PENDIENTE · A5]: BUBR1 con sus dominios y las dos variantes.
+![Figura 1](../results/figura_1_bubr1_variantes.png)
+
+**Figura 1. BUBR1 con las variantes del paciente y las variantes de MVA caracterizadas.** Arriba, las dos variantes del paciente: p.Leu737Ter (bermellón, truncante) y p.Asn1002Lys (azul, missense en la pseudoquinasa). Abajo, variantes de pacientes con MVA estudiadas en células por Suijkerbuijk et al. 2010, separadas según bajen la cantidad de BUBR1 o no. Las líneas punteadas alinean las variantes del paciente con las publicadas: p.Leu737Ter cae entre los truncamientos 731X y 753X, y p.Asn1002Lys junto a L1012P, en la región donde los missense reducen la proteína. Dominios: UniProt O60566 y Zhang et al. 2026. Generada con `scripts/figuras_informe.py`.
 
 ### 3.2 Mecanismo biológico
 
@@ -85,7 +87,9 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 - **Estructura y estabilidad de N1002K:** residuo enterrado (pLDDT 91), con 3 enlaces de hidrógeno que la lisina no puede formar; ΔΔG +1,5 kcal/mol (percentil 72–75 del dominio), la mitad que la variante conocida de MVA p.Leu1012Pro (+3,1). No toca el bolsillo de ATP (a 29 Å).
 - **Precedente más cercano:** un paciente con truncamiento en el codón 753 y p.Leu1012Pro (Hanks 2004; modelado por Sieben 2020). Mismo tipo de genotipo y misma región; ese paciente murió a los 3,6 meses.
 - **Consecuencia:** checkpoint débil → reparto erróneo de cromosomas → aneuploidía en mosaico → senescencia y envejecimiento precoz (talla baja, atrofia muscular, posible mTORC1) e inestabilidad cromosómica (rabdomiosarcoma).
-- **Figura 2** [PENDIENTE · B5]: la vía, de la variante al fenotipo.
+![Figura 2](../results/figura_2_via_mecanismo.png)
+
+**Figura 2. Del genotipo al fenotipo.** Los dos alelos convergen en poca BUBR1, lo que debilita el checkpoint mitótico y produce aneuploidía en mosaico. De ahí salen dos ramas: senescencia (con mTORC1 hiperactivo en ratón), que explicaría el retraso del crecimiento y la atrofia muscular, e inestabilidad cromosómica, que lleva al rabdomiosarcoma. En verde, el punto de acción de cada línea terapéutica; en recuadros punteados, las dos advertencias. Las etiquetas en cursiva indican el nivel de evidencia de cada paso. La nefrocalcinosis no tiene un mecanismo establecido y no se incluye. Generada con `scripts/figuras_informe.py`.
 
 ### 3.3 Candidatos de reposicionamiento
 
