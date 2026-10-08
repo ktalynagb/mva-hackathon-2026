@@ -10,6 +10,25 @@
 
 ---
 
+## 2026-10-08 (tarde) — Lista larga de fármacos (C3)
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C3-lista-larga`
+**Qué se hizo:**
+- Se fusionaron los PR #6 a #9 y se borraron las ramas ya fusionadas
+- `scripts/lista_larga_farmacos.py` une DGIdb v5, Open Targets y una lista curada por línea terapéutica, comprueba la aprobación en Drugs@FDA y en la EMA y aplica los filtros F1 y F2 de C1
+- Resultado en `results/candidatos_farmacos.tsv` (con excepción en `.gitignore`: no contiene datos del paciente) y resumen en `docs/secciones/03b_lista_larga.md`
+
+**Hallazgos:**
+- 86 fármacos: **52 candidatos** (líneas 1–3: 14; tumor: 38), 21 de contexto y 13 excluidos
+- ✅ Ninguno de los 162 inhibidores de HSP90, PLK1, Aurora, MPS1, APC/C, BUB1 o CDK1 está aprobado: las dianas que empeorarían el checkpoint no tienen fármacos aprobados
+- ⚠️ Open Targets ya no tiene el campo `knownDrugs` (ahora `drugAndClinicalCandidates`) y no liga los rapalógos a MTOR; se curaron a mano
+- ⚠️ openFDA no trae `generic_name` en muchos registros; se busca también por principio activo
+
+**Pendiente:**
+- [ ] C4: puntuar los 52 candidatos con la matriz (perfil 💊). Avisos en la sección 3 de `03b_lista_larga.md`
+
+---
+
 ## 2026-10-08 — Cierre de B1, H2 en revisión, matriz de fármacos y borrador del informe
 
 **Quién:** Ktalyna (con Claude Code)
