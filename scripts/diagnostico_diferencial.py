@@ -3,8 +3,10 @@
 Para cada gen de config/genes_candidatos.txt:
   1. Toma las variantes PASS del paciente dentro del gen (VCF en data/raw/).
   2. Las cruza con gnomAD v4 (frecuencia y consecuencia) y, para las ausentes de gnomAD, con Ensembl VEP.
-  3. Cuenta variantes raras (AF < 1 % o ausentes de gnomAD) con efecto funcional y evalua si el patron es compatible con
-     herencia recesiva: >= 1 homocigota, o >= 2 heterocigotas (fase desconocida).
+  3. Las variantes raras (AF < 1 % o ausentes de gnomAD) que parecen funcionales se vuelven a anotar con VEP en el
+     transcrito MANE Select del mismo gen, y esa consecuencia es la que decide. La consecuencia "mas severa en cualquier
+     transcrito" producia falsas alarmas (3 de 7 en los genes nuevos).
+  4. Evalua si el patron es compatible con herencia recesiva: >= 1 homocigota, o >= 2 heterocigotas (fase desconocida).
 
 Salida (results/):
   diagnostico_diferencial_genes.tsv      una fila por gen
@@ -187,6 +189,49 @@ def vep_lote(variantes):
     return {c: res.get(c) for c in variantes}
 
 
+def vep_mane(claves):
+    """Anotacion VEP con MANE Select. {clave: [transcript_consequences con mane_select]}.
+    Cache en data/cache/vep_mane.json (contiene variantes del paciente: no sale de data/)."""
+    CACHE.mkdir(parents=True, exist_ok=True)
+    f = CACHE / "vep_mane.json"
+    res = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+    faltan = [c for c in claves if c not in res]
+    for i in range(0, len(faltan), 100):
+        lote = faltan[i:i + 100]
+        cuerpo = {"variants": [" ".join([*c.split("-")[:2], ".", *c.split("-")[2:], ". . ."]) for c in lote]}
+        for intento in range(4):
+            try:
+                r = requests.post(VEP, json=cuerpo, params={"mane": 1, "hgvs": 1},
+                                  headers={"Content-Type": "application/json", "Accept": "application/json"}, timeout=180)
+                if r.status_code == 200:
+                    for e in r.json():
+                        ini = e["input"].split()
+                        res[f"{ini[0]}-{ini[1]}-{ini[3]}-{ini[4]}"] = [
+                            {k: t.get(k) for k in ("gene_id", "gene_symbol", "transcript_id", "consequence_terms", "hgvsp")}
+                            for t in e.get("transcript_consequences", []) if t.get("mane_select")]
+                    f.write_text(json.dumps(res), encoding="utf-8")
+                    break
+            except (requests.RequestException, ValueError):
+                pass
+            time.sleep(5 * 2 ** intento)
+        time.sleep(1)
+    return {c: res.get(c, []) for c in claves}
+
+
+ORDEN = ["stop_gained", "frameshift_variant", "splice_acceptor_variant", "splice_donor_variant", "start_lost",
+         "stop_lost", "inframe_insertion", "inframe_deletion", "missense_variant", "protein_altering_variant"]
+
+
+def consecuencia_mane(transcritos, gene_id):
+    """Consecuencia mas grave en el transcrito MANE del gen; 'sin MANE' si el gen no tiene transcrito MANE en la variante."""
+    propios = [t for t in transcritos if t["gene_id"] == gene_id]
+    if not propios:
+        return "sin MANE", ""
+    terminos = propios[0]["consequence_terms"] or []
+    funcionales = [t for t in ORDEN if t in terminos]
+    return (funcionales[0] if funcionales else terminos[0] if terminos else "?"), propios[0].get("hgvsp") or ""
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--solo-nuevos", action="store_true",
@@ -239,6 +284,19 @@ def main():
             if d:
                 v["af"], v["hom_gnomad"], v["en_gnomad"] = frecuencia(d), homocigotos(d), True
 
+    candidatas = [v for lista in paciente.values() for v in lista
+                  if (v["af"] is None or v["af"] < AF_RARA) and v["consecuencia"] in FUNCIONAL]
+    mane = vep_mane(sorted({v["clave"] for v in candidatas}))
+    for v in candidatas:
+        v["consecuencia_mane"], v["hgvsp"] = consecuencia_mane(mane[v["clave"]], gen_info[v["gen"]]["gene_id"])
+    print(f"{len(candidatas)} variantes raras con efecto funcional en algún transcrito; "
+          f"{sum(v['consecuencia_mane'] in FUNCIONAL for v in candidatas)} lo mantienen en MANE")
+
+    def cuenta(v):
+        # Sin transcrito MANE se conserva la consecuencia mas severa, marcada en la tabla
+        c = v.get("consecuencia_mane")
+        return v["consecuencia"] if c == "sin MANE" else c
+
     resumen = []
     for s in simbolos:
         if s in no_analizados:
@@ -246,25 +304,29 @@ def main():
             continue
         lista = paciente.get(s, [])
         raras = [v for v in lista if v["af"] is None or v["af"] < AF_RARA]
-        func = [v for v in raras if v["consecuencia"] in FUNCIONAL]
-        lof = [v for v in func if v["consecuencia"] in LOF]
+        alertas = [v for v in raras if v["consecuencia"] in FUNCIONAL]
+        func = [v for v in alertas if cuenta(v) in FUNCIONAL]
+        lof = [v for v in func if cuenta(v) in LOF]
         hom = [v for v in func if v["zig"] == "HOM"]
         het = [v for v in func if v["zig"] == "HET"]
         sin_anotar = [v for v in raras if v["consecuencia"] is None]
         compat = bool(hom) or len(het) >= 2
-        resumen.append({"gen": s, "analizado": True, "motivo": "", "variantes_pass": len(lista), "raras_o_ausentes": len(raras), "raras_funcionales": len(func),
+        resumen.append({"gen": s, "analizado": True, "motivo": "", "variantes_pass": len(lista), "raras_o_ausentes": len(raras),
+                        "alertas_cualquier_transcrito": len(alertas), "raras_funcionales": len(func),
+                        "descartadas_mane": len(alertas) - len(func),
                         "lof": len(lof), "hom_funcionales": len(hom), "het_funcionales": len(het),
                         "sin_anotar": len(sin_anotar), "patron_recesivo": compat})
-        filas_var += [dict(v, gen=s) for v in func]
+        filas_var += [dict(v, gen=s, cuenta=cuenta(v) in FUNCIONAL) for v in alertas]
 
     OUT.mkdir(exist_ok=True)
-    cols = ["gen", "analizado", "motivo", "variantes_pass", "raras_o_ausentes", "raras_funcionales", "lof", "hom_funcionales", "het_funcionales",
-            "sin_anotar", "patron_recesivo"]
+    cols = ["gen", "analizado", "motivo", "variantes_pass", "raras_o_ausentes", "alertas_cualquier_transcrito", "raras_funcionales",
+            "descartadas_mane", "lof", "hom_funcionales", "het_funcionales", "sin_anotar", "patron_recesivo"]
     with open(OUT / f"diagnostico_diferencial{sufijo}_genes.tsv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, cols, delimiter="\t")
         w.writeheader()
         w.writerows(sorted(resumen, key=lambda r: (not r["analizado"], -r.get("lof", 0), -r.get("raras_funcionales", 0), r["gen"])))
-    cols_v = ["gen", "chrom", "pos", "ref", "alt", "zig", "consecuencia", "af", "hom_gnomad", "en_gnomad", "dp", "gq"]
+    cols_v = ["gen", "chrom", "pos", "ref", "alt", "zig", "consecuencia", "consecuencia_mane", "hgvsp", "cuenta",
+              "af", "hom_gnomad", "en_gnomad", "dp", "gq"]
     with open(OUT / f"diagnostico_diferencial{sufijo}_variantes.tsv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, cols_v, delimiter="\t", extrasaction="ignore")
         w.writeheader()

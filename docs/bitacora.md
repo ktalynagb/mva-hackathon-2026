@@ -10,6 +10,24 @@
 
 ---
 
+## 2026-10-08 (noche) — Diagnóstico diferencial con MANE (A8) y pipeline de un comando (D2, D3, D5)
+
+**Quién:** Ktalyna (con Claude Code) · ramas `tarea/A8-mane` y `tarea/D2-D3-D5-pipeline`
+**Qué se hizo:**
+- `scripts/diagnostico_diferencial.py` vuelve a anotar con VEP, en el transcrito **MANE Select**, cada variante rara que parece funcional. Esa consecuencia es la que decide
+- Barrido completo de los 290 genes (panel original + grupos del equipo) con el VCF local
+- Se quitó EB1 del panel: el buscador de alias lo resolvía como *ANKS1B*; EB1 es *MAPRE1*, que ya estaba
+- `run_pipeline.py` corre todo el análisis con un comando; `requirements-lock.txt` fija las versiones; el README explica cómo usarlo con otro paciente (PR #12)
+
+**Hallazgos:**
+- 18 alertas en algún transcrito → **13 en MANE**. Se reproducen las 3 falsas alarmas que Laura encontró a mano (ARID1B, SMARCA4, SYNE2) y aparecen 2 más en el panel original (ANAPC2 y el sitio de empalme de SMC1B)
+- ✅ *BUB1B* sigue siendo el único gen con patrón recesivo; sus dos variantes mantienen el efecto en MANE
+
+**Pendiente:**
+- [ ] D3: clonación limpia en otra máquina
+
+---
+
 ## 2026-10-08 (noche) — Figuras 1 y 2 del informe (A5, B5)
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/A5-B5-figuras`
