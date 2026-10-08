@@ -72,7 +72,7 @@ Ya sabemos la respuesta: **BUB1B heterocigótica compuesta**, p.Leu737Ter + p.As
 | A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_1_bubr1_variantes.png` (`scripts/figuras_informe.py`) | 💻 | 13 oct | A1 | Ktalyna | 👀 incluye las variantes de MVA de Suijkerbuijk 2010 para comparar |
 | A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura | ⬜ |
 | A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto (evaluación automática inmediata, hasta 6 envíos por persona). **Ojo:** el formulario exige también enlace de GitHub e informe (.md o .pdf), y el envío aparece en el marcador público con el nombre de usuario | CSV + informe `<usuario>_track1_report.md` (formato en `01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ **vencida**, pendiente de iniciar sesión en Hugging Face |
-| A8 | Usar la consecuencia en el transcrito **MANE Select** dentro de `scripts/diagnostico_diferencial.py` y repetir el barrido de los 187 genes. Actualizar la tabla de la sección 5 | script + sección 5 de `01_variante_causante.md` | 💻🧬 | 13 oct | A3 | | ⬜ |
+| A8 | Usar la consecuencia en el transcrito **MANE Select** dentro de `scripts/diagnostico_diferencial.py` y repetir el barrido de los 187 genes. Actualizar la tabla de la sección 5 | script + sección 5 de `01_variante_causante.md` | 💻🧬 | 13 oct | A3 | Ktalyna | 👀 290 genes: 18 alertas → 13 en MANE; solo BUB1B con patrón recesivo |
 | A9 | Conclusión del análisis de variantes no-PASS (notebook 02b): ¿alguna de las 6 variantes merece revisarse? Escribirla en el notebook, en la sección 5 de `01_variante_causante.md` y en la bitácora | celda de conclusión + 1 párrafo | 🧬 | 12 oct | — | Josefina | 🔄 notebook subido (7 oct), falta la conclusión |
 
 ### Área B — Mecanismo biológico 🧬
@@ -109,10 +109,10 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
 | D1 | Revisar y fusionar los PR #1 (notebook 04) y #2 (notebook 05) | PRs fusionados en `master` | 💻 | 5 oct | — | Ktalyna | ✅ fusionados el 1 oct |
-| D2 | Punto de entrada único (`run_pipeline.py`) y parámetros en `config/config.yaml` | script + config | 💻 | 12 oct | D1 | | ⬜ |
-| D3 | Fijar versiones en `requirements.txt` y probar una clonación limpia en otra máquina | `requirements.txt` + nota en README | 💻 | 12 oct | D1 | | ⬜ |
+| D2 | Punto de entrada único (`run_pipeline.py`); los parámetros viven en `config/` | script + README | 💻 | 12 oct | D1 | Ktalyna | 👀 PR #12 |
+| D3 | Fijar versiones y probar una clonación limpia en otra máquina | `requirements-lock.txt` + nota en README | 💻 | 12 oct | D1 | Ktalyna | 👀 PR #12; **falta la clonación limpia en otra máquina** (ideal Linux o macOS) |
 | D4 | Tests con pytest para las funciones críticas y caché local de las consultas a APIs | `tests/` pasando | 💻 | 17 oct | D2 | | ⬜ |
-| D5 | Sección "Escalabilidad" del README: cómo correr el pipeline con otro paciente | README actualizado | 💻✍️ | 20 oct | D2 | | ⬜ |
+| D5 | Sección "Escalabilidad" del README: cómo correr el pipeline con otro paciente | README actualizado | 💻✍️ | 20 oct | D2 | Ktalyna | 👀 PR #12 |
 | D6 | **(H6)** Corrida limpia completa, congelación y tag `v1.0-entrega` | release en GitHub | 💻 | **23 oct 12:00 UTC** | todas las D | | ⬜ |
 
 ### Área E — Informe, video y entrega ✍️
