@@ -19,6 +19,7 @@ Documentos relacionados: [plan de trabajo por fases](plan_de_trabajo.md) · [bit
 7. **Si te bloqueas más de 24 h, avisa.** Si una tarea 🔄 no avanza en 3 días, vuelve a quedar libre.
 
 **Leyenda de perfil:** 🧬 biología / genética · 💊 farmacología · 💻 código · ✍️ redacción y diseño
+**Leyenda de estado:** ⬜ libre · 🔄 en curso · 👀 en revisión (PR abierto; no cuenta para el máximo de 2) · ✅ fusionado
 
 ---
 
@@ -47,7 +48,7 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 | Hito | Fecha | Qué debe existir | Tarea | Estado |
 |---|---|---|---|---|
 | **H1** | 7 oct | Variante causante confirmada | A1 | ✅ 1 oct |
-| **H2** | lun 12 oct | Resumen de mecanismo de 1 página | B4 | ⬜ |
+| **H2** | lun 12 oct | Resumen de mecanismo de 1 página | B4 | 👀 PR #6 |
 | **H3** | mié 14 oct | Mecanismo completo + figura de la vía | B5 | ⬜ |
 | **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos con ficha | C5 | ⬜ |
 | **H5** | mié 21 oct | Borrador completo del informe | E5 | ⬜ |
@@ -65,12 +66,14 @@ Ya sabemos la respuesta: **BUB1B heterocigótica compuesta**, p.Leu737Ter + p.As
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
 | A1 | Priorizar variantes con gnomAD, CADD y ClinVar | `notebooks/04_…ipynb` + `results/hito_H1_resultados_finales.json` | 💻🧬 | 7 oct | — | Ktalyna, Laura | ✅ |
-| A2 | Redactar la variante causante con tabla ACMG formal. Incluir la limitación: sin muestras de los padres no se confirma que las variantes estén en alelos distintos (fase *trans*) | `docs/secciones/01_variante_causante.md` | 🧬✍️ | 9 oct | A1 | Ktalyna | 🔄 borrador en PR, falta revisión |
-| A3 | Diagnóstico diferencial: por qué no son *CEP57*, *TRIP13* ni los otros genes del panel | sección 5 de `01_variante_causante.md` + `scripts/diagnostico_diferencial.py` | 🧬 | 11 oct | A1 | Ktalyna, Laura | ✅ solo BUB1B tiene LOF + 2.ª variante rara; CEP57/TRIP13/MAD2L1BP sin variantes raras funcionales. 104 genes nuevos (Laura, 6 oct): ninguno explica el MVA; 3 de 7 alertas eran falsas por usar transcritos no MANE. Falta revisión |
+| A2 | Redactar la variante causante con tabla ACMG formal. Incluir la limitación: sin muestras de los padres no se confirma que las variantes estén en alelos distintos (fase *trans*) | `docs/secciones/01_variante_causante.md` | 🧬✍️ | 9 oct | A1 | Ktalyna | ✅ PR #3 |
+| A3 | Diagnóstico diferencial: por qué no son *CEP57*, *TRIP13* ni los otros genes del panel | sección 5 de `01_variante_causante.md` + `scripts/diagnostico_diferencial.py` | 🧬 | 11 oct | A1 | Ktalyna, Laura | ✅ PR #3 y #5. Solo BUB1B tiene LOF + 2.ª variante rara; CEP57/TRIP13/MAD2L1BP sin variantes raras funcionales. 104 genes nuevos: ninguno explica el MVA; 3 de 7 alertas eran falsas por usar transcritos no MANE (sigue en A8) |
 | A4 | Revisar la calidad de lectura de las 2 variantes (AD, DP, GQ). ¿La fracción alélica es ≈ 0,5 o sugiere mosaicismo? | tabla en `01_variante_causante.md` (falta pasarla a una celda del notebook 04) | 💻🧬 | 11 oct | A1 | | 🔄 datos listos (fracción alt 0,54 y 0,46) |
 | A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_bub1b_lollipop.png` | 💻 | 13 oct | A1 | | ⬜ |
 | A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura | ⬜ |
-| A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto (evaluación automática inmediata, hasta 6 envíos por persona). **Ojo:** el formulario exige también enlace de GitHub e informe (.md o .pdf), y el envío aparece en el marcador público con el nombre de usuario | CSV + informe `<usuario>_track1_report.md` (formato en `01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ pendiente de iniciar sesión en Hugging Face |
+| A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto (evaluación automática inmediata, hasta 6 envíos por persona). **Ojo:** el formulario exige también enlace de GitHub e informe (.md o .pdf), y el envío aparece en el marcador público con el nombre de usuario | CSV + informe `<usuario>_track1_report.md` (formato en `01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ **vencida**, pendiente de iniciar sesión en Hugging Face |
+| A8 | Usar la consecuencia en el transcrito **MANE Select** dentro de `scripts/diagnostico_diferencial.py` y repetir el barrido de los 187 genes. Actualizar la tabla de la sección 5 | script + sección 5 de `01_variante_causante.md` | 💻🧬 | 13 oct | A3 | | ⬜ |
+| A9 | Conclusión del análisis de variantes no-PASS (notebook 02b): ¿alguna de las 6 variantes merece revisarse? Escribirla en el notebook, en la sección 5 de `01_variante_causante.md` y en la bitácora | celda de conclusión + 1 párrafo | 🧬 | 12 oct | — | Josefina | 🔄 notebook subido (7 oct), falta la conclusión |
 
 ### Área B — Mecanismo biológico 🧬
 
@@ -78,21 +81,23 @@ Base: `notebooks/05_mecanismo_biologico_bub1b.ipynb` ya tiene las 3 figuras y el
 
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
-| B1 | Revisión bibliográfica: dominios de BUBR1, su papel en el SAC y el MCC, ratones hipomórficos de BubR1, genotipos típicos de MVA tipo 1. Con referencias | `docs/secciones/02_marco_biologico.md` | 🧬✍️ | 10 oct | — | Ktalyna | 🔄 borrador con 18 citas verificadas en PubMed; falta leer textos completos |
-| B2 | Confirmar si p.Leu737Ter activa el NMD (regla de 50–55 nt antes de la última unión exón-exón) | nota con fuente en notebook 05 y sección 4 de `01_variante_causante.md` | 🧬 | 10 oct | — | Ktalyna | ✅ NMD predicho (PTC a 747 nt de la última unión); falta revisión |
-| B3 | Ubicar p.Asn1002Lys en la estructura de AlphaFold: confianza (pLDDT), entorno y cambio de carga, y estimar su efecto en la estabilidad | `scripts/evidencia_alelo2.py`, `scripts/estabilidad_alelo2.py` + sección de `01_variante_causante.md` | 🧬💻 | 12 oct | — | Ktalyna | ✅ ΔΔG de N1002K = +1,5 kcal/mol (moderado); falta revisión |
-| B4 | **(H2)** Resumen del mecanismo en 1 página, escrito para quien elige fármacos | `docs/secciones/02b_resumen_mecanismo.md` | 🧬✍️ | **12 oct** | B1, B2 | | ⬜ |
+| B1 | Revisión bibliográfica: dominios de BUBR1, su papel en el SAC y el MCC, ratones hipomórficos de BubR1, genotipos típicos de MVA tipo 1. Con referencias | `docs/secciones/02_marco_biologico.md` | 🧬✍️ | 10 oct | — | Ktalyna | 👀 PR #6: textos completos de Suijkerbuijk 2010 y Sieben 2020; falta revisión 🧬 |
+| B2 | Confirmar si p.Leu737Ter activa el NMD (regla de 50–55 nt antes de la última unión exón-exón) | nota con fuente en notebook 05 y sección 4 de `01_variante_causante.md` | 🧬 | 10 oct | — | Ktalyna | ✅ PR #3. NMD predicho (PTC a 747 nt de la última unión) |
+| B3 | Ubicar p.Asn1002Lys en la estructura de AlphaFold: confianza (pLDDT), entorno y cambio de carga, y estimar su efecto en la estabilidad | `scripts/evidencia_alelo2.py`, `scripts/estabilidad_alelo2.py` + sección de `01_variante_causante.md` | 🧬💻 | 12 oct | — | Ktalyna | ✅ PR #3 y #4. ΔΔG de N1002K = +1,5 kcal/mol (moderado); no toca el bolsillo de ATP |
+| B4 | **(H2)** Resumen del mecanismo en 1 página, escrito para quien elige fármacos | `docs/secciones/02b_resumen_mecanismo.md` | 🧬✍️ | **12 oct** | B1, B2 | Ktalyna | 👀 PR #6: 4 líneas terapéuticas y 2 advertencias; falta revisión 💊 |
 | B5 | **(H3)** Pulir la figura de la vía (variante → SAC débil → aneuploidía → fenotipo) con el estilo del informe | `results/figura_02c_…png` final | ✍️🧬 | **14 oct** | B4, E2 | | ⬜ |
 
 ### Área C — Fármacos para reposicionamiento 💊
 
-Base: `results/resumen_mecanismo_para_R4.json` ya lista 6 dianas (CDC20/APC/C, PLK1, Aurora B, Hsp90, eje p53, mTOR). Son hipótesis para verificar.
+Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza el `resumen_mecanismo_para_R4.json` del notebook 05. Propone 4 líneas: subir la cantidad de BUBR1 (proteostasis), frenar mTORC1, senolíticos y tratar el tumor sin empeorar la aneuploidía.
 
-> **Adelanto (5 oct):** una compañera que dejó el equipo subió `notebooks/06_agente_reposicionamiento_farmacos.ipynb`, un agente LangChain + Gemini con una lista inicial de fármacos para 6 blancos (APC/C, CDC20, PLK1, Aurora B, Hsp90, p53; no incluye mTOR). **Es un borrador, no una lista validada.** Antes de usarla falta un paso de verificación: (1) varios fármacos listados no están aprobados por FDA/EMA (Volasertib, Rigosertib, Barasertib, Dinaciclib); (2) bajo Hsp90 y p53 aparecen fármacos que no actúan sobre ese blanco (Crizotinib, Trametinib, Everolimus, Doxorrubicina); (3) la consulta a DGIdb usa la API v2 y falló en la ejecución guardada, así que el informe no usó datos recuperados; (4) la aprobación FDA/EMA solo es una instrucción del prompt, no se comprueba contra ninguna base. Siguiente paso: rehacer C3 con DGIdb v5 y Open Targets, comprobar la aprobación contra una fuente (openFDA o DrugBank) y puntuar con la matriz de C1.
+> ⚠️ **Cambio importante (8 oct):** los missense del dominio quinasa de BUBR1 dependen de HSP90 para plegarse, e inhibirla **baja aún más** la proteína (Suijkerbuijk 2010). HSP90 deja de ser diana. También quedan fuera PLK1, Aurora, MPS1 y APC/C: debilitan más la mitosis y no tienen fármacos aprobados.
+
+> **Adelanto (6 oct):** una compañera que dejó el equipo subió `notebooks/06_agente_reposicionamiento_farmacos.ipynb`, un agente LangChain + Gemini con una lista inicial de fármacos para 6 blancos (APC/C, CDC20, PLK1, Aurora B, Hsp90, p53; no incluye mTOR). **Es un borrador, no una lista validada.** Antes de usarla falta un paso de verificación: (1) varios fármacos listados no están aprobados por FDA/EMA (Volasertib, Rigosertib, Barasertib, Dinaciclib); (2) bajo Hsp90 y p53 aparecen fármacos que no actúan sobre ese blanco (Crizotinib, Trametinib, Everolimus, Doxorrubicina); (3) la consulta a DGIdb usa la API v2 y falló en la ejecución guardada, así que el informe no usó datos recuperados; (4) la aprobación FDA/EMA solo es una instrucción del prompt, no se comprueba contra ninguna base. Siguiente paso: rehacer C3 con DGIdb v5 y Open Targets, comprobar la aprobación contra una fuente (openFDA o DrugBank) y puntuar con la matriz de C1.
 
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
-| C1 | Definir la matriz de priorización y sus pesos: aprobación FDA/EMA, solidez del mecanismo, seguridad pediátrica, interacción con el tratamiento del rabdomiosarcoma, evidencia existente | `docs/secciones/03_criterios.md` | 💊 | 10 oct | — | | ⬜ |
+| C1 | Definir la matriz de priorización y sus pesos: aprobación FDA/EMA, solidez del mecanismo, seguridad pediátrica, interacción con el tratamiento del rabdomiosarcoma, evidencia existente | `docs/secciones/03_criterios.md` | 💊 | 10 oct | — | Ktalyna (borrador) | 👀 PR #7: 4 filtros + 6 criterios ponderados; necesita revisor 💊 para cerrar 5 decisiones |
 | C2 | Paisaje terapéutico: fármacos aprobados sobre mitosis/SAC, senescencia, *readthrough* de codones de stop y mTOR | sección en el mismo archivo | 💊🧬 | 12 oct | — | | ⬜ |
 | C3 | Notebook 06: consultar DGIdb y Open Targets para *BUB1B* y su red → lista larga de 20 a 30 fármacos | `notebooks/06_candidatos_farmacos.ipynb` + `results/candidatos_farmacos.tsv` | 💻💊 | 14 oct | — | | ⬜ |
 | C4 | Puntuar la lista larga con la matriz | columna de puntaje en el `.tsv` | 💊 | 15 oct | C1, C3 | | ⬜ |
@@ -103,7 +108,7 @@ Base: `results/resumen_mecanismo_para_R4.json` ya lista 6 dianas (CDC20/APC/C, P
 
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
-| D1 | Revisar y fusionar los PR #1 (notebook 04) y #2 (notebook 05) | PRs fusionados en `master` | 💻 | 5 oct | — | | ⬜ |
+| D1 | Revisar y fusionar los PR #1 (notebook 04) y #2 (notebook 05) | PRs fusionados en `master` | 💻 | 5 oct | — | Ktalyna | ✅ fusionados el 1 oct |
 | D2 | Punto de entrada único (`run_pipeline.py`) y parámetros en `config/config.yaml` | script + config | 💻 | 12 oct | D1 | | ⬜ |
 | D3 | Fijar versiones en `requirements.txt` y probar una clonación limpia en otra máquina | `requirements.txt` + nota en README | 💻 | 12 oct | D1 | | ⬜ |
 | D4 | Tests con pytest para las funciones críticas y caché local de las consultas a APIs | `tests/` pasando | 💻 | 17 oct | D2 | | ⬜ |
@@ -114,14 +119,14 @@ Base: `results/resumen_mecanismo_para_R4.json` ya lista 6 dianas (CDC20/APC/C, P
 
 | ID | Tarea | Entregable | Perfil | Fecha | Depende de | Responsable | Estado |
 |---|---|---|---|---|---|---|---|
-| E1 | Confirmar que cada integrante tiene su **propio** acceso aprobado en Hugging Face y **designar a una sola persona** que envía el Track 2 en nombre del equipo (los envíos duplicados no se revisan) | lista en el canal | ✍️ | 5 oct | — | | ⬜ |
-| E2 | Plantilla del informe con sus secciones y guía de estilo de figuras (paleta, fuentes) | `docs/informe_final.md` | ✍️ | 9 oct | — | | ⬜ |
-| E3 | Leer `methods_description_form.xlsx` y anotar qué tarea responde cada pregunta | `docs/mapa_formulario.md` | ✍️ | 10 oct | — | | ⬜ |
-| E4 | Guion del video v1 (3 min: problema · caso · variante · mecanismo · fármacos · escalabilidad) | `docs/guion_pitch.md` | ✍️ | 14 oct | — | | ⬜ |
+| E1 | Confirmar que cada integrante tiene su **propio** acceso aprobado en Hugging Face y **designar a una sola persona** que envía el Track 2 en nombre del equipo (los envíos duplicados no se revisan) | lista en el canal | ✍️ | 5 oct | — | | ⬜ **vencida** |
+| E2 | Plantilla del informe con sus secciones y guía de estilo de figuras (paleta, fuentes) | `docs/informe_final.md` | ✍️ | 9 oct | — | Ktalyna | 👀 PR #8: incluye ya el borrador de variante y mecanismo |
+| E3 | Leer `methods_description_form.xlsx` y anotar qué tarea responde cada pregunta | `docs/mapa_formulario.md` | ✍️ | 10 oct | — | | ⬜ **bloqueada:** el formulario no está en el dataset de Hugging Face; hay que bajarlo del sitio del reto |
+| E4 | Guion del video v1 (3 min: problema · caso · variante · mecanismo · fármacos · escalabilidad) | `docs/guion_pitch.md` | ✍️ | 14 oct | — | Ktalyna | 👀 PR #8: v1; falta decidir el idioma |
 | E5 | **(H5)** Integrar el borrador completo del informe | `docs/informe_final.md` completo | ✍️ | **21 oct** | A2, B4, C5 | | ⬜ |
 | E6 | Grabar y editar el video final | enlace al video | ✍️ | 23 oct | E4, C5 | | ⬜ |
 | E7 | **(H7)** Completar el formulario de métodos, exportar el informe a PDF y enviar por el sitio del reto: informe `<usuario>_track2_report.pdf`, enlace al repositorio GitHub y enlace al video (YouTube o Vimeo) | entrega enviada | ✍️ | **24 oct 18:00 UTC** | E5, E6, D6 | | ⬜ |
-| E8 | Bitácora semanal y registro de uso de IA. El reto exige, para cada herramienta de IA: **proveedor, plan o nivel, y configuración de datos** (por ejemplo, si se usa para entrenar) | `docs/bitacora.md` | ✍️ | cada jueves | — | | 🔄 continuo |
+| E8 | Bitácora semanal y registro de uso de IA. El reto exige, para cada herramienta de IA: **proveedor, plan o nivel, y configuración de datos** (por ejemplo, si se usa para entrenar) | `docs/bitacora.md` + tabla de la sección 2.6 de `informe_final.md` | ✍️ | cada jueves | — | | 🔄 continuo; la tabla de IA está en PR #8 y **cada persona completa su fila** |
 
 ---
 
