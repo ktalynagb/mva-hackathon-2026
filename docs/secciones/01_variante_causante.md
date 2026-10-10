@@ -209,11 +209,11 @@ Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la
 - RT-PCR del alelo 1 para demostrar el NMD.
 - Ensayo funcional de p.Asn1002Lys (estabilidad de BUBR1 y señal del SAC en fibroblastos del paciente).
 - Cariotipo o FISH que muestre aneuploidías en mosaico.
-- **Evaluación automática del reto (Track 1).** El sitio oficial puntúa al instante una pareja de variantes contra la respuesta clínicamente validada. Fila de envío para nuestra hipótesis principal (coordenadas GRCh38, `proband_id` tal como figura en el dataset):
+- **Evaluación automática del reto (Track 1).** El sitio oficial puntúa al instante una pareja de variantes contra la respuesta clínicamente validada. Fila de envío para nuestra hipótesis principal (coordenadas GRCh38). Ojo: el validador del sitio solo acepta `proband_id = PROBAND01`, no el nombre de la muestra del VCF. Archivos listos en `envios/track1/`:
 
 ```
 proband_id,chrom_1,pos_1,ref_1,alt_1,chrom_2,pos_2,ref_2,alt_2,epcr,finding_type,notes
-WGS_EX2312012,chr15,40209701,T,G,chr15,40220612,T,G,0.85,primary,BUB1B compound het: p.Leu737Ter + p.Asn1002Lys
+PROBAND01,chr15,40209701,T,G,chr15,40220612,T,G,0.85,primary,BUB1B compound het: p.Leu737Ter + p.Asn1002Lys
 ```
 
 ## 9. Referencias

@@ -10,6 +10,24 @@
 
 ---
 
+## 2026-10-09 — Envío al Track 1 preparado (A7)
+
+**Quién:** Ktalyna (con Claude Code)
+**Qué se hizo:**
+- `envios/track1/Ktalyna_bub1b-mane-panel.csv` (una fila: el par de *BUB1B*, EPCR 0,85) y `envios/track1/Ktalyna_track1_report.md` (informe en inglés para el jurado)
+- Se leyó el código público del Space (`tabs/submit_track1.py`, `evaluation.py`) y el CSV se validó con su propio lector
+- Fila de Ktalyna completada en la tabla de uso de IA (sección 2.6 de `informe_final.md`)
+
+**Hallazgos:**
+- ⚠️ El sitio **solo acepta `proband_id = PROBAND01`**. La fila preparada el 2 oct usaba el nombre de la muestra del VCF y habría dado error (los errores no gastan cupo, pero conviene no probar a ciegas)
+- Cada integrante tiene su propio cupo de 6 envíos; para que se agrupen en el marcador, todos deben usar exactamente el mismo nombre de equipo
+
+**Pendiente:**
+- [ ] Iniciar sesión en HF en el sitio y enviar
+- [ ] Decidir nombre de equipo (se envía con el usuario si no hay uno)
+
+---
+
 ## 2026-10-09 — Conciliación de la lista de genes (A6, parcial)
 
 **Quién:** Ktalyna (con Claude Code)

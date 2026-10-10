@@ -53,7 +53,8 @@ El reto exige declarar **proveedor, plan o nivel y configuración de datos** de 
 
 | Herramienta | Proveedor | Plan o nivel | Configuración de datos (¿se usan para entrenar?) | Para qué se usó | ¿Recibió datos del paciente? | Quién |
 |---|---|---|---|---|---|---|
-| Claude Code | Anthropic | [completar] | [completar] | Código de análisis, consultas a APIs, revisión de literatura, redacción de borradores | [completar: p. ej., posiciones de variantes o salidas del VCF] | Ktalyna, Laura |
+| Claude Code (Sonnet y Opus) | Anthropic | Pro | Términos de consumidor; "Help improve Claude" desactivado (no se entrena con los chats) | Código de análisis, consultas a APIs, revisión de literatura, redacción de borradores | Sí, salidas a nivel de variante (posiciones, alelos, lecturas); los archivos de datos quedan en la computadora local | Ktalyna |
+| Claude Code | Anthropic | [completar] | [completar] | [completar] | [completar] | Laura |
 | Gemini (vía LangChain, cuaderno 06) | Google | [completar] | [completar] | Primer borrador de fármacos (descartado como lista final) | [completar] | [completar] |
 | [otra] | | | | | | |
 
