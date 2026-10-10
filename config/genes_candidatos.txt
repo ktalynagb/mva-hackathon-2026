@@ -3,9 +3,12 @@
 # Formato: símbolo_oficial  [categoría]
 # Editar esta lista y volver a correr scripts/resolve_genes.py para actualizar coordenadas
 #
-# PENDIENTE: Laura debe completar/confirmar esta lista con los 201 genes originales
-# (el archivo completo está en su Colab: https://colab.research.google.com/drive/1S6QAleTyupybfXvHtV3dPVJGwIK1-aI3)
-# 4 genes no resolvieron: MOXN1, RASRL1, TLX1-AS, UPP2-AS1
+# A6 (9 oct): el Colab de Laura no trae la lista; lee la copia local de este archivo en su PC.
+# Su corrida dio 197 genes con coordenadas (195 con variantes). Esta versión tiene 186 únicos antes
+# del bloque AUTO: faltan ~11 genes de su copia local. PENDIENTE: que Laura comparta ese archivo.
+# Los 4 símbolos que no resolvieron NO existen en HGNC (ni como alias ni como símbolo previo):
+#   MOXN1, RASRL1, UPP2-AS1: sin equivalente (UPP2-IT1 es una entrada retirada)
+#   TLX1-AS: lo más cercano es TLX1NB, ARN no codificante; el pipeline solo evalúa codificantes
 #
 # ── SAC — Spindle Assembly Checkpoint ────────────────────────────────────────
 BUB1B
@@ -27,7 +30,6 @@ CENPE
 CENPF
 CENPH
 CENPI
-CENPJ
 CENPK
 CENPL
 CENPM

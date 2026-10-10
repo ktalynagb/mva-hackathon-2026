@@ -10,6 +10,117 @@
 
 ---
 
+## 2026-10-09 — Envío al Track 1 preparado (A7)
+
+**Quién:** Ktalyna (con Claude Code)
+**Qué se hizo:**
+- `envios/track1/Ktalyna_bub1b-mane-panel.csv` (una fila: el par de *BUB1B*, EPCR 0,85) y `envios/track1/Ktalyna_track1_report.md` (informe en inglés para el jurado)
+- Se leyó el código público del Space (`tabs/submit_track1.py`, `evaluation.py`) y el CSV se validó con su propio lector
+- Fila de Ktalyna completada en la tabla de uso de IA (sección 2.6 de `informe_final.md`)
+
+**Hallazgos:**
+- ⚠️ El sitio **solo acepta `proband_id = PROBAND01`**. La fila preparada el 2 oct usaba el nombre de la muestra del VCF y habría dado error (los errores no gastan cupo, pero conviene no probar a ciegas)
+- Cada integrante tiene su propio cupo de 6 envíos; para que se agrupen en el marcador, todos deben usar exactamente el mismo nombre de equipo
+
+**Pendiente:**
+- [ ] Iniciar sesión en HF en el sitio y enviar
+- [ ] Decidir nombre de equipo (se envía con el usuario si no hay uno)
+
+---
+
+## 2026-10-09 — Conciliación de la lista de genes (A6, parcial)
+
+**Quién:** Ktalyna (con Claude Code)
+**Qué se hizo:**
+- Se abrió el Colab de Laura: **no contiene la lista de 201 genes**; lee la copia de `config/genes_candidatos.txt` que tiene en su PC
+- Se revisó el historial de git, las ramas y el PR #5: ninguna versión del repo tuvo nunca los 201. La primera (1 oct) ya tenía 186 únicos
+- Los 4 símbolos sin coordenadas se buscaron en HGNC como símbolo, alias, símbolo previo y con comodín
+- Se quitó el duplicado de *CENPJ* (estaba en cinetocoro y en centrosoma; se deja en centrosoma)
+
+**Hallazgos:**
+- ✅ MOXN1, RASRL1 y UPP2-AS1 **no existen** en HGNC (UPP2-IT1 es una entrada retirada). TLX1-AS no existe; lo más cercano es *TLX1NB*, un ARN no codificante que el pipeline no evalúa. Ninguno puede esconder una variante causal
+- ⚠️ La corrida de Laura tuvo 197 genes con coordenadas (195 con variantes); el repo tiene 186 antes del bloque de los grupos. **Faltan ~11 genes** que solo están en su copia local. Algunos pueden haber entrado después con los CSV de los grupos (el panel actual tiene 290)
+
+**Pendiente:**
+- [ ] Laura comparte su `config/genes_candidatos.txt` local; se comparan y, si aparecen genes nuevos, se corre el diagnóstico diferencial solo sobre ellos
+
+---
+
+## 2026-10-09 — Formulario de métodos bajado y mapeado (E3)
+
+**Quién:** Ktalyna (con Claude Code)
+**Qué se hizo:**
+- El formulario **no estaba en el dataset de Hugging Face** (confirmado el 2 oct); estaba en el repo del **Space** del reto (`SageBio/rare-disease-real-kid-mva-hackathon-2026`, pestaña "Submit - Track 2" → "Methods description template (Excel)"), en `static/templates/methods_description_form.xlsx`
+- Copiado a `docs/plantillas/methods_description_form.xlsx` (es un formulario público del reto, sin datos del paciente)
+- `docs/mapa_formulario.md`: cada pregunta de las 2 hojas (Track 1 y Track 2) enlazada a dónde está la respuesta en el repo y qué tarea la generó
+
+**Hallazgos:**
+- De las 11 preguntas de Track 2, 9 ya tienen respuesta lista en algún documento del repo
+- 2 quedan abiertas: "Team name" y la fila de IA generativa dependen de E1 (quién envía); "tiempo/esfuerzo dedicado" nadie lo registró, el equipo lo tiene que estimar a mano
+
+**Pendiente:**
+- [ ] E1: designar quién envía, para poder cerrar las preguntas que dependen de eso
+- [ ] Llenar el `.xlsx` en sí queda para E7 (24 oct)
+
+---
+
+## 2026-10-08 (noche, 4) — Lista corta de fármacos, Hito H4 (C5)
+
+**Quién:** Ktalyna (con Claude Code) · borrador, pendiente de revisión 💊🧬
+**Qué se hizo:**
+- `docs/secciones/04_candidatos.md`: 5 candidatos elegidos del ranking de C4, sin repetir mecanismo, cubriendo las 4 líneas de `02b_resumen_mecanismo.md` (la regla pedía al menos 2)
+- Cada uno con ficha: mecanismo, evidencia, seguridad pediátrica, riesgos de compatibilidad y cómo se validaría
+
+**Elegidos:** sirolimus (línea 2, 80 pts — único con dato experimental en modelo de ratón BubR1), arimoclomol (línea 1, 73,3 — chaperona), temsirolimus (líneas 2+4, 70 — único con ensayo clínico propio en rabdomiosarcoma), dasatinib (línea 3, 60 — senolítico), bortezomib (línea 1, 60 — proteasoma, prueba el mecanismo del paper base con MG132)
+
+**Hallazgos:**
+- Dos riesgos de compatibilidad a resolver antes del informe final: bortezomib + vincristina comparten neurotoxicidad (ambas en el protocolo estándar); el beneficio de temsirolimus depende del grupo de riesgo del rabdomiosarcoma (sin beneficio en riesgo intermedio, PMID 38936378)
+- El ensayo de validación es el mismo para 4 de los 5 candidatos: fibroblastos del paciente, nivel de BUBR1 (Western blot) y checkpoint con nocodazol, antes/después del fármaco
+
+**Pendiente:**
+- [ ] Revisión 💊🧬 de la lista (sección 4 de `04_candidatos.md` tiene las decisiones abiertas)
+- [ ] E5: integrar esta sección al borrador completo del informe (21 oct)
+
+---
+
+## 2026-10-08 (noche, 3) — Conclusión del análisis de variantes no-PASS (A9)
+
+**Quién:** Ktalyna (con Claude Code) · borrador, pendiente de confirmación de Josefina
+**Qué se hizo:**
+- Se redactó la conclusión del notebook `02b_sensibilidad_nonpass_genes_mva.ipynb` (subido por Josefina el 7 oct), analizando las 6 variantes NO-PASS por `QUAL`, `QD`, `MQ`, profundidad y soporte de lecturas
+- Se agregó el resumen a la sección 5 de `docs/secciones/01_variante_causante.md`
+
+**Hallazgos:**
+- Las 2 variantes de *MAD1L1* descartadas solo por `MQ40` (mapeo ambiguo) tienen QUAL y soporte de lecturas altos y rsID en dbSNP: parecen reales, solo mal etiquetadas por el filtro técnico
+- Las otras 4 (3 en *MAD1L1*, 1 en *BUB1B*) fallan por `QD2`/`LowQual` con poco soporte de lecturas alternativas: compatibles con artefactos de baja profundidad
+- La variante NO-PASS de *BUB1B* (15:40180642) es la de menor calidad del lote (QUAL 19,78, DP 13): no hay motivo para tratarla como un tercer evento genético
+- Ninguna cambia el diagnóstico: *MAD1L1* no tiene patrón recesivo entre sus variantes PASS
+
+**Pendiente:**
+- [ ] Josefina confirma la conclusión y la firma en el notebook (cierra A9)
+
+---
+
+## 2026-10-08 (noche, 2) — Puntuación de la lista larga de fármacos (C4)
+
+**Quién:** Ktalyna (con Claude Code) · sin rama (edición directa de `results/candidatos_farmacos.tsv`, borrador)
+**Qué se hizo:**
+- Se puntuaron los 52 candidatos de `results/candidatos_farmacos.tsv` con la matriz de C1 (K1–K6, `puntaje` = Σ peso×nota/3)
+- Para línea 4 (tumor), `k3` se mapeó directo desde `fase_rms` de Open Targets (fase 3 → 3, fase 2 → 2, fase 1 → 1) y se marcaron bajo en `k1` los antimitóticos (PRECAUCIÓN): mismo tipo de estrés que ya debilita el SAC del paciente
+- `quien_puntua` = "Claude (borrador IA)": falta la revisión 💊 de los 10 primeros que pide la regla de C1 (sección 1.5)
+
+**Hallazgos:**
+- Top 4, todos con datos mecanísticos directos (no solo razonamiento): **sirolimus (80)** — único con datos experimentales en el ratón BubR1 hipomórfico (Sieben 2020/PMID 31738183) —, **arimoclomol (73,3)**, **temsirolimus (70)** — único con ensayo clínico propio en rabdomiosarcoma — y **everolimus (68,3)**
+- El top 10 ya cubre 3 de las 4 líneas (1, 2 y 3: dasatinib 60, bortezomib 60), condición que pide C5 para la lista corta
+- ⚠️ Pendiente de decisión (sigue abierta desde C1 sec. 6): la edad exacta del paciente para `k2`; se asumió "niño pequeño" por el fenotipo (prematuro, RCIU severo, talla baja) sin abrir el documento clínico
+- ⚠️ Candidatos con alerta renal fuerte por la nefrocalcinosis del paciente (k4 bajo): cisplatino, metotrexato, pemetrexed, nitrato de galio, carfilzomib, varios TKI multiquinasa (cabozantinib, lenvatinib, regorafenib, sorafenib)
+
+**Pendiente:**
+- [ ] Revisión 💊 de los 10 primeros puntajes (dos personas, discutir si difieren >1 punto en un criterio)
+- [ ] C5: armar la lista corta (3–5, ≥2 líneas) con ficha de cada uno — Hito H4, 17 oct
+
+---
+
 ## 2026-10-08 (noche) — Diagnóstico diferencial con MANE (A8) y pipeline de un comando (D2, D3, D5)
 
 **Quién:** Ktalyna (con Claude Code) · ramas `tarea/A8-mane` y `tarea/D2-D3-D5-pipeline`
