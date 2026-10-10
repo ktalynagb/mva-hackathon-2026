@@ -50,7 +50,7 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 | **H1** | 7 oct | Variante causante confirmada | A1 | ✅ 1 oct |
 | **H2** | lun 12 oct | Resumen de mecanismo de 1 página | B4 | 👀 PR #6 |
 | **H3** | mié 14 oct | Mecanismo completo + figura de la vía | B5 | 👀 figura lista (8 oct) |
-| **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos con ficha | C5 | ⬜ |
+| **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos con ficha | C5 | 👀 borrador 8 oct |
 | **H5** | mié 21 oct | Borrador completo del informe | E5 | ⬜ |
 | **H6** | vie 23 oct, 12:00 UTC | Código congelado + tag `v1.0-entrega` | D6 | ⬜ |
 | **H7** | sáb 24 oct, 18:00 UTC | Entrega enviada | E7 | ⬜ |
@@ -70,10 +70,10 @@ Ya sabemos la respuesta: **BUB1B heterocigótica compuesta**, p.Leu737Ter + p.As
 | A3 | Diagnóstico diferencial: por qué no son *CEP57*, *TRIP13* ni los otros genes del panel | sección 5 de `01_variante_causante.md` + `scripts/diagnostico_diferencial.py` | 🧬 | 11 oct | A1 | Ktalyna, Laura | ✅ PR #3 y #5. Solo BUB1B tiene LOF + 2.ª variante rara; CEP57/TRIP13/MAD2L1BP sin variantes raras funcionales. 104 genes nuevos: ninguno explica el MVA; 3 de 7 alertas eran falsas por usar transcritos no MANE (sigue en A8) |
 | A4 | Revisar la calidad de lectura de las 2 variantes (AD, DP, GQ). ¿La fracción alélica es ≈ 0,5 o sugiere mosaicismo? | tabla en `01_variante_causante.md` (falta pasarla a una celda del notebook 04) | 💻🧬 | 11 oct | A1 | | 🔄 datos listos (fracción alt 0,54 y 0,46) |
 | A5 | *Lollipop plot* de *BUB1B* con las 2 variantes y los dominios | `results/figura_1_bubr1_variantes.png` (`scripts/figuras_informe.py`) | 💻 | 13 oct | A1 | Ktalyna | 👀 incluye las variantes de MVA de Suijkerbuijk 2010 para comparar |
-| A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura | ⬜ |
+| A6 | Conciliar `config/genes_candidatos.txt` con la lista original de 201 genes | archivo actualizado | 💻 | 9 oct | — | Laura · Ktalyna (con Claude) | 🔄 4 símbolos sin resolver: no existen en HGNC (cerrado); CENPJ duplicado, quitado. **Falta solo** que Laura comparta su copia local del archivo: el Colab no trae la lista y en el repo faltan ~11 de sus genes |
 | A7 | Enviar la pareja de variantes al **Track 1** del sitio del reto (evaluación automática inmediata, hasta 6 envíos por persona). **Ojo:** el formulario exige también enlace de GitHub e informe (.md o .pdf), y el envío aparece en el marcador público con el nombre de usuario | CSV + informe `<usuario>_track1_report.md` (formato en `01_variante_causante.md`, sección 8) | 🧬 | 7 oct | A2 | | ⬜ **vencida**, pendiente de iniciar sesión en Hugging Face |
 | A8 | Usar la consecuencia en el transcrito **MANE Select** dentro de `scripts/diagnostico_diferencial.py` y repetir el barrido de los 187 genes. Actualizar la tabla de la sección 5 | script + sección 5 de `01_variante_causante.md` | 💻🧬 | 13 oct | A3 | Ktalyna | 👀 290 genes: 18 alertas → 13 en MANE; solo BUB1B con patrón recesivo |
-| A9 | Conclusión del análisis de variantes no-PASS (notebook 02b): ¿alguna de las 6 variantes merece revisarse? Escribirla en el notebook, en la sección 5 de `01_variante_causante.md` y en la bitácora | celda de conclusión + 1 párrafo | 🧬 | 12 oct | — | Josefina | 🔄 notebook subido (7 oct), falta la conclusión |
+| A9 | Conclusión del análisis de variantes no-PASS (notebook 02b): ¿alguna de las 6 variantes merece revisarse? Escribirla en el notebook, en la sección 5 de `01_variante_causante.md` y en la bitácora | celda de conclusión + 1 párrafo | 🧬 | 12 oct | — | Josefina | 👀 conclusión redactada (Ktalyna con Claude, 8 oct): ninguna de las 6 cambia el diagnóstico; falta que Josefina la confirme y la firme |
 
 ### Área B — Mecanismo biológico 🧬
 
@@ -100,8 +100,8 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | C1 | Definir la matriz de priorización y sus pesos: aprobación FDA/EMA, solidez del mecanismo, seguridad pediátrica, interacción con el tratamiento del rabdomiosarcoma, evidencia existente | `docs/secciones/03_criterios.md` | 💊 | 10 oct | — | Ktalyna (borrador) | 👀 PR #7: 4 filtros + 6 criterios ponderados; necesita revisor 💊 para cerrar 5 decisiones |
 | C2 | Paisaje terapéutico: fármacos aprobados sobre mitosis/SAC, senescencia, *readthrough* de codones de stop y mTOR | sección en el mismo archivo | 💊🧬 | 12 oct | — | | ⬜ |
 | C3 | Consultar DGIdb y Open Targets por línea terapéutica → lista larga, con aprobación comprobada en FDA/EMA | `scripts/lista_larga_farmacos.py` + `results/candidatos_farmacos.tsv` + `docs/secciones/03b_lista_larga.md` | 💻💊 | 14 oct | — | Ktalyna | 👀 52 candidatos (14 en líneas 1–3, 38 en tumor), 21 de contexto, 13 excluidos |
-| C4 | Puntuar la lista larga con la matriz | columna de puntaje en el `.tsv` | 💊 | 15 oct | C1, C3 | | ⬜ |
-| C5 | **(H4)** Lista corta de 3 a 5 fármacos, con ficha: mecanismo, evidencia, seguridad pediátrica, riesgos y cómo se validaría | `docs/secciones/04_candidatos.md` | 💊✍️ | **17 oct** | B4, C4 | | ⬜ |
+| C4 | Puntuar la lista larga con la matriz | columna de puntaje en el `.tsv` | 💊 | 15 oct | C1, C3 | Ktalyna (con Claude) | 👀 52 candidatos puntuados; falta revisión 💊 de los 10 primeros (regla de C1 sec. 1.5) |
+| C5 | **(H4)** Lista corta de 3 a 5 fármacos, con ficha: mecanismo, evidencia, seguridad pediátrica, riesgos y cómo se validaría | `docs/secciones/04_candidatos.md` | 💊✍️ | **17 oct** | B4, C4 | Ktalyna (con Claude) | 👀 5 candidatos (sirolimus, arimoclomol, temsirolimus, dasatinib, bortezomib), cubren las 4 líneas; falta revisión 💊🧬 |
 | C6 | Revisión biológica de la lista corta: ¿cada fármaco mejora o empeora la aneuploidía? | comentarios en el PR de C5 | 🧬 | 18 oct | C5 | | ⬜ |
 
 ### Área D — Código y reproducibilidad 💻
@@ -121,7 +121,7 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 |---|---|---|---|---|---|---|---|
 | E1 | Confirmar que cada integrante tiene su **propio** acceso aprobado en Hugging Face y **designar a una sola persona** que envía el Track 2 en nombre del equipo (los envíos duplicados no se revisan) | lista en el canal | ✍️ | 5 oct | — | | ⬜ **vencida** |
 | E2 | Plantilla del informe con sus secciones y guía de estilo de figuras (paleta, fuentes) | `docs/informe_final.md` | ✍️ | 9 oct | — | Ktalyna | 👀 PR #8: incluye ya el borrador de variante y mecanismo |
-| E3 | Leer `methods_description_form.xlsx` y anotar qué tarea responde cada pregunta | `docs/mapa_formulario.md` | ✍️ | 10 oct | — | | ⬜ **bloqueada:** el formulario no está en el dataset de Hugging Face; hay que bajarlo del sitio del reto |
+| E3 | Leer `methods_description_form.xlsx` y anotar qué tarea responde cada pregunta | `docs/mapa_formulario.md` | ✍️ | 10 oct | — | Ktalyna (con Claude) | ✅ formulario bajado del Space oficial (estaba en `static/templates/`, no en el dataset de HF); mapa listo, 2 preguntas quedan pendientes de que el equipo las complete (team name/IA dependen de E1; tiempo dedicado nadie lo registró) |
 | E4 | Guion del video v1 (3 min: problema · caso · variante · mecanismo · fármacos · escalabilidad) | `docs/guion_pitch.md` | ✍️ | 14 oct | — | Ktalyna | 👀 PR #8: v1; falta decidir el idioma |
 | E5 | **(H5)** Integrar el borrador completo del informe | `docs/informe_final.md` completo | ✍️ | **21 oct** | A2, B4, C5 | | ⬜ |
 | E6 | Grabar y editar el video final | enlace al video | ✍️ | 23 oct | E4, C5 | | ⬜ |
