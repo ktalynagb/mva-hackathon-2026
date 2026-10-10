@@ -178,7 +178,7 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 - El 8 oct se incorporó la anotación MANE al script (tarea A8). El barrido completo reproduce esas 3 falsas alarmas y encuentra 2 más en el panel original: ANAPC2 y el sitio de empalme de SMC1B.
 
 **Limitaciones de este análisis:**
-- Solo variantes PASS en los genes de la lista. Un gen de MVA que no esté en el panel no se evalúa. Las variantes no-PASS de los 6 genes principales se revisan aparte (notebook 02b, tarea A9).
+- Solo variantes PASS en los genes de la lista. Un gen de MVA que no esté en el panel no se evalúa. Las variantes no-PASS de los 6 genes principales se revisaron aparte (notebook 02b, tarea A9): 6 variantes, 5 en *MAD1L1* y 1 en *BUB1B* (deleción de 1 pb, QUAL 19,8, DP 13 — la de menor calidad del lote). Las 2 descartadas solo por `MQ40` tienen QUAL y soporte de lecturas altos y parecen reales (rsID en dbSNP); las otras 4, descartadas por `QD2`/`LowQual`, tienen QUAL bajo y poco soporte alternativo — compatibles con artefactos técnicos. Ninguna compite con las 2 variantes PASS de *BUB1B* ni cambia la conclusión (*MAD1L1* no tiene patrón recesivo entre sus variantes PASS).
 - **No se evalúan variantes estructurales ni de número de copias** (por ejemplo, deleciones de un exón en *BUB1B* o *CEP57*) ni variantes no codificantes. Un caso publicado de MVA combinó una variante de cambio de marco con una variante en elementos reguladores de *BUB1B* (Qu 2025, PMID 40555658, solo resumen).
 - Una alerta descartada en MANE podría importar si el gen expresa de forma relevante otro transcrito en el tejido afectado. Ninguna de las 5 descartadas formaba un patrón recesivo, así que no cambia la conclusión.
 - Un umbral de AF del 1 % deja pasar variantes demasiado frecuentes para una enfermedad tan rara; aquí no cambió el resultado.
@@ -209,11 +209,11 @@ Si estuvieran en *cis*, el paciente tendría un alelo normal y no explicaría la
 - RT-PCR del alelo 1 para demostrar el NMD.
 - Ensayo funcional de p.Asn1002Lys (estabilidad de BUBR1 y señal del SAC en fibroblastos del paciente).
 - Cariotipo o FISH que muestre aneuploidías en mosaico.
-- **Evaluación automática del reto (Track 1).** El sitio oficial puntúa al instante una pareja de variantes contra la respuesta clínicamente validada. Fila de envío para nuestra hipótesis principal (coordenadas GRCh38, `proband_id` tal como figura en el dataset):
+- **Evaluación automática del reto (Track 1).** El sitio oficial puntúa al instante una pareja de variantes contra la respuesta clínicamente validada. Fila de envío para nuestra hipótesis principal (coordenadas GRCh38). Ojo: el validador del sitio solo acepta `proband_id = PROBAND01`, no el nombre de la muestra del VCF. Archivos listos en `envios/track1/`:
 
 ```
 proband_id,chrom_1,pos_1,ref_1,alt_1,chrom_2,pos_2,ref_2,alt_2,epcr,finding_type,notes
-WGS_EX2312012,chr15,40209701,T,G,chr15,40220612,T,G,0.85,primary,BUB1B compound het: p.Leu737Ter + p.Asn1002Lys
+PROBAND01,chr15,40209701,T,G,chr15,40220612,T,G,0.85,primary,BUB1B compound het: p.Leu737Ter + p.Asn1002Lys
 ```
 
 ## 9. Referencias
