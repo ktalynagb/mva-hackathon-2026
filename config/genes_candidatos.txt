@@ -3,9 +3,10 @@
 # Formato: símbolo_oficial  [categoría]
 # Editar esta lista y volver a correr scripts/resolve_genes.py para actualizar coordenadas
 #
-# A6 (9 oct): el Colab de Laura no trae la lista; lee la copia local de este archivo en su PC.
-# Su corrida dio 197 genes con coordenadas (195 con variantes). Esta versión tiene 186 únicos antes
-# del bloque AUTO: faltan ~11 genes de su copia local. PENDIENTE: que Laura comparta ese archivo.
+# A6 (14 oct): la lista original de 201 genes está en config/lista_original_laura_201.tsv
+# (salida de resolve_genes.py del 30 sep). De sus 197 genes reales faltaban 31 en este archivo:
+# se agregaron en el bloque "A6" (antes del bloque AUTO) y se analizaron en
+# notebooks/03b_a6_genes_faltantes_lista_laura.ipynb. Ninguno explica el MVA.
 # Los 4 símbolos que no resolvieron NO existen en HGNC (ni como alias ni como símbolo previo):
 #   MOXN1, RASRL1, UPP2-AS1: sin equivalente (UPP2-IT1 es una entrada retirada)
 #   TLX1-AS: lo más cercano es TLX1NB, ARN no codificante; el pipeline solo evalúa codificantes
@@ -208,6 +209,41 @@ NUMA1
 TPX2
 XRCC2
 XRCC3
+# ── A6 · lista original de Laura: 31 genes que faltaban (14 oct) ────────────
+# MVA y aneuploidía en mosaico (genes descritos)
+CENATAC
+SMC5
+SLF2
+# Centrosoma y microcefalia
+NEK2
+NEK9
+# Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)
+IL40
+HOXB-AS3
+LINP1
+MYLIP
+PEPD
+SMIM14
+SPAAR
+SMIM22
+OIP5-AS1
+SPTBN1
+GBA1LP
+HOTAIR
+LINC00261
+LINC00665
+MIEF1
+MINAR1
+C8orf33
+AGAP2-AS1
+QSOX1
+PELATON
+TASOR
+TBX2-AS1
+C12orf75
+CFAP20
+CFAP298
+PIERCE1
 # >>> AUTO: grupos del equipo (scripts/unir_grupos_genes.py) >>>
 # ── grupo1_checkpoint_mitotico (7 nuevos) ──
 CDC27

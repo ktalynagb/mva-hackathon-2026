@@ -1,0 +1,202 @@
+gen_lista	simbolo	categoria	chrom	start	end	tipo_gen	nombre	estado
+BUB1B	BUB1B	MVA y aneuploidía en mosaico (genes descritos)	15	40160984	40221137	protein-coding	BUB1 mitotic checkpoint serine/threonine kinase B	ok
+CEP57	CEP57	MVA y aneuploidía en mosaico (genes descritos)	11	95789965	95837070	protein-coding	centrosomal protein 57	ok
+TRIP13	TRIP13	MVA y aneuploidía en mosaico (genes descritos)	5	892849	919357	protein-coding	thyroid hormone receptor interactor 13	ok
+CENATAC	CENATAC	MVA y aneuploidía en mosaico (genes descritos)	11	118998051	119015811	protein-coding	centrosomal AT-AC splicing factor	ok
+ZNF828	CHAMP1	MVA y aneuploidía en mosaico (genes descritos)	13	114314482	114337626	protein-coding	chromosome alignment maintaining phosphoprotein 1	renombrado
+MAD1L1	MAD1L1	MVA y aneuploidía en mosaico (genes descritos)	7	1815787	2233243	protein-coding	mitotic arrest deficient 1 like 1	ok
+MAD2L1BP	MAD2L1BP	MVA y aneuploidía en mosaico (genes descritos)	6	43629494	43640960	protein-coding	MAD2L1 binding protein	ok
+BUB1	BUB1	MVA y aneuploidía en mosaico (genes descritos)	2	110635468	110678098	protein-coding	BUB1 mitotic checkpoint serine/threonine kinase	ok
+SMC5	SMC5	MVA y aneuploidía en mosaico (genes descritos)	9	70258270	70354874	protein-coding	structural maintenance of chromosomes 5	ok
+SLF2	SLF2	MVA y aneuploidía en mosaico (genes descritos)	10	100912963	100965134	protein-coding	SMC5/6 complex localization factor 2	ok
+CEP192	CEP192	Centrosoma y microcefalia	18	12991283	13125053	protein-coding	centrosomal protein 192	ok
+PLK4	PLK4	Centrosoma y microcefalia	4	127880890	127899224	protein-coding	polo like kinase 4	ok
+STIL	STIL	Centrosoma y microcefalia	1	47250139	47314892	protein-coding	STIL centriolar assembly protein	ok
+CDK5RAP2	CDK5RAP2	Centrosoma y microcefalia	9	120388875	120580178	protein-coding	CDK5 regulatory subunit associated protein 2	ok
+CENPJ	CPAP	Centrosoma y microcefalia	13	24882276	24922889	protein-coding	centrosome assembly and centriole elongation protein	renombrado
+ASPM	ASPM	Centrosoma y microcefalia	1	197084121	197146699	protein-coding	assembly factor for spindle microtubules	ok
+WDR62	WDR62	Centrosoma y microcefalia	19	36054649	36105112	protein-coding	WD repeat domain 62	ok
+CIT	CIT	Centrosoma y microcefalia	12	119685108	119877338	protein-coding	citron rho-interacting serine/threonine kinase	ok
+SAS6	SASS6	Centrosoma y microcefalia	1	100083563	100132955	protein-coding	SAS-6 centriolar assembly protein	renombrado
+CEP135	CEP135	Centrosoma y microcefalia	4	55948819	56033361	protein-coding	centrosomal protein 135	ok
+CEP152	CEP152	Centrosoma y microcefalia	15	48712928	48811146	protein-coding	centrosomal protein 152	ok
+CEP63	CEP63	Centrosoma y microcefalia	3	134485699	134587789	protein-coding	centrosomal protein 63	ok
+CEP120	CEP120	Centrosoma y microcefalia	5	123344888	123423592	protein-coding	centrosomal protein 120	ok
+CEP290	CEP290	Centrosoma y microcefalia	12	88049016	88142099	protein-coding	centrosomal protein 290	ok
+PCNT	PCNT	Centrosoma y microcefalia	21	46324082	46445769	protein-coding	pericentrin	ok
+NIN	NIN	Centrosoma y microcefalia	14	50719763	50832038	protein-coding	ninein	ok
+NEK2	NEK2	Centrosoma y microcefalia	1	211658251	211675663	protein-coding	NIMA related kinase 2	ok
+NEK9	NEK9	Centrosoma y microcefalia	14	75079353	75127344	protein-coding	NIMA related kinase 9	ok
+LMNA	LMNA	Envoltura y lámina nuclear (tamaño nuclear)	1	156082572	156140085	protein-coding	lamin A/C	ok
+LMNB1	LMNB1	Envoltura y lámina nuclear (tamaño nuclear)	5	126776623	126837242	protein-coding	lamin B1	ok
+LMNB2	LMNB2	Envoltura y lámina nuclear (tamaño nuclear)	19	2427638	2456992	protein-coding	lamin B2	ok
+EMD	EMD	Envoltura y lámina nuclear (tamaño nuclear)	X	154379205	154381574	protein-coding	emerin	ok
+BANF1	BANF1	Envoltura y lámina nuclear (tamaño nuclear)	11	66001832	66004170	protein-coding	barrier to autointegration nuclear assembly factor 1	ok
+TMPO	TMPO	Envoltura y lámina nuclear (tamaño nuclear)	12	98515483	98550351	protein-coding	thymopoietin	ok
+SUN1	SUN1	Envoltura y lámina nuclear (tamaño nuclear)	7	816591	896435	protein-coding	Sad1 and UNC84 domain containing 1	ok
+SUN2	SUN2	Envoltura y lámina nuclear (tamaño nuclear)	22	38733280	38794198	protein-coding	Sad1 and UNC84 domain containing 2	ok
+SYNE1	SYNE1	Envoltura y lámina nuclear (tamaño nuclear)	6	152121687	152637801	protein-coding	spectrin repeat containing nuclear envelope protein 1	ok
+SYNE2	SYNE2	Envoltura y lámina nuclear (tamaño nuclear)	14	63761899	64228142	protein-coding	spectrin repeat containing nuclear envelope protein 2	ok
+CCDC155	KASH5	Envoltura y lámina nuclear (tamaño nuclear)	19	49388219	49417990	protein-coding	KASH domain containing 5	renombrado
+LEMD3	LEMD3	Envoltura y lámina nuclear (tamaño nuclear)	12	65169342	65248485	protein-coding	LEM domain containing 3	ok
+TMEM201	TMEM201	Envoltura y lámina nuclear (tamaño nuclear)	1	9588718	9614879	protein-coding	transmembrane protein 201	ok
+TMEM120B	TMEM120B	Envoltura y lámina nuclear (tamaño nuclear)	12	121712725	121783001	protein-coding	transmembrane protein 120B	ok
+TMEM120A	TMEM120A	Envoltura y lámina nuclear (tamaño nuclear)	7	75973304	75994669	protein-coding	transmembrane protein 120A	ok
+LBR	LBR	Envoltura y lámina nuclear (tamaño nuclear)	1	225400900	225428925	protein-coding	lamin B receptor	ok
+NUP107	NUP107	Poro nuclear	12	68686951	68745809	protein-coding	nucleoporin 107	ok
+NUP133	NUP133	Poro nuclear	1	229439673	229508376	protein-coding	nucleoporin 133	ok
+NUP160	NUP160	Poro nuclear	11	47777872	47848561	protein-coding	nucleoporin 160	ok
+NUP96	NUP98	Poro nuclear	11	3671083	3797792	protein-coding	nucleoporin 98 and 96 precursor	renombrado
+NUP85	NUP85	Poro nuclear	17	75205482	75235759	protein-coding	nucleoporin 85	ok
+NUP43	NUP43	Poro nuclear	6	149723373	149750286	protein-coding	nucleoporin 43	ok
+NUP37	NUP37	Poro nuclear	12	102069969	102120258	protein-coding	nucleoporin 37	ok
+NUP155	NUP155	Poro nuclear	5	37288042	37371187	protein-coding	nucleoporin 155	ok
+NUP93	NUP93	Poro nuclear	16	56730095	56850286	protein-coding	nucleoporin 93	ok
+NUP205	NUP205	Poro nuclear	7	135557700	135648757	protein-coding	nucleoporin 205	ok
+NUP188	NUP188	Poro nuclear	9	128947681	129007836	protein-coding	nucleoporin 188	ok
+NUP53	NUP35	Poro nuclear	2	183117513	183163152	protein-coding	nucleoporin 35	renombrado
+NUP62	NUP62	Poro nuclear	19	49906825	49929926	protein-coding	nucleoporin 62	ok
+NUP58	NUP58	Poro nuclear	13	25301523	25365390	protein-coding	nucleoporin 58	ok
+NUP54	NUP54	Poro nuclear	4	76107562	76148509	protein-coding	nucleoporin 54	ok
+NUP214	NUP214	Poro nuclear	9	131124868	131234667	protein-coding	nucleoporin 214	ok
+NUP88	NUP88	Poro nuclear	17	5359641	5420164	protein-coding	nucleoporin 88	ok
+NUP50	NUP50	Poro nuclear	22	45163917	45188017	protein-coding	nucleoporin 50	ok
+NUP153	NUP153	Poro nuclear	6	17614696	17706942	protein-coding	nucleoporin 153	ok
+TPR	TPR	Poro nuclear	1	186311188	186375693	protein-coding	translocated promoter region, nuclear basket protein	ok
+RANBP2	RANBP2	Poro nuclear	2	108719367	108785810	protein-coding	RAN binding protein 2	ok
+RAE1	RAE1	Poro nuclear	20	57351218	57380114	protein-coding	ribonucleic acid export 1	ok
+RAN	RAN	Transporte núcleo-citoplasma (sistema Ran)	12	130871993	130877678	protein-coding	RAN, member RAS oncogene family	ok
+RCC1	RCC1	Transporte núcleo-citoplasma (sistema Ran)	1	28505932	28539300	protein-coding	regulator of chromosome condensation 1	ok
+RANGAP1	RANGAP1	Transporte núcleo-citoplasma (sistema Ran)	22	41243474	41302744	protein-coding	Ran GTPase activating protein 1	ok
+NTF2	NUTF2	Transporte núcleo-citoplasma (sistema Ran)	16	67844369	67872569	protein-coding	nuclear transport factor 2	renombrado
+XPO1	XPO1	Transporte núcleo-citoplasma (sistema Ran)	2	61476032	61538753	protein-coding	exportin 1	ok
+KPNB1	KPNB1	Transporte núcleo-citoplasma (sistema Ran)	17	47649476	47685505	protein-coding	karyopherin subunit beta 1	ok
+KPNA2	KPNA2	Transporte núcleo-citoplasma (sistema Ran)	17	68035517	68047364	protein-coding	karyopherin subunit alpha 2	ok
+HDAC3	HDAC3	Cromatina y epigenética	5	141620766	141637304	protein-coding	histone deacetylase 3	ok
+HDAC1	HDAC1	Cromatina y epigenética	1	32291919	32333635	protein-coding	histone deacetylase 1	ok
+HDAC2	HDAC2	Cromatina y epigenética	6	113923388	114011308	protein-coding	histone deacetylase 2	ok
+SMARCA4	SMARCA4	Cromatina y epigenética	19	10960824	11079426	protein-coding	SWI/SNF related BAF chromatin remodeling complex subunit ATPase 4	ok
+SMARCB1	SMARCB1	Cromatina y epigenética	22	23786931	23838009	protein-coding	SWI/SNF related BAF chromatin remodeling complex subunit B1	ok
+ARID1A	ARID1A	Cromatina y epigenética	1	26693236	26782104	protein-coding	AT-rich interaction domain 1A	ok
+ARID1B	ARID1B	Cromatina y epigenética	6	156776020	157211460	protein-coding	AT-rich interaction domain 1B	ok
+CHD4	CHD4	Cromatina y epigenética	12	6570081	6614982	protein-coding	chromodomain helicase DNA binding protein 4	ok
+CHD3	CHD3	Cromatina y epigenética	17	7884787	7912760	protein-coding	chromodomain helicase DNA binding protein 3	ok
+ATRX	ATRX	Cromatina y epigenética	X	77504862	77786233	protein-coding	ATRX chromatin remodeler	ok
+DAXX	DAXX	Cromatina y epigenética	6	33318558	33323259	protein-coding	death domain associated protein	ok
+H3F3A	H3-3A	Cromatina y epigenética	1	226061571	226073207	protein-coding	H3.3 histone A	renombrado
+H3F3B	H3-3B	Cromatina y epigenética	17	75776434	75785893	protein-coding	H3.3 histone B	renombrado
+H2AFZ	H2AZ1	Cromatina y epigenética	4	99948051	99950540	protein-coding	H2A.Z variant histone 1	renombrado
+SUZ12	SUZ12	Cromatina y epigenética	17	31936994	32001108	protein-coding	SUZ12 polycomb repressive complex 2 subunit	ok
+EZH2	EZH2	Cromatina y epigenética	7	148807257	148884625	protein-coding	enhancer of zeste 2 polycomb repressive complex 2 subunit	ok
+EED	EED	Cromatina y epigenética	11	86201212	86279811	protein-coding	embryonic ectoderm development	ok
+KMT2A	KMT2A	Cromatina y epigenética	11	118436456	118526832	protein-coding	lysine methyltransferase 2A	ok
+KMT2D	KMT2D	Cromatina y epigenética	12	49018975	49060794	protein-coding	lysine methyltransferase 2D	ok
+KDM5B	KDM5B	Cromatina y epigenética	1	202724495	202808526	protein-coding	lysine demethylase 5B	ok
+KDM6A	KDM6A	Cromatina y epigenética	X	44873130	45114135	protein-coding	lysine demethylase 6A	ok
+KDM6B	KDM6B	Cromatina y epigenética	17	7834193	7854808	protein-coding	lysine demethylase 6B	ok
+PLK1	PLK1	Mitosis, SAC y cinetocoro	16	23677656	23690372	protein-coding	polo like kinase 1	ok
+AURKA	AURKA	Mitosis, SAC y cinetocoro	20	56369382	56392566	protein-coding	aurora kinase A	ok
+AURKB	AURKB	Mitosis, SAC y cinetocoro	17	8204335	8210638	protein-coding	aurora kinase B	ok
+AURKC	AURKC	Mitosis, SAC y cinetocoro	19	57231002	57235552	protein-coding	aurora kinase C	ok
+TTK	TTK	Mitosis, SAC y cinetocoro	6	80003887	80043580	protein-coding	TTK protein kinase	ok
+BUB3	BUB3	Mitosis, SAC y cinetocoro	10	123154365	123313144	protein-coding	BUB3 mitotic checkpoint protein	ok
+CDC20	CDC20	Mitosis, SAC y cinetocoro	1	43358907	43363212	protein-coding	cell division cycle 20	ok
+CDC27	CDC27	Mitosis, SAC y cinetocoro	17	47117703	47189422	protein-coding	cell division cycle 27	ok
+CDC16	CDC16	Mitosis, SAC y cinetocoro	13	114234856	114273445	protein-coding	cell division cycle 16	ok
+CDC23	CDC23	Mitosis, SAC y cinetocoro	5	138180663	138213346	protein-coding	cell division cycle 23	ok
+KIF11	KIF11	Mitosis, SAC y cinetocoro	10	92574105	92655395	protein-coding	kinesin family member 11	ok
+KIF18A	KIF18A	Mitosis, SAC y cinetocoro	11	28020618	28108186	protein-coding	kinesin family member 18A	ok
+KIFC1	KIFC1	Mitosis, SAC y cinetocoro	6	33391429	33410441	protein-coding	kinesin family member C1	ok
+KNTC1	KNTC1	Mitosis, SAC y cinetocoro	12	122527246	122628182	protein-coding	kinetochore associated 1	ok
+ZW10	ZW10	Mitosis, SAC y cinetocoro	11	113729794	113773771	protein-coding	zw10 kinetochore protein	ok
+ZWINT	ZWINT	Mitosis, SAC y cinetocoro	10	56352710	56361392	protein-coding	ZW10 interacting kinetochore protein	ok
+CENPE	CENPE	Mitosis, SAC y cinetocoro	4	103105349	103198463	protein-coding	centromere protein E	ok
+CENPF	CENPF	Mitosis, SAC y cinetocoro	1	214603172	214664574	protein-coding	centromere protein F	ok
+SKA1	SKA1	Mitosis, SAC y cinetocoro	18	50374996	50394176	protein-coding	spindle and kinetochore associated complex subunit 1	ok
+SKA2	SKA2	Mitosis, SAC y cinetocoro	17	59109857	59155260	protein-coding	spindle and kinetochore associated complex subunit 2	ok
+SKA3	SKA3	Mitosis, SAC y cinetocoro	13	21152061	21176605	protein-coding	spindle and kinetochore associated complex subunit 3	ok
+INCENP	INCENP	Mitosis, SAC y cinetocoro	11	62123985	62155474	protein-coding	inner centromere protein	ok
+BIRC5	BIRC5	Mitosis, SAC y cinetocoro	17	78214186	78225636	protein-coding	baculoviral IAP repeat containing 5	ok
+BRCA1	BRCA1	Reparación del ADN y anemia de Fanconi	17	43044292	43170245	protein-coding	BRCA1 DNA repair associated	ok
+BRCA2	BRCA2	Reparación del ADN y anemia de Fanconi	13	32315086	32400268	protein-coding	BRCA2 DNA repair associated	ok
+PALB2	PALB2	Reparación del ADN y anemia de Fanconi	16	23603158	23641342	protein-coding	partner and localizer of BRCA2	ok
+RAD51	RAD51	Reparación del ADN y anemia de Fanconi	15	40694774	40732344	protein-coding	RAD51 recombinase	ok
+RAD51C	RAD51C	Reparación del ADN y anemia de Fanconi	17	58692569	58735611	protein-coding	RAD51 paralog C	ok
+RAD51D	RAD51D	Reparación del ADN y anemia de Fanconi	17	35092221	35121522	protein-coding	RAD51 paralog D	ok
+RAD52	RAD52	Reparación del ADN y anemia de Fanconi	12	910870	990053	protein-coding	RAD52 DNA repair protein	ok
+RAD54L	RAD54L	Reparación del ADN y anemia de Fanconi	1	46246461	46282459	protein-coding	RAD54 like	ok
+FANCA	FANCA	Reparación del ADN y anemia de Fanconi	16	89726683	89816977	protein-coding	FA complementation group A	ok
+FANCB	FANCB	Reparación del ADN y anemia de Fanconi	X	14690388	14873255	protein-coding	FA complementation group B	ok
+FANCC	FANCC	Reparación del ADN y anemia de Fanconi	9	95099054	95426796	protein-coding	FA complementation group C	ok
+FANCD2	FANCD2	Reparación del ADN y anemia de Fanconi	3	10026370	10101937	protein-coding	FA complementation group D2	ok
+FANCE	FANCE	Reparación del ADN y anemia de Fanconi	6	35452315	35467106	protein-coding	FA complementation group E	ok
+FANCF	FANCF	Reparación del ADN y anemia de Fanconi	11	22622533	22625823	protein-coding	FA complementation group F	ok
+FANCG	FANCG	Reparación del ADN y anemia de Fanconi	9	35073793	35082444	protein-coding	FA complementation group G	ok
+FANCI	FANCI	Reparación del ADN y anemia de Fanconi	15	89243854	89318091	protein-coding	FA complementation group I	ok
+BRIP1	BRIP1	Reparación del ADN y anemia de Fanconi	17	61679139	61863561	protein-coding	BRCA1 interacting DNA helicase 1	ok
+FANCL	FANCL	Reparación del ADN y anemia de Fanconi	2	58159243	58241410	protein-coding	FA complementation group L	ok
+FANCM	FANCM	Reparación del ADN y anemia de Fanconi	14	45135909	45200890	protein-coding	FA complementation group M	ok
+SLX4	SLX4	Reparación del ADN y anemia de Fanconi	16	3579654	3611617	protein-coding	SLX4 structure-specific endonuclease subunit	ok
+ERCC4	ERCC4	Reparación del ADN y anemia de Fanconi	16	13920138	13952348	protein-coding	ERCC excision repair 4, endonuclease catalytic subunit	ok
+UBE2T	UBE2T	Reparación del ADN y anemia de Fanconi	1	202328714	202341984	protein-coding	ubiquitin conjugating enzyme E2 T	ok
+XRCC2	XRCC2	Reparación del ADN y anemia de Fanconi	7	152644771	152676201	protein-coding	X-ray repair cross complementing 2	ok
+MAD2L2	MAD2L2	Reparación del ADN y anemia de Fanconi	1	11657230	11692605	protein-coding	mitotic arrest deficient 2 like 2	ok
+ATM	ATM	Reparación del ADN y anemia de Fanconi	11	108222788	108369102	protein-coding	ATM serine/threonine kinase	ok
+ATR	ATR	Reparación del ADN y anemia de Fanconi	3	142449007	142578868	protein-coding	ATR checkpoint kinase	ok
+CHEK1	CHEK1	Reparación del ADN y anemia de Fanconi	11	125625163	125676255	protein-coding	checkpoint kinase 1	ok
+CHEK2	CHEK2	Reparación del ADN y anemia de Fanconi	22	28687738	28742422	protein-coding	checkpoint kinase 2	ok
+TP53	TP53	Reparación del ADN y anemia de Fanconi	17	7661779	7687546	protein-coding	tumor protein p53	ok
+BLM	BLM	Reparación del ADN y anemia de Fanconi	15	90717340	90816166	protein-coding	BLM RecQ like helicase	ok
+WRN	WRN	Reparación del ADN y anemia de Fanconi	8	31033761	31176138	protein-coding	WRN RecQ like helicase	ok
+RECQL4	RECQL4	Reparación del ADN y anemia de Fanconi	8	144511284	144517890	protein-coding	RecQ like helicase 4	ok
+ERCC2	ERCC2	Reparación del ADN y anemia de Fanconi	19	45349773	45370918	protein-coding	ERCC excision repair 2, TFIIH core complex helicase subunit	ok
+ERCC3	ERCC3	Reparación del ADN y anemia de Fanconi	2	127257285	127294188	protein-coding	ERCC excision repair 3, TFIIH core complex helicase subunit	ok
+ERCC5	ERCC5	Reparación del ADN y anemia de Fanconi	13	102845831	102875995	protein-coding	ERCC excision repair 5, endonuclease	ok
+XPA	XPA	Reparación del ADN y anemia de Fanconi	9	97653139	97697408	protein-coding	XPA, DNA damage recognition and repair factor	ok
+XPC	XPC	Reparación del ADN y anemia de Fanconi	3	14145145	14178767	protein-coding	XPC complex subunit, DNA damage recognition and repair factor	ok
+MRE11A	MRE11	Reparación del ADN y anemia de Fanconi	11	94415570	94512676	protein-coding	MRE11 double strand break repair nuclease	renombrado
+RAD50	RAD50	Reparación del ADN y anemia de Fanconi	5	132556019	132646349	protein-coding	RAD50 double strand break repair protein	ok
+NBN	NBN	Reparación del ADN y anemia de Fanconi	8	89924515	90003228	protein-coding	nibrin	ok
+RPA1	RPA1	Reparación del ADN y anemia de Fanconi	17	1829702	1900082	protein-coding	replication protein A1	ok
+RPA2	RPA2	Reparación del ADN y anemia de Fanconi	1	27891524	27914751	protein-coding	replication protein A2	ok
+RPA3	RPA3	Reparación del ADN y anemia de Fanconi	7	7634843	7718607	protein-coding	replication protein A3	ok
+CCNB1	CCNB1	Ciclo celular (entrada a mitosis)	5	69167004	69178389	protein-coding	cyclin B1	ok
+CCNB2	CCNB2	Ciclo celular (entrada a mitosis)	15	59105066	59126030	protein-coding	cyclin B2	ok
+CCNB3	CCNB3	Ciclo celular (entrada a mitosis)	X	50202713	50351914	protein-coding	cyclin B3	ok
+CDK1	CDK1	Ciclo celular (entrada a mitosis)	10	60778312	60796346	protein-coding	cyclin dependent kinase 1	ok
+WEE1	WEE1	Ciclo celular (entrada a mitosis)	11	9573540	9593457	protein-coding	WEE1 G2 checkpoint kinase	ok
+CDC25C	CDC25C	Ciclo celular (entrada a mitosis)	5	138285251	138338355	protein-coding	cell division cycle 25C	ok
+HGS	HGS	Otros	17	81683326	81703138	protein-coding	hepatocyte growth factor-regulated tyrosine kinase substrate	ok
+ARRB1	ARRB1	Otros	11	75260122	75352293	protein-coding	arrestin beta 1	ok
+ARRB2	ARRB2	Otros	17	4710393	4721500	protein-coding	arrestin beta 2	ok
+C17ORF99	IL40	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	17	78146356	78166297	protein-coding	interleukin 40	renombrado
+HOXB-AS3	HOXB-AS3	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	17	48549630	48606414	ncRNA	HOXB cluster antisense RNA 3	ok
+LINP1	LINP1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	10	6682513	6879450	ncRNA	lncRNA in non-homologous end joining pathway 1	ok
+MYLIP	MYLIP	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	6	16129063	16151367	protein-coding	myosin regulatory light chain interacting protein	ok
+PEPD	PEPD	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	19	33386950	33521823	protein-coding	peptidase D	ok
+SMIM14	SMIM14	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	4	39546336	39639092	protein-coding	small integral membrane protein 14	ok
+LINC00961	SPAAR	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	9	35909488	35937153	protein-coding	small regulatory polypeptide of amino acid response	renombrado
+CASIMO1	SMIM22	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	16	4788376	4796731	protein-coding	small integral membrane protein 22	renombrado
+CYRANO	OIP5-AS1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	15	41283958	41322392	ncRNA	OIP5 antisense RNA 1	renombrado
+ELF	SPTBN1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	2	54456266	54671446	protein-coding	spectrin beta, non-erythrocytic 1	renombrado
+GBAP1	GBA1LP	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	1	155210695	155228027	pseudo	glucosylceramidase beta 1 like, pseudogene	renombrado
+HOTAIR	HOTAIR	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	12	53962308	53975055	ncRNA	HOX transcript antisense RNA	ok
+LINC00261	LINC00261	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	20	22547663	22578642	ncRNA	long independently transcribed non-coding RNA 261	ok
+LINC00665	LINC00665	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	19	36259540	36331770	ncRNA	long independently transcribed non-coding RNA 665	ok
+MIEF1	MIEF1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	22	39499432	39518132	protein-coding	mitochondrial elongation factor 1	ok
+MINAR1	MINAR1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	15	79431003	79472304	protein-coding	membrane integral NOTCH2 associated receptor 1	ok
+MOXN1		Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)						no_encontrado
+C8ORF33	C8orf33	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	8	145052406	145066685	protein-coding	chromosome 8 open reading frame 33	ok
+PUNISHER	AGAP2-AS1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	12	57726271	57728356	ncRNA	AGAP2 antisense RNA 1	renombrado
+QSOX1	QSOX1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	1	180154806	180204030	protein-coding	quiescin sulfhydryl oxidase 1	ok
+RASRL1		Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)						no_encontrado
+SHPRH	SHPRH	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	6	145863881	145964449	protein-coding	SNF2 histone linker PHD RING helicase	ok
+SMIM25	PELATON	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	20	50233416	50312038	ncRNA	plaque enriched lncRNA in atherosclerotic and inflammatory bowel macrophage regulation	renombrado
+TASOR	TASOR	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	3	56620132	56683305	protein-coding	transcription activation suppressor	ok
+TBX2-AS1	TBX2-AS1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	17	61361666	61413305	ncRNA	TBX2 antisense RNA 1	ok
+TLX1-AS		Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)						no_encontrado
+UPP2-AS1		Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)						no_encontrado
+C12ORF75	C12orf75	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	12	105235290	105412882	protein-coding	chromosome 12 open reading frame 75	ok
+C16ORF80	CFAP20	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	16	58113167	58129429	protein-coding	cilia and flagella associated protein 20	renombrado
+C21ORF59	CFAP298	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	21	32592074	32612881	protein-coding	cilia and flagella associated protein 298	renombrado
+C9ORF116	PIERCE1	Microproteínas y ARN no codificantes (mitosis / tamaño nuclear)	9	135494521	135501756	protein-coding	piercer of microtubule wall 1	renombrado

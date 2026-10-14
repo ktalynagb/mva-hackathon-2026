@@ -10,6 +10,26 @@
 
 ---
 
+## 2026-10-14 — A6 cerrada: 31 genes de la lista original que faltaban
+
+**Quién:** Laura (con Claude Code)
+**Qué se hizo:**
+- Se encontró la lista original de 201 genes: es `results/genes_candidatos_grch38.tsv`, salida de `resolve_genes.py` del 30 sep en la PC de Laura. No llegó al repo porque `results/*.tsv` está en `.gitignore`, y `resolve_genes.py` la sobrescribe en cada corrida. Ahora está versionada en `config/lista_original_laura_201.tsv`
+- Se comparó con `config/genes_candidatos.txt` por nombre original y por símbolo oficial
+- Los genes que faltaban se agregaron al panel en un bloque "A6" (panel: 290 → **321** símbolos)
+- Diagnóstico diferencial solo sobre esos genes, con el script de A8 sin modificar (`notebooks/03b_a6_genes_faltantes_lista_laura.ipynb`, Colab con runtime local; resultados en `data/a6/`, no versionados)
+
+**Hallazgos:**
+- ⚠️ Faltaban **31 genes, no ~11**: la cuenta de 197 − 186 suponía que los 186 del repo eran un subconjunto de la lista de Laura, y no lo eran (el repo tenía genes que ella no tenía y viceversa)
+- ⚠️ Entre los que faltaban había tres genes de MVA o síndromes parecidos: ***CENATAC*** (MVA tipo 3), ***SMC5*** y ***SLF2***
+- ✅ **Ninguno de los 31 explica el MVA**: 30 analizados (*IL40* no está en gnomAD v4), 0 con patrón recesivo, 0 pérdidas de función. *CENATAC*, *SMC5* y *SLF2*: 0 variantes raras funcionales. Única alerta: una missense heterocigota en *MINAR1*, frecuente (AF 0,49 %, 23 homocigotos en gnomAD)
+- 10 de los 31 son ARN no codificantes o pseudogenes, que el método no puede evaluar (anotado como limitación en la sección 5 de `01_variante_causante.md`)
+
+**Pendiente:**
+- [ ] Revisión del PR por Ktalyna
+
+---
+
 ## 2026-10-09 — Envío al Track 1 preparado (A7)
 
 **Quién:** Ktalyna (con Claude Code)
@@ -538,6 +558,6 @@ Ambas son heterocigotas, ultra-raras en gnomAD v4 (7.87×10⁻⁵ y 6.84×10⁻�
 
 - [x] Fusionar PR #1 y #2 (tarea D1)
 - [ ] Revisar y fusionar los PR #6, #7 y #8
-- [ ] Laura confirma `config/genes_candidatos.txt` (tarea A6)
+- [x] Laura confirma `config/genes_candidatos.txt` (tarea A6, 14 oct: 31 genes agregados, ninguno explica el MVA)
 - [ ] Cada integrante toma tareas del [tablero](plan_equipo_tareas.md)
 - [ ] Completar `methods_description_form.xlsx` antes del 24 oct (tarea E7)
