@@ -132,12 +132,12 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 
 **Límite:** es una predicción por regla. No hay datos de ARN del paciente. Se confirmaría con RT-PCR en fibroblastos o linfocitos, con y sin ciclohexamida.
 
-## 5. Diagnóstico diferencial (tareas A3 y A8)
+## 5. Diagnóstico diferencial (tareas A3, A6 y A8)
 
 **Pregunta:** ¿algún otro gen del panel podría explicar el MVA del paciente?
 
 **Método** (`python scripts/diagnostico_diferencial.py`, o el paso `diagnostico` de `run_pipeline.py`; versión del 8 oct):
-1. Variantes PASS del paciente dentro de los **290 símbolos** de `config/genes_candidatos.txt`: los 187 del panel original y los 104 de los grupos del equipo, menos el alias redundante EB1 (ver nota). Son unas 22.700 variantes; algunas se cuentan en más de un gen porque ciertos alias comparten locus.
+1. Variantes PASS del paciente dentro de los **290 símbolos** de `config/genes_candidatos.txt`: los 187 del panel original y los 104 de los grupos del equipo, menos el alias redundante EB1 (ver nota). El 14 oct se sumaron 31 genes de la lista original (A6, abajo): el panel actual tiene 321. Son unas 22.700 variantes; algunas se cuentan en más de un gen porque ciertos alias comparten locus.
 2. Frecuencia en gnomAD v4 (se conservan las raras: AF < 1 % o ausentes) y una primera consecuencia (gnomAD o Ensembl VEP, la más severa en cualquier transcrito).
 3. Las variantes raras que parecen funcionales (pérdida de función, missense o en el marco) se **vuelven a anotar con VEP en el transcrito MANE Select del mismo gen**, que es la versión de referencia clínica. **Esa consecuencia es la que decide.**
 4. Patrón recesivo compatible: al menos 1 homocigota o 2 heterocigotas funcionales en el mismo gen.
@@ -166,12 +166,21 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 | SYNE2 | stop_lost | **intrón** | 6,4×10⁻⁴ (1 homocigoto) | No, falsa alarma |
 
 **Los genes de MVA conocidos quedan descartados en cuanto a variantes codificantes:**
-- ***CEP57***: 4 variantes PASS, ninguna rara ni funcional.
-- ***TRIP13***: 3 variantes PASS, ninguna rara ni funcional.
-- ***MAD2L1BP*** (p31comet, MVA descrito en 2023): 4 variantes PASS, ninguna rara ni funcional.
+- ***CEP57*** (MVA2): 4 variantes PASS, ninguna rara ni funcional.
+- ***TRIP13*** (MVA3): 3 variantes PASS, ninguna rara ni funcional.
+- ***CENATAC*** (MVA4), ***SMC5*** (MVA6) y ***SLF2*** (MVA5): 11, 87 y 67 variantes PASS, ninguna rara funcional (ampliación A6, abajo).
+- ***MAD2L1BP*** (p31comet, MVA descrito en 2023, aún sin número en OMIM): 4 variantes PASS, ninguna rara ni funcional.
 - *BUB1*, *BUB3*, *MAD2L1*, *CDC20*, *ESPL1*: sin variantes raras funcionales.
 
-**Lectura.** *BUB1B* es el **único gen de los 290** con dos variantes raras funcionales, y la única pérdida de función que se mantiene en MANE es p.Leu737Ter. No hay ninguna variante rara funcional homocigota, así que tampoco hay una explicación recesiva por homocigosis. Los demás genes tienen a lo sumo una variante heterocigota, que no basta para un modelo recesivo, y la mayoría son frecuentes en gnomAD, con homocigotos sanos. Con la consecuencia de cualquier transcrito, *SYNE2* aparecía con patrón recesivo; en MANE le queda una sola missense.
+Los seis tipos de MVA con número en OMIM: MVA1 *BUB1B* (257300), MVA2 *CEP57* (614114), MVA3 *TRIP13* (617598), MVA4 *CENATAC* (620153), MVA5 *SLF2* y MVA6 *SMC5* (números de MVA5 y MVA6 por confirmar en omim.org; las fuentes secundarias no coinciden). *BUB1B* es el único de los seis con variantes raras funcionales en este paciente.
+
+**Ampliación A6 (14 oct): 31 genes de la lista original que faltaban.** La lista original del equipo (201 símbolos, `config/lista_original_laura_201.tsv`) nunca había entrado completa en `config/genes_candidatos.txt`: de sus 197 genes reales faltaban 31, entre ellos *CENATAC*, *SMC5* y *SLF2*. Se agregaron al panel (ahora 321 símbolos) y se analizaron con el mismo script y el mismo criterio MANE (`notebooks/03b_a6_genes_faltantes_lista_laura.ipynb`):
+- 30 de 31 analizados; *IL40* (antes C17orf99) no está en gnomAD v4.
+- **Ningún gen con patrón recesivo ni pérdida de función.**
+- Una sola alerta, que se mantiene en MANE: *MINAR1*, missense heterocigota, AF 0,49 % con 23 homocigotos en gnomAD. Es frecuente y el gen no tiene relación con MVA, así que no cuenta.
+- 10 de los 31 son ARN no codificantes (9) o un pseudogén (1). Para ellos el método, que solo mira cambios en proteína, no es informativo.
+
+**Lectura.** *BUB1B* es el **único gen de los 321** (290 del barrido A8 + 31 de A6) con dos variantes raras funcionales, y la única pérdida de función que se mantiene en MANE es p.Leu737Ter. No hay ninguna variante rara funcional homocigota, así que tampoco hay una explicación recesiva por homocigosis. Los demás genes tienen a lo sumo una variante heterocigota, que no basta para un modelo recesivo, y la mayoría son frecuentes en gnomAD, con homocigotos sanos. Con la consecuencia de cualquier transcrito, *SYNE2* aparecía con patrón recesivo; en MANE le queda una sola missense.
 
 **Historia del método.**
 - Laura detectó el problema el 6 oct, al revisar a mano en MANE los 104 genes nuevos: 3 de 7 alertas eran falsas.

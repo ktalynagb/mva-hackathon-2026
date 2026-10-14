@@ -156,7 +156,7 @@ Todos los pasos consultan APIs públicas y guardan una caché local. Para la rep
 
 | Parte | ¿Sirve para otro paciente? | Qué cambiar |
 |---|---|---|
-| Diagnóstico diferencial (290 genes de mitosis, cinetocoro, centrosoma, cohesina, reparación y ciclo celular) | **Sí**, sin cambios de código | Poner su VCF (GRCh38) en `data/raw/` y correr `python run_pipeline.py --solo diagnostico`. El panel se edita en `config/genes_candidatos.txt` |
+| Diagnóstico diferencial (321 genes de mitosis, cinetocoro, centrosoma, cohesina, reparación y ciclo celular) | **Sí**, sin cambios de código | Poner su VCF (GRCh38) en `data/raw/` y correr `python run_pipeline.py --solo diagnostico`. El panel se edita en `config/genes_candidatos.txt` |
 | Clasificación ACMG, NMD y estructura | Parcial: el método es general, pero `evidencia_alelo2.py` está escrito para el residuo 1002 de BUBR1 | Cambiar el residuo y la proteína en el script |
 | Lista larga de fármacos | **Sí** para otro paciente con MVA por *BUB1B*: las líneas terapéuticas dependen del mecanismo, no de la variante | Para otro gen (*CEP57*, *TRIP13*), editar las semillas y la dirección de acción en `config/lineas_terapeuticas.json` |
 | Priorización (matriz C1) | **Sí**: filtros y criterios no dependen del caso | Solo K2 (edad del paciente) y K4 (órganos afectados) |
