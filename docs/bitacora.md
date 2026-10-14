@@ -10,6 +10,25 @@
 
 ---
 
+## 2026-10-14 (tarde) — Revisión biológica de la lista corta (C6) y corrección de sirolimus
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C6-revision-biologica`
+**Qué se hizo:**
+- Se verificó en PubMed la evidencia de cada candidato de la lista corta
+- Sección 5 nueva en `docs/secciones/04_candidatos.md`: ¿cada fármaco empeora la mitosis?
+- Niacina agregada a `results/candidatos_farmacos.tsv` como candidato de línea 1 (53 candidatos); PDF de revisión actualizado
+
+**Hallazgos:**
+- ⚠️ **Corrección:** Sieben 2020 (PMID 31738183) **no trató ratones BubR1 con rapamicina**; solo asocia la sarcopenia con mTORC1 hiperactivo. La rapamicina frena la sarcopenia en ratones salvajes (Ham 2020, PMID 32908143). Sirolimus: K1 3 → 2, 80 → 71,7 pts. **Arimoclomol pasa al primer lugar**
+- ✅ Ningún candidato debilita el checkpoint mitótico. **Bortezomib** sí agrega estrés mitótico: al frenar el proteasoma retrasa la degradación de ciclina B y securina, que permite salir de la mitosis; además suma neuropatía a la vincristina
+- 💡 **Niacina (vitamina B3, FDA):** NMN, otro precursor de NAD⁺, sube BubR1 en ratones vía SIRT2, y SIRT2 alarga la vida de ratones BubR1<sup>H/H</sup> (North 2014, PMID 24825348). Es el único fármaco aprobado con datos *in vivo* de que aumenta BubR1. Con la matriz puntúa 48,3 (sin datos clínicos, riesgo con el tumor activo)
+
+**Pendiente:**
+- [ ] Decidir en la reunión del 15 oct: ¿bortezomib o niacina como segundo candidato de línea 1?
+- [ ] Revisión 🧬 de la sección 5
+
+---
+
 ## 2026-10-14 — A6 cerrada: 31 genes de la lista original que faltaban
 
 **Quién:** Laura (con Claude Code)
@@ -93,7 +112,7 @@
 - `docs/secciones/04_candidatos.md`: 5 candidatos elegidos del ranking de C4, sin repetir mecanismo, cubriendo las 4 líneas de `02b_resumen_mecanismo.md` (la regla pedía al menos 2)
 - Cada uno con ficha: mecanismo, evidencia, seguridad pediátrica, riesgos de compatibilidad y cómo se validaría
 
-**Elegidos:** sirolimus (línea 2, 80 pts — único con dato experimental en modelo de ratón BubR1), arimoclomol (línea 1, 73,3 — chaperona), temsirolimus (líneas 2+4, 70 — único con ensayo clínico propio en rabdomiosarcoma), dasatinib (línea 3, 60 — senolítico), bortezomib (línea 1, 60 — proteasoma, prueba el mecanismo del paper base con MG132)
+**Elegidos:** sirolimus (línea 2, 80 pts — único con dato experimental en modelo de ratón BubR1 *[corregido 14 oct: no hay tal dato; 71,7 pts]*), arimoclomol (línea 1, 73,3 — chaperona), temsirolimus (líneas 2+4, 70 — único con ensayo clínico propio en rabdomiosarcoma), dasatinib (línea 3, 60 — senolítico), bortezomib (línea 1, 60 — proteasoma, prueba el mecanismo del paper base con MG132)
 
 **Hallazgos:**
 - Dos riesgos de compatibilidad a resolver antes del informe final: bortezomib + vincristina comparten neurotoxicidad (ambas en el protocolo estándar); el beneficio de temsirolimus depende del grupo de riesgo del rabdomiosarcoma (sin beneficio en riesgo intermedio, PMID 38936378)
@@ -132,7 +151,7 @@
 - `quien_puntua` = "Claude (borrador IA)": falta la revisión 💊 de los 10 primeros que pide la regla de C1 (sección 1.5)
 
 **Hallazgos:**
-- Top 4, todos con datos mecanísticos directos (no solo razonamiento): **sirolimus (80)** — único con datos experimentales en el ratón BubR1 hipomórfico (Sieben 2020/PMID 31738183) —, **arimoclomol (73,3)**, **temsirolimus (70)** — único con ensayo clínico propio en rabdomiosarcoma — y **everolimus (68,3)**
+- Top 4, todos con datos mecanísticos directos (no solo razonamiento): **sirolimus (80)** — único con datos experimentales en el ratón BubR1 hipomórfico (Sieben 2020/PMID 31738183) *[corregido 14 oct: Sieben 2020 no trató con rapamicina, solo asocia sarcopenia y mTORC1; 71,7 pts]* —, **arimoclomol (73,3)**, **temsirolimus (70)** — único con ensayo clínico propio en rabdomiosarcoma — y **everolimus (68,3)**
 - El top 10 ya cubre 3 de las 4 líneas (1, 2 y 3: dasatinib 60, bortezomib 60), condición que pide C5 para la lista corta
 - ⚠️ Pendiente de decisión (sigue abierta desde C1 sec. 6): la edad exacta del paciente para `k2`; se asumió "niño pequeño" por el fenotipo (prematuro, RCIU severo, talla baja) sin abrir el documento clínico
 - ⚠️ Candidatos con alerta renal fuerte por la nefrocalcinosis del paciente (k4 bajo): cisplatino, metotrexato, pemetrexed, nitrato de galio, carfilzomib, varios TKI multiquinasa (cabozantinib, lenvatinib, regorafenib, sorafenib)

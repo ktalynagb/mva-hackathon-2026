@@ -100,9 +100,9 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | C1 | Definir la matriz de priorización y sus pesos: aprobación FDA/EMA, solidez del mecanismo, seguridad pediátrica, interacción con el tratamiento del rabdomiosarcoma, evidencia existente | `docs/secciones/03_criterios.md` | 💊 | 10 oct | — | Ktalyna (borrador) | 👀 PR #7: 4 filtros + 6 criterios ponderados; necesita revisor 💊 para cerrar 5 decisiones |
 | C2 | Paisaje terapéutico: fármacos aprobados sobre mitosis/SAC, senescencia, *readthrough* de codones de stop y mTOR | sección en el mismo archivo | 💊🧬 | 12 oct | — | | ⬜ |
 | C3 | Consultar DGIdb y Open Targets por línea terapéutica → lista larga, con aprobación comprobada en FDA/EMA | `scripts/lista_larga_farmacos.py` + `results/candidatos_farmacos.tsv` + `docs/secciones/03b_lista_larga.md` | 💻💊 | 14 oct | — | Ktalyna | 👀 52 candidatos (14 en líneas 1–3, 38 en tumor), 21 de contexto, 13 excluidos |
-| C4 | Puntuar la lista larga con la matriz | columna de puntaje en el `.tsv` | 💊 | 15 oct | C1, C3 | Ktalyna (con Claude) | 👀 52 candidatos puntuados; falta revisión 💊 de los 10 primeros (regla de C1 sec. 1.5) |
+| C4 | Puntuar la lista larga con la matriz | columna de puntaje en el `.tsv` | 💊 | 15 oct | C1, C3 | Ktalyna (con Claude) | 👀 53 candidatos puntuados (niacina agregada el 14 oct). Corregido sirolimus: 80 → 71,7. Falta revisión 💊 de los 10 primeros (regla de C1 sec. 1.5) |
 | C5 | **(H4)** Lista corta de 3 a 5 fármacos, con ficha: mecanismo, evidencia, seguridad pediátrica, riesgos y cómo se validaría | `docs/secciones/04_candidatos.md` | 💊✍️ | **17 oct** | B4, C4 | Ktalyna (con Claude) | 👀 5 candidatos (sirolimus, arimoclomol, temsirolimus, dasatinib, bortezomib), cubren las 4 líneas; falta revisión 💊🧬 |
-| C6 | Revisión biológica de la lista corta: ¿cada fármaco mejora o empeora la aneuploidía? | comentarios en el PR de C5 | 🧬 | 18 oct | C5 | | ⬜ |
+| C6 | Revisión biológica de la lista corta: ¿cada fármaco mejora o empeora la aneuploidía? | sección 5 de `docs/secciones/04_candidatos.md` | 🧬 | 18 oct | C5 | Ktalyna (con Claude) | 👀 14 oct: ninguno debilita el checkpoint; bortezomib frena la salida de la mitosis → se propone niacina (sube BubR1 vía NAD⁺/SIRT2). Falta revisión 🧬 y decisión del equipo |
 
 ### Área D — Código y reproducibilidad 💻
 
