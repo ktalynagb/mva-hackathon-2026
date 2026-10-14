@@ -10,6 +10,25 @@
 
 ---
 
+## 2026-10-14 (noche) — Niacina en el informe y segunda corrección de puntajes
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-niacina-informe`
+**Qué se hizo:**
+- `docs/informe_final.md`: se completaron la sección 2.4 (cómo se priorizaron los fármacos), la 3.3 (tabla de candidatos) y la discusión. Niacina entra como **hipótesis innovadora, marcada como especulativa**, con sus 5 límites
+- Ficha 2.6 de niacina en `docs/secciones/04_candidatos.md`; PDF de revisión actualizado
+
+**Hallazgos:**
+- ⚠️ **Arimoclomol: la ficha de la FDA dice que su mecanismo en Niemann-Pick C "es desconocido"** y que solo se aprobó junto con miglustat, desde los 2 años. Baja de peso es efecto frecuente (≥ 15 %) y el paciente tiene falla de medro; sube la creatinina 10–20 % sin afectar el filtrado (inhibe OCT2); ratas jóvenes tuvieron dilatación de la pelvis renal. K4 2 → 1: **73,3 → 68,3**. Sirolimus (71,7) vuelve al primer lugar
+- ⚠️ Niacina: el rescate de 2014 (North) **no tuvo réplica independiente**; el mismo grupo mostró en 2023 que SIRT2 extra no alarga la vida de ratones normales (PMID 38009412), y en 2014 otro grupo vio que SIRT2 desacetila BubR1 en K250 sin cambiar su cantidad total (PMID 25285631). La ficha de la FDA de niacina: seguridad pediátrica no establecida
+- ✅ PubMed (14 oct): 0 trabajos unen NAD⁺, SIRT2, NMN o niacina con el MVA, y ninguno une arimoclomol o HSP70 con BUBR1
+- Error mío anterior corregido: escribí que niacina era "el único fármaco aprobado con datos *in vivo* de que sube BubR1". Los datos son de NMN (no aprobado); la niacina misma no se probó
+
+**Pendiente:**
+- [ ] Reunión 15 oct: ¿bortezomib sale de la lista corta?
+- [ ] Revisión 🧬 de la sección 3.3 del informe
+
+---
+
 ## 2026-10-14 (tarde) — Revisión biológica de la lista corta (C6) y corrección de sirolimus
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C6-revision-biologica`
