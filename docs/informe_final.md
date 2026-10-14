@@ -74,7 +74,7 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 | Calidad de la llamada | PASS, fracción alélica 0,54, GQ 99 | PASS, fracción alélica 0,46, GQ 99 |
 | ACMG | Probablemente patogénica (9 puntos); ClinVar: patogénica | VUS inclinada a patogénica (1–2 puntos) |
 
-- **Diagnóstico diferencial:** *BUB1B* es el único de los 321 genes del panel con dos variantes raras funcionales en el transcrito MANE. *CEP57*, *TRIP13*, *MAD2L1BP* y *CENATAC* no tienen ninguna. Anotar en MANE descartó 5 de 18 alertas que solo eran graves en transcritos secundarios; una de ellas daba un falso patrón recesivo en *SYNE2*.
+- **Diagnóstico diferencial:** *BUB1B* es el único de los 321 genes del panel con dos variantes raras funcionales en el transcrito MANE. Los otros cinco genes de MVA (*CEP57*, *TRIP13*, *CENATAC*, *SLF2*, *SMC5*) y *MAD2L1BP* no tienen ninguna. Anotar en MANE descartó 5 de 18 alertas que solo eran graves en transcritos secundarios; una de ellas daba un falso patrón recesivo en *SYNE2*.
 - **Limitación principal:** sin muestras de los padres no se puede demostrar que las variantes estén en alelos distintos (*trans*).
 ![Figura 1](../results/figura_1_bubr1_variantes.png)
 

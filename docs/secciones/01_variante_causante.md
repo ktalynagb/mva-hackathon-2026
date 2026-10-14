@@ -166,11 +166,13 @@ Estructura del transcrito ENST00000287598 (Ensembl): 23 exones, CDS de 3153 nt, 
 | SYNE2 | stop_lost | **intrón** | 6,4×10⁻⁴ (1 homocigoto) | No, falsa alarma |
 
 **Los genes de MVA conocidos quedan descartados en cuanto a variantes codificantes:**
-- ***CEP57***: 4 variantes PASS, ninguna rara ni funcional.
-- ***TRIP13***: 3 variantes PASS, ninguna rara ni funcional.
-- ***MAD2L1BP*** (p31comet, MVA descrito en 2023): 4 variantes PASS, ninguna rara ni funcional.
+- ***CEP57*** (MVA2): 4 variantes PASS, ninguna rara ni funcional.
+- ***TRIP13*** (MVA3): 3 variantes PASS, ninguna rara ni funcional.
+- ***CENATAC*** (MVA4), ***SMC5*** (MVA6) y ***SLF2*** (MVA5): 11, 87 y 67 variantes PASS, ninguna rara funcional (ampliación A6, abajo).
+- ***MAD2L1BP*** (p31comet, MVA descrito en 2023, aún sin número en OMIM): 4 variantes PASS, ninguna rara ni funcional.
 - *BUB1*, *BUB3*, *MAD2L1*, *CDC20*, *ESPL1*: sin variantes raras funcionales.
-- ***CENATAC*** (MVA tipo 3), ***SMC5*** y ***SLF2*** (síndromes con aneuploidía en mosaico): 11, 87 y 67 variantes PASS, ninguna rara funcional (ampliación A6, abajo).
+
+Los seis tipos de MVA con número en OMIM: MVA1 *BUB1B* (257300), MVA2 *CEP57* (614114), MVA3 *TRIP13* (617598), MVA4 *CENATAC* (620153), MVA5 *SLF2* y MVA6 *SMC5* (números de MVA5 y MVA6 por confirmar en omim.org; las fuentes secundarias no coinciden). *BUB1B* es el único de los seis con variantes raras funcionales en este paciente.
 
 **Ampliación A6 (14 oct): 31 genes de la lista original que faltaban.** La lista original del equipo (201 símbolos, `config/lista_original_laura_201.tsv`) nunca había entrado completa en `config/genes_candidatos.txt`: de sus 197 genes reales faltaban 31, entre ellos *CENATAC*, *SMC5* y *SLF2*. Se agregaron al panel (ahora 321 símbolos) y se analizaron con el mismo script y el mismo criterio MANE (`notebooks/03b_a6_genes_faltantes_lista_laura.ipynb`):
 - 30 de 31 analizados; *IL40* (antes C17orf99) no está en gnomAD v4.

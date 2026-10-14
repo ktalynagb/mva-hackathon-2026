@@ -21,12 +21,14 @@
 
 **Hallazgos:**
 - ⚠️ Faltaban **31 genes, no ~11**: la cuenta de 197 − 186 suponía que los 186 del repo eran un subconjunto de la lista de Laura, y no lo eran (el repo tenía genes que ella no tenía y viceversa)
-- ⚠️ Entre los que faltaban había tres genes de MVA o síndromes parecidos: ***CENATAC*** (MVA tipo 3), ***SMC5*** y ***SLF2***
+- ⚠️ Entre los que faltaban había **tres de los seis genes de MVA con número en OMIM**: ***CENATAC*** (MVA4), ***SLF2*** (MVA5) y ***SMC5*** (MVA6)
 - ✅ **Ninguno de los 31 explica el MVA**: 30 analizados (*IL40* no está en gnomAD v4), 0 con patrón recesivo, 0 pérdidas de función. *CENATAC*, *SMC5* y *SLF2*: 0 variantes raras funcionales. Única alerta: una missense heterocigota en *MINAR1*, frecuente (AF 0,49 %, 23 homocigotos en gnomAD)
 - 10 de los 31 son ARN no codificantes o pseudogenes, que el método no puede evaluar (anotado como limitación en la sección 5 de `01_variante_causante.md`)
 
-**Pendiente:**
-- [ ] Revisión del PR por Ktalyna
+**Revisión (Ktalyna con Claude Code, 14 oct):**
+- Corregida la numeración de MVA: MVA3 es *TRIP13* (OMIM 617598) y *CENATAC* es MVA4 (OMIM 620153). El error venía de una nota de revisión equivocada del 5 oct en `scripts/unir_grupos_genes.py` y `config/genes_candidatos_anotados.csv`, que decía que el MVA 3 era CENATAC; corregida en ambos
+- Se borró la salida de la celda que mostraba la posición de la variante de *MINAR1*: el repo será público y la convención es no publicar genotipos del paciente fuera de *BUB1B*
+- El marcador del Track 1 confirma la hipótesis: los 24 primeros tienen 100 puntos de rango y F-max 1,000, casi todos con el par de *BUB1B*
 
 ---
 
@@ -286,7 +288,7 @@
 
 **Hallazgos:**
 - ⚠️ Las columnas `hgnc_id`, `ensembl_id` y `ncbi_gene_id` están corruptas en 7 de 8 archivos (p. ej. `ENSG00000162571` en 72 de 95 filas) y se descartaron. En el archivo de reparación de ADN faltan 2 columnas. Las coordenadas salen de `scripts/resolve_genes.py` por símbolo
-- Errores de contenido marcados en `nota_revision` (el texto original no se modificó): PCNT/Taybi-Linder, NIN/pseudoacondroplasia, SAS6 ("cartílago"), TRIP13 "MVA 3" y símbolos desactualizados (CCDC155, H3F3A/B, H2AFZ, MRE11A, NTF2, NUP53, NUP96)
+- Errores de contenido marcados en `nota_revision` (el texto original no se modificó): PCNT/Taybi-Linder, NIN/pseudoacondroplasia, SAS6 ("cartílago") y símbolos desactualizados (CCDC155, H3F3A/B, H2AFZ, MRE11A, NTF2, NUP53, NUP96). *Corrección 14 oct: también se había marcado TRIP13 "MVA 3" como error, pero era correcto (OMIM 617598).*
 - HGS, ARRB1 y ARRB2 no son del ciclo celular: baja prioridad
 
 **Pendiente:**
