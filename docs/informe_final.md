@@ -82,6 +82,8 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 - **Diagnóstico diferencial:** *BUB1B* es el único de los 321 genes del panel con dos variantes raras funcionales en el transcrito MANE. Los otros cinco genes de MVA (*CEP57*, *TRIP13*, *CENATAC*, *SLF2*, *SMC5*) y *MAD2L1BP* no tienen ninguna. Anotar en MANE descartó 5 de 18 alertas que solo eran graves en transcritos secundarios; una de ellas daba un falso patrón recesivo en *SYNE2*.
 - **Limitación principal:** sin muestras de los padres no se puede demostrar que las variantes estén en alelos distintos (*trans*).
+- **Modelo dominante y hallazgo secundario (A10):** en 92 genes donde una sola copia alterada causa enfermedad (8 paneles de PanelApp), la única variante muy rara con efecto es **una truncante heterocigota en *LZTR1***, probablemente patogénica para la **schwannomatosis por *LZTR1*** (dominante, penetrancia incompleta; PMID 24362817). No explica el MVA ni la nefrocalcinosis, y no causa Noonan (el gen tolera perder una copia y no hay segunda variante). Es un hallazgo secundario con vigilancia recomendada en niños (PMID 39937237). Detalle: `01_variante_causante.md`, sección 5c.
+- **Nefrocalcinosis:** ningún gen renal la explica (92 genes con el modelo dominante y 48 con el recesivo). Lo más probable es que se deba a la prematuridad: hasta 40 % de los prematuros la desarrollan (PMID 38296790).
 ![Figura 1](../results/figura_1_bubr1_variantes.png)
 
 **Figura 1. BUBR1 con las variantes del paciente y las variantes de MVA caracterizadas.** Arriba, las dos variantes del paciente: p.Leu737Ter (bermellón, truncante) y p.Asn1002Lys (azul, missense en la pseudoquinasa). Abajo, variantes de pacientes con MVA estudiadas en células por Suijkerbuijk et al. 2010, separadas según bajen la cantidad de BUBR1 o no. Las líneas punteadas alinean las variantes del paciente con las publicadas: p.Leu737Ter cae entre los truncamientos 731X y 753X, y p.Asn1002Lys junto a L1012P, en la región donde los missense reducen la proteína. Dominios: UniProt O60566 y Zhang et al. 2026. Generada con `scripts/figuras_informe.py`.
@@ -128,16 +130,20 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
   5. La ficha de la FDA indica que la seguridad de la niacina en niños no está establecida, y subir NAD⁺ podría favorecer a un tumor activo.
 - **Cómo se descartaría.** En fibroblastos del paciente tratados con niacina o NMN, medir BUBR1 total y acetilado en la lisina 668. Es el experimento más barato de la lista y se resuelve en una semana de laboratorio.
 
+#### Línea condicional: tumor con RAS activado (inhibidores de MEK)
+
+*Solo si la biopsia lo confirma.* Si el rabdomiosarcoma perdió la otra copia de *LZTR1* (pérdida de 22q11) o tiene la vía RAS activada (fosfo-ERK alto), un inhibidor de MEK aprobado en niños desde 1 año (**trametinib** o **selumetinib**, 65 puntos) combinado con **temsirolimus** tendría fundamento: la combinación MEK + PI3K/mTOR es letal para células de rabdomiosarcoma (PMID 23684925) y MEK + anti-IGF1R frena modelos con RAS mutado (PMID 36322002). Nunca en monoterapia: selumetinib solo no logró respuestas en niños (PMID 35363510). En PubMed hay un solo trabajo que une *LZTR1* con el rabdomiosarcoma.
+
 Quedan excluidos los inhibidores de HSP90, PLK1, Aurora y MPS1, que bajarían aún más la BUBR1 o debilitarían la mitosis.
 
 ## 4. Discusión
 
 [PENDIENTE · E5]
 - **Lo más sólido y lo más débil:** la fase *trans* no está demostrada, el alelo 2 es VUS y la priorización de fármacos se apoya en datos preclínicos. Ningún candidato se probó con BUBR1 en células humanas, y para arimoclomol la propia ficha de la FDA dice que su mecanismo en Niemann-Pick C es desconocido.
-- **Innovación:** tratar el MVA bialélico como una enfermedad de falta de proteína (no de función), evitar las dianas que empeorarían el checkpoint y proponer, como hipótesis especulativa, subir BubR1 con un precursor de NAD⁺ (niacina) a través de SIRT2.
+- **Innovación:** tratar el MVA bialélico como una enfermedad de falta de proteína (no de función), evitar las dianas que empeorarían el checkpoint y proponer, como hipótesis especulativa, subir BubR1 con un precursor de NAD⁺ (niacina) a través de SIRT2. Además, buscar un **segundo diagnóstico dominante** en vez de quedarse con BUB1B: aparece un hallazgo secundario en *LZTR1* y la hipótesis de un segundo golpe en el tumor, que abriría el uso de inhibidores de MEK.
 - **Impacto clínico:** qué candidato podría probarse primero y cómo (fibroblastos del paciente).
 - **Escalabilidad:** el mismo pipeline sirve para otros pacientes con MVA cambiando el VCF y la lista de genes [D5].
-- **Próximos pasos:** genotipar a los padres, RT-PCR del alelo 1, Western blot de BUBR1 con y sin MG132, arimoclomol y niacina o NMN, cariotipo.
+- **Próximos pasos:** genotipar a los padres, RT-PCR del alelo 1, Western blot de BUBR1 con y sin MG132, arimoclomol y niacina o NMN, cariotipo; en la biopsia del tumor, pérdida de 22q11 o segunda mutación de *LZTR1* y fosfo-ERK.
 
 ## 5. Referencias
 
