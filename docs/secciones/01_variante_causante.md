@@ -196,6 +196,44 @@ Los seis tipos de MVA con número en OMIM: MVA1 *BUB1B* (257300), MVA2 *CEP57* (
 > - Una primera versión marcó 31 variantes comunes como "ausentes de gnomAD", porque la lista de variantes por gen de gnomAD omite algunas. Se corrigió consultando cada variante funcional directamente.
 > - El 8 oct se quitó el símbolo EB1 del panel: el buscador de alias lo resolvía como *ANKS1B*, pero EB1 es *MAPRE1*, que ya estaba en la lista. *ANKS1B* no tenía variantes raras funcionales.
 
+## 5c. Modelo dominante: ¿un segundo diagnóstico? (tarea A10)
+
+**Por qué.** El MVA explica la causa principal, pero no todo el cuadro: la **nefrocalcinosis** no forma parte del MVA, y algunos síndromes dominantes (Costello, Noonan, Li-Fraumeni, *DICER1*) también predisponen al rabdomiosarcoma. Entre 5 y 7 % de los pacientes con diagnóstico genético tienen dos diagnósticos a la vez. Varios integrantes propusieron revisar si una variante en **una sola copia** de otro gen podía explicar parte del cuadro.
+
+**Método** (`scripts/modelo_dominante.py`, paneles en `config/paneles_modelo_dominante.json`):
+- **Genes:** 92 genes verdes (evidencia firme) en los que **una sola copia alterada causa enfermedad**, de 8 paneles de PanelApp (Genomics England): nefrocalcinosis, tubulopatías, calcio y paratiroides, CASR, rabdomiosarcoma familiar, tumores sólidos infantiles, sarcomas y talla baja. La lista con su panel de origen está en `config/genes_modelo_dominante.tsv`.
+- **Embudo:** el mismo de A8 (PASS, consecuencia en el transcrito MANE) más tres filtros propios del modelo dominante: variante heterocigota; **AF ≤ 1×10⁻⁵** en gnomAD v4 o ausente (una enfermedad dominante grave de la infancia no puede ser frecuente); y GQ ≥ 20 con DP ≥ 10.
+
+| Paso | Variantes |
+|---|---|
+| PASS en los 92 genes | 11.808 |
+| Con efecto en la proteína en el transcrito MANE (AF < 1 %) | 2 |
+| Heterocigotas | 2 |
+| AF ≤ 1×10⁻⁵ y buena calidad | **1** |
+
+**Resultado: una variante truncante heterocigota en *LZTR1*.**
+- Codón de parada prematuro en la región C-terminal (transcrito MANE), con AF 1,4×10⁻⁶ en gnomAD v4 y 0 homocigotos.
+- Lectura limpia: GQ 99, 48 lecturas, la mitad con la variante (germinal, sin señal de mosaico).
+- ClinVar la clasifica patogénica o probablemente patogénica (dos laboratorios, 2024) para la schwannomatosis por *LZTR1* y los síndromes de Noonan 2 y 10.
+- No hay ninguna otra variante rara funcional en *LZTR1*.
+
+**Interpretación.**
+- **No explica el MVA ni la nefrocalcinosis.**
+- **No causa síndrome de Noonan:**
+  - el Noonan dominante por *LZTR1* (NS10) se debe a cambios de aminoácido con efecto dominante negativo, no a la pérdida de una copia;
+  - el Noonan por pérdida de función (NS2) es recesivo, y el paciente no tiene una segunda variante;
+  - el gen tolera perder una copia (LOEUF 2,72 en gnomAD).
+- **Sí es la causa conocida de la schwannomatosis por *LZTR1*:** herencia dominante y penetrancia incompleta, con portadores sanos (Piotrowski 2014, PMID 24362817). Con PVS1 y PM2 de soporte se clasifica **probablemente patogénica** para esa enfermedad (falta confirmar que active el NMD). Existen recomendaciones internacionales de vigilancia en niños (Perrino 2025, PMID 39937237). Es un **hallazgo secundario con utilidad clínica**, y probablemente lo porta uno de los padres.
+- **Hipótesis innovadora (no demostrada): un segundo golpe en el tumor.** *LZTR1* marca a las proteínas RAS para que se degraden. En los schwannomas de los portadores, el tumor pierde la segunda copia (pérdida de 22q). El rabdomiosarcoma sin fusión depende de la vía RAS (PMID 36322002). Si el tumor de este paciente hubiera perdido la otra copia de *LZTR1*, tendría RAS más activo, y eso abriría una línea de tratamiento (inhibidores de MEK, `04_candidatos.md` sección 6). En PubMed solo un trabajo une *LZTR1* con el rabdomiosarcoma (un caso hipofisario, PMID 34659131). **Se comprueba en la biopsia del tumor:** pérdida de 22q11 o segunda mutación de *LZTR1*, y fosfo-ERK por inmunohistoquímica.
+
+**Lo demás que apareció y se descartó:**
+- Una missense en *SLC34A1*, un gen de nefrocalcinosis: AF 0,41 % con 23 homocigotos sanos, y "probablemente benigna" para varios laboratorios. No puede ser causa dominante.
+- La missense de *MAD1L1* que figuraba como patogénica en una tabla del equipo: ese registro de ClinVar es de 2001, somático (cáncer de próstata) y sin criterios. Las evaluaciones germinales recientes la dan benigna, y la tiene el 0,3 % de la población.
+
+**La nefrocalcinosis.** Ningún gen la explica. Además de los genes dominantes, se revisaron con el modelo recesivo los 48 genes bialélicos de los mismos paneles renales (`python scripts/modelo_dominante.py --rinon-recesivo`): 6.279 variantes PASS, una sola rara con efecto en la proteína (la missense frecuente de *SLC34A1*) y ningún patrón recesivo. La explicación más probable es la **prematuridad**: hasta 40 % de los prematuros desarrollan nefrocalcinosis por factores metabólicos, genéticos e iatrogénicos (Oh y Butani 2024, PMID 38296790). Sin la historia neonatal del paciente no se puede confirmar, y no se evaluaron variantes estructurales.
+
+**Privacidad.** Por ser un hallazgo secundario sobre la salud de un niño y de su familia, aquí se describe solo a nivel de gen. La variante exacta queda en `data/` y, si el equipo lo decide, se informa a los organizadores en el envío del Track 1.
+
 ## 6. Interpretación combinada
 
 El paciente es heterocigoto para una variante probablemente patogénica de pérdida de función y para una variante rara de significado incierto en el mismo gen, cuya enfermedad recesiva (MVA1) encaja con el fenotipo. Es un genotipo típico de MVA1 si ambas están en *trans*: un alelo nulo más un alelo hipomórfico. Las mutaciones bialélicas de *BUB1B* suelen combinar una sin sentido con un missense del dominio quinasa (Sieben 2020), y la pérdida total de BUBR1 es letal en el embrión de ratón (Wang 2004; detalle en `02_marco_biologico.md`, secciones 5 y 6). El caso publicado más parecido (truncamiento en el codón 753 + p.Leu1012Pro, a 10 residuos de N1002) está en la sección 5 de ese archivo.

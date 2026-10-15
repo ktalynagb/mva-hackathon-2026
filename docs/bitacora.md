@@ -10,6 +10,48 @@
 
 ---
 
+## 2026-10-15 — Embudo real en el notebook 04, modelo dominante (A10) y línea condicional de MEK
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/A10-modelo-dominante`
+**Qué se hizo:**
+- **Notebook 04 rehecho.** Dibujaba un embudo de 19.099 variantes, pero el código miraba 6 genes y consultaba gnomAD solo para *BUB1B*. Además descartaba las homocigotas, usaba el primer transcrito de SnpEff en vez de MANE y deducía la fase *trans* a partir de dos heterocigotas. Ahora aplica el embudo validado de A8 a los 321 genes y muestra cuántas variantes quedan en cada paso (figura `results/figura_embudo_variantes.png`)
+- **Modelo dominante** (`scripts/modelo_dominante.py`): 92 genes de 8 paneles de PanelApp en los que una sola copia alterada causa enfermedad, con AF ≤ 1×10⁻⁵, más un control recesivo de 48 genes renales (`--rinon-recesivo`)
+- Trametinib y selumetinib agregados al TSV como candidatos condicionales (65 pts); sección 6 de `04_candidatos.md`, sección 5c de `01_variante_causante.md` e informe actualizados
+
+**Hallazgos:**
+- ✅ **Embudo:** 5.012.204 variantes → 4.740.790 PASS → 24.604 en los 321 genes → 19 raras con efecto en alguna proteína → 14 en MANE, **ninguna homocigota** → 1 gen con patrón recesivo: *BUB1B*
+- 💡 **Hallazgo secundario:** una truncante heterocigota en *LZTR1* (AF 1,4×10⁻⁶, germinal, ClinVar P/LP). No explica el MVA ni la nefrocalcinosis y no causa Noonan (el gen tolera perder una copia y no hay segunda variante). Sí es la causa conocida de la **schwannomatosis por *LZTR1*** (dominante, penetrancia incompleta; PMID 24362817), con vigilancia recomendada en niños (PMID 39937237)
+- 💡 **Hipótesis innovadora:** si el rabdomiosarcoma perdió la otra copia de *LZTR1*, la vía RAS estaría activa. Eso abriría el uso de un inhibidor de MEK (trametinib o selumetinib, FDA desde 1 año) junto con temsirolimus (PMID 23684925, 36322002), nunca solo (PMID 35363510). Se comprueba en la biopsia. Hay un solo trabajo que une *LZTR1* con el rabdomiosarcoma
+- ✅ **Nefrocalcinosis:** ningún gen renal la explica (92 dominantes y 48 recesivos). Lo más probable es la prematuridad (hasta 40 % de los prematuros; PMID 38296790)
+- ⚠️ La missense de *MAD1L1* que figuraba como patogénica en la tabla subida al repo es benigna en las evaluaciones germinales recientes (el registro patogénico es de 2001, somático y sin criterios)
+- ⚠️ **Privacidad:** la tabla `notebooks/candidatos_genomicos_mva_priorizados.csv` (358 variantes del paciente) se movió a `data/equipo/` (PR #19). Sigue en el historial de git: hay que limpiarlo antes de hacer público el repo
+
+**Pendiente:**
+- [ ] Decidir si el hallazgo de *LZTR1* se informa como hallazgo secundario en el Track 1 (la posición exacta iría solo al envío, no al repo)
+- [ ] Limpiar el historial de git antes de hacer público el repo
+- [ ] Revisión 🧬 de la sección 5c y 💊 de la sección 6 de `04_candidatos.md`
+
+---
+
+## 2026-10-14 (noche) — Niacina en el informe y segunda corrección de puntajes
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-niacina-informe`
+**Qué se hizo:**
+- `docs/informe_final.md`: se completaron la sección 2.4 (cómo se priorizaron los fármacos), la 3.3 (tabla de candidatos) y la discusión. Niacina entra como **hipótesis innovadora, marcada como especulativa**, con sus 5 límites
+- Ficha 2.6 de niacina en `docs/secciones/04_candidatos.md`; PDF de revisión actualizado
+
+**Hallazgos:**
+- ⚠️ **Arimoclomol: la ficha de la FDA dice que su mecanismo en Niemann-Pick C "es desconocido"** y que solo se aprobó junto con miglustat, desde los 2 años. Baja de peso es efecto frecuente (≥ 15 %) y el paciente tiene falla de medro; sube la creatinina 10–20 % sin afectar el filtrado (inhibe OCT2); ratas jóvenes tuvieron dilatación de la pelvis renal. K4 2 → 1: **73,3 → 68,3**. Sirolimus (71,7) vuelve al primer lugar
+- ⚠️ Niacina: el rescate de 2014 (North) **no tuvo réplica independiente**; el mismo grupo mostró en 2023 que SIRT2 extra no alarga la vida de ratones normales (PMID 38009412), y en 2014 otro grupo vio que SIRT2 desacetila BubR1 en K250 sin cambiar su cantidad total (PMID 25285631). La ficha de la FDA de niacina: seguridad pediátrica no establecida
+- ✅ PubMed (14 oct): 0 trabajos unen NAD⁺, SIRT2, NMN o niacina con el MVA, y ninguno une arimoclomol o HSP70 con BUBR1
+- Error mío anterior corregido: escribí que niacina era "el único fármaco aprobado con datos *in vivo* de que sube BubR1". Los datos son de NMN (no aprobado); la niacina misma no se probó
+
+**Pendiente:**
+- [ ] Reunión 15 oct: ¿bortezomib sale de la lista corta?
+- [ ] Revisión 🧬 de la sección 3.3 del informe
+
+---
+
 ## 2026-10-14 (tarde) — Revisión biológica de la lista corta (C6) y corrección de sirolimus
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C6-revision-biologica`
