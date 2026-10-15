@@ -43,7 +43,13 @@ VCF de genoma completo del paciente (GRCh38; Sentieon Haplotyper + GATK VariantF
 - Revisión bibliográfica con verificación de cada cita en PubMed.
 
 ### 2.4 Priorización de fármacos
-[PENDIENTE · C3, C4] Consulta a DGIdb v5 y Open Targets, comprobación de aprobación en Drugs@FDA y en la EMA, y puntuación con la matriz de `docs/secciones/03_criterios.md` (filtros de exclusión + 6 criterios ponderados).
+
+*Fuente: `docs/secciones/03_criterios.md`, `03b_lista_larga.md`, `04_candidatos.md` · Tareas: C1, C3–C6*
+
+1. **Lista larga.** Cuatro líneas terapéuticas derivadas del mecanismo (subir la cantidad de BUBR1, frenar mTORC1, eliminar células senescentes y tratar el tumor sin empeorar la aneuploidía), cada una con la dirección de acción buscada. Fuentes: DGIdb v5, Open Targets (incluidos los fármacos con ensayos en rabdomiosarcoma) y una lista curada con fuente para lo que las bases no capturan. 86 fármacos.
+2. **Filtros de exclusión.** Aprobación comprobada en Drugs@FDA (openFDA) y en la EMA, no en la base de interacciones, y exclusión de los fármacos que debilitan la mitosis (inhibidores de HSP90, PLK1, Aurora, MPS1 y APC/C). Ninguno de los 162 inhibidores de esas dianas está aprobado.
+3. **Puntuación.** Seis criterios de 0 a 3, con pesos: vínculo mecanístico 25, seguridad pediátrica 20, evidencia 15, compatibilidad con el caso 15, innovación 15 y validación factible 10. Puntaje de 0 a 100. Se puntuaron 52 candidatos y se agregó uno a mano (niacina).
+4. **Verificación.** Cada afirmación sobre un fármaco se contrastó con el artículo original (PubMed) y con la ficha de la FDA. Esa revisión corrigió dos puntajes: sirolimus (un estudio asociaba, pero no había tratado, ratones con BubR1 alterada) y arimoclomol (la ficha indica que su mecanismo es desconocido y advierte de baja de peso y de efectos renales).
 
 ### 2.5 Reproducibilidad
 [PENDIENTE · D2, D3] Comando único, versiones fijadas y tiempo de ejecución.
@@ -96,18 +102,42 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 *Fuente: `docs/secciones/04_candidatos.md` · Tareas: C2–C6 · Hito H4, 17 oct*
 
-[PENDIENTE] Tabla de 3 a 5 fármacos: mecanismo, línea terapéutica, aprobación, seguridad pediátrica, evidencia, riesgos, puntaje y experimento de validación.
+**Ninguno de los candidatos está probado en MVA.** Son hipótesis razonadas a partir del mecanismo, que se pueden comprobar con un mismo experimento: fibroblastos del paciente antes y después del fármaco, midiendo la cantidad de BUBR1 (Western blot) y el checkpoint mitótico (ensayo con nocodazol).
 
-Líneas en evaluación (`02b`): (1) subir la cantidad de BUBR1 mediante proteostasis, (2) frenar mTORC1, (3) senolíticos, (4) tratar el tumor sin empeorar la aneuploidía. Quedan excluidos los inhibidores de HSP90, PLK1, Aurora y MPS1.
+| Candidato | Línea | Puntaje | Evidencia | Riesgo principal |
+|---|---|---|---|---|
+| **Sirolimus** | 2 · frenar mTORC1 | 71,7 | En ratones con mutaciones de BubR1, la sarcopenia coincide con mTORC1 hiperactivo (Sieben 2020, PMID 31738183); la rapamicina frena la sarcopenia en ratón normal (Ham 2020, PMID 32908143). No se probó en un modelo BubR1 | Inmunosupresión durante la quimioterapia |
+| **Temsirolimus** | 2 y 4 · mTORC1 y tumor | 70,0 | Mejor supervivencia en recaída de rabdomiosarcoma (fase II, PMID 31513481); sin beneficio en riesgo intermedio (fase III, PMID 38936378) | El beneficio depende del grupo de riesgo del tumor |
+| **Arimoclomol** | 1 · proteostasis | 68,3 | Aprobado para Niemann-Pick C, pero la ficha de la FDA indica que su mecanismo es desconocido; sin estudios con BUBR1 | Baja de peso, sube la creatinina y hallazgos renales en ratas jóvenes; uso fuera de indicación |
+| **Dasatinib** | 3 · senolítico | 60,0 | Elimina células senescentes junto con quercetina (PMID 25754370); evidencia indirecta | Mielosupresión que se suma a la de la quimioterapia |
+| **Bortezomib** | 1 · proteasoma | 60,0 | El inhibidor de laboratorio MG132 sube la BUBR1 mutante en células (Suijkerbuijk 2010, PMID 20516114) | Neuropatía con vincristina; retrasa la salida de la mitosis |
+
+[DECISIÓN DEL EQUIPO, 15 oct] Bortezomib es el candidato más cuestionable por su toxicidad y por frenar la salida de la mitosis; podría salir de la lista corta.
+
+#### Hipótesis innovadora: niacina (NAD⁺, SIRT2 y BubR1)
+
+*Nivel de evidencia: especulativo. Se incluye por su originalidad y porque se puede descartar rápido, no porque esté respaldada.*
+
+- **La idea.** BubR1 disminuye con la edad porque cae el NAD⁺ y SIRT2 deja de mantener su lisina 668 sin acetilar; con ese grupo, BubR1 se marca para destruirse. En ratones, el precursor de NAD⁺ llamado NMN sube BubR1, y sobreexpresar SIRT2 alarga la vida de los ratones con poca BubR1 (North 2014, PMID 24825348). La niacina (vitamina B3, aprobada por la FDA) también es precursora de NAD⁺. Como a este paciente le falta BubR1, subirla por esta vía atacaría la causa y no solo las consecuencias.
+- **Por qué es distinta.** Las otras líneas actúan sobre las consecuencias (envejecimiento, senescencia, tumor) o sobre el plegamiento. Esta usa una vía descrita específicamente para regular la cantidad de BubR1. En PubMed (14 oct) ningún trabajo une NAD⁺, SIRT2, NMN o niacina con el MVA.
+- **Lo que no sabemos.**
+  1. Se probó NMN, no niacina, y en ratones con BubR1 normal o reducida, no con el mutante del paciente.
+  2. La p.Asn1002Lys se degrada por mal plegamiento, que puede ser independiente de la lisina 668.
+  3. El rescate de 2014 no tuvo réplica independiente. El mismo grupo mostró después que SIRT2 extra no alarga la vida de ratones normales (Wu 2023, PMID 38009412): el efecto parece específico de la poca BubR1, como en este paciente, pero eso no confirma el rescate.
+  4. En células humanas, SIRT2 desacetila BubR1 en otra lisina (K250) y quitar SIRT2 no cambió la cantidad total de BubR1 (Suematsu 2014, PMID 25285631).
+  5. La ficha de la FDA indica que la seguridad de la niacina en niños no está establecida, y subir NAD⁺ podría favorecer a un tumor activo.
+- **Cómo se descartaría.** En fibroblastos del paciente tratados con niacina o NMN, medir BUBR1 total y acetilado en la lisina 668. Es el experimento más barato de la lista y se resuelve en una semana de laboratorio.
+
+Quedan excluidos los inhibidores de HSP90, PLK1, Aurora y MPS1, que bajarían aún más la BUBR1 o debilitarían la mitosis.
 
 ## 4. Discusión
 
 [PENDIENTE · E5]
-- **Lo más sólido y lo más débil:** la fase *trans* no está demostrada, el alelo 2 es VUS y la priorización de fármacos se apoya en datos preclínicos.
-- **Innovación:** tratar el MVA bialélico como una enfermedad de proteína mal plegada, y evitar las dianas que empeorarían el checkpoint.
+- **Lo más sólido y lo más débil:** la fase *trans* no está demostrada, el alelo 2 es VUS y la priorización de fármacos se apoya en datos preclínicos. Ningún candidato se probó con BUBR1 en células humanas, y para arimoclomol la propia ficha de la FDA dice que su mecanismo en Niemann-Pick C es desconocido.
+- **Innovación:** tratar el MVA bialélico como una enfermedad de falta de proteína (no de función), evitar las dianas que empeorarían el checkpoint y proponer, como hipótesis especulativa, subir BubR1 con un precursor de NAD⁺ (niacina) a través de SIRT2.
 - **Impacto clínico:** qué candidato podría probarse primero y cómo (fibroblastos del paciente).
 - **Escalabilidad:** el mismo pipeline sirve para otros pacientes con MVA cambiando el VCF y la lista de genes [D5].
-- **Próximos pasos:** genotipar a los padres, RT-PCR del alelo 1, Western blot de BUBR1 con y sin MG132, cariotipo.
+- **Próximos pasos:** genotipar a los padres, RT-PCR del alelo 1, Western blot de BUBR1 con y sin MG132, arimoclomol y niacina o NMN, cariotipo.
 
 ## 5. Referencias
 
