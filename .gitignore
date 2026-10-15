@@ -52,3 +52,7 @@ desktop.ini
 .idea/
 *.suo
 *.user
+
+# Tablas con variantes del paciente: van en data/, nunca en notebooks/
+notebooks/*.csv
+notebooks/*.tsv
