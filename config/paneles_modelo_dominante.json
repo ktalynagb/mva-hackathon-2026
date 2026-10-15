@@ -1,0 +1,50 @@
+{
+  "_nota": "Paneles de PanelApp (Genomics England) para el modelo dominante / diagnóstico dual (A10). Se usan los genes verdes (confidence_level 3) cuyo modo de herencia admite una sola copia alterada (MONOALLELIC o BOTH monoallelic and biallelic). Cada panel apunta a un rasgo del paciente que el MVA explica mal o que tiene causas dominantes conocidas.",
+  "fuente": "https://panelapp.genomicsengland.co.uk/api/v1/panels/{id}/",
+  "paneles": [
+    {
+      "id": 149,
+      "rasgo": "nefrocalcinosis (no forma parte del MVA)"
+    },
+    {
+      "id": 292,
+      "rasgo": "nefrocalcinosis por tubulopatía"
+    },
+    {
+      "id": 480,
+      "rasgo": "nefrocalcinosis por calcio o paratiroides"
+    },
+    {
+      "id": 1312,
+      "rasgo": "nefrocalcinosis por el receptor de calcio (CASR)"
+    },
+    {
+      "id": 290,
+      "rasgo": "rabdomiosarcoma familiar"
+    },
+    {
+      "id": 259,
+      "rasgo": "predisposición a tumores sólidos infantiles"
+    },
+    {
+      "id": 734,
+      "rasgo": "predisposición a sarcomas"
+    },
+    {
+      "id": 1471,
+      "rasgo": "talla baja y restricción del crecimiento"
+    }
+  ],
+  "criterios": {
+    "af_max": 1e-05,
+    "gq_min": 20,
+    "dp_min": 10,
+    "_af": "Una enfermedad dominante grave de inicio en la infancia no puede ser frecuente: se exige AF ≤ 1e-5 en gnomAD v4 (≈ 16 alelos de 1,6 millones) o ausencia."
+  },
+  "paneles_renales": [
+    149,
+    292,
+    480
+  ],
+  "_renales": "Para el control recesivo de la nefrocalcinosis (python scripts/modelo_dominante.py --rinon-recesivo): genes verdes bialélicos de estos paneles."
+}
