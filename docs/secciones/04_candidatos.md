@@ -134,3 +134,19 @@ Por la matriz, la niacina **puntúa menos**: no tiene datos clínicos, no tiene 
 - La NMN y el nicotinamida ribósido no están aprobados como fármacos (F1). La nicotinamida solo figura en multivitamínicos inyectables.
 
 **Validación**, la misma que para arimoclomol: Western blot de BUBR1 en fibroblastos del paciente tratados con niacina o NMN. Si sube con los dos mecanismos, se refuerza la línea 1 completa.
+
+---
+
+## 6. Línea condicional: tumor con RAS activado (A10, 15 oct)
+
+Sale del hallazgo secundario en *LZTR1* (`01_variante_causante.md`, sección 5c). *LZTR1* marca a las proteínas RAS para que se degraden. Si el tumor perdió la otra copia, la vía RAS estaría más activa, y el rabdomiosarcoma sin fusión depende de esa vía. **Solo se propone si la biopsia lo confirma:** pérdida de 22q11 o segunda mutación de *LZTR1*, una mutación de la vía RAS o fosfo-ERK alto.
+
+| | Trametinib | Selumetinib |
+|---|---|---|
+| Aprobación (FDA) | Mekinist, desde 1 año (BRAF V600E: gliomas de bajo grado y tumores sólidos) | Koselugo, desde 1 año (NF1 con neurofibromas plexiformes) |
+| Puntaje (C4) | 65,0 | 65,0 |
+| Evidencia en rabdomiosarcoma | Preclínica: MEK + anti-IGF1R eficaz en modelos con RAS mutado (PMID 36322002); MEK + PI3K/mTOR letal para las células (PMID 23684925) | Clínica, negativa en monoterapia: ninguna respuesta en el Pediatric MATCH, que incluyó 7 rabdomiosarcomas (PMID 35363510) |
+
+**Nunca en monoterapia.** Las combinaciones con fundamento son con **temsirolimus** (mTOR, ya en la lista corta) o con un **anti-IGF1R** (teprotumumab es el único aprobado; está en la lista larga con 43,3). Riesgos: piel, CK, función cardíaca (FEVI) y ojos. Inhibir MEK frena el ciclo en G1 y no debilita el checkpoint mitótico.
+
+**Por qué es innovador:** une un hallazgo germinal secundario con el tratamiento del tumor. En PubMed hay un solo trabajo que une *LZTR1* con el rabdomiosarcoma.
