@@ -10,6 +10,24 @@
 
 ---
 
+## 2026-10-15 (madrugada bis) — Corrección: nab-sirolimus y el argumento de acumulación tumoral
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-informe`  
+**Disparador:** `tbussozungri` defendió el nab-sirolimus en el grupo porque "se acumula en tumores y podríamos evitar dosis altas que tengan efecto en las otras células del cuerpo".
+
+**Se verificó y el argumento tenía más respaldo del que le habíamos dado. Dos correcciones:**
+1. La sección 7.2 de `04_candidatos.md` decía que el uso pediátrico de nab-sirolimus "no está establecido". **Incompleto:** existe ADVL1514, fase 1 del Children's Oncology Group, con MTD de 15 mg/m²/dosis IV D1+D8 en combinación con temozolomida e irinotecán (Cramer 2024, *Cancer Med* 13(21):e70376, PMID 39487711). La ficha de la FDA sí dice que no se estableció, pero hay datos publicados.
+2. Decía "sin ventaja demostrada en un niño". **La acumulación tumoral está medida:** 6,2–68,1 veces más sirolimus en el tumor que con rapálogos orales en xenoinjertos, AUC tumoral semanal 43× el del sirolimus oral (Hou 2019, resumen AACR 348). Nivel de evidencia: ratón, resumen de congreso **del laboratorio desarrollador**, sin PK intratumoral en humanos.
+
+**Por qué la recomendación igual no cambia para la línea 2:**
+- La hipótesis mecanística del sirolimus acá es el eje mTORC1 → sarcopenia/crecimiento, que es **sistémico**. La acumulación tumoral no aporta a eso; el argumento aplica a la línea 4 (tumor).
+- La DLT del nab-sirolimus es **trombocitopenia**, que se suma al VAC a intensidad reducida (que justamente se eligió para no castigar la médula de un paciente con inestabilidad cromosómica).
+- ADVL1514 incluyó **2 rabdomiosarcomas alveolares (6,3 %) y ninguno respondió**; la única respuesta parcial fue un Ewing. Además el alveolar es con fusión, y la línea de RAS supone sin fusión.
+
+**Resultado:** nueva sección 7.2.1 en `04_candidatos.md` con el argumento, su evidencia y sus cuatro límites. Nab-sirolimus pasa de "no aporta" a **alternativa condicional al temsirolimus en la línea del tumor**. Sirolimus oral se mantiene para la línea 2. Nota equivalente agregada en la sección 3.3 de `informe_final.md` y 3 referencias nuevas.
+
+---
+
 ## 2026-10-15 (madrugada) — E5: integración farmacogenética en informe_final.md
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-informe`  
