@@ -10,6 +10,45 @@
 
 ---
 
+## 2026-10-15 (noche ter) — C8 ampliado + nota ATM en A10 + borrador E5
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C8-genes-equipo`  
+**Qué se hizo:**
+
+**C8 ampliado:**
+- `scripts/analisis_genes_equipo.py`: se agregaron BRCA1, BRCA2, PALB2, RAD51C, RAD51D, CHEK2 a los genes a correr
+- `docs/secciones/06_genes_equipo.md`: actualizado con resultados de 10 genes (funnel 874 PASS → 0 candidatas dominantes)
+- Resultado: panel oncológico hereditario **negativo** — 0 variantes funcionales ultra-raras en BRCA1/2/PALB2/RAD51C/D/CHEK2
+
+**A10 — nota ATM:**
+- `docs/secciones/01_variante_causante.md` sección 5c: agregada nota sobre ATM en la lista "Lo demás que apareció y se descartó": 1 missense HET AF=0.08%, demasiado frecuente, sin patrón bialélico; referencia a 06_genes_equipo.md
+
+**E5 — borrador informe_final.md:**
+- `docs/informe_final.md`: escritos Resumen (≈180 palabras), Discusión completa (5 párrafos), Referencias compiladas de todas las secciones
+- Actualizado bullet 3.1 con resultados de C8 extendido
+- **Pendientes para E5:** 2.5 reproducibilidad (espera D2/D3), 2.6 tabla IA incompleta (equipo), 05_farmacogenetica.md (PR #21)
+
+---
+
+## 2026-10-15 (noche bis) — Modelo dominante para lista de genes del equipo (C8)
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C8-genes-equipo`  
+**Qué se hizo:**
+- `scripts/analisis_genes_equipo.py`: corre el embudo del diagnóstico diferencial para LMNA, KMT2D, KDM6A, ATM; aplica filtro dominante (HET, MANE funcional, AF ≤ 1e-5, GQ ≥ 20, DP ≥ 10)
+- `docs/secciones/06_genes_equipo.md`: resultados + tabla de descartes
+- `config/genes_modelo_dominante.tsv`: 4 genes agregados manualmente (adición C8)
+
+**Hallazgos:**
+- **Resultado: negativo.** 305 variantes PASS → 289 raras → 1 funcional en MANE (missense ATM, AF=0.08%) → 0 ultra-raras (AF ≤ 1e-5)
+- Ninguna candidata dominante en LMNA, KMT2D, KDM6A ni ATM
+- ATM: 1 variante frecuente (no bialélico → no A-T)
+- **EZH2 descartado:** síndrome de Weaver = overgrowth, fenotipo opuesto al paciente
+- **BRCA1/2, PALB2, RAD51C/D, CHEK2:** predisposición oncológica adulta, solo serían hallazgos secundarios
+- TP53 ya estaba en el modelo dominante anterior (A10)
+
+**Pendiente:** decisión del equipo sobre si mencionar BRCA1/2 como "panel de hallazgos secundarios" en el informe
+
+---
 ## 2026-10-15 (noche) — Farmacogenética (C7), evaluación del combo propuesto y lista de genes del equipo
 
 **Quién:** Ktalyna (con Claude Code) · rama pendiente `tarea/C7-farmacogenetica`  
