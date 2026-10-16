@@ -10,6 +10,17 @@
 
 ---
 
+## 2026-10-15 (madrugada) — E5: integración farmacogenética en informe_final.md
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-informe`  
+**Qué se hizo:**
+- `docs/informe_final.md`: agregada sección 3.4 con resultados farmacogenómicos (de 05_farmacogenetica.md); actualizado 2.4 métodos para incluir la farmacogenética
+- Mergeados PR #22 (C8+A10+E5 borrador) y PR #21 (C7 farmacogenética) → master actualizado
+
+**Estado actual de informe_final.md:** Resumen ✅, Intro ✅, Métodos (2.1–2.4 ✅, 2.5 pendiente D2/D3, 2.6 IA pendiente equipo), Resultados (3.1–3.4 ✅), Discusión ✅, Referencias ✅
+
+---
+
 ## 2026-10-15 (noche ter) — C8 ampliado + nota ATM en A10 + borrador E5
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C8-genes-equipo`  

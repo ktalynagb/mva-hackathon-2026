@@ -45,14 +45,15 @@ VCF de genoma completo del paciente (GRCh38; Sentieon Haplotyper + GATK VariantF
 - Estabilidad: ΔΔG con ThermoMPNN (Dieckhaus 2024) para todas las sustituciones del dominio.
 - Revisión bibliográfica con verificación de cada cita en PubMed.
 
-### 2.4 Priorización de fármacos
+### 2.4 Priorización de fármacos y farmacogenética
 
-*Fuente: `docs/secciones/03_criterios.md`, `03b_lista_larga.md`, `04_candidatos.md` · Tareas: C1, C3–C6*
+*Fuente: `docs/secciones/03_criterios.md`, `03b_lista_larga.md`, `04_candidatos.md`, `05_farmacogenetica.md` · Tareas: C1, C3–C7*
 
 1. **Lista larga.** Cuatro líneas terapéuticas derivadas del mecanismo (subir la cantidad de BUBR1, frenar mTORC1, eliminar células senescentes y tratar el tumor sin empeorar la aneuploidía), cada una con la dirección de acción buscada. Fuentes: DGIdb v5, Open Targets (incluidos los fármacos con ensayos en rabdomiosarcoma) y una lista curada con fuente para lo que las bases no capturan. 86 fármacos.
 2. **Filtros de exclusión.** Aprobación comprobada en Drugs@FDA (openFDA) y en la EMA, no en la base de interacciones, y exclusión de los fármacos que debilitan la mitosis (inhibidores de HSP90, PLK1, Aurora, MPS1 y APC/C). Ninguno de los 162 inhibidores de esas dianas está aprobado.
 3. **Puntuación.** Seis criterios de 0 a 3, con pesos: vínculo mecanístico 25, seguridad pediátrica 20, evidencia 15, compatibilidad con el caso 15, innovación 15 y validación factible 10. Puntaje de 0 a 100. Se puntuaron 52 candidatos y se agregó uno a mano (niacina).
 4. **Verificación.** Cada afirmación sobre un fármaco se contrastó con el artículo original (PubMed) y con la ficha de la FDA. Esa revisión corrigió dos puntajes: sirolimus (un estudio asociaba, pero no había tratado, ratones con BubR1 alterada) y arimoclomol (la ficha indica que su mecanismo es desconocido y advierte de baja de peso y de efectos renales).
+5. **Farmacogenética.** Se identificaron en el VCF del paciente variantes en CYP2B6, CYP2C19, CYP3A4, CYP3A5 y ABCB1 mediante `scripts/farmacogenetica.py`; los fenotipos se asignaron según las guías CPIC y PharmGKB. Los genotipos completos quedan en `data/farmacogenetica/` (no versionado). GSTM1 no es evaluable desde un VCF de SNV.
 
 ### 2.5 Reproducibilidad
 [PENDIENTE · D2, D3] Comando único, versiones fijadas y tiempo de ejecución.
@@ -138,6 +139,19 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 *Solo si la biopsia lo confirma.* Si el rabdomiosarcoma perdió la otra copia de *LZTR1* (pérdida de 22q11) o tiene la vía RAS activada (fosfo-ERK alto), un inhibidor de MEK aprobado en niños desde 1 año (**trametinib** o **selumetinib**, 65 puntos) combinado con **temsirolimus** tendría fundamento: la combinación MEK + PI3K/mTOR es letal para células de rabdomiosarcoma (PMID 23684925) y MEK + anti-IGF1R frena modelos con RAS mutado (PMID 36322002). Nunca en monoterapia: selumetinib solo no logró respuestas en niños (PMID 35363510). En PubMed hay un solo trabajo que une *LZTR1* con el rabdomiosarcoma.
 
 Quedan excluidos los inhibidores de HSP90, PLK1, Aurora y MPS1, que bajarían aún más la BUBR1 o debilitarían la mitosis.
+
+### 3.4 Farmacogenética
+
+*Fuente: `docs/secciones/05_farmacogenetica.md` · Tarea: C7 · Script: `scripts/farmacogenetica.py`*
+
+El paciente es **metabolizador intermedio de CYP2B6** (*1/*6 o similar) y de **CYP2C19** (*1/*2), lo que reduce levemente la activación de ciclofosfamida. Este resultado refuerza el argumento de usar dosis reducidas (protocolo Nishitani-Isa 2019, PMID 31184400). Para sirolimus, el fenotipo **CYP3A5 *3/*3** (no expresor) corresponde al perfil europeo estándar y no requiere ajuste de dosis inicial; se recomienda monitoreo de niveles (TDM) en las primeras dos semanas. Arimoclomol no tiene farmacogenética conocida; el riñón es el órgano centinela (la creatinina sérica sube 10–20 % por inhibición de OCT2, relevante en este paciente con nefrocalcinosis).
+
+| Gen | Fenotipo | Fármaco relevante | Recomendación |
+|-----|----------|-------------------|---------------|
+| CYP2B6 | Metabolizador intermedio | Ciclofosfamida | Dosis reducida; TDM si eficacia o toxicidad inesperada |
+| CYP2C19 | Metabolizador intermedio | Ciclofosfamida | Impacto menor; no accionable sin TDM |
+| CYP3A5 | No expresor (*3/*3) | Sirolimus | Dosis estándar; TDM primeras 2 semanas |
+| GSTM1 | No evaluable desde VCF de SNV | Ciclofosfamida | No se puede descartar GSTM1 nulo; requiere array o profundidad de lectura |
 
 ## 4. Discusión
 
