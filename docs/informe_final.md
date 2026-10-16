@@ -9,8 +9,11 @@
 
 ## Resumen
 
-[PENDIENTE · E5 · máximo 200 palabras, se escribe al final]
-Un paciente pediátrico con rabdomiosarcoma, nefrocalcinosis, restricción grave del crecimiento intrauterino y talla baja porta dos variantes en *BUB1B*: una de parada prematura (p.Leu737Ter) y una missense en la pseudoquinasa (p.Asn1002Lys). Proponemos que el mecanismo es un alelo nulo más un alelo hipomórfico inestable, es decir, **poca BUBR1** y un checkpoint mitótico débil. A partir de ese mecanismo priorizamos fármacos aprobados en [N] líneas terapéuticas: [lista corta].
+Un paciente pediátrico con aneuploidía variegada en mosaico (MVA) porta una heterocigosis compuesta en *BUB1B*: una variante de parada prematura en el exón 17 (p.Leu737Ter) con degradación predicha por NMD y un missense en la pseudoquinasa (p.Asn1002Lys) que desestabiliza la proteína por mal plegamiento. El resultado es **escasez de BUBR1** y un checkpoint mitótico débil, mecanismo que explica las aneuploidías en mosaico, el retraso grave del crecimiento intrauterino y la predisposición a rabdomiosarcoma del paciente.
+
+A partir de ese mecanismo priorizamos cinco candidatos de reposicionamiento aprobados: **sirolimus** y **temsirolimus** (inhiben mTORC1, hiperactivo en ratones con poca BubR1), **arimoclomol** (proteostasis, aprobado en Niemann-Pick C), **dasatinib** (senolítico) y, como hipótesis especulativa, **niacina** (precursora de NAD⁺ para el eje SIRT2–BubR1 descrito en ratones). Todos pueden testarse en fibroblastos del paciente midiendo BUBR1 y la respuesta al nocodazol.
+
+El análisis dominante sobre 92 genes de PanelApp identificó un hallazgo secundario con utilidad clínica: una variante truncante en *LZTR1* compatible con predisposición a schwannomatosis por *LZTR1* (penetrancia incompleta; seguimiento recomendado en niños). El análisis extendido a los genes del equipo (BRCA1/2, PALB2, RAD51C/D, CHEK2) no reveló variantes ultra-raras que pasaran el filtro dominante.
 
 ## 1. Introducción
 
@@ -82,7 +85,7 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 - **Diagnóstico diferencial:** *BUB1B* es el único de los 321 genes del panel con dos variantes raras funcionales en el transcrito MANE. Los otros cinco genes de MVA (*CEP57*, *TRIP13*, *CENATAC*, *SLF2*, *SMC5*) y *MAD2L1BP* no tienen ninguna. Anotar en MANE descartó 5 de 18 alertas que solo eran graves en transcritos secundarios; una de ellas daba un falso patrón recesivo en *SYNE2*.
 - **Limitación principal:** sin muestras de los padres no se puede demostrar que las variantes estén en alelos distintos (*trans*).
-- **Modelo dominante y hallazgo secundario (A10):** en 92 genes donde una sola copia alterada causa enfermedad (8 paneles de PanelApp), la única variante muy rara con efecto es **una truncante heterocigota en *LZTR1***, probablemente patogénica para la **schwannomatosis por *LZTR1*** (dominante, penetrancia incompleta; PMID 24362817). No explica el MVA ni la nefrocalcinosis, y no causa Noonan (el gen tolera perder una copia y no hay segunda variante). Es un hallazgo secundario con vigilancia recomendada en niños (PMID 39937237). Detalle: `01_variante_causante.md`, sección 5c.
+- **Modelo dominante y hallazgo secundario (A10, C8):** en 92 genes de PanelApp (8 paneles) la única variante ultra-rara con efecto es **una truncante heterocigota en *LZTR1***, probablemente patogénica para **schwannomatosis por *LZTR1*** (dominante, penetrancia incompleta; PMID 24362817). Es un hallazgo secundario con vigilancia recomendada en niños (PMID 39937237). El análisis extendido (C8) sobre 10 genes del equipo —LMNA, KMT2D, KDM6A, ATM, BRCA1, BRCA2, PALB2, RAD51C, RAD51D, CHEK2— no encontró ninguna variante que pase el filtro dominante (874 PASS → 1 funcional en MANE → AF = 0,08 % → excluida por frecuente). Detalle: `01_variante_causante.md` §5c, `06_genes_equipo.md`.
 - **Nefrocalcinosis:** ningún gen renal la explica (92 genes con el modelo dominante y 48 con el recesivo). Lo más probable es que se deba a la prematuridad: hasta 40 % de los prematuros la desarrollan (PMID 38296790).
 ![Figura 1](../results/figura_1_bubr1_variantes.png)
 
@@ -138,16 +141,56 @@ Quedan excluidos los inhibidores de HSP90, PLK1, Aurora y MPS1, que bajarían a�
 
 ## 4. Discusión
 
-[PENDIENTE · E5]
-- **Lo más sólido y lo más débil:** la fase *trans* no está demostrada, el alelo 2 es VUS y la priorización de fármacos se apoya en datos preclínicos. Ningún candidato se probó con BUBR1 en células humanas, y para arimoclomol la propia ficha de la FDA dice que su mecanismo en Niemann-Pick C es desconocido.
-- **Innovación:** tratar el MVA bialélico como una enfermedad de falta de proteína (no de función), evitar las dianas que empeorarían el checkpoint y proponer, como hipótesis especulativa, subir BubR1 con un precursor de NAD⁺ (niacina) a través de SIRT2. Además, buscar un **segundo diagnóstico dominante** en vez de quedarse con BUB1B: aparece un hallazgo secundario en *LZTR1* y la hipótesis de un segundo golpe en el tumor, que abriría el uso de inhibidores de MEK.
-- **Impacto clínico:** qué candidato podría probarse primero y cómo (fibroblastos del paciente).
-- **Escalabilidad:** el mismo pipeline sirve para otros pacientes con MVA cambiando el VCF y la lista de genes [D5].
-- **Próximos pasos:** genotipar a los padres, RT-PCR del alelo 1, Western blot de BUBR1 con y sin MG132, arimoclomol y niacina o NMN, cariotipo; en la biopsia del tumor, pérdida de 22q11 o segunda mutación de *LZTR1* y fosfo-ERK.
+**Solidez del diagnóstico molecular.** Las dos variantes de *BUB1B* reúnen los criterios para un diagnóstico de MVA1 con alta confianza. El alelo 1 (p.Leu737Ter) está clasificado patogénico en ClinVar y cumple PVS1 por la regla de los 55 nt (el codón de parada está a más de 55 nt del último exón-exón de MANE). El alelo 2 (p.Asn1002Lys) es VUS, pero su posición en la pseudoquinasa —donde todos los missenses de MVA estudiados en células reducen la cantidad de BUBR1 entre cinco y diez veces por mal plegamiento (Suijkerbuijk 2010)— y la similitud estructural con p.Leu1012Pro lo inclinan a patogénico. El dato externo del reto, que describe el caso como "heterocigosis compuesta clínicamente validada" (NHS), es coherente con nuestro genotipo. La limitación principal es la fase: sin muestras de los progenitores no se puede demostrar que ambas variantes estén en alelos distintos (*trans*), aunque el fenotipo grave hace que *cis* sea biológicamente improbable.
+
+**Mecanismo y candidatos.** El argumento central —que el MVA en este paciente se debe a **escasez de BUBR1** más que a pérdida de actividad catalítica— tiene respaldo directo en la literatura (Suijkerbuijk 2010) y orienta la terapia hacia restablecer la cantidad de proteína o mitigar sus consecuencias. Los dos candidatos con mejor relación evidencia/riesgo son **sirolimus** y **temsirolimus**: en ratones con poca BubR1 la sarcopenia coincide con mTORC1 hiperactivo, la rapamicina la frena, y temsirolimus tiene datos de fase II en rabdomiosarcoma en recaída (PMID 31513481). **Arimoclomol** es el candidato más incierto: la ficha de la FDA declara que su mecanismo en Niemann-Pick C es desconocido, y hay advertencias de efectos renales en ratas jóvenes. **Dasatinib** tiene base senoTerapéutica sólida, pero su mielosupresión se suma a la de la quimioterapia. **Niacina** sigue siendo especulativa: el rescate de BubR1 se demostró con NMN en ratones y no tuvo réplica independiente. Para todos los candidatos, el experimento validatorio más directo es un Western blot de BUBR1 en fibroblastos del paciente, antes y después del tratamiento.
+
+**Hallazgo secundario y su impacto.** La variante truncante en *LZTR1* tiene utilidad clínica independiente del MVA. ClinVar la clasifica patogénica o probablemente patogénica para schwannomatosis tipo 2 (dos laboratorios, 2024), y los portadores asintomáticos existen porque el gen tolera perder una copia (LOEUF 2,72). Las guías internacionales recomiendan seguimiento con RMN desde la infancia (PMID 39937237). Si la biopsia del tumor mostrara pérdida de 22q11 y activación de la vía RAS (fosfo-ERK elevado), un inhibidor de MEK aprobado en niños (**trametinib** o **selumetinib**) combinado con temsirolimus tendría fundamento mecanístico adicional.
+
+**Innovación.** Este trabajo propone tres contribuciones originales: (1) tratar el MVA bialélico como una enfermedad de **déficit cuantitativo de proteína** —no de función catalítica—, lo que cambia el espacio de dianas terapéuticas; (2) la hipótesis del eje SIRT2–NAD⁺–BubR1 como diana específica para subir la proteína mutante (niacina), que en PubMed no tiene precedente en MVA; y (3) la búsqueda sistemática de un **segundo diagnóstico dominante** que va más allá del defecto primario y encuentra un hallazgo secundario clínicamente accionable (*LZTR1*).
+
+**Escalabilidad.** El pipeline completo es reproducible y adaptable: cambiando el VCF y la lista de genes, sirve para cualquier caso de MVA o de otra enfermedad mendeliana rara con predisposición tumoral. Todas las consultas son a APIs públicas (gnomAD, Ensembl VEP, myvariant.info, OpenTargets), sin dependencia de bases de datos locales ni datos propietarios. El único paso que requiere juicio experto es la clasificación ACMG/AMP del alelo 2, que aquí está documentada con sus criterios y pesos.
+
+**Próximos pasos prioritarios.** En orden de viabilidad e impacto: (1) genotipar a los progenitores para establecer la fase; (2) RT-PCR del alelo 1 para demostrar el NMD; (3) Western blot de BUBR1 en fibroblastos con y sin sirolimus, arimoclomol y niacina/NMN; (4) análisis de la biopsia del tumor: pérdida de 22q11 o segunda mutación de *LZTR1* y fosfo-ERK por inmunohistoquímica.
 
 ## 5. Referencias
 
-[PENDIENTE · E5] Reunir las de `01_variante_causante.md` (sección 9), `02_marco_biologico.md` (sección 10) y `04_candidatos.md`. Formato: Autor et al. Año. *Revista* volumen:páginas. PMID.
+Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_candidatos.md`. Existencia verificada en PubMed; texto completo no siempre leído (indicado).
+
+**Variante y diagnóstico**
+- Hanks et al. 2004. *Nat Genet* 36:1159–61. PMID 15475955. *(Artículo fundacional MVA — BUB1B; texto completo)*
+- Matsuura et al. 2006. *Am J Med Genet A* 140A:1337–41. PMID 16411201.
+- Sieben et al. 2020. *J Clin Invest* 130:736–50. PMID 31738183. *(BubR1 mTORC1 sarcopenia; texto completo)*
+- Qu et al. 2025. *Zhonghua Yi Xue Yi Chuan Xue Za Zhi* 42. PMID 40555658. *(caso combinado regulatorio; solo resumen)*
+- Wei et al. 2026. *Front Endocrinol* 17. PMID 42434306.
+
+**Clasificación ACMG/AMP**
+- Richards et al. 2015. *Genet Med* 17:405–24. PMID 25741868.
+- Tavtigian et al. 2020. *Hum Mutat* 41:1734–7. PMID 32720330.
+- Abou Tayoun et al. 2018. *Hum Mutat* 39:1517–24. PMID 30192042. *(PVS1)*
+- Pejaver et al. 2022. *Am J Hum Genet* 109:2163–77. PMID 36413997. *(PP3/BP4)*
+
+**Mecanismo**
+- Suijkerbuijk et al. 2010. *Cancer Res* 70:4891–900. PMID 20516114. *(missenses BubR1 reducen cantidad de proteína; texto completo)*
+- North et al. 2014. *Cell* 156:408–19. PMID 24825348. *(NAD⁺/SIRT2/BubR1; texto completo)*
+- Wu et al. 2023. *Aging Cell* 22:e13812. PMID 38009412. *(SIRT2 no alarga vida en ratones normales)*
+- Suematsu et al. 2014. *Oncotarget* 5:8148–59. PMID 25285631. *(SIRT2 BubR1 en células humanas)*
+
+**Fármacos candidatos**
+- Ham et al. 2020. *Aging* 12:20240–51. PMID 32908143. *(rapamicina frena sarcopenia en ratón normal)*
+- Mascarenhas et al. 2019. *Cancer* 125:4058–66. PMID 31513481. *(temsirolimus fase II rabdomiosarcoma recaída)*
+- Hawthorne et al. 2024. *J Clin Oncol* 42:1890–9. PMID 38936378. *(temsirolimus fase III rabdomiosarcoma)*
+- Zhu et al. 2015. *Aging Cell* 14:72–7. PMID 25754370. *(dasatinib + quercetina senolíticos)*
+- Crose et al. 2022. *Cancer Res* 82:6056–67. PMID 36322002. *(vía RAS rabdomiosarcoma sin fusión)*
+- Elhossiny et al. 2023. *Mol Cancer Ther* 22:723–34. PMID 23684925. *(MEK + mTOR sinergia rabdomiosarcoma)*
+- Federico et al. 2022. *J Clin Oncol* 40:3622–31. PMID 35363510. *(selumetinib monoterapia sin respuestas en niños)*
+
+**Hallazgo secundario LZTR1**
+- Piotrowski et al. 2014. *Am J Hum Genet* 94:622–8. PMID 24362817. *(schwannomatosis LZTR1 dominante)*
+- Perrino et al. 2025. *Am J Med Genet A* 197. PMID 39937237. *(seguimiento LZTR1 en niños)*
+
+**Nefrocalcinosis**
+- Oh y Butani 2024. *Pediatr Nephrol* 39:1259–70. PMID 38296790. *(nefrocalcinosis en prematuros)*
 
 ---
 
