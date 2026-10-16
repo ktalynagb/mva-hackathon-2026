@@ -10,6 +10,26 @@
 
 ---
 
+## 2026-10-15 (noche ter) — C8 ampliado + nota ATM en A10 + borrador E5
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C8-genes-equipo`  
+**Qué se hizo:**
+
+**C8 ampliado:**
+- `scripts/analisis_genes_equipo.py`: se agregaron BRCA1, BRCA2, PALB2, RAD51C, RAD51D, CHEK2 a los genes a correr
+- `docs/secciones/06_genes_equipo.md`: actualizado con resultados de 10 genes (funnel 874 PASS → 0 candidatas dominantes)
+- Resultado: panel oncológico hereditario **negativo** — 0 variantes funcionales ultra-raras en BRCA1/2/PALB2/RAD51C/D/CHEK2
+
+**A10 — nota ATM:**
+- `docs/secciones/01_variante_causante.md` sección 5c: agregada nota sobre ATM en la lista "Lo demás que apareció y se descartó": 1 missense HET AF=0.08%, demasiado frecuente, sin patrón bialélico; referencia a 06_genes_equipo.md
+
+**E5 — borrador informe_final.md:**
+- `docs/informe_final.md`: escritos Resumen (≈180 palabras), Discusión completa (5 párrafos), Referencias compiladas de todas las secciones
+- Actualizado bullet 3.1 con resultados de C8 extendido
+- **Pendientes para E5:** 2.5 reproducibilidad (espera D2/D3), 2.6 tabla IA incompleta (equipo), 05_farmacogenetica.md (PR #21 sin mergear)
+
+---
+
 ## 2026-10-15 (noche bis) — Modelo dominante para lista de genes del equipo (C8)
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C8-genes-equipo`  

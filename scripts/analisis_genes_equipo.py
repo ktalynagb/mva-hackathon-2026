@@ -1,13 +1,19 @@
 """analisis_genes_equipo.py — Tarea C8: modelo dominante para la lista de genes del equipo.
 
-Corre el embudo del diagnóstico diferencial (diagnostico_diferencial.py) para los cuatro genes
-de la lista del equipo que tienen justificación biológica para un modelo dominante:
+Corre el embudo del diagnóstico diferencial (diagnostico_diferencial.py) para todos los genes
+de la lista del equipo que justifican una corrida formal:
   LMNA   — laminopatía dominante (Emery-Dreifuss AD, miocardiopatía dilatada)
   KMT2D  — síndrome Kabuki tipo 1 (AD, microcefalia + talla baja + DI = overlap fenotípico)
   KDM6A  — síndrome Kabuki tipo 2 (X-linked dominante en mujeres)
   ATM    — predisposición a cáncer (monoalélico); ataxia-telangiectasia (bialélico, recesivo)
+  BRCA1  — predisposición cáncer mama/ovario; bialélico: Fanconi S (hallazgo secundario)
+  BRCA2  — predisposición cáncer mama/ovario; bialélico: Fanconi D1 (hallazgo secundario)
+  PALB2  — predisposición cáncer mama/páncreas; bialélico: Fanconi N (hallazgo secundario)
+  RAD51C — predisposición cáncer ovario/mama (hallazgo secundario)
+  RAD51D — predisposición cáncer ovario/mama (hallazgo secundario)
+  CHEK2  — predisposición cáncer mama moderada (hallazgo secundario)
 
-Los demás genes de la lista del equipo se descartan por razones documentadas abajo.
+Los genes con fenotipo incompatible o que no aplican modelo dominante se documentan en DESCARTES.
 Salida (no versionada): data/genes_equipo/
 """
 import csv
@@ -23,23 +29,26 @@ RAIZ = Path(__file__).resolve().parent.parent
 CONFIG = RAIZ / "config" / "paneles_modelo_dominante.json"
 SALIDA = RAIZ / "data" / "genes_equipo"
 
-GENES_A_CORRER = ["LMNA", "KMT2D", "KDM6A", "ATM"]
+GENES_A_CORRER = [
+    "LMNA", "KMT2D", "KDM6A", "ATM",
+    "BRCA1", "BRCA2", "PALB2", "RAD51C", "RAD51D", "CHEK2",
+]
 
 HERENCIA_NOTA = {
-    "LMNA":  "MONOALLELIC, AD — laminopatía (Emery-Dreifuss, DCM, progeria)",
-    "KMT2D": "MONOALLELIC, AD — síndrome Kabuki tipo 1",
-    "KDM6A": "X-LINKED dominant (mujeres heterocigotas) — síndrome Kabuki tipo 2",
-    "ATM":   "MONOALLELIC (predisposición cáncer) / BIALLELIC (ataxia-telangiectasia)",
+    "LMNA":   "MONOALLELIC, AD — laminopatía (Emery-Dreifuss, DCM, progeria)",
+    "KMT2D":  "MONOALLELIC, AD — síndrome Kabuki tipo 1",
+    "KDM6A":  "X-LINKED dominant (mujeres heterocigotas) — síndrome Kabuki tipo 2",
+    "ATM":    "MONOALLELIC (predisposición cáncer) / BIALLELIC (ataxia-telangiectasia)",
+    "BRCA1":  "MONOALLELIC, AD — predisposición cáncer mama/ovario (adultos); hallazgo secundario",
+    "BRCA2":  "MONOALLELIC, AD — predisposición cáncer mama/ovario (adultos); hallazgo secundario",
+    "PALB2":  "MONOALLELIC, AD — predisposición cáncer mama/páncreas (adultos); hallazgo secundario",
+    "RAD51C": "MONOALLELIC, AD — predisposición cáncer ovario/mama (adultos); hallazgo secundario",
+    "RAD51D": "MONOALLELIC, AD — predisposición cáncer ovario/mama (adultos); hallazgo secundario",
+    "CHEK2":  "MONOALLELIC, AD — predisposición cáncer mama moderada (adultos); hallazgo secundario",
 }
 
 DESCARTES = {
     "EZH2":   "Síndrome de Weaver (overgrowth: macrocefalia, estatura alta). Fenotipo OPUESTO al paciente.",
-    "BRCA1":  "Predisposición a cáncer de mama/ovario en adultos. No causa fenotipo neonatal/pediátrico.",
-    "BRCA2":  "Ídem BRCA1. Predisposición oncológica adulta.",
-    "PALB2":  "Predisposición a cáncer de mama/páncreas en adultos. No aplica como causa primaria.",
-    "RAD51C": "Predisposición a cáncer de ovario/mama. Contexto adulto.",
-    "RAD51D": "Ídem RAD51C.",
-    "CHEK2":  "Predisposición moderada a cáncer adulto. No causa fenotipo pediátrico.",
     "FANCM":  "Anemia de Fanconi biallélica (recesiva). No aplica modelo dominante.",
     "LMNB1":  "Leucodistrofia AD por duplicación de LMNB1; fenotipo principalmente neurológico adulto.",
     "EMD":    "Emerinopatía X-linked recesiva (varones); fenotipo muscular/cardíaco, no el cuadro actual.",
