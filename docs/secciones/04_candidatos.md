@@ -150,3 +150,57 @@ Sale del hallazgo secundario en *LZTR1* (`01_variante_causante.md`, sección 5c)
 **Nunca en monoterapia.** Las combinaciones con fundamento son con **temsirolimus** (mTOR, ya en la lista corta) o con un **anti-IGF1R** (teprotumumab es el único aprobado; está en la lista larga con 43,3). Riesgos: piel, CK, función cardíaca (FEVI) y ojos. Inhibir MEK frena el ciclo en G1 y no debilita el checkpoint mitótico.
 
 **Por qué es innovador:** une un hallazgo germinal secundario con el tratamiento del tumor. En PubMed hay un solo trabajo que une *LZTR1* con el rabdomiosarcoma.
+
+---
+
+## 7. Evaluación del combo propuesto por tbussozungri (15 oct): nab-sirolimus + arimoclomol + ciclofosfamida
+
+Pedido vía WhatsApp (15 oct). Fuente citada: Nishitani-Isa 2019 (PMID 31184400), DOI 10.1111/ped.13849.
+
+### 7.1 ¿Qué dice realmente el paper (PMID 31184400)?
+
+El paper de Nishitani-Isa es un **caso clínico de una niña con MVA1 (*BUB1B*) y rabdomiosarcoma embrionario vaginal**, tratada con VAC (vincristina + actinomicina D + ciclofosfamida) a **intensidad reducida** para evitar daño genómico excesivo en una paciente con inestabilidad cromosómica. El paper **no menciona nab-sirolimus ni arimoclomol**. Lo que apoya es:
+
+- La quimioterapia es posible en pacientes con MVA (no se agravó la aneuploidía en la médula).
+- La intensidad reducida es prudente: ciclofosfamida daña el ADN en un paciente que ya tiene el checkpoint mitótico débil.
+
+### 7.2 Nab-sirolimus (Fyarro) vs. sirolimus oral
+
+| | Nab-sirolimus (Fyarro) | Sirolimus oral (Rapamune) |
+|---|---|---|
+| Formulación | Nanopartículas de albúmina, **IV** (30 min, días 1 y 8 de cada ciclo de 21 días) | Oral (comprimidos o solución) |
+| Mecanismo | mTORC1 (idéntico) | mTORC1 (idéntico) |
+| Aprobación FDA | Noviembre 2021 — **solo adultos** con PEComa avanzado | Trasplante renal (≥ 13 años), malformaciones vasculares linfáticas (≥ 2 años), LAM pulmonar; **amplio uso pediátrico** (off-label para malformaciones desde < 2 años) |
+| Uso pediátrico | **No establecido** (la ficha dice "no se sabe si es seguro y eficaz en niños") | Bien documentado; dosificación pediátrica establecida con TDM |
+| Ventaja potencial | Mejor PK (menos variabilidad, sin efecto de comida), mayor exposición inicial | Crónico, oral, conocido en niños |
+| Desventaja en este paciente | Sin datos pediátricos; requiere acceso IV cada semana; indicación es PEComa adulto, no MVA | — |
+
+**Conclusión:** Para este paciente, **sirolimus oral** (ya en la lista corta, 71,7 pts) tiene mejor respaldo pediátrico que Fyarro. Nab-sirolimus añade costo y complejidad sin ventaja demostrada en un niño. La forma de administración IV semanal dificulta el uso crónico.
+
+### 7.3 Ciclofosfamida: ¿reposicionamiento?
+
+Ciclofosfamida es parte del protocolo estándar para rabdomiosarcoma (VAC/IVA). **No es reposicionamiento**, es el tratamiento oncológico indicado. Presentarla como candidata de reposicionamiento en el Track 2 sería un error.
+
+Lo que sí es relevante del paper es la **advertencia de toxicidad**: en pacientes con inestabilidad cromosómica, los agentes alquilantes (ciclofosfamida) podrían aumentar el riesgo de segundas neoplasias o de empeorar la carga de aneuploidía en la médula. Por eso la intensidad reducida es clínicamente razonable.
+
+### 7.4 ¿Tiene sentido la combinación conceptualmente?
+
+| Componente | Papel | Problema |
+|---|---|---|
+| Sirolimus (o temsirolimus) | Inhibir mTORC1 (línea 2 de la propuesta) | ✅ Sí está en la lista corta y es reposicionamiento |
+| Arimoclomol | Subir BUBR1 (línea 1) | ✅ Sí está en la lista corta y es reposicionamiento |
+| Ciclofosfamida | Quimioterapia del rabdomiosarcoma | ❌ No es reposicionamiento; es el estándar |
+
+El concepto de combinar las dos drogas de reposicionamiento (sirolimus + arimoclomol) con la quimioterapia estándar es razonable: el mTOR inhibidor reduce el ciclo celular de las células malignas (sinergia potencial) y el proteostasis agent podría proteger las células normales. Pero eso no es lo que el paper demuestra.
+
+**Recomendación:** presentar el combo como **sirolimus + arimoclomol** (reposicionamiento) en paralelo con **VAC a intensidad reducida** (oncología estándar del rabdomiosarcoma según Nishitani-Isa 2019). La ciclofosfamida es el contexto oncológico, no el candidato de reposicionamiento.
+
+### 7.5 Farmacogenética del combo → ver `05_farmacogenetica.md`
+
+El análisis completo está en `docs/secciones/05_farmacogenetica.md`. Resumen ejecutivo:
+
+- **Ciclofosfamida:** el paciente es **metabolizador intermedio de CYP2B6** (porta componentes de alelo *6), lo que respalda la reducción de intensidad del protocolo de Nishitani-Isa. GSTM1 no evaluable desde el VCF (limitación).
+- **Sirolimus:** **CYP3A5 \*3/\*3** (no expresor), el genotipo estándar europeo → dosis inicial estándar, luego TDM a las 2 semanas.
+- **Arimoclomol:** sin farmacogenética conocida. Vigilar riñón (creatinina / cistatina C).
+
+**No hay contraindica­ciones farmacogenómicas al combo.** El perfil de metabolizador intermedio de CYP2B6 refuerza (no contradice) el uso de ciclofosfamida a intensidad reducida.
