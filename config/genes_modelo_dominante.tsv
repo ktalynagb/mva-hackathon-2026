@@ -1,4 +1,8 @@
 gen	herencia	paneles
+ATM	MONOALLELIC, autosomal or pseudoautosomal, NOT imprinted	Predisposición hereditaria a cáncer; bialélico en ataxia-telangiectasia (adición manual C8)
+KDM6A	X-LINKED: hemizygous mutation in males, monoallelic mutations in females may cause disease	Síndrome Kabuki tipo 2 (adición manual C8)
+KMT2D	MONOALLELIC, autosomal or pseudoautosomal, NOT imprinted	Síndrome Kabuki tipo 1 (adición manual C8)
+LMNA	MONOALLELIC, autosomal or pseudoautosomal, NOT imprinted	Laminopatía dominante — Emery-Dreifuss AD, miocardiopatía dilatada, progeria (adición manual C8)
 ACAN	BOTH monoallelic and biallelic, autosomal or pseudoautosomal	Monogenic short stature (v2.11)
 ALK	MONOALLELIC, autosomal or pseudoautosomal, imprinted status unknown	Childhood solid tumours cancer susceptibility (v1.30)
 ANKRD11	MONOALLELIC, autosomal or pseudoautosomal, NOT imprinted	Monogenic short stature (v2.11)
