@@ -120,6 +120,8 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 [DECISIÓN DEL EQUIPO, 15 oct] Bortezomib es el candidato más cuestionable por su toxicidad y por frenar la salida de la mitosis; podría salir de la lista corta.
 
+**Formulación del inhibidor de mTORC1: oral vs. nanopartícula.** Se evaluó el **nab-sirolimus** (Fyarro, nanopartículas de albúmina IV), propuesto por el equipo porque se acumula en el tumor y permitiría bajar la exposición sistémica. En xenoinjertos alcanza concentraciones tumorales 6,2–68,1 veces mayores que los rapálogos orales (Hou 2019, resumen AACR), y tiene dosis máxima tolerada definida en niños (15 mg/m², fase 1 del COG; PMID 39487711). Se mantiene sin embargo el **sirolimus oral** para la línea 2, por dos razones: (1) nuestra hipótesis mecanística es un efecto **sistémico** (sarcopenia y restricción del crecimiento por mTORC1 hiperactivo), de modo que la concentración tumoral no aporta; y (2) la toxicidad limitante del nab-sirolimus es la **trombocitopenia**, que se suma a la mielosupresión del VAC a intensidad reducida. Para la línea 4 (tumor), **temsirolimus** sigue primero por tener evidencia específica en rabdomiosarcoma, mientras que el fase 1 pediátrico de nab-sirolimus no mostró respuestas en los 2 rabdomiosarcomas incluidos. Detalle en `04_candidatos.md` §7.2.1.
+
 #### Hipótesis innovadora: niacina (NAD⁺, SIRT2 y BubR1)
 
 *Nivel de evidencia: especulativo. Se incluye por su originalidad y porque se puede descartar rápido, no porque esté respaldada.*
@@ -198,6 +200,9 @@ Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_
 - Crose et al. 2022. *Cancer Res* 82:6056–67. PMID 36322002. *(vía RAS rabdomiosarcoma sin fusión)*
 - Elhossiny et al. 2023. *Mol Cancer Ther* 22:723–34. PMID 23684925. *(MEK + mTOR sinergia rabdomiosarcoma)*
 - Federico et al. 2022. *J Clin Oncol* 40:3622–31. PMID 35363510. *(selumetinib monoterapia sin respuestas en niños)*
+- Cramer et al. 2024. *Cancer Med* 13(21):e70376. PMID 39487711. *(ADVL1514: fase 1 COG de nab-sirolimus en tumores sólidos pediátricos; MTD 15 mg/m² en combinación, DLT trombocitopenia, 0/2 respuestas en rabdomiosarcoma alveolar)*
+- Hou et al. 2019. *Cancer Res* 79(13 Suppl):348. *(resumen AACR del laboratorio desarrollador: acumulación tumoral de nab-sirolimus en xenoinjertos; sin datos intratumorales en humanos)*
+- Nishitani-Isa et al. 2019. *Pediatr Int* 61:729–31. PMID 31184400. *(caso de MVA1 con rabdomiosarcoma tratado con VAC a intensidad reducida)*
 
 **Hallazgo secundario LZTR1**
 - Piotrowski et al. 2014. *Am J Hum Genet* 94:622–8. PMID 24362817. *(schwannomatosis LZTR1 dominante)*
