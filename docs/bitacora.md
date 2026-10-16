@@ -10,6 +10,80 @@
 
 ---
 
+## 2026-10-15 (noche ter) — C8 ampliado + nota ATM en A10 + borrador E5
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C8-genes-equipo`  
+**Qué se hizo:**
+
+**C8 ampliado:**
+- `scripts/analisis_genes_equipo.py`: se agregaron BRCA1, BRCA2, PALB2, RAD51C, RAD51D, CHEK2 a los genes a correr
+- `docs/secciones/06_genes_equipo.md`: actualizado con resultados de 10 genes (funnel 874 PASS → 0 candidatas dominantes)
+- Resultado: panel oncológico hereditario **negativo** — 0 variantes funcionales ultra-raras en BRCA1/2/PALB2/RAD51C/D/CHEK2
+
+**A10 — nota ATM:**
+- `docs/secciones/01_variante_causante.md` sección 5c: agregada nota sobre ATM en la lista "Lo demás que apareció y se descartó": 1 missense HET AF=0.08%, demasiado frecuente, sin patrón bialélico; referencia a 06_genes_equipo.md
+
+**E5 — borrador informe_final.md:**
+- `docs/informe_final.md`: escritos Resumen (≈180 palabras), Discusión completa (5 párrafos), Referencias compiladas de todas las secciones
+- Actualizado bullet 3.1 con resultados de C8 extendido
+- **Pendientes para E5:** 2.5 reproducibilidad (espera D2/D3), 2.6 tabla IA incompleta (equipo), 05_farmacogenetica.md (PR #21 sin mergear)
+
+---
+
+## 2026-10-15 (noche bis) — Modelo dominante para lista de genes del equipo (C8)
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C8-genes-equipo`  
+**Qué se hizo:**
+- `scripts/analisis_genes_equipo.py`: corre el embudo del diagnóstico diferencial para LMNA, KMT2D, KDM6A, ATM; aplica filtro dominante (HET, MANE funcional, AF ≤ 1e-5, GQ ≥ 20, DP ≥ 10)
+- `docs/secciones/06_genes_equipo.md`: resultados + tabla de descartes
+- `config/genes_modelo_dominante.tsv`: 4 genes agregados manualmente (adición C8)
+
+**Hallazgos:**
+- **Resultado: negativo.** 305 variantes PASS → 289 raras → 1 funcional en MANE (missense ATM, AF=0.08%) → 0 ultra-raras (AF ≤ 1e-5)
+- Ninguna candidata dominante en LMNA, KMT2D, KDM6A ni ATM
+- ATM: 1 variante frecuente (no bialélico → no A-T)
+- **EZH2 descartado:** síndrome de Weaver = overgrowth, fenotipo opuesto al paciente
+- **BRCA1/2, PALB2, RAD51C/D, CHEK2:** predisposición oncológica adulta, solo serían hallazgos secundarios
+- TP53 ya estaba en el modelo dominante anterior (A10)
+
+**Pendiente:** decisión del equipo sobre si mencionar BRCA1/2 como "panel de hallazgos secundarios" en el informe
+
+---
+
+## 2026-10-15 (noche) — Farmacogenética (C7), evaluación del combo propuesto y lista de genes del equipo
+
+**Quién:** Ktalyna (con Claude Code) · rama pendiente `tarea/C7-farmacogenetica`  
+**Qué se hizo:**
+- `scripts/farmacogenetica.py`: resuelve rsIDs de CYP2B6, CYP2C19, CYP3A4, CYP3A5, ABCB1 a coordenadas GRCh38 (Ensembl, con caché), escanea el VCF una sola vez y reporta fenotipos sin coordenadas. Genotipos crudos en `data/farmacogenetica/genotipos_farma.json` (no versionado)
+- `docs/secciones/05_farmacogenetica.md`: resultados del análisis farmacogenómico
+- `docs/secciones/04_candidatos.md`: sección 7 con evaluación del combo nab-sirolimus + arimoclomol + ciclofosfamida
+- Verificado el paper del DOI 10.1111/ped.13849: es Nishitani-Isa 2019 (PMID 31184400), ya citado en el repo. Trata VAC a intensidad reducida, no el combo propuesto
+
+**Hallazgos farmacogenómicos:**
+- ✅ **CYP3A5 \*3/\*3** (no expresor): genotipo estándar para sirolimus; dosis inicial estándar según analogía CPIC tacrolimus; monitorear niveles (TDM) a las 2 semanas
+- ⚠️ **CYP2B6 probable metabolizador intermedio** (*1/*6): porta componentes del alelo *6 (rs2279343 y rs3745274, ambos heterocigotos). Refuerza la justificación del protocolo de intensidad reducida para ciclofosfamida. Sin guía CPIC para ciclofosfamida
+- ⚠️ **CYP2C19 \*1/\*2** (metabolizador intermedio): impacto clínico incierto para ciclofosfamida; sin guía CPIC
+- ℹ️ **GSTM1**: no evaluable desde VCF de SNV (limitación declarada)
+- ℹ️ **CYP3A4 *1B** homocigota (nivel C) y ABCB1 haplotipo heterocigoto clásico: no accionables
+
+**Evaluación del combo (sección 7 de `04_candidatos.md`):**
+- El paper **no usa nab-sirolimus ni arimoclomol**: usa VAC (vincristina + actinomicina D + ciclofosfamida) a intensidad reducida
+- **Nab-sirolimus (Fyarro)**: solo aprobado para adultos con PEComa; sin uso pediátrico establecido; no supera a sirolimus oral para este paciente. Se descarta como alternativa a sirolimus
+- **Ciclofosfamida**: no es reposicionamiento; es el tratamiento estándar del rabdomiosarcoma (VAC/IVA)
+- **Recomendación:** el combo de reposicionamiento sigue siendo sirolimus + arimoclomol; ciclofosfamida es el contexto oncológico estándar (VAC intensidad reducida)
+
+**Lista de genes del equipo (WhatsApp, 15 oct):**
+- Grupos: cáncer hereditario, laminopatías, epigenética, microcefalia/centrosoma, checkpoint mitótico, poro nuclear, ciclo celular
+- Ver pendiente en tablero (tarea nueva C8/A11 según corresponda)
+
+**Pendiente:**
+- [ ] Rama y PR para `scripts/farmacogenetica.py` + `05_farmacogenetica.md`
+- [ ] Verificar la orientación de hebra del alelo CYP3A4 *1B/*1B antes de reportar en el informe clínico
+- [ ] Decisión del equipo sobre qué genes de la lista nueva vale la pena correr con `modelo_dominante.py`
+- [ ] Decidir si se incluye el análisis de farmacogenética en el informe final (sección nueva)
+
+---
+
 ## 2026-10-15 — Embudo real en el notebook 04, modelo dominante (A10) y línea condicional de MEK
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/A10-modelo-dominante`
