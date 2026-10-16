@@ -26,7 +26,7 @@
 **E5 — borrador informe_final.md:**
 - `docs/informe_final.md`: escritos Resumen (≈180 palabras), Discusión completa (5 párrafos), Referencias compiladas de todas las secciones
 - Actualizado bullet 3.1 con resultados de C8 extendido
-- **Pendientes para E5:** 2.5 reproducibilidad (espera D2/D3), 2.6 tabla IA incompleta (equipo), 05_farmacogenetica.md (PR #21 sin mergear)
+- **Pendientes para E5:** 2.5 reproducibilidad (espera D2/D3), 2.6 tabla IA incompleta (equipo), 05_farmacogenetica.md (PR #21)
 
 ---
 
@@ -49,7 +49,6 @@
 **Pendiente:** decisión del equipo sobre si mencionar BRCA1/2 como "panel de hallazgos secundarios" en el informe
 
 ---
-
 ## 2026-10-15 (noche) — Farmacogenética (C7), evaluación del combo propuesto y lista de genes del equipo
 
 **Quién:** Ktalyna (con Claude Code) · rama pendiente `tarea/C7-farmacogenetica`  
