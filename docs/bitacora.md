@@ -10,6 +10,32 @@
 
 ---
 
+## 2026-10-21 — Reproducibilidad del pipeline (D2/D3/D6) y tratamiento del tumor
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-reproducibilidad-tumor`
+
+### Merges
+- PR #23 (E5 borrador v2) fusionado a master. No quedan PRs abiertos.
+- `tarea/E5-niacina-informe` resultó residual: cero commits y cero diferencias contra master. Se puede borrar (el borrado automático quedó bloqueado por el clasificador de seguridad; hay que hacerlo a mano).
+
+### Reproducibilidad
+**Bug encontrado y arreglado:** `scripts/modelo_dominante.py` regeneraba `config/genes_modelo_dominante.tsv` desde la API de PanelApp con `open(..., "w")`, lo que **borraba en silencio los 4 genes que C8 había agregado a mano** (ATM, KDM6A, KMT2D, LMNA) en cada corrida limpia. Ahora esos genes viven en `config/genes_dominante_extra.tsv` y el script los reinyecta al regenerar. Verificado: 96 genes = 92 de PanelApp + 4 manuales.
+
+**Hueco cerrado:** `run_pipeline.py` no incluía los tres análisis más nuevos. Se agregaron como pasos: `dominante` (A10), `genes_equipo` (C8) y `farmacogenetica` (C7). El pipeline pasó de 5 a 8 pasos. También se hizo robusto el `insert` del paso opcional `estabilidad`, que estaba fijado a un índice numérico y con el nuevo orden habría caído en el lugar equivocado.
+
+**Segundo bug, más grave, que la corrida completa dejó al descubierto.** El paso `farmacos` regenera `results/candidatos_farmacos.tsv`, que es el archivo que C4 puntuó **editándolo a mano**. La corrida lo dejó con las 86 filas y **cero puntajes**: se perdieron los seis criterios K1–K6, las notas de las correcciones del 14 oct y la fila de **niacina** completa (ninguna fuente la produce, se había agregado a mano), más la línea condicional de MEK. O sea: la puntuación que sostiene toda la lista corta del informe (sirolimus 71,7, temsirolimus 70,0, arimoclomol 68,3, dasatinib 60,0, bortezomib 60,0, niacina 48,3) vivía solo en un archivo generado, y **correr el comando documentado la destruía**. Se restauró desde git y se arregló: `lista_larga_farmacos.py` ahora relee el TSV versionado y devuelve las columnas curadas (`preservar_curacion()`), conservando además las filas que la regeneración no produce. Verificado: regenerar deja 89 filas, 55 puntajes y la nota de arimoclomol intactos; cero celdas cambiadas contra el estado previo.
+
+**Corrida completa verificada (insumo para D6).** 21 oct, Windows 11, Python 3.13.14, caché construido: **8/8 pasos OK en 6 min 11 s** (diagnostico 158 s, dominante 107 s, alelo2 73 s, genes_equipo 13 s, farmacogenetica 10 s, farmacos 6 s, figuras 4 s). Reprodujo **todos** los números del informe: 24.604 variantes PASS → 14 funcionales en MANE; 11.808 → 1 candidata (*LZTR1*, CADD 49, LOEUF 2,72); 874 → 0 candidatas; 86 fármacos → 73 pasan F1/F2; CYP3A5 \*3/\*3. El log confirmó el fix de los genes manuales: "92 genes con herencia monoalélica en 8 paneles **+ 4 manuales**".
+
+### Tratamiento del tumor (sección 8 de `04_candidatos.md`)
+El equipo propuso sumar ciclofosfamida. **Se descartó como candidata, con dos motivos:** (1) no es reposicionamiento, es el estándar del rabdomiosarcoma (VAC/IVA), y presentarla como propuesta sería un error de categoría; (2) es el agente que más conviene minimizar acá, por ser alquilante en un niño con inestabilidad cromosómica.
+
+**En su lugar se documentó algo que faltaba:** el checkpoint débil tiene consecuencias sobre la elección de la quimioterapia. La vincristina mata por una vía que **depende del SAC** (detención mitótica prolongada), y en ratones con haploinsuficiencia de BubR1 esa detención se escapa (*mitotic slippage*, Dai 2004, PMID 14744753). **La dirección del efecto no está resuelta** y se declara así: hay evidencia de más resistencia a taxol/nocodazol/vincristina con BubR1 o Mad2 bajados, y de mayor sensibilidad en otras líneas (revisión Yamada 2006, PMID 17172401). Nadie lo estudió en MVA.
+
+**Propuesta resultante:** temsirolimus sigue como candidato de reposicionamiento con efecto tumoral (no depende del SAC, frena en G1); si hubiera recaída, el esquema **VIT** (vincristina + irinotecán + temozolomida) es el estándar del EpSSG tras VIT-0910 (PFS HR 0,64; OS HR 0,59; Defachelles 2021, PMID 34343032) y sus dos componentes añadidos dañan el ADN fuera de la mitosis. El experimento que resolvería la duda no cuesta nada extra: correr el ensayo de nocodazol ya previsto **también con vincristina**.
+
+---
+
 ## 2026-10-15 (madrugada bis) — Corrección: nab-sirolimus y el argumento de acumulación tumoral
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-informe`  
