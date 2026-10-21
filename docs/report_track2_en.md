@@ -136,8 +136,8 @@ As required by the challenge, we declare every AI tool with its provider, plan, 
 - Claude Code (Sonnet and Opus), Anthropic, Claude Pro plan, consumer terms, "Help improve Claude" disabled. Used by K. García for analysis code, API queries, literature review, and drafting. Received variant-level outputs (positions, alleles, read counts); the data files stayed on the local computer.
 - Claude Code, Anthropic, Claude Pro plan, consumer terms, "Help improve Claude" disabled.  Used by L. Vargas for analysis code, explanations, literature review, and drafting of this report. Received variant-level outputs; the data files stayed on the local computer.
 - Gemini 3.5-flash-lite and 3.8-flash (API through LangChain, `notebooks/06_agente_reposicionamiento_farmacos.ipynb`), Google, free tier of the API: content sent and responses may be used by Google to improve its products and may be read by human reviewers. Used by the team for an early draft of drug ideas, which was not used as the final list. Received only the disease name, the gene *BUB1B*, therapeutic target names, and public database results; no patient data.
-- Claude (app), Anthropic, free plan. [TO CONFIRM: "Help improve Claude" setting.] Used by the team to search the literature on the disease and its described treatments. Received no patient data.
-- Perplexity, Perplexity AI, free plan. [TO CONFIRM: data retention setting.] Used by the team to search the literature on the disease and its described treatments. Received no patient data.
+- Claude (app), Anthropic, free plan; "Help improve Claude" setting not verified. Used by the team to search the literature on the disease and its described treatments. Received no patient data.
+- Perplexity, Perplexity AI, free plan; data retention setting not verified. Used by the team to search the literature on the disease and its described treatments. Received no patient data.
 
 All AI-generated statements were verified against primary sources (PubMed, Drugs@FDA, gnomAD, UniProt); citations that could not be verified were removed.
 
