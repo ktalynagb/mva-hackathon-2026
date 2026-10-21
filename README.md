@@ -1,6 +1,6 @@
 # MVA Hackathon 2026 — Track 2: Reposicionamiento de Fármacos
 
-**Equipo:** Equipo A3 EMBS ITBA 
+**Equipo:** A3 EMBS ITBA 
 **Evento:** Rare Disease, Real Kid — MVA Hackathon 2026  
 **Organizadores:** EMBS ITBA / Sage Bionetworks / Hugging Face  
 **Fecha límite:** 24 de octubre de 2026, 23:59 UTC
