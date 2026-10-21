@@ -26,7 +26,7 @@ Archivo: `docs/report_track2_en.md` · PDF de revisión: `docs/report_track2_en_
 | 3 | ¿Lourdes es parte del equipo? (no está en la lista de 5) | — | Laura |
 | 4 | **Horas-persona** totales | Methods H | Equipo |
 | 5 | ~~Apellido de Lorena~~ **Resuelto: Lorena Ogas** | Methods F | — |
-| 6 | **Cita del dataset**: la referencia exacta que da la página de Synapse del reto (las reglas la exigen) | Referencia [1] | Copiarla de Synapse |
+| 6 | ~~Cita del dataset~~ **Resuelto:** se cita el dataset oficial de Hugging Face (no hay página de Synapse con cita). Si más adelante el equipo publica un artículo, usar la cita de Synapse | Referencia [1] | — |
 
 ## Lo que hago yo cuando esté todo lleno
 
