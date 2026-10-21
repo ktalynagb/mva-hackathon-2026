@@ -10,6 +10,24 @@
 
 ---
 
+## 2026-10-21 (noche) — Cerrada la decisión sirolimus vs. temsirolimus: el esquema queda en 3 fármacos
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C5-esquema-final`
+
+**Problema detectado al redactar la conclusión:** el informe listaba 5 candidatos incluyendo **sirolimus y temsirolimus juntos**, que son **el mismo mecanismo** (ambos rapálogos, inhiben mTORC1). Proponerlos juntos duplica la vía y suma inmunosupresión sin beneficio. Era la decisión pendiente nº 1 de la sección 4 de `04_candidatos.md`, abierta desde el 8 oct.
+
+**Resuelta: temsirolimus.** Con el rabdomiosarcoma activo, cubre la línea 2 (eje mTORC1 del MVA) y la línea 4 (tumor) con un solo fármaco, y es el único con evidencia clínica en este tumor (fase II, PMID 31513481). **Sirolimus oral pasa a ser la opción de la fase crónica**, una vez resuelto el tumor: oral, más barato, con dosificación pediátrica establecida y TDM de rutina.
+
+**Esquema final: arimoclomol + temsirolimus + dasatinib** (tres frentes, tres fármacos). Fuera quedan bortezomib (la revisión C6 lo cuestiona) y niacina (aparte, como hipótesis especulativa).
+
+**Se agregó la secuenciación, que faltaba.** Los tres no empiezan juntos, porque dos chocan con la quimioterapia:
+- **Durante la quimio:** temsirolimus (vigilar infecciones) y arimoclomol (peso con falla de medro; creatinina y cistatina C con nefrocalcinosis).
+- **Después de la quimio:** dasatinib, porque su mielosupresión se suma a la del VAC y la senescencia es un problema crónico que puede esperar.
+
+Se actualizaron en consecuencia el Resumen y la Discusión del informe, que seguían hablando de cinco candidatos.
+
+---
+
 ## 2026-10-21 (tarde) — Tratamiento del tumor consolidado y vigilancia oncológica
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C9-tumor-vigilancia`
