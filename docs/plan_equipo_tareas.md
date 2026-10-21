@@ -118,7 +118,7 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | D4 | Tests con pytest para las funciones críticas y caché local de las consultas a APIs | `tests/` pasando | 💻 | 17 oct | D2 | | ⬜ |
 | D2b | Agregar al pipeline los análisis que faltaban (A10, C7, C8) y arreglar el borrado silencioso de los genes manuales de C8 al regenerar desde PanelApp | `run_pipeline.py` 8 pasos + `config/genes_dominante_extra.tsv` | 💻 | 21 oct | D2 | Ktalyna (con Claude) | 🔄 PR pendiente; corrida completa medida |
 | D5 | Sección "Escalabilidad" del README: cómo correr el pipeline con otro paciente | README actualizado | 💻✍️ | 20 oct | D2 | Ktalyna | 👀 PR #12 |
-| D6 | **(H6)** Corrida limpia completa, congelación y tag `v1.0-entrega` | release en GitHub | 💻 | **23 oct 12:00 UTC** | todas las D | | ⬜ |
+| D6 | **(H6)** Corrida limpia completa, congelación y tag `v1.0-entrega` | release en GitHub | 💻 | **23 oct 12:00 UTC** | todas las D | | 🔄 corrida completa de los 8 pasos verificada el 21 oct (6 min 11 s, reprodujo todos los números del informe); **falta** el tag y la release |
 
 ### Área E — Informe, video y entrega ✍️
 

@@ -80,11 +80,36 @@ El script ejecuta los ocho pasos en orden, corta en el primero que falle e impri
 
 Un paso opcional, `estabilidad` (ΔΔG con ThermoMPNN, tarea B3), se agrega con `--thermompnn DIR` porque depende de una salida que se genera fuera del repositorio.
 
+**Tiempo de ejecución.** Corrida completa de referencia (21 oct 2026, Windows 11, Python 3.13.14, caché de consultas ya construido): **6 min 11 s**, los ocho pasos correctos.
+
+| Paso | Duración | Resultado reproducido |
+|---|---|---|
+| `genes` | < 1 s | 166 genes únicos en el panel |
+| `diagnostico` | 158 s | 24.604 variantes PASS → 14 funcionales en MANE |
+| `dominante` | 107 s | 11.808 PASS → 1 candidata: la truncante de *LZTR1* (AF 1,4×10⁻⁶, CADD 49, LOEUF 2,72) |
+| `genes_equipo` | 13 s | 874 PASS → 0 candidatas; *ATM* sin patrón bialélico |
+| `alelo2` | 73 s | evidencia estructural de p.Asn1002Lys |
+| `farmacos` | 6 s | 86 fármacos → 73 pasan F1 y F2 (52 candidatos, 21 de contexto) |
+| `farmacogenetica` | 10 s | CYP3A5 \*3/\*3; CYP2B6 \*9 y \*6 heterocigotos; CYP2C19 \*2 heterocigoto |
+| `figuras` | 4 s | figuras 1 y 2 |
+| **Total** | **371 s** | |
+
+La corrida reprodujo **todos** los números que figuran en este informe, lo que es la verificación principal en ausencia de tests automatizados. El tiempo corresponde a un caché ya construido; una clonación limpia debe reconstruirlo desde las APIs y tarda considerablemente más, dominada por las consultas de `diagnostico` y `dominante` (unas 35.000 variantes a anotar entre los dos).
+
 **Versiones fijadas.** `requirements.txt` declara los mínimos y `requirements-lock.txt` las versiones exactas con las que se generaron los resultados de este informe: **Python 3.13.14**, pandas 3.0.5, numpy 2.5.3, scipy 1.18.1, requests 2.34.2, matplotlib 3.11.2, PyVCF3 1.0.4, huggingface_hub 1.32.0, openpyxl 3.1.5, python-docx 1.2.0, tqdm 4.70.1. Se eligió PyVCF3 en lugar de pysam o cyvcf2 porque estos requieren htslib compilado y no funcionan en Windows, donde se desarrolló el análisis.
 
 **Datos de entrada.** El VCF del paciente **no está en el repositorio** y no puede estarlo: es un dato de acceso controlado por los términos del reto. Se descarga con `scripts/download_data.py` a `data/raw/` con las credenciales propias de cada integrante. Los pasos que lo necesitan fallan con un mensaje explícito si no lo encuentran, en lugar de producir resultados vacíos.
 
 **Determinismo y caché.** Las consultas a APIs externas (gnomAD, Ensembl VEP, UniProt, AlphaFold, DGIdb, Open Targets, openFDA, EMA, myvariant.info) se guardan en `data/cache/` — 437 archivos en la corrida de referencia. Eso hace que una segunda corrida sea mucho más rápida y, sobre todo, que el resultado no cambie si una base de datos externa se actualiza entre corridas. El caché no se versiona: una clonación limpia reconstruye todo desde las APIs, lo que es más lento pero verifica que el pipeline no dependa de estado local.
+
+**Curación manual y corridas repetidas.** Dos pasos del pipeline generan archivos que después se curaron a mano, y la primera corrida completa reveló que ambos borraban esa curación en silencio. Quedó resuelto así:
+
+| Archivo | Qué se perdía al regenerar | Cómo se resolvió |
+|---|---|---|
+| `config/genes_modelo_dominante.tsv` | Los 4 genes agregados fuera de PanelApp (*ATM*, *KDM6A*, *KMT2D*, *LMNA*) | Viven en `config/genes_dominante_extra.tsv` y se reinyectan al regenerar |
+| `results/candidatos_farmacos.tsv` | **La puntuación completa de los 6 criterios** y las filas que ninguna fuente produce (niacina y la línea condicional de MEK) | El generador relee el TSV versionado y devuelve las columnas curadas; lo nuevo solo rellena huecos |
+
+Importa porque la puntuación de los candidatos es el resultado central de la priorización y vivía únicamente en un archivo generado: ejecutar el comando documentado la destruía. Verificado después del arreglo: regenerar deja las 89 filas y los 55 puntajes intactos, y conserva las notas de las correcciones del 14 de octubre. **Consecuencia aceptada:** una nota automática nueva no reemplaza a la nota ya curada de ese fármaco.
 
 **Limitaciones declaradas.**
 - **Falta probar una clonación limpia en otra máquina** (tarea D3, idealmente Linux o macOS). El pipeline se corrió completo en Windows 11 con Python 3.13.
