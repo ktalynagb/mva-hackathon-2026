@@ -101,7 +101,7 @@ No entran pese a puntaje similar: **everolimus** (68,3, mismo mecanismo que siro
 
 ## 4. Decisiones pendientes para quien revise (💊🧬)
 
-1. ¿Sirolimus y temsirolimus (mismo mecanismo, temsirolimus con dato clínico propio), o uno de ellos reemplazado por everolimus (oral)?
+1. ~~¿Sirolimus y temsirolimus (mismo mecanismo, temsirolimus con dato clínico propio), o uno de ellos reemplazado por everolimus (oral)?~~ **Resuelta el 21 oct: temsirolimus.** No se proponen los dos, porque comparten mecanismo y darlos juntos duplica la vía y suma inmunosupresión sin beneficio. Con el rabdomiosarcoma activo, temsirolimus cubre la línea 2 y la 4 con un solo fármaco y es el único con evidencia clínica en este tumor. **Sirolimus oral queda como la opción de la fase crónica**, una vez resuelto el tumor: oral, más barato, con dosificación pediátrica establecida y TDM de rutina. Everolimus sigue descartado por ser el mismo mecanismo (ver sección 1).
 2. **Bortezomib o niacina** como segundo candidato de línea 1 (sección 5).
 3. Confirmar el grupo de riesgo del rabdomiosarcoma del paciente, para saber si la fase III de temsirolimus lo descarta como parte del tratamiento oncológico.
 4. Validar los puntajes K1/K2 de C4 para estos 5 (regla de C1 sec. 1.5).
