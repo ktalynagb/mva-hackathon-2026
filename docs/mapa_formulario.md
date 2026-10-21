@@ -8,7 +8,7 @@ El archivo tiene 2 hojas, una por track. Para cada pregunta: dónde está la res
 
 | # | Pregunta | Dónde está la respuesta | Tarea de origen |
 |---|---|---|---|
-| 1 | Team name | Nombre del equipo o de quien envía (decisión de E1) | E1 |
+| 1 | Team name | **A3 EMBS ITBA** (lo definió Laura en el README el 21 oct). Ojo: el nombre del equipo ya está, pero **sigue sin designarse quién envía**, que es la otra mitad de E1 | E1 ✅ parcial |
 | 2 | Describí el enfoque en detalle (de variante/mecanismo a fármaco candidato) | `01_variante_causante.md` → `02_marco_biologico.md` → `02b_resumen_mecanismo.md` → `03_criterios.md` → `03b_lista_larga.md` → `04_candidatos.md`: es el recorrido completo del repo, resumido | A2/A3/A8, B1–B4, C1, C3, C5 |
 | 3 | **(obligatoria)** Si se usó IA generativa: proveedor, plan y configuración de datos | Sección 2.6 de `informe_final.md`. **Cuatro herramientas:** Claude Code, Claude (app), Gemini y Perplexity. Claude Code está completa; de Gemini está documentado el uso (cuaderno 06) y que **no recibió datos del paciente**, falta el nivel de la API; de Claude app y Perplexity falta todo porque no hay registro en el repo | E8 |
 | 4 | ¿Identificación de candidatos automatizada (consulta a base de datos / LLM) o revisión manual/curación experta? | Ambas: `scripts/lista_larga_farmacos.py` consulta DGIdb v5 y Open Targets de forma automática (C3); la puntuación K1–K6 (C4) y la lista curada de `config/lineas_terapeuticas.json` son curación manual asistida por IA | C3, C4 |
