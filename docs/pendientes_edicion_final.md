@@ -23,7 +23,7 @@ Archivo: `docs/report_track2_en.md` · PDF de revisión: `docs/report_track2_en_
 |---|---|---|---|
 | 1 | **Tu línea de IA**: configuración de datos, con la fecha en que se apagó "Help improve Claude"; confirmar que nunca se dieron pulgares | Methods I (busca `TO COMPLETE BY LAURA`) | Laura, a mano |
 | 2 | ~~Gemini~~ **Resuelto por Ktalyna (PR #28): API nivel gratuito, sin datos del paciente.** Faltan los ajustes de datos de la app de Claude y de Perplexity | Methods I | Quien las usó |
-| 3 | ¿Lourdes es parte del equipo? (no está en la lista de 5) | — | Laura |
+| 3 | ~~Integrantes~~ **Resuelto:** el equipo son 5 personas; Gemini se declara como usado por el equipo, sin nombre | — | — |
 | 4 | **Horas-persona** totales | Methods H | Equipo |
 | 5 | ~~Apellido de Lorena~~ **Resuelto: Lorena Ogas** | Methods F | — |
 | 6 | ~~Cita del dataset~~ **Resuelto:** se cita el dataset oficial de Hugging Face (no hay página de Synapse con cita). Si más adelante el equipo publica un artículo, usar la cita de Synapse | Referencia [1] | — |
