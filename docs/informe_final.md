@@ -214,6 +214,29 @@ La **vincristina**, presente en casi todos los protocolos de rabdomiosarcoma (VA
 
 **La ciclofosfamida no figura como candidata de reposicionamiento**, y es deliberado: es el estándar de cuidado del rabdomiosarcoma, no una indicación nueva. Además es un alquilante en un niño con inestabilidad cromosómica, el agente que más conviene minimizar; por eso el caso publicado de MVA1 con rabdomiosarcoma usó VAC a intensidad reducida (PMID 31184400) y el genotipo CYP2B6 de este paciente (§3.4) apunta en el mismo sentido.
 
+#### Qué proponemos para el tumor
+
+El rabdomiosarcoma **ya está presente** (HP:0002859, parte del fenotipo de ingreso): la pregunta no es si tratarlo, sino con qué.
+
+| Escenario | Qué se usa | ¿Reposicionamiento? |
+|---|---|---|
+| Tumor actual, primera línea | VAC a intensidad reducida | No — estándar de cuidado (PMID 31184400) |
+| **Sumar efecto antitumoral mecanístico** | **Temsirolimus** (70,0 pts) | **Sí** — fase II en rabdomiosarcoma en recaída (PMID 31513481) |
+| Recaída o refractariedad | VIT (vincristina + irinotecán + temozolomida) | No, pero su backbone no depende del SAC (PMID 34343032) |
+| Si la biopsia muestra RAS activo | MEK (trametinib o selumetinib) **+** temsirolimus | **Sí** — línea condicional, nunca en monoterapia |
+
+**Temsirolimus** es nuestra propuesta para el tumor: el único candidato que actúa a la vez sobre el tumor y sobre el MVA, con evidencia clínica en el tumor de este paciente y un mecanismo (freno en G1) que no depende del checkpoint que al paciente le falta.
+
+#### Vigilancia: la predisposición no termina con este tumor
+
+| Tumor | Riesgo en MVA por *BUB1B* | Vigilancia |
+|---|---|---|
+| **Tumor de Wilms** | **~50 %**, el más alto del espectro MVA | **Ecografía renal cada 3 meses hasta el 7.º cumpleaños** (SIOP-Europe, PMID 34134020) |
+| MDS, LMA, LLA | Reportados en MVA1, sin frecuencia estimada | Hemograma periódico (PMID 39264246) |
+| Schwannomas | Del hallazgo secundario en *LZTR1* | RMN según protocolo de schwannomatosis (PMID 39937237) |
+
+Dos precisiones. **Las guías no coinciden en cuándo parar:** SIOP-Europe indica hasta los 7 años y una guía británica más antigua hasta los 5; la elección corresponde al equipo tratante. Y **la ecografía ya está indicada** por la nefrocalcinosis, así que vigilar Wilms no agrega estudios: solo fijar la periodicidad y buscar masas en el parénquima. No sabemos la edad actual del paciente —el documento clínico está anonimizado—, así que si superó los 7 años esta ventana ya se cerró.
+
 ### 3.4 Farmacogenética
 
 *Fuente: `docs/secciones/05_farmacogenetica.md` · Tarea: C7 · Script: `scripts/farmacogenetica.py`*
@@ -239,7 +262,7 @@ El paciente es **metabolizador intermedio de CYP2B6** (*1/*6 o similar) y de **C
 
 **Escalabilidad.** El pipeline completo es reproducible y adaptable: cambiando el VCF y la lista de genes, sirve para cualquier caso de MVA o de otra enfermedad mendeliana rara con predisposición tumoral. Todas las consultas son a APIs públicas (gnomAD, Ensembl VEP, myvariant.info, OpenTargets), sin dependencia de bases de datos locales ni datos propietarios. El único paso que requiere juicio experto es la clasificación ACMG/AMP del alelo 2, que aquí está documentada con sus criterios y pesos.
 
-**Próximos pasos prioritarios.** En orden de viabilidad e impacto: (1) genotipar a los progenitores para establecer la fase; (2) RT-PCR del alelo 1 para demostrar el NMD; (3) Western blot de BUBR1 en fibroblastos con y sin sirolimus, arimoclomol y niacina/NMN; (4) análisis de la biopsia del tumor: pérdida de 22q11 o segunda mutación de *LZTR1* y fosfo-ERK por inmunohistoquímica.
+**Próximos pasos prioritarios.** El primero no es experimental y es el de mayor impacto inmediato: **(0) confirmar que el paciente está en vigilancia trimestral de tumor de Wilms con ecografía renal**, dado el riesgo de ~50 % en MVA por *BUB1B* y que el estudio ya está indicado por la nefrocalcinosis. Después, en orden de viabilidad: (1) genotipar a los progenitores para establecer la fase; (2) RT-PCR del alelo 1 para demostrar el NMD; (3) Western blot de BUBR1 en fibroblastos con y sin sirolimus, arimoclomol y niacina/NMN, y el ensayo de detención mitótica con nocodazol **y con vincristina**; (4) análisis de la biopsia del tumor: pérdida de 22q11 o segunda mutación de *LZTR1* y fosfo-ERK por inmunohistoquímica.
 
 ## 5. Referencias
 
@@ -280,6 +303,10 @@ Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_
 **Checkpoint mitótico y sensibilidad a antimitóticos**
 - Dai et al. 2004. *Cancer Res* 64(2):440–5. PMID 14744753. *(haploinsuficiencia de BubR1: escape de la detención mitótica y más tumores en ratón)*
 - Yamada et al. 2006. *Mol Cancer Ther* 5(12):2963–9. PMID 17172401. *(revisión: función del checkpoint y sensibilidad a antimitóticos; evidencia en ambos sentidos)*
+
+**Vigilancia oncológica en MVA**
+- Hol et al. 2021. *Eur J Cancer* 153:51–63. PMID 34134020. *(SIOP-Europe: vigilancia de tumor de Wilms; riesgo ~50 % en MVA por BUB1B, ecografía renal trimestral hasta el 7.º cumpleaños)*
+- Nakano et al. 2024. *Clin Cancer Res* 30(22):5009–20. PMID 39264246. *(recomendaciones de vigilancia en trastornos de inestabilidad genómica, incluido MVA; espectro MVA1: Wilms y rabdomiosarcoma, también MDS, LMA y LLA)*
 
 **Hallazgo secundario LZTR1**
 - Piotrowski et al. 2014. *Am J Hum Genet* 94:622–8. PMID 24362817. *(schwannomatosis LZTR1 dominante)*
