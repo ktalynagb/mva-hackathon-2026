@@ -10,6 +10,22 @@
 
 ---
 
+## 2026-10-21 (cierre) — Tabla de IA completada con los datos del equipo
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E8-tabla-ia-datos`
+
+El equipo informó: **Perplexity** gratuito, sin datos del paciente, usado para buscar artículos de la enfermedad y revisar tratamientos; **Claude (app)** igual; **Gemini** por API gratuita. Las horas quedan pendientes.
+
+**Hallazgo verificado en los términos de Google (ai.google.dev/gemini-api/terms), que hay que declarar:** en el **nivel gratuito** de la API, Google usa el contenido enviado y las respuestas "to provide, improve, and develop" sus productos, y "human reviewers may read, annotate, and process your API input and output" (lo desvincula de la cuenta y la clave antes de la revisión). Los mismos términos advierten: *"Do not submit sensitive, confidential, or personal information to the Unpaid Services."* En el nivel pago, Google no usa prompts ni respuestas para mejorar productos. El interruptor es tener un proyecto de Cloud con facturación activa. (En el EEE, Suiza y el Reino Unido los términos del nivel pago aplican a todo, pero no es nuestro caso.)
+
+**Por qué no hay problema de privacidad, y queda escrito así:** a Gemini, a la app de Claude y a Perplexity solo entró información pública — el nombre de la enfermedad, el gen *BUB1B* (publicado desde 2004) y consultas bibliográficas. Verificado en el cuaderno 06 para Gemini. **La única herramienta que recibió información derivada del paciente fue Claude Code**, a nivel de variante, con la opción de entrenamiento desactivada.
+
+**Lección operativa asentada en el informe:** el equipo cumplió la advertencia de Google por el diseño del cuaderno 06, no por una decisión deliberada. Para cualquier análisis futuro que toque datos del paciente, el nivel gratuito de la API no es apto.
+
+**Queda pendiente** (sin consecuencia de privacidad, porque nada sensible pasó por esas herramientas): el estado del interruptor de entrenamiento en las cuentas gratuitas de Claude y Perplexity, y la atribución por persona de cada herramienta, hoy declarada como "Equipo".
+
+---
+
 ## 2026-10-21 (noche ter) — Tabla de uso de IA (E8): cuatro herramientas, lo verificable completado
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/E8-tabla-ia`
