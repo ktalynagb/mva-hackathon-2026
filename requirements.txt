@@ -24,6 +24,7 @@ openpyxl>=3.1.0
 
 # Utilidades
 requests>=2.31.0
+markdown>=3.5        # scripts/exportar_informe_pdf.py (Markdown -> HTML -> PDF)
 tqdm>=4.66.0
 
 # ─── Nota sobre pysam / cyvcf2 ───────────────────────────────────────────────
