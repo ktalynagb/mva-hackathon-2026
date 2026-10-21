@@ -56,7 +56,40 @@ VCF de genoma completo del paciente (GRCh38; Sentieon Haplotyper + GATK VariantF
 5. **Farmacogenética.** Se identificaron en el VCF del paciente variantes en CYP2B6, CYP2C19, CYP3A4, CYP3A5 y ABCB1 mediante `scripts/farmacogenetica.py`; los fenotipos se asignaron según las guías CPIC y PharmGKB. Los genotipos completos quedan en `data/farmacogenetica/` (no versionado). GSTM1 no es evaluable desde un VCF de SNV.
 
 ### 2.5 Reproducibilidad
-[PENDIENTE · D2, D3] Comando único, versiones fijadas y tiempo de ejecución.
+
+*Tareas: D2, D3, D2b · Punto de entrada: `run_pipeline.py`*
+
+**Comando único.** Todo el análisis corre con una sola orden desde la raíz del repositorio:
+
+```bash
+python run_pipeline.py
+```
+
+El script ejecuta los ocho pasos en orden, corta en el primero que falle e imprime un resumen con el estado y la duración de cada uno. Admite `--listar` para ver los pasos sin correrlos, `--solo paso1,paso2` para correr un subconjunto y `--desde paso` para retomar desde un punto.
+
+| Paso | Qué hace | Tarea | ¿Necesita el VCF? |
+|---|---|---|---|
+| `genes` | Une los grupos de genes del equipo en el panel de 321 genes | A1 | no |
+| `diagnostico` | Diagnóstico diferencial en el panel, con la consecuencia en el transcrito MANE | A3, A8 | **sí** |
+| `dominante` | Modelo dominante en los 92 genes de PanelApp: busca un segundo diagnóstico | A10 | **sí** |
+| `genes_equipo` | Modelo dominante en los 10 genes propuestos por el equipo | C8 | **sí** |
+| `alelo2` | Evidencia estructural de p.Asn1002Lys (AlphaFold, ClinVar, conservación) | B3 | no |
+| `farmacos` | Lista larga de fármacos con aprobación comprobada en FDA y EMA | C3 | no |
+| `farmacogenetica` | Fenotipos de metabolizador para ciclofosfamida y sirolimus | C7 | **sí** |
+| `figuras` | Figuras 1 y 2 del informe | A5, B5 | no |
+
+Un paso opcional, `estabilidad` (ΔΔG con ThermoMPNN, tarea B3), se agrega con `--thermompnn DIR` porque depende de una salida que se genera fuera del repositorio.
+
+**Versiones fijadas.** `requirements.txt` declara los mínimos y `requirements-lock.txt` las versiones exactas con las que se generaron los resultados de este informe: **Python 3.13.14**, pandas 3.0.5, numpy 2.5.3, scipy 1.18.1, requests 2.34.2, matplotlib 3.11.2, PyVCF3 1.0.4, huggingface_hub 1.32.0, openpyxl 3.1.5, python-docx 1.2.0, tqdm 4.70.1. Se eligió PyVCF3 en lugar de pysam o cyvcf2 porque estos requieren htslib compilado y no funcionan en Windows, donde se desarrolló el análisis.
+
+**Datos de entrada.** El VCF del paciente **no está en el repositorio** y no puede estarlo: es un dato de acceso controlado por los términos del reto. Se descarga con `scripts/download_data.py` a `data/raw/` con las credenciales propias de cada integrante. Los pasos que lo necesitan fallan con un mensaje explícito si no lo encuentran, en lugar de producir resultados vacíos.
+
+**Determinismo y caché.** Las consultas a APIs externas (gnomAD, Ensembl VEP, UniProt, AlphaFold, DGIdb, Open Targets, openFDA, EMA, myvariant.info) se guardan en `data/cache/` — 437 archivos en la corrida de referencia. Eso hace que una segunda corrida sea mucho más rápida y, sobre todo, que el resultado no cambie si una base de datos externa se actualiza entre corridas. El caché no se versiona: una clonación limpia reconstruye todo desde las APIs, lo que es más lento pero verifica que el pipeline no dependa de estado local.
+
+**Limitaciones declaradas.**
+- **Falta probar una clonación limpia en otra máquina** (tarea D3, idealmente Linux o macOS). El pipeline se corrió completo en Windows 11 con Python 3.13.
+- **No hay tests automatizados** (tarea D4 sin empezar). La verificación es por reproducción de los números del embudo entre corridas.
+- Las APIs externas son servicios vivos: si una cambia su esquema de respuesta, el paso correspondiente puede fallar. El caché versionado localmente mitiga esto para quien ya corrió el pipeline una vez, pero no para una clonación nueva.
 
 ### 2.6 Uso de herramientas de IA
 El reto exige declarar **proveedor, plan o nivel y configuración de datos** de cada herramienta. [PENDIENTE · E8: cada persona completa su fila]
@@ -142,6 +175,20 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 Quedan excluidos los inhibidores de HSP90, PLK1, Aurora y MPS1, que bajarían aún más la BUBR1 o debilitarían la mitosis.
 
+#### Implicación clínica del mecanismo: el checkpoint débil y la quimioterapia antimitótica
+
+*Fuente: `docs/secciones/04_candidatos.md` sección 8. No es una propuesta de reposicionamiento, sino una consecuencia del mecanismo sobre el tratamiento estándar.*
+
+La **vincristina**, presente en casi todos los protocolos de rabdomiosarcoma (VAC, IVA, VIT), mata células por una vía que **depende del checkpoint mitótico**: desarma el huso, el SAC detecta el error y detiene la célula en mitosis, y esa detención prolongada es lo que lleva a la muerte. En este paciente el SAC es precisamente lo que está debilitado. En ratones con haploinsuficiencia de BubR1 la detención mitótica se escapa (*mitotic slippage*) y los tumores aumentan (Dai 2004, PMID 14744753).
+
+**La dirección del efecto no está resuelta y no la afirmamos.** La literatura va en los dos sentidos: bajar BubR1 o Mad2 por siRNA dio **más resistencia** a taxol, nocodazol y vincristina en algunos modelos, y **mayor sensibilidad** a inhibidores de microtúbulos en otros (revisión, PMID 17172401). El resultado parece depender de si la célula muere durante la detención o alcanza a escapar. Nadie lo estudió en MVA.
+
+**Consecuencia práctica.** Es un argumento para no apoyar todo el efecto antitumoral en agentes antimitóticos. Entre los esquemas con evidencia en recaída, **VIT** (vincristina + irinotecán + temozolomida) es el estándar del EpSSG tras el ensayo aleatorizado VIT-0910 (PFS HR 0,64; OS HR 0,59; Defachelles 2021, PMID 34343032), y sus dos componentes añadidos **dañan el ADN fuera de la mitosis**, de modo que su eficacia no requiere un SAC intacto. **Temsirolimus** comparte esa propiedad: frena el ciclo en G1.
+
+**Cómo se comprueba, sin costo adicional:** el ensayo de detención mitótica con nocodazol que ya está previsto en fibroblastos del paciente se corre también con vincristina, midiendo qué fracción de células se detiene y qué fracción escapa frente a fibroblastos control.
+
+**La ciclofosfamida no figura como candidata de reposicionamiento**, y es deliberado: es el estándar de cuidado del rabdomiosarcoma, no una indicación nueva. Además es un alquilante en un niño con inestabilidad cromosómica, el agente que más conviene minimizar; por eso el caso publicado de MVA1 con rabdomiosarcoma usó VAC a intensidad reducida (PMID 31184400) y el genotipo CYP2B6 de este paciente (§3.4) apunta en el mismo sentido.
+
 ### 3.4 Farmacogenética
 
 *Fuente: `docs/secciones/05_farmacogenetica.md` · Tarea: C7 · Script: `scripts/farmacogenetica.py`*
@@ -203,6 +250,11 @@ Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_
 - Cramer et al. 2024. *Cancer Med* 13(21):e70376. PMID 39487711. *(ADVL1514: fase 1 COG de nab-sirolimus en tumores sólidos pediátricos; MTD 15 mg/m² en combinación, DLT trombocitopenia, 0/2 respuestas en rabdomiosarcoma alveolar)*
 - Hou et al. 2019. *Cancer Res* 79(13 Suppl):348. *(resumen AACR del laboratorio desarrollador: acumulación tumoral de nab-sirolimus en xenoinjertos; sin datos intratumorales en humanos)*
 - Nishitani-Isa et al. 2019. *Pediatr Int* 61:729–31. PMID 31184400. *(caso de MVA1 con rabdomiosarcoma tratado con VAC a intensidad reducida)*
+- Defachelles et al. 2021. *J Clin Oncol* 39(27):2979–90. PMID 34343032. *(VIT-0910: vincristina-irinotecán ± temozolomida en rabdomiosarcoma en recaída; VIT es el estándar del EpSSG)*
+
+**Checkpoint mitótico y sensibilidad a antimitóticos**
+- Dai et al. 2004. *Cancer Res* 64(2):440–5. PMID 14744753. *(haploinsuficiencia de BubR1: escape de la detención mitótica y más tumores en ratón)*
+- Yamada et al. 2006. *Mol Cancer Ther* 5(12):2963–9. PMID 17172401. *(revisión: función del checkpoint y sensibilidad a antimitóticos; evidencia en ambos sentidos)*
 
 **Hallazgo secundario LZTR1**
 - Piotrowski et al. 2014. *Am J Hum Genet* 94:622–8. PMID 24362817. *(schwannomatosis LZTR1 dominante)*

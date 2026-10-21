@@ -10,6 +10,28 @@
 
 ---
 
+## 2026-10-21 — Reproducibilidad del pipeline (D2/D3/D6) y tratamiento del tumor
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-reproducibilidad-tumor`
+
+### Merges
+- PR #23 (E5 borrador v2) fusionado a master. No quedan PRs abiertos.
+- `tarea/E5-niacina-informe` resultó residual: cero commits y cero diferencias contra master. Se puede borrar (el borrado automático quedó bloqueado por el clasificador de seguridad; hay que hacerlo a mano).
+
+### Reproducibilidad
+**Bug encontrado y arreglado:** `scripts/modelo_dominante.py` regeneraba `config/genes_modelo_dominante.tsv` desde la API de PanelApp con `open(..., "w")`, lo que **borraba en silencio los 4 genes que C8 había agregado a mano** (ATM, KDM6A, KMT2D, LMNA) en cada corrida limpia. Ahora esos genes viven en `config/genes_dominante_extra.tsv` y el script los reinyecta al regenerar. Verificado: 96 genes = 92 de PanelApp + 4 manuales.
+
+**Hueco cerrado:** `run_pipeline.py` no incluía los tres análisis más nuevos. Se agregaron como pasos: `dominante` (A10), `genes_equipo` (C8) y `farmacogenetica` (C7). El pipeline pasó de 5 a 8 pasos. También se hizo robusto el `insert` del paso opcional `estabilidad`, que estaba fijado a un índice numérico y con el nuevo orden habría caído en el lugar equivocado.
+
+### Tratamiento del tumor (sección 8 de `04_candidatos.md`)
+El equipo propuso sumar ciclofosfamida. **Se descartó como candidata, con dos motivos:** (1) no es reposicionamiento, es el estándar del rabdomiosarcoma (VAC/IVA), y presentarla como propuesta sería un error de categoría; (2) es el agente que más conviene minimizar acá, por ser alquilante en un niño con inestabilidad cromosómica.
+
+**En su lugar se documentó algo que faltaba:** el checkpoint débil tiene consecuencias sobre la elección de la quimioterapia. La vincristina mata por una vía que **depende del SAC** (detención mitótica prolongada), y en ratones con haploinsuficiencia de BubR1 esa detención se escapa (*mitotic slippage*, Dai 2004, PMID 14744753). **La dirección del efecto no está resuelta** y se declara así: hay evidencia de más resistencia a taxol/nocodazol/vincristina con BubR1 o Mad2 bajados, y de mayor sensibilidad en otras líneas (revisión Yamada 2006, PMID 17172401). Nadie lo estudió en MVA.
+
+**Propuesta resultante:** temsirolimus sigue como candidato de reposicionamiento con efecto tumoral (no depende del SAC, frena en G1); si hubiera recaída, el esquema **VIT** (vincristina + irinotecán + temozolomida) es el estándar del EpSSG tras VIT-0910 (PFS HR 0,64; OS HR 0,59; Defachelles 2021, PMID 34343032) y sus dos componentes añadidos dañan el ADN fuera de la mitosis. El experimento que resolvería la duda no cuesta nada extra: correr el ensayo de nocodazol ya previsto **también con vincristina**.
+
+---
+
 ## 2026-10-15 (madrugada bis) — Corrección: nab-sirolimus y el argumento de acumulación tumoral
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-informe`  

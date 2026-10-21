@@ -24,6 +24,9 @@ import requests
 RAIZ = Path(__file__).resolve().parent.parent
 CONFIG = RAIZ / "config" / "paneles_modelo_dominante.json"
 LISTA = RAIZ / "config" / "genes_modelo_dominante.tsv"
+# Genes agregados a mano (C8) que NO vienen de PanelApp. Se reinyectan al regenerar LISTA
+# para que una corrida limpia del pipeline no los borre en silencio.
+EXTRA = RAIZ / "config" / "genes_dominante_extra.tsv"
 SALIDA = RAIZ / "data" / "dominante"
 UA = {"User-Agent": "MVAHackathon2026/1.0 (research)"}
 
@@ -110,12 +113,20 @@ def main():
         return rinon_recesivo(cfg)
     crit = cfg["criterios"]
     genes = genes_de_paneles(cfg["paneles"])
+    extra = {}
+    if EXTRA.exists():
+        with open(EXTRA, encoding="utf-8") as f:
+            extra = {r["gen"]: r for r in csv.DictReader(f, delimiter="\t") if r.get("gen")}
     with open(LISTA, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter="\t")
         w.writerow(["gen", "herencia", "paneles"])
+        for s in sorted(extra):
+            if s not in genes:
+                w.writerow([s, extra[s]["herencia"], extra[s]["paneles"]])
         for s in sorted(genes):
             w.writerow([s, genes[s]["herencia"], " | ".join(genes[s]["paneles"])])
-    print(f"{len(genes)} genes con herencia monoalélica en {len(cfg['paneles'])} paneles -> {LISTA.name}")
+    print(f"{len(genes)} genes con herencia monoalélica en {len(cfg['paneles'])} paneles"
+          f"{f' + {len(set(extra) - set(genes))} manuales' if extra else ''} -> {LISTA.name}")
 
     SALIDA.mkdir(parents=True, exist_ok=True)
     lista_dd = SALIDA / "genes.txt"
