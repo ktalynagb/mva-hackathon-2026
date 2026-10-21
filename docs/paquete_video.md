@@ -7,7 +7,8 @@ Material para quien graba y edita el video del Track 2. Reemplaza al guion v1 (`
 - **Duración: 3 minutos.** Tiene que recorrer **el razonamiento y los candidatos propuestos**.
 - Se sube a **YouTube o Vimeo**. El enlace va en el formulario de envío y es obligatorio.
 - **Nada que identifique al paciente**: ni edad, ni lugar, ni fechas, ni fotos. Tampoco se muestran en pantalla tablas del VCF, posiciones genómicas ni genotipos.
-- **No mencionar el hallazgo secundario** (el otro gen de predisposición). La regla de hallazgos incidentales sigue en discusión en el equipo.
+- **Hallazgo secundario (*LZTR1*):** el equipo decidió nombrarlo en el informe. En el video no hace falta: el guion se concentra en el mecanismo y los fármacos.
+- Si el video va en **inglés**, usar las figuras de `results/en/` (`fig_*.png`, a ancho completo), que tienen el mismo contenido que las del informe.
 - Idioma: **sin decidir** (español, inglés o español con subtítulos en inglés). Subtítulos siempre.
 
 ## Imágenes, en orden de aparición
