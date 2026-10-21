@@ -73,7 +73,7 @@ RESPUESTAS = {
         "phenylbutyrate, rapalogs, dasatinib), each with its source.\n"
         "• Scoring criteria and 0-3 scales defined by the team from the literature and the challenge's evaluation criteria. "
         "The 55 candidates were scored with AI assistance, each with a written justification and sources "
-        "(results/candidatos_farmacos.tsv), and the scores were reviewed by a team member (Lorena). Niacin and two MEK "
+        "(results/candidatos_farmacos.tsv), and the scores were reviewed by a team member (L. Ogas). Niacin and two MEK "
         "inhibitors (conditional on RAS activation in the tumour) were added by hand.\n"
         "• Biological safety review: for each candidate we asked whether it further weakens mitosis in a patient with a weak "
         "checkpoint. This removed bortezomib (delays mitotic exit, adds neuropathy with vincristine).\n"
