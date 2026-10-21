@@ -10,6 +10,27 @@
 
 ---
 
+## 2026-10-21 (tarde) — Tratamiento del tumor consolidado y vigilancia oncológica
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C9-tumor-vigilancia`
+
+**Aclaración de base:** el rabdomiosarcoma **ya está presente** en el fenotipo del paciente (HP:0002859), no es un riesgo futuro. La pregunta del equipo ("si llega el tumor") partía de una premisa equivocada; la pregunta real es con qué tratarlo.
+
+**Respuesta consolidada (sección 8.4 de `04_candidatos.md`):** **temsirolimus**. Es el único candidato de la lista corta que actúa sobre el tumor y sobre el MVA a la vez, tiene fase II con mejor supervivencia en rabdomiosarcoma en recaída (PMID 31513481) y su mecanismo (freno en G1) no depende del checkpoint mitótico que al paciente le falta. Se agregó una tabla que separa, para cada escenario, qué es reposicionamiento y qué es estándar de cuidado.
+
+**Hueco importante que faltaba: la vigilancia (sección 8.5).** La predisposición tumoral del MVA no termina con el rabdomiosarcoma:
+- **Tumor de Wilms: riesgo ~50 %** en MVA por *BUB1B*, el más alto del espectro (TRIP13 ~20 %). SIOP-Europe recomienda **ecografía renal cada 3 meses desde el nacimiento hasta el 7.º cumpleaños** (Hol 2021, *Eur J Cancer* 153:51–63, PMID 34134020).
+- MVA1 también reporta MDS, LMA y LLA, sin frecuencia estimada → hemograma periódico (Nakano 2024, *Clin Cancer Res* 30(22):5009–20, PMID 39264246).
+- **Discrepancia declarada, no resuelta por nosotros:** SIOP-Europe dice hasta los 7 años; una guía británica más antigua, cada 3–4 meses hasta los 5. La decisión es del equipo tratante.
+- **Observación práctica:** la ecografía renal ya está indicada por la nefrocalcinosis, así que vigilar Wilms no agrega estudios ni costo; solo fijar periodicidad y buscar masas.
+- **Limitación:** no sabemos la edad actual del paciente (documento clínico anonimizado), así que no podemos decir si la ventana de vigilancia sigue abierta.
+
+Se agregó como paso (0) de los próximos pasos de la Discusión, porque es el de mayor impacto inmediato y no requiere laboratorio.
+
+**No se pudo verificar en texto completo.** PMC, AACR y Atlas of Genetics devolvieron 403 o CAPTCHA. Las citas (autores, revista, volumen, páginas, PMID, DOI) se confirmaron por la API de NCBI; las cifras del protocolo (~50 %, trimestral hasta los 7) provienen de lo que dos búsquedas independientes leyeron de esas fuentes y **convendría confirmarlas en el texto completo antes de la entrega**.
+
+---
+
 ## 2026-10-21 — Reproducibilidad del pipeline (D2/D3/D6) y tratamiento del tumor
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/E5-reproducibilidad-tumor`
