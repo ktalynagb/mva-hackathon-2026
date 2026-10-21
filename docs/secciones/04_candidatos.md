@@ -223,3 +223,46 @@ El análisis completo está en `docs/secciones/05_farmacogenetica.md`. Resumen e
 - **Arimoclomol:** sin farmacogenética conocida. Vigilar riñón (creatinina / cistatina C).
 
 **No hay contraindica­ciones farmacogenómicas al combo.** El perfil de metabolizador intermedio de CYP2B6 refuerza (no contradice) el uso de ciclofosfamida a intensidad reducida.
+
+---
+
+## 8. Cómo tratar el tumor: qué aporta el mecanismo (21 oct)
+
+El equipo preguntó si conviene sumar un método para tratar el tumor, por ejemplo ciclofosfamida. La respuesta corta es que **la ciclofosfamida no corresponde como candidata**, pero la pregunta abre algo más valioso: el mecanismo del paciente tiene consecuencias concretas sobre **qué quimioterapia elegir**, y eso no estaba en el informe.
+
+### 8.1 Por qué la ciclofosfamida no va como candidata
+
+1. **No es reposicionamiento.** El Track 2 pide fármacos aprobados usados para una indicación nueva. La ciclofosfamida es el estándar del rabdomiosarcoma desde décadas (esquemas VAC/IVA): es el tratamiento que el paciente ya recibiría. Presentarla como propuesta de reposicionamiento sería un error de categoría que el jurado detecta de inmediato.
+2. **Es, además, el agente que más conviene minimizar en este paciente.** Es un alquilante, es decir, daña el ADN a propósito, en un niño que ya tiene inestabilidad cromosómica por el checkpoint débil. Eso implica riesgo de segundas neoplasias y de empeorar la carga de aneuploidía en la médula. Por eso Nishitani-Isa 2019 (PMID 31184400) usó VAC a **intensidad reducida** en su paciente con MVA1, y por eso el genotipo CYP2B6 de metabolizador intermedio (sección 7.5) apunta en la misma dirección.
+
+La ciclofosfamida ya está en el informe donde corresponde: como **contexto oncológico** sobre el que se montan las propuestas de reposicionamiento, no como una de ellas.
+
+### 8.2 El aporte real: el checkpoint débil cambia cómo se elige la quimioterapia
+
+Esta es la conexión que faltaba entre la variante y el tratamiento del tumor, y no la encontramos hecha en la literatura de MVA.
+
+**El problema.** La **vincristina** es la V de VAC y está en casi todos los protocolos de rabdomiosarcoma. Su mecanismo depende del checkpoint mitótico: desarma el huso, el SAC detecta el error, **detiene la célula en mitosis** y esa detención prolongada es la que lleva a la muerte celular. En un paciente con poca BUBR1, el SAC es justamente lo que no funciona bien.
+
+**Lo que se sabe.** En ratones con haploinsuficiencia de BubR1, la detención mitótica **se escapa**: las células salen de la mitosis en lugar de quedar detenidas, un fenómeno llamado *mitotic slippage*, y desarrollan más tumores (Dai 2004, PMID 14744753). Si eso pasara en las células de este paciente, la vincristina perdería parte de su efecto y cada escape agregaría una célula mal segregada.
+
+**Lo que no se sabe, y hay que decirlo.** La literatura está **dividida** y no permite afirmar la dirección del efecto (revisión: PMID 17172401):
+- *Hacia resistencia:* células con BubR1 o Mad2 bajadas por siRNA resultaron **más resistentes** a taxol, y células con checkpoint disminuido, más resistentes a nocodazol y a vincristina.
+- *Hacia sensibilidad:* en otras líneas, bajar BubR1 se asoció a **mayor** sensibilidad a inhibidores de microtúbulos.
+
+La explicación probable es que el resultado depende de si la célula muere durante la detención o alcanza a escapar antes. **Nadie lo estudió en MVA ni con esta variante.** No afirmamos que la vincristina falle en este paciente; afirmamos que es una pregunta abierta, con evidencia en los dos sentidos, que importa porque la vincristina está en el protocolo que el paciente recibe.
+
+### 8.3 Qué proponemos entonces
+
+| Para qué | Propuesta | Por qué |
+|---|---|---|
+| **Reposicionamiento con efecto tumoral** | **Temsirolimus** (ya en la lista corta) | Aprobado para carcinoma renal y reposicionado a rabdomiosarcoma; mejor supervivencia en recaída en fase II (PMID 31513481). Es el único candidato que actúa a la vez sobre el MVA (mTORC1) y sobre el tumor. No depende del SAC: frena el ciclo en G1 |
+| **Si hubiera recaída o refractariedad** | **VIT**: vincristina + irinotecán + temozolomida | Estándar del EpSSG tras el ensayo aleatorizado VIT-0910: PFS HR 0,64 (IC 95 % 0,42–0,98; p = 0,039) y OS HR 0,59 (IC 95 % 0,37–0,93) frente a vincristina-irinotecán (Defachelles 2021, PMID 34343032). Sus dos componentes nuevos, irinotecán y temozolomida, **dañan el ADN fuera de la mitosis**, así que su eficacia no depende de que el SAC funcione |
+| **Si la biopsia muestra RAS activo** | Inhibidor de MEK + temsirolimus | Línea condicional ya documentada (sección 6) |
+
+**Criterio que usamos para ordenarlos:** preferimos (1) fármacos que sean reposicionamiento real y no estándar de cuidado; (2) con evidencia específica en rabdomiosarcoma antes que extrapolada; (3) cuyo mecanismo **no dependa de un checkpoint mitótico intacto**, porque es precisamente lo que este paciente no tiene; y (4) que no sumen daño genotóxico evitable a un genoma ya inestable.
+
+### 8.4 Cómo se resolvería la pregunta abierta
+
+El experimento ya está planificado para los otros candidatos y solo hay que extenderlo: en **fibroblastos del paciente**, el mismo ensayo de detención mitótica que mide el checkpoint (nocodazol) se corre **también con vincristina**, contando qué fracción de células se detiene y qué fracción escapa, frente a fibroblastos control. Si las células del paciente escapan mucho más, es un argumento concreto para apoyarse en los agentes no antimitóticos del esquema VIT. Es el mismo cultivo, el mismo ensayo y una condición más: no agrega costo real.
+
+> **Nota de alcance.** Esta sección razona sobre la elección de la quimioterapia estándar, que es una decisión del equipo tratante y no una propuesta de reposicionamiento. Va en el informe como implicación clínica del mecanismo, explícitamente separada de la lista de candidatos.

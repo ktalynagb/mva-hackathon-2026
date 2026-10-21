@@ -25,8 +25,11 @@ RAIZ = Path(__file__).resolve().parent
 PASOS = [
     ("genes", "Unir los grupos de genes del equipo en config/genes_candidatos.txt", "scripts/unir_grupos_genes.py", False),
     ("diagnostico", "Diagnóstico diferencial en el panel, con consecuencia en MANE (A3, A8)", "scripts/diagnostico_diferencial.py", True),
+    ("dominante", "Modelo dominante en 92 genes de PanelApp: segundo diagnóstico (A10)", "scripts/modelo_dominante.py", True),
+    ("genes_equipo", "Modelo dominante en los 10 genes propuestos por el equipo (C8)", "scripts/analisis_genes_equipo.py", True),
     ("alelo2", "Evidencia estructural de p.Asn1002Lys: AlphaFold, ClinVar, conservación (B3)", "scripts/evidencia_alelo2.py", False),
     ("farmacos", "Lista larga de fármacos con aprobación FDA/EMA (C3)", "scripts/lista_larga_farmacos.py", False),
+    ("farmacogenetica", "Fenotipos de metabolizador para ciclofosfamida y sirolimus (C7)", "scripts/farmacogenetica.py", True),
     ("figuras", "Figuras 1 y 2 del informe (A5, B5)", "scripts/figuras_informe.py", False),
 ]
 
@@ -41,8 +44,9 @@ def main():
 
     pasos = [(i, d, [s], v) for i, d, s, v in PASOS]
     if args.thermompnn:
-        pasos.insert(3, ("estabilidad", "ΔΔG de p.Asn1002Lys con ThermoMPNN (B3)",
-                         ["scripts/estabilidad_alelo2.py", "--dir", args.thermompnn], False))
+        tras_alelo2 = [p[0] for p in pasos].index("alelo2") + 1
+        pasos.insert(tras_alelo2, ("estabilidad", "ΔΔG de p.Asn1002Lys con ThermoMPNN (B3)",
+                                   ["scripts/estabilidad_alelo2.py", "--dir", args.thermompnn], False))
     ids = [p[0] for p in pasos]
 
     if args.listar:
