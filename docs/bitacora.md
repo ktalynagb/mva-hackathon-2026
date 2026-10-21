@@ -10,6 +10,38 @@
 
 ---
 
+## 2026-10-21 (cierre) — Tabla de IA completada con los datos del equipo
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E8-tabla-ia-datos`
+
+El equipo informó: **Perplexity** gratuito, sin datos del paciente, usado para buscar artículos de la enfermedad y revisar tratamientos; **Claude (app)** igual; **Gemini** por API gratuita. Las horas quedan pendientes.
+
+**Hallazgo verificado en los términos de Google (ai.google.dev/gemini-api/terms), que hay que declarar:** en el **nivel gratuito** de la API, Google usa el contenido enviado y las respuestas "to provide, improve, and develop" sus productos, y "human reviewers may read, annotate, and process your API input and output" (lo desvincula de la cuenta y la clave antes de la revisión). Los mismos términos advierten: *"Do not submit sensitive, confidential, or personal information to the Unpaid Services."* En el nivel pago, Google no usa prompts ni respuestas para mejorar productos. El interruptor es tener un proyecto de Cloud con facturación activa. (En el EEE, Suiza y el Reino Unido los términos del nivel pago aplican a todo, pero no es nuestro caso.)
+
+**Por qué no hay problema de privacidad, y queda escrito así:** a Gemini, a la app de Claude y a Perplexity solo entró información pública — el nombre de la enfermedad, el gen *BUB1B* (publicado desde 2004) y consultas bibliográficas. Verificado en el cuaderno 06 para Gemini. **La única herramienta que recibió información derivada del paciente fue Claude Code**, a nivel de variante, con la opción de entrenamiento desactivada.
+
+**Lección operativa asentada en el informe:** el equipo cumplió la advertencia de Google por el diseño del cuaderno 06, no por una decisión deliberada. Para cualquier análisis futuro que toque datos del paciente, el nivel gratuito de la API no es apto.
+
+**Queda pendiente** (sin consecuencia de privacidad, porque nada sensible pasó por esas herramientas): el estado del interruptor de entrenamiento en las cuentas gratuitas de Claude y Perplexity, y la atribución por persona de cada herramienta, hoy declarada como "Equipo".
+
+---
+
+## 2026-10-21 (noche ter) — Tabla de uso de IA (E8): cuatro herramientas, lo verificable completado
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E8-tabla-ia`
+
+Se informó que el equipo usó **cuatro** herramientas: Claude Code, Claude (aplicación), Gemini y Perplexity. Se completó la tabla de la sección 2.6 con todo lo que se pudo verificar en el repositorio, y se marcó explícitamente lo que no.
+
+**Verificado:**
+- **Gemini no recibió datos del paciente.** Revisado el cuaderno 06: usa `ChatGoogleGenerativeAI` vía LangChain (modelos `gemini-3.5-flash-lite` y `gemini-3.8-flash`) y el prompt pasa únicamente el nombre de la enfermedad, el gen *BUB1B* y los blancos terapéuticos. Ninguna variante, nada del VCF ni del documento clínico. Su salida fue un primer borrador descartado como lista final.
+- Detalle relevante para el formulario: Gemini se usó **por API**, no por la aplicación de consumidor. Importa porque el nivel gratuito y el pago de la API tienen políticas de datos distintas.
+- **Claude Code es la única herramienta que recibió información derivada del paciente**, y a nivel de variante (posición, alelos, lecturas); los archivos completos nunca salieron de la computadora local.
+- **De Perplexity no hay ningún rastro en el repositorio** (grep sobre todo el árbol: cero coincidencias). Tampoco de la aplicación de Claude.
+
+**No se completó, deliberadamente:** el plan o nivel de cada cuenta, el estado de la opción de entrenamiento, y para qué se usaron Perplexity y la app de Claude. Son **declaraciones de cumplimiento sobre manejo de datos del paciente**: inventarlas sería una afirmación falsa en un envío oficial. Quedan marcadas con ⚠ y con una nota que dice exactamente qué cuatro datos hace falta pedir y a quién.
+
+---
+
 ## 2026-10-21 (noche bis) — Corrección de la jefa: esquema continuo y la ciclofosfamida se queda
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C5-esquema-final`  
