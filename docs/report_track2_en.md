@@ -327,7 +327,7 @@ This work was made possible through the Hackathon, organized by Sage Bionetworks
 
 ## References
 
-[1] Sage Bionetworks, “Rare Disease, Real Kid: MVA Hackathon 2026 dataset,” Hugging Face, SageBio/mva-hackathon-2026-data, 2026. [TO REPLACE with the dataset reference given on the Hackathon Synapse page, as required by the challenge rules.]
+[1] Sage Bionetworks, “Rare Disease, Real Kid: MVA Hackathon 2026 – Dataset,” Hugging Face, 2026. [Online]. Available: https://huggingface.co/datasets/SageBio/mva-hackathon-2026-data
 
 [2] K. J. Karczewski et al., “The mutational constraint spectrum quantified from variation in 141,456 humans,” *Nature*, vol. 581, no. 7809, pp. 434–443, May 2020, doi: 10.1038/s41586-020-2308-7. PMID: 32461654.
 
