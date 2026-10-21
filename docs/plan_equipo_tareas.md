@@ -106,6 +106,7 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | C6 | Revisión biológica de la lista corta: ¿cada fármaco mejora o empeora la aneuploidía? | sección 5 de `docs/secciones/04_candidatos.md` | 🧬 | 18 oct | C5 | Ktalyna (con Claude) | 👀 14 oct: ninguno debilita el checkpoint; bortezomib frena la salida de la mitosis → se propone niacina (sube BubR1 vía NAD⁺/SIRT2). Falta revisión 🧬 y decisión del equipo |
 | C7 | Farmacogenética: buscar en el VCF del paciente las variantes de CYP2B6, CYP2C19, CYP3A4, CYP3A5, ABCB1 relevantes para ciclofosfamida y sirolimus; reportar fenotipos de metabolizador | `scripts/farmacogenetica.py` + `docs/secciones/05_farmacogenetica.md` + genotipos en `data/farmacogenetica/` | 💻🧬 | 17 oct | C5 | Ktalyna (con Claude) | 👀 PR #21 |
 | C8 | Revisar la lista de genes del equipo (15 oct): BRCA1/2, LMNA, KMT2D, KDM6A, ATM y otros. Modelo dominante para los relevantes; descartar los demás con justificación | `scripts/analisis_genes_equipo.py` + `docs/secciones/06_genes_equipo.md` + adición en `config/genes_modelo_dominante.tsv` | 🧬💻 | 17 oct | A10 | Ktalyna (con Claude) | ✅ mergeado PR #22 — 10 genes, 0 candidatas dominantes; BRCA1/2 negativo; ATM 1 missense frecuente |
+| C9 | Cómo tratar el tumor: evaluar si la ciclofosfamida corresponde como candidata y qué implica el checkpoint débil para la quimioterapia antimitótica | sección 8 de `docs/secciones/04_candidatos.md` + subsección en 3.3 del informe | 💊🧬 | 21 oct | C5, B4 | Ktalyna (con Claude) | 🔄 PR pendiente — ciclofosfamida descartada (es estándar, no reposicionamiento); temsirolimus se mantiene; VIT si recaída; documentada la duda abierta vincristina/SAC con evidencia en ambos sentidos |
 
 ### Área D — Código y reproducibilidad 💻
 
@@ -115,6 +116,7 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | D2 | Punto de entrada único (`run_pipeline.py`); los parámetros viven en `config/` | script + README | 💻 | 12 oct | D1 | Ktalyna | 👀 PR #12 |
 | D3 | Fijar versiones y probar una clonación limpia en otra máquina | `requirements-lock.txt` + nota en README | 💻 | 12 oct | D1 | Ktalyna | 👀 PR #12; **falta la clonación limpia en otra máquina** (ideal Linux o macOS) |
 | D4 | Tests con pytest para las funciones críticas y caché local de las consultas a APIs | `tests/` pasando | 💻 | 17 oct | D2 | | ⬜ |
+| D2b | Agregar al pipeline los análisis que faltaban (A10, C7, C8) y arreglar el borrado silencioso de los genes manuales de C8 al regenerar desde PanelApp | `run_pipeline.py` 8 pasos + `config/genes_dominante_extra.tsv` | 💻 | 21 oct | D2 | Ktalyna (con Claude) | 🔄 PR pendiente; corrida completa medida |
 | D5 | Sección "Escalabilidad" del README: cómo correr el pipeline con otro paciente | README actualizado | 💻✍️ | 20 oct | D2 | Ktalyna | 👀 PR #12 |
 | D6 | **(H6)** Corrida limpia completa, congelación y tag `v1.0-entrega` | release en GitHub | 💻 | **23 oct 12:00 UTC** | todas las D | | ⬜ |
 
