@@ -261,7 +261,38 @@ La explicación probable es que el resultado depende de si la célula muere dura
 
 **Criterio que usamos para ordenarlos:** preferimos (1) fármacos que sean reposicionamiento real y no estándar de cuidado; (2) con evidencia específica en rabdomiosarcoma antes que extrapolada; (3) cuyo mecanismo **no dependa de un checkpoint mitótico intacto**, porque es precisamente lo que este paciente no tiene; y (4) que no sumen daño genotóxico evitable a un genoma ya inestable.
 
-### 8.4 Cómo se resolvería la pregunta abierta
+### 8.4 Qué cubre cada opción, en una tabla
+
+Para evitar la confusión más común: el rabdomiosarcoma **ya está presente** en este paciente (HP:0002859, parte del fenotipo de ingreso), no es un riesgo futuro. La pregunta no es si tratar el tumor, sino con qué.
+
+| Escenario | Qué se usa | Es reposicionamiento? |
+|---|---|---|
+| **Tumor actual, primera línea** | VAC a intensidad reducida (vincristina + actinomicina D + ciclofosfamida) | **No.** Estándar de cuidado. La intensidad reducida sigue a Nishitani-Isa 2019 (PMID 31184400) |
+| **Sumar efecto antitumoral mecanístico** | **Temsirolimus** (lista corta, 70,0 pts) | **Sí.** Aprobado para carcinoma renal; fase II con mejor supervivencia en rabdomiosarcoma en recaída (PMID 31513481) |
+| **Recaída o refractariedad** | **VIT** (vincristina + irinotecán + temozolomida) | **No**, es el estándar del EpSSG (PMID 34343032), pero su backbone no depende del SAC |
+| **Si la biopsia muestra RAS activo** | Trametinib o selumetinib **+ temsirolimus** | **Sí.** Línea condicional de la sección 6, nunca en monoterapia |
+| **Alternativa de formulación** | Nab-sirolimus, solo para la línea del tumor | **Sí**, pero con los reparos de 7.2.1 |
+
+**La respuesta corta a "qué opción tenemos para el tumor": temsirolimus.** Es el único candidato de la lista corta que actúa sobre el tumor y sobre el MVA a la vez, tiene evidencia clínica en el tumor de este paciente, y su mecanismo (frenar en G1) no depende del checkpoint mitótico que al paciente le falta.
+
+### 8.5 Los tumores que todavía no aparecieron: vigilancia
+
+Esto faltaba en el informe y es, probablemente, la recomendación de mayor impacto clínico de todo el trabajo: **la predisposición tumoral del MVA no termina con el rabdomiosarcoma.**
+
+| Tumor | Riesgo en MVA por *BUB1B* | Vigilancia recomendada |
+|---|---|---|
+| **Tumor de Wilms** | **~50 %** (la más alta del espectro MVA; TRIP13 ~20 %) | **Ecografía renal cada 3 meses, desde el nacimiento hasta el 7.º cumpleaños** (SIOP-Europe, Hol 2021, PMID 34134020) |
+| Rabdomiosarcoma | Uno de los dos tumores predominantes en MVA1 | **Sin protocolo específico publicado.** Ya presente en este paciente |
+| MDS, LMA, LLA | Reportados en MVA1, sin estimación de frecuencia | Hemograma periódico (Nakano 2024, PMID 39264246) |
+| Schwannomas | Del hallazgo secundario en *LZTR1*, independiente del MVA | RMN según protocolo de schwannomatosis (PMID 39937237) |
+
+**Discrepancia que hay que resolver con el equipo tratante.** Las guías no coinciden en cuándo parar: SIOP-Europe dice ecografía trimestral **hasta los 7 años**, mientras que una guía británica más antigua indica cada 3–4 meses **hasta los 5**. Lo dejamos explícito en lugar de elegir una: la decisión es del equipo clínico según la guía que siga su centro.
+
+**Dos observaciones prácticas.**
+1. **La ecografía ya está indicada por otro motivo.** El paciente tiene nefrocalcinosis y necesita seguimiento renal por imágenes de todos modos. El mismo estudio cubre las dos cosas, así que la vigilancia de Wilms no agrega carga ni costo: solo hay que fijar la periodicidad y mirar específicamente el parénquima buscando masas.
+2. **La ventana puede estar cerrada.** No sabemos la edad actual del paciente: el documento clínico está anonimizado y no la informa. Si ya pasó los 7 años, la vigilancia de Wilms dejó de aplicar y queda la hematológica. Es un dato que el equipo tratante tiene y nosotros no.
+
+### 8.6 Cómo se resolvería la pregunta abierta
 
 El experimento ya está planificado para los otros candidatos y solo hay que extenderlo: en **fibroblastos del paciente**, el mismo ensayo de detención mitótica que mide el checkpoint (nocodazol) se corre **también con vincristina**, contando qué fracción de células se detiene y qué fracción escapa, frente a fibroblastos control. Si las células del paciente escapan mucho más, es un argumento concreto para apoyarse en los agentes no antimitóticos del esquema VIT. Es el mismo cultivo, el mismo ensayo y una condición más: no agrega costo real.
 
