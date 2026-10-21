@@ -85,6 +85,13 @@ No entran pese a puntaje similar: **everolimus** (68,3, mismo mecanismo que siro
 | **Riesgos / compatibilidad** | Riesgo teórico: subir NAD⁺ podría favorecer el metabolismo de un tumor activo (los inhibidores de la síntesis de NAD⁺ se estudian como antitumorales). La hepatotoxicidad se suma a la de la actinomicina D. K4 = 1. |
 | **Cómo se validaría** | El experimento más barato de la lista: Western blot de BUBR1 y de BubR1 acetilado en K668 en fibroblastos del paciente tratados con niacina o NMN. Si no sube, la hipótesis se descarta en una semana. |
 
+> **Niacina y niacinamida no son intercambiables acá** (aclaración del 21 oct, a pedido del equipo). Las dos son vitamina B3 y en el lenguaje corriente se usan como sinónimos, pero su relación con las sirtuinas es opuesta:
+> - La **nicotinamida (niacinamida)** es el **producto** de la reacción de las sirtuinas y actúa como su **inhibidor por retroalimentación**: inhibe de forma no competitiva a Sir2 y a SIRT1 *in vitro*, con IC50 informada para SIRT1 en el rango de 50–180 µM. En el mismo trabajo, el **ácido nicotínico (niacina) no tuvo efecto** sobre SIRT1 (Bitterman 2002, PMID 12297502).
+> - Nuestra hipótesis depende de que **SIRT2 esté activa** para mantener a BubR1 sin acetilar en K668. Administrar el inhibidor propio de la enzima es, como mínimo, ambiguo. En células la nicotinamida se convierte rápido en NAD⁺ y podría terminar estimulando (Hwang 2017, PMID 28417163), pero esa indefinición es precisamente el problema: no queremos que el resultado del experimento dependa de qué efecto gane.
+> - **Además no pasa el filtro F1:** la nicotinamida solo figura en multivitamínicos inyectables, no como fármaco aprobado por sí misma. La niacina sí (Niacor, ANDA040378).
+>
+> **Conclusión: el esquema usa niacina.** Si el equipo prefiere la niacinamida, hay que justificar por qué se elige el inhibidor de la enzima central de la hipótesis, y el experimento de validación debería incluir las dos para distinguir los efectos.
+
 ---
 
 ## 3. Resumen para el informe
@@ -101,7 +108,7 @@ No entran pese a puntaje similar: **everolimus** (68,3, mismo mecanismo que siro
 
 ## 4. Decisiones pendientes para quien revise (💊🧬)
 
-1. ¿Sirolimus y temsirolimus (mismo mecanismo, temsirolimus con dato clínico propio), o uno de ellos reemplazado por everolimus (oral)?
+1. ~~¿Sirolimus y temsirolimus (mismo mecanismo, temsirolimus con dato clínico propio), o uno de ellos reemplazado por everolimus (oral)?~~ **Resuelta el 21 oct: sirolimus oral.** No se proponen los dos, porque comparten mecanismo y darlos juntos duplica la vía sin beneficio. El criterio que decide es que **el tumor lo trata el protocolo oncológico** (VAC con ciclofosfamida a intensidad reducida), de modo que el rapálogo no necesita efecto antitumoral propio y conviene el que sirve para **tratamiento continuo**: el sirolimus oral es oral, el más barato, con dosificación pediátrica establecida y TDM de rutina, y es el de mejor puntaje de la lista (71,7). **Temsirolimus queda como la opción si el tumor recae** o si se busca sumar un agente antitumoral propio. Everolimus sigue descartado por ser el mismo mecanismo (ver sección 1).
 2. **Bortezomib o niacina** como segundo candidato de línea 1 (sección 5).
 3. Confirmar el grupo de riesgo del rabdomiosarcoma del paciente, para saber si la fase III de temsirolimus lo descarta como parte del tratamiento oncológico.
 4. Validar los puntajes K1/K2 de C4 para estos 5 (regla de C1 sec. 1.5).
@@ -230,12 +237,16 @@ El análisis completo está en `docs/secciones/05_farmacogenetica.md`. Resumen e
 
 El equipo preguntó si conviene sumar un método para tratar el tumor, por ejemplo ciclofosfamida. La respuesta corta es que **la ciclofosfamida no corresponde como candidata**, pero la pregunta abre algo más valioso: el mecanismo del paciente tiene consecuencias concretas sobre **qué quimioterapia elegir**, y eso no estaba en el informe.
 
-### 8.1 Por qué la ciclofosfamida no va como candidata
+### 8.1 La ciclofosfamida trata el tumor, pero no es un candidato de reposicionamiento
 
-1. **No es reposicionamiento.** El Track 2 pide fármacos aprobados usados para una indicación nueva. La ciclofosfamida es el estándar del rabdomiosarcoma desde décadas (esquemas VAC/IVA): es el tratamiento que el paciente ya recibiría. Presentarla como propuesta de reposicionamiento sería un error de categoría que el jurado detecta de inmediato.
-2. **Es, además, el agente que más conviene minimizar en este paciente.** Es un alquilante, es decir, daña el ADN a propósito, en un niño que ya tiene inestabilidad cromosómica por el checkpoint débil. Eso implica riesgo de segundas neoplasias y de empeorar la carga de aneuploidía en la médula. Por eso Nishitani-Isa 2019 (PMID 31184400) usó VAC a **intensidad reducida** en su paciente con MVA1, y por eso el genotipo CYP2B6 de metabolizador intermedio (sección 7.5) apunta en la misma dirección.
+**La ciclofosfamida se mantiene como tratamiento del tumor.** Es la C del esquema VAC (vincristina + actinomicina D + ciclofosfamida), estándar del rabdomiosarcoma desde décadas, y el paciente la recibe. Nada de lo que propone este trabajo la reemplaza ni la cuestiona.
 
-La ciclofosfamida ya está en el informe donde corresponde: como **contexto oncológico** sobre el que se montan las propuestas de reposicionamiento, no como una de ellas.
+Lo que no corresponde es **presentarla como propuesta de reposicionamiento**, por dos razones:
+
+1. **No sería una indicación nueva.** El Track 2 pide fármacos aprobados usados para algo distinto de aquello para lo que están aprobados. La ciclofosfamida tratando un rabdomiosarcoma es exactamente su indicación: presentarla como reposicionamiento sería un error de categoría que el jurado detecta de inmediato.
+2. **La dosis sí hay que cuidarla.** Es un alquilante —daña el ADN a propósito— en un niño que ya tiene inestabilidad cromosómica por el checkpoint débil, lo que implica riesgo de segundas neoplasias y de empeorar la carga de aneuploidía en la médula. No es un argumento para no usarla, sino para usarla a **intensidad reducida**, como hizo Nishitani-Isa 2019 (PMID 31184400) en su paciente con MVA1. El genotipo CYP2B6 de metabolizador intermedio (sección 7.5) apunta en la misma dirección.
+
+**Esa división es la que estructura toda la propuesta:** el protocolo oncológico cubre el tumor y el reposicionamiento cubre la enfermedad de fondo, que es lo que hoy no trata nadie. Tiene además una consecuencia práctica: como el tumor ya está cubierto, el rapálogo del esquema continuo no necesita efecto antitumoral propio, y por eso se elige **sirolimus oral** y no temsirolimus (sección 4, decisión 1).
 
 ### 8.2 El aporte real: el checkpoint débil cambia cómo se elige la quimioterapia
 
@@ -273,7 +284,9 @@ Para evitar la confusión más común: el rabdomiosarcoma **ya está presente** 
 | **Si la biopsia muestra RAS activo** | Trametinib o selumetinib **+ temsirolimus** | **Sí.** Línea condicional de la sección 6, nunca en monoterapia |
 | **Alternativa de formulación** | Nab-sirolimus, solo para la línea del tumor | **Sí**, pero con los reparos de 7.2.1 |
 
-**La respuesta corta a "qué opción tenemos para el tumor": temsirolimus.** Es el único candidato de la lista corta que actúa sobre el tumor y sobre el MVA a la vez, tiene evidencia clínica en el tumor de este paciente, y su mecanismo (frenar en G1) no depende del checkpoint mitótico que al paciente le falta.
+**La respuesta corta a "qué trata el tumor": la ciclofosfamida, dentro del VAC a intensidad reducida.** Es el estándar de cuidado y no hace falta reemplazarlo. El reposicionamiento aporta en el otro frente —la enfermedad de fondo— con el esquema continuo de sirolimus oral, arimoclomol y niacina (sección 4, decisión 1).
+
+**Si se quisiera sumar un fármaco con efecto antitumoral propio, el candidato es temsirolimus:** tiene evidencia clínica en el tumor de este paciente (fase II, PMID 31513481) y su mecanismo (frenar en G1) no depende del checkpoint mitótico que al paciente le falta. Pero entonces reemplaza al sirolimus oral en el esquema, porque comparten mecanismo, y el esquema deja de ser oral y continuo. Esa es la razón por la que no es la opción por defecto: tiene sentido en recaída o refractariedad, no de entrada.
 
 ### 8.5 Los tumores que todavía no aparecieron: vigilancia
 
