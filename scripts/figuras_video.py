@@ -1,13 +1,12 @@
-"""Figuras de apoyo para el video de 3 minutos (tarea E4/E6).
+"""Support figures for the 3-minute video (tasks E4/E6), in English.
 
-Complementan las figuras del informe (figura_1, figura_2 y el embudo de
-variantes) con lo que el video tiene que contar y el informe muestra solo en
-tablas: el caso, el método completo, el embudo de fármacos, los puntajes y la
-propuesta final. Formato 16:9 y letra grande para que se lean en pantalla.
+They complement the report figures (results/en/fig_*.png) with what the video has to
+tell and the report shows only in tables: the case, the whole method, the drug funnel,
+the scores and the final proposal. 16:9 format with large text so they read on screen.
 
-Estilo: misma paleta Okabe-Ito que scripts/figuras_informe.py.
-Datos: results/candidatos_farmacos.tsv y los números de docs/informe_final.md.
-Uso: python scripts/figuras_video.py  ->  results/video/*.png
+Style: same Okabe-Ito palette as scripts/figuras_informe.py.
+Data: results/candidatos_farmacos.tsv and the numbers in docs/report_track2_en.md.
+Usage: python scripts/figuras_video.py  ->  results/video/*.png
 """
 from pathlib import Path
 
@@ -78,18 +77,18 @@ def guardar(fig, nombre):
     return ruta
 
 
-def video_1_caso():
-    """El caso: rasgos clínicos en términos HPO, sin datos identificatorios."""
+def video_1_case():
+    """The case: clinical features as HPO terms, with no identifying data."""
     fig, ax = lienzo()
-    titulo(ax, "El caso: un paciente pediátrico con MVA",
-           "Aneuploidía variegada en mosaico: enfermedad rara, recesiva y sin tratamiento dirigido")
+    titulo(ax, "The case: a pediatric patient with MVA",
+           "Mosaic variegated aneuploidy: a rare recessive disease with no targeted treatment")
     rasgos = [
-        ("Rabdomiosarcoma", "HP:0002859", "tumor infantil, ya presente"),
-        ("Retraso del crecimiento", "HP:0004322 · HP:0001508", "talla baja y falla de medro"),
-        ("Pequeño al nacer y prematuro", "HP:0001518 · HP:0001622", ""),
-        ("Atrofia muscular", "HP:0003202", ""),
-        ("Nefrocalcinosis", "HP:0000121", "calcio depositado en el riñón"),
-        ("Abortos recurrentes en los padres", "HP:0200067", ""),
+        ("Rhabdomyosarcoma", "HP:0002859", "childhood tumor, already present"),
+        ("Growth restriction", "HP:0004322 · HP:0001508", "short stature, failure to thrive"),
+        ("Small at birth and premature", "HP:0001518 · HP:0001622", ""),
+        ("Muscle atrophy", "HP:0003202", ""),
+        ("Nephrocalcinosis", "HP:0000121", "calcium deposits in the kidney"),
+        ("Recurrent miscarriage in the parents", "HP:0200067", ""),
     ]
     for i, (rasgo, hpo, nota) in enumerate(rasgos):
         col, fila = i % 2, i // 2
@@ -97,27 +96,27 @@ def video_1_caso():
         caja(ax, x, y, 7.2, 1.5)
         ax.text(x + 0.35, y + 1.0, rasgo, fontsize=18, fontweight="bold", va="center")
         ax.text(x + 0.35, y + 0.45, hpo + (f"  ·  {nota}" if nota else ""), fontsize=13, color=TINTA_2, va="center")
-    ax.text(0.5, 0.35, "Pregunta del reto: ¿qué mecanismo explica la enfermedad y qué fármaco ya aprobado podría actuar sobre él?",
+    ax.text(0.5, 0.35, "Challenge question: which mechanism explains the disease, and which approved drug could act on it?",
             fontsize=15, fontweight="bold", color=TINTA)
-    return guardar(fig, "video_1_caso.png")
+    return guardar(fig, "video_1_case.png")
 
 
-def video_2_metodo():
-    """El método completo en cinco pasos, del VCF a la propuesta."""
+def video_2_method():
+    """The whole method in five steps, from the VCF to the proposal."""
     fig, ax = lienzo()
-    titulo(ax, "Cómo lo hicimos: del genoma a los fármacos en cinco pasos",
-           "Todo el análisis corre con un solo comando (python run_pipeline.py) y solo usa datos públicos")
+    titulo(ax, "How we did it: from genome to drugs in five steps",
+           "The whole analysis runs with one command (python run_pipeline.py) and uses only public data")
     pasos = [
-        ("1  Genoma", TINTA_2, FONDO_CAJA,
-         "VCF de genoma\ncompleto (GRCh38)\n\nPanel de 321 genes\nde la división celular", "24.604\nvariantes"),
-        ("2  Variante", TINTA_2, FONDO_CAJA,
-         "Frecuencia (gnomAD)\nefecto en MANE (VEP)\nCADD, ClinVar\nclasificación ACMG", "1 gen:\nBUB1B"),
-        ("3  Mecanismo", TINTA_2, FONDO_CAJA,
-         "ARNm degradado (NMD)\nestructura (AlphaFold)\nestabilidad (ThermoMPNN)\nliteratura verificada", "poca\nBUBR1"),
-        ("4  Fármacos", FARMACO, FONDO_VERDE,
-         "4 líneas terapéuticas\nDGIdb, Open Targets\naprobación FDA / EMA\n6 criterios con pesos", "86 → 5"),
-        ("5  Propuesta", FARMACO, FONDO_VERDE,
-         "Esquema continuo\nde 3 fármacos\n\nprueba en fibroblastos\ndel paciente", "3\nfármacos"),
+        ("1  Genome", TINTA_2, FONDO_CAJA,
+         "Whole-genome\nVCF (GRCh38)\n\n321-gene panel\nof cell division", "24,604\nvariants"),
+        ("2  Variant", TINTA_2, FONDO_CAJA,
+         "Frequency (gnomAD)\neffect in MANE (VEP)\nCADD, ClinVar\nACMG classification", "1 gene:\nBUB1B"),
+        ("3  Mechanism", TINTA_2, FONDO_CAJA,
+         "mRNA decay (NMD)\nstructure (AlphaFold)\nstability (ThermoMPNN)\nverified literature", "low\nBUBR1"),
+        ("4  Drugs", FARMACO, FONDO_VERDE,
+         "4 therapeutic strategies\nDGIdb, Open Targets\nFDA / EMA approval\n6 weighted criteria", "86 → 5"),
+        ("5  Proposal", FARMACO, FONDO_VERDE,
+         "Continuous\ncombination\nof 3 drugs\n\ntest in patient\nfibroblasts", "3\ndrugs"),
     ]
     ancho, sep, x0 = 2.75, 0.4, 0.45
     for i, (cab, borde, fondo, cuerpo, cifra) in enumerate(pasos):
@@ -129,19 +128,19 @@ def video_2_metodo():
                 color=borde if borde != TINTA_2 else TINTA, linespacing=1.1)
         if i < len(pasos) - 1:
             flecha(ax, (x + ancho + 0.03, 4.25), (x + ancho + sep - 0.03, 4.25))
-    ax.text(0.45, 0.55, "Corrida completa de referencia: 6 min 11 s con las consultas en caché · código en GitHub",
+    ax.text(0.45, 0.55, "Reference run: 6 min 11 s with cached queries · code on GitHub",
             fontsize=13, color=TINTA_2)
-    return guardar(fig, "video_2_metodo.png")
+    return guardar(fig, "video_2_method.png")
 
 
-def video_3_embudo_farmacos():
-    """Embudo de fármacos con los números de la sección 2.4 del informe."""
+def video_3_drug_funnel():
+    """Drug funnel with the numbers of Section II-E of the report."""
     etapas = [
-        ("Lista larga\n(DGIdb, Open Targets, curados)", 86, GRIS),
-        ("Aprobados en FDA o EMA y que\nno debilitan la mitosis", 73, GRIS),
-        ("Candidatos para el MVA\n(los otros 21 son de contexto)", 52, GRIS),
-        ("Lista corta\n(mejor puntaje)", 5, ALTERNATIVA),
-        ("Esquema continuo propuesto", 3, FARMACO),
+        ("Long list\n(DGIdb, Open Targets, curated)", 86, GRIS),
+        ("Approved by the FDA or EMA\nand do not weaken mitosis", 73, GRIS),
+        ("Repurposing candidates\n(the other 21 are context drugs)", 52, GRIS),
+        ("Short list\n(best scores)", 5, ALTERNATIVA),
+        ("Proposed combination", 3, FARMACO),
     ]
     fig, ax = plt.subplots(figsize=TAM)
     fig.subplots_adjust(left=0.30, right=0.93, top=0.80, bottom=0.16)
@@ -150,32 +149,32 @@ def video_3_embudo_farmacos():
     ax.set_yticks(y, [e[0] for e in etapas], fontsize=14)
     for yi, (_, n, _) in zip(y, etapas):
         ax.text(n + 1.2, yi, f"{n}", va="center", fontsize=18, fontweight="bold")
-    ax.text(3 + 7, 0, "sirolimus oral · arimoclomol · niacina", va="center", fontsize=15, color=TINTA)
+    ax.text(3 + 7, 0, "oral sirolimus · arimoclomol · niacin", va="center", fontsize=15, color=TINTA)
     ax.set_xlim(0, 100)
-    ax.set_xlabel("Número de fármacos", fontsize=13)
+    ax.set_xlabel("Number of drugs", fontsize=13)
     for lado in ("top", "right"):
         ax.spines[lado].set_visible(False)
     ax.tick_params(axis="y", length=0)
-    fig.text(0.02, 0.94, "De 86 fármacos a 3: cómo elegimos", fontsize=24, fontweight="bold", va="top")
-    fig.text(0.02, 0.875, "Se descartan los no aprobados y los que bajarían aún más BUBR1 (HSP90, PLK1, Aurora, MPS1, APC/C)",
+    fig.text(0.02, 0.94, "From 86 drugs to 3: how we chose", fontsize=24, fontweight="bold", va="top")
+    fig.text(0.02, 0.875, "We removed unapproved drugs and those that would lower BUBR1 further (HSP90, PLK1, Aurora, MPS1, APC/C)",
              fontsize=14, color=TINTA_2, va="top")
-    fig.text(0.02, 0.03, "La niacina se agregó a mano como hipótesis especulativa (vía NAD⁺–SIRT2–BubR1). "
-             "Fuente: results/candidatos_farmacos.tsv", fontsize=11.5, color=TINTA_2)
-    return guardar(fig, "video_3_embudo_farmacos.png")
+    fig.text(0.02, 0.03, "Niacin was added by hand as a speculative hypothesis (NAD⁺–SIRT2–BubR1 axis). "
+             "Source: results/candidatos_farmacos.tsv", fontsize=11.5, color=TINTA_2)
+    return guardar(fig, "video_3_drug_funnel.png")
 
 
 NOMBRES = {
     "SIROLIMUS": "Sirolimus", "TEMSIROLIMUS": "Temsirolimus", "ARIMOCLOMOL": "Arimoclomol",
-    "EVEROLIMUS": "Everolimus", "SODIUM PHENYLBUTYRATE": "Fenilbutirato sódico", "TRAMETINIB": "Trametinib",
+    "EVEROLIMUS": "Everolimus", "SODIUM PHENYLBUTYRATE": "Sodium phenylbutyrate", "TRAMETINIB": "Trametinib",
     "SELUMETINIB": "Selumetinib", "CELECOXIB": "Celecoxib", "CRIZOTINIB": "Crizotinib", "DASATINIB": "Dasatinib",
-    "BORTEZOMIB": "Bortezomib", "NIACIN": "Niacina",
+    "BORTEZOMIB": "Bortezomib", "NIACIN": "Niacin",
 }
 FINAL = {"SIROLIMUS", "ARIMOCLOMOL", "NIACIN"}
 ALTERNATIVAS = {"TEMSIROLIMUS", "DASATINIB", "TRAMETINIB", "SELUMETINIB"}
 
 
-def video_4_puntajes():
-    """Puntaje de 0 a 100 de los mejores candidatos y qué pasó con cada uno."""
+def video_4_scores():
+    """Scores (0-100) of the best candidates and what happened to each one."""
     d = pd.read_csv(RAIZ / "results" / "candidatos_farmacos.tsv", sep="\t")
     d = d[(d.categoria == "candidato") & d.puntaje.notna()]
     top = d.sort_values("puntaje", ascending=False).head(11)
@@ -191,46 +190,46 @@ def video_4_puntajes():
     y = range(len(top))
     ax.barh(y, top.puntaje, color=[color(f) for f in top.farmaco], height=0.66, edgecolor="white", linewidth=2)
     ax.set_yticks(list(y), [NOMBRES.get(f, f.title()) for f in top.farmaco], fontsize=14)
-    for yi, (f, p) in enumerate(zip(top.farmaco, top.puntaje)):
-        ax.text(p + 0.8, yi, f"{p:.1f}".replace(".", ","), va="center", fontsize=13, color=TINTA)
+    for yi, p in enumerate(top.puntaje):
+        ax.text(p + 0.8, yi, f"{p:.1f}", va="center", fontsize=13, color=TINTA)
     ax.set_xlim(0, 100)
-    ax.set_xlabel("Puntaje (0 a 100)", fontsize=13)
+    ax.set_xlabel("Score (0 to 100)", fontsize=13)
     for lado in ("top", "right"):
         ax.spines[lado].set_visible(False)
     ax.tick_params(axis="y", length=0)
-    ax.legend(handles=[Patch(color=FARMACO, label="En el esquema propuesto"),
-                       Patch(color=ALTERNATIVA, label="Alternativa o condicional"),
-                       Patch(color=GRIS, label="No seleccionado")],
+    ax.legend(handles=[Patch(color=FARMACO, label="In the proposed combination"),
+                       Patch(color=ALTERNATIVA, label="Alternative or conditional"),
+                       Patch(color=GRIS, label="Not selected")],
               loc="center left", bbox_to_anchor=(1.0, 0.5), frameon=False, fontsize=13)
-    fig.text(0.02, 0.94, "Puntaje de los mejores candidatos", fontsize=24, fontweight="bold", va="top")
-    fig.text(0.02, 0.875, "Seis criterios: vínculo con el mecanismo 25 · seguridad en niños 20 · evidencia 15 · "
-             "ajuste al caso 15 · innovación 15 · validación 10", fontsize=13.5, color=TINTA_2, va="top")
-    fig.text(0.02, 0.03, "Everolimus no se elige porque repite el mecanismo de sirolimus. Bortezomib sale por la revisión "
-             "biológica: retrasa la salida de la mitosis. Niacina entra por innovación, no por puntaje.",
+    fig.text(0.02, 0.94, "Scores of the best candidates", fontsize=24, fontweight="bold", va="top")
+    fig.text(0.02, 0.875, "Six criteria: mechanistic link 25 · pediatric safety 20 · evidence 15 · "
+             "fit with the case 15 · innovation 15 · validation 10", fontsize=13.5, color=TINTA_2, va="top")
+    fig.text(0.02, 0.03, "Everolimus repeats the mechanism of sirolimus. Bortezomib was removed by the biological review: "
+             "it delays exit from mitosis. Niacin enters for innovation, not for its score.",
              fontsize=11.5, color=TINTA_2)
-    return guardar(fig, "video_4_puntajes_candidatos.png")
+    return guardar(fig, "video_4_candidate_scores.png")
 
 
-def video_5_propuesta():
-    """Dos tratamientos en paralelo: el estándar para el tumor y la propuesta para el MVA."""
+def video_5_proposal():
+    """Two treatments in parallel: standard care for the tumor and the proposal for MVA."""
     fig, ax = lienzo()
-    titulo(ax, "La propuesta: dos tratamientos en paralelo",
-           "El tumor ya tiene tratamiento estándar; la enfermedad de fondo no tiene ninguno")
+    titulo(ax, "The proposal: two treatments in parallel",
+           "The tumor already has standard treatment; the underlying disease has none")
 
     caja(ax, 0.4, 2.6, 5.6, 4.6, borde=TINTA_2, lw=2.2)
-    ax.text(3.2, 6.65, "Oncología estándar", ha="center", fontsize=19, fontweight="bold")
-    ax.text(3.2, 6.05, "trata el rabdomiosarcoma", ha="center", fontsize=14, color=TINTA_2)
-    ax.text(3.2, 4.55, "VAC a intensidad reducida\n\nvincristina\nactinomicina D\nciclofosfamida",
-            ha="center", va="center", fontsize=14.5, linespacing=1.3)
-    ax.text(3.2, 2.95, "Duración acotada · no es reposicionamiento", ha="center", fontsize=12.5, color=TINTA_2)
+    ax.text(3.2, 6.65, "Standard care", ha="center", fontsize=19, fontweight="bold")
+    ax.text(3.2, 6.05, "current rhabdomyosarcoma", ha="center", fontsize=14, color=TINTA_2)
+    ax.text(3.2, 4.55, "Cyclophosphamide continues\nas part of the treatment\nthe patient already receives\n\n"
+            "(reduced intensity, as in\na published MVA case)", ha="center", va="center", fontsize=14, linespacing=1.3)
+    ax.text(3.2, 2.95, "Not a repurposing proposal", ha="center", fontsize=12.5, color=TINTA_2)
 
     caja(ax, 6.5, 2.6, 9.1, 4.6, borde=FARMACO, fondo=FONDO_VERDE, lw=2.6)
-    ax.text(11.05, 6.65, "Nuestra propuesta de reposicionamiento", ha="center", fontsize=19, fontweight="bold")
-    ax.text(11.05, 6.05, "trata el MVA de fondo · esquema continuo", ha="center", fontsize=14, color=TINTA_2)
+    ax.text(11.05, 6.65, "Our repurposing proposal", ha="center", fontsize=19, fontweight="bold")
+    ax.text(11.05, 6.05, "underlying disease · long-term, continuous", ha="center", fontsize=14, color=TINTA_2)
     filas = [
-        ("Sirolimus oral", "frena mTORC1: envejecimiento precoz,\nmúsculo y crecimiento"),
-        ("Arimoclomol", "ayuda al plegamiento:\nmás BUBR1 (la causa)"),
-        ("Niacina", "vía NAD⁺–SIRT2: más BUBR1\n(hipótesis especulativa)"),
+        ("Oral sirolimus", "dampens mTORC1: premature aging,\nmuscle and growth"),
+        ("Arimoclomol", "supports protein folding:\nmore BUBR1 (the cause)"),
+        ("Niacin", "NAD⁺–SIRT2 axis: more BUBR1\n(speculative hypothesis)"),
     ]
     for i, (farm, que) in enumerate(filas):
         yy = 5.15 - i * 0.98
@@ -238,15 +237,14 @@ def video_5_propuesta():
         ax.text(9.6, yy, que, fontsize=12.5, color=TINTA, va="center", linespacing=1.15)
 
     caja(ax, 0.4, 0.35, 15.2, 1.85, borde=TINTA_2, fondo="white", lw=1.2)
-    ax.text(0.75, 1.62, "Cómo se comprueba:", fontsize=14.5, fontweight="bold", va="center")
-    ax.text(4.0, 1.62, "fibroblastos del paciente antes y después de cada fármaco → cantidad de BUBR1 (Western blot)\n"
-            "y fuerza del checkpoint mitótico (ensayo con nocodazol)", fontsize=12.5, va="center", linespacing=1.25)
-    ax.text(0.75, 0.75, "Además:", fontsize=14.5, fontweight="bold", va="center")
-    ax.text(4.0, 0.75, "hemogramas periódicos y resonancia por el hallazgo en LZTR1",
-            fontsize=12.5, va="center")
-    return guardar(fig, "video_5_propuesta.png")
+    ax.text(0.75, 1.62, "How to test it:", fontsize=14.5, fontweight="bold", va="center")
+    ax.text(4.0, 1.62, "patient fibroblasts before and after each drug → amount of BUBR1 (Western blot)\n"
+            "and strength of the mitotic checkpoint (nocodazole assay)", fontsize=12.5, va="center", linespacing=1.25)
+    ax.text(0.75, 0.75, "Also:", fontsize=14.5, fontweight="bold", va="center")
+    ax.text(4.0, 0.75, "periodic blood counts and MRI for the LZTR1 finding", fontsize=12.5, va="center")
+    return guardar(fig, "video_5_proposal.png")
 
 
 if __name__ == "__main__":
-    for f in (video_1_caso, video_2_metodo, video_3_embudo_farmacos, video_4_puntajes, video_5_propuesta):
+    for f in (video_1_case, video_2_method, video_3_drug_funnel, video_4_scores, video_5_proposal):
         print(f())
