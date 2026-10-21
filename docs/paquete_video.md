@@ -1,58 +1,57 @@
-# Paquete para el video · 21 oct 2026
+# Video package · Track 2 · Team A3 EMBS ITBA
 
-Material para quien graba y edita el video del Track 2. Reemplaza al guion v1 (`guion_pitch.md`, 8 oct), que tenía números y fármacos desactualizados.
+Material for whoever records and edits the Track 2 video. It replaces the first script draft (`guion_pitch.md`, 8 Oct), whose numbers and drugs were out of date.
 
-## Qué piden las reglas
+## What the rules require
 
-- **Duración: 3 minutos.** Tiene que recorrer **el razonamiento y los candidatos propuestos**.
-- Se sube a **YouTube o Vimeo**. El enlace va en el formulario de envío y es obligatorio.
-- **Nada que identifique al paciente**: ni edad, ni lugar, ni fechas, ni fotos. Tampoco se muestran en pantalla tablas del VCF, posiciones genómicas ni genotipos.
-- **Hallazgo secundario (*LZTR1*):** el equipo decidió nombrarlo en el informe. En el video no hace falta: el guion se concentra en el mecanismo y los fármacos.
-- Si el video va en **inglés**, usar las figuras de `results/en/` (`fig_*.png`, a ancho completo), que tienen el mismo contenido que las del informe.
-- Idioma: **sin decidir** (español, inglés o español con subtítulos en inglés). Subtítulos siempre.
+- **Length: 3 minutes.** The video must walk through **our reasoning and the proposed candidates**.
+- Upload it to **YouTube or Vimeo**. The link is required in the submission form.
+- **Nothing that could identify the patient**: no age, place, dates, or photos. Do not show VCF tables, genomic positions, or genotypes on screen.
+- **Secondary finding (*LZTR1*):** the team decided to name it in the report. The video does not need it; the script focuses on the mechanism and the drugs.
+- Language: **English**. Add subtitles.
 
-## Imágenes, en orden de aparición
+## Images, in order of appearance
 
-Todas están en el repositorio. Las de `results/video/` están hechas para pantalla (16:9, letra grande). Se regeneran con `python scripts/figuras_video.py`.
+All images are in the repository and in English. The video figures (`results/video/`) are 16:9 with large text; regenerate them with `python scripts/figuras_video.py`. The report figures at full width are in `results/en/` (`python scripts/figuras_report_en.py`).
 
-| # | Bloque | Tiempo | Imagen |
+| # | Block | Time | Image |
 |---|---|---|---|
-| 1 | El problema y el caso | 0:00–0:25 | `results/video/video_1_caso.png` |
-| 2 | Cómo lo hicimos | 0:25–0:45 | `results/video/video_2_metodo.png` |
-| 3 | De 321 genes a uno | 0:45–1:05 | `results/figura_embudo_variantes.png` |
-| 4 | Las dos variantes | 1:05–1:25 | `results/figura_1_bubr1_variantes.png` |
-| 5 | El mecanismo | 1:25–1:55 | **`results/figura_2_via_mecanismo.png`** (imagen de referencia del mecanismo) |
-| 6 | Cómo elegimos los fármacos | 1:55–2:20 | `results/video/video_3_embudo_farmacos.png` y `results/video/video_4_puntajes_candidatos.png` |
-| 7 | La propuesta y cómo se comprueba | 2:20–3:00 | `results/video/video_5_propuesta.png` |
+| 1 | The problem and the case | 0:00–0:25 | `results/video/video_1_case.png` |
+| 2 | How we did it | 0:25–0:45 | `results/video/video_2_method.png` |
+| 3 | From 321 genes to one | 0:45–1:05 | `results/en/fig_variant_funnel.png` and `results/en/fig_variants_per_gene.png` |
+| 4 | The two variants | 1:05–1:25 | `results/en/fig_bubr1_variants.png` |
+| 5 | The mechanism | 1:25–1:55 | **`results/en/fig_checkpoint_normal_vs_patient.png`**, then `results/en/fig_mechanism_pathway.png` |
+| 6 | How we chose the drugs | 1:55–2:20 | `results/video/video_3_drug_funnel.png` and `results/video/video_4_candidate_scores.png` |
+| 7 | The proposal and how to test it | 2:20–3:00 | `results/video/video_5_proposal.png` |
 
-**Ojo con la imagen del mecanismo (bloque 5).** Muestra las **cuatro líneas terapéuticas** con ejemplos de cada una (por ejemplo, "sirolimus, everolimus" y "arimoclomol, fenilbutirato"), no la propuesta final. Sirve para explicar **dónde actúa cada tipo de fármaco**; la elección final se ve en el bloque 7. Si se prefiere que coincida exactamente, hay que actualizarla en `scripts/figuras_informe.py`.
+**Note on the pathway figure (block 5).** It shows the **four therapeutic strategies** with examples of each (for instance "sirolimus, everolimus" and "arimoclomol, phenylbutyrate"), not the final proposal. Use it to explain **where each type of drug acts**; the final choice appears in block 7. The checkpoint figure (normal vs. this patient) is the easiest one to follow for a general audience.
 
-## Guion v2 (unas 420 palabras, unos 3 minutos leído con calma)
+## Script (about 420 words, about 3 minutes read calmly)
 
-**1 · El problema y el caso (25 s)**
-Antes de dividirse, cada célula comprueba que sus cromosomas estén bien enganchados. En la aneuploidía variegada en mosaico, ese control falla: las células terminan con cromosomas de más o de menos y el riesgo de cáncer infantil se dispara. Nuestro paciente nació prematuro y pequeño, crece poco, pierde músculo, tiene calcio en los riñones y desarrolló un rabdomiosarcoma. Para esta enfermedad no existe un tratamiento dirigido.
+**1 · The problem and the case (25 s)**
+Before a cell divides, it checks that every chromosome is properly attached. In mosaic variegated aneuploidy, that check fails: cells end up with extra or missing chromosomes, and the risk of childhood cancer soars. Our patient was born premature and small, grows slowly, is losing muscle, has calcium deposits in the kidneys, and developed a rhabdomyosarcoma. There is no treatment aimed at the cause of this disease.
 
-**2 · Cómo lo hicimos (20 s)**
-Respondimos dos preguntas: qué está roto y qué fármaco ya aprobado podría ayudar. Lo hicimos en cinco pasos, del genoma completo a una propuesta, con un solo comando reproducible y solo con datos públicos.
+**2 · How we did it (20 s)**
+We asked two questions: what is broken, and which approved drug could help? We answered them in five steps, from the whole genome to a proposal, with a single reproducible command and only public data.
 
-**3 · De 321 genes a uno (20 s)**
-Revisamos 321 genes de la división celular: más de 24.000 variantes. Filtramos por frecuencia en la población y por efecto sobre la proteína en el transcrito de referencia. Solo un gen tiene dos variantes dañinas: *BUB1B*.
+**3 · From 321 genes to one (20 s)**
+We looked at 321 cell-division genes: more than 24,000 variants. We filtered them by how rare they are in the population and by their effect on the protein in the reference transcript. Only one gene carries two damaging variants: *BUB1B*.
 
-**4 · Las dos variantes (20 s)**
-*BUB1B* fabrica la proteína BUBR1. Una variante corta la proteína por la mitad y su mensajero se destruye. La otra cambia un solo aminoácido. Es de significado incierto, pero cae en la misma región que las variantes de otros pacientes con la enfermedad.
+**4 · The two variants (20 s)**
+*BUB1B* makes the protein BUBR1. One variant cuts the protein in half, and its messenger is destroyed. The other changes a single amino acid. Its significance is uncertain, but it falls in the same region as the variants of other patients with this disease.
 
-**5 · El mecanismo (30 s)**
-La clave es la cantidad. En células de otros pacientes, los cambios en esta región hacen que BUBR1 se pliegue mal y se degrade, y si se recupera la cantidad el control vuelve a funcionar. Nuestro modelo estructural predice lo mismo para esta variante. Conclusión: pérdida parcial de función. Hay poca BUBR1, el freno de la división es débil y eso lleva a la aneuploidía, al envejecimiento celular y al cáncer.
+**5 · The mechanism (30 s)**
+The key is the amount of protein. In cells from other patients, changes in this region make BUBR1 misfold and break down, and restoring the amount brings the checkpoint back. Our structural model predicts the same for this variant. Our conclusion: a partial loss of function. There is too little BUBR1, the brake on cell division is weak, and that leads to aneuploidy, cellular aging, and cancer.
 
-**6 · Cómo elegimos los fármacos (25 s)**
-Del mecanismo salen cuatro estrategias: subir BUBR1, frenar la vía mTOR, eliminar células envejecidas y tratar el tumor sin empeorar el problema. Reunimos 86 fármacos y dejamos solo los aprobados por la FDA o la EMA. Descartamos los que bajarían aún más BUBR1 y puntuamos el resto con seis criterios, entre ellos la seguridad en niños.
+**6 · How we chose the drugs (25 s)**
+From the mechanism come four strategies: raise BUBR1, dampen the mTOR pathway, clear aged cells, and treat the tumor without making the problem worse. We gathered 86 drugs and kept only those approved by the FDA or the EMA. We removed the ones that would lower BUBR1 even further and scored the rest on six criteria, including safety in children.
 
-**7 · La propuesta (40 s)**
-Proponemos dos tratamientos en paralelo. El tumor lo trata la quimioterapia estándar, a intensidad reducida. Para la enfermedad de fondo, que hoy nadie trata, proponemos un esquema continuo de tres fármacos aprobados. Sirolimus oral, para frenar la vía mTOR. Arimoclomol, para ayudar a que BUBR1 se pliegue. Y niacina, por una vía que regula BUBR1 en ratones; esta última es una hipótesis especulativa. Ninguno está probado en esta enfermedad, pero los tres se pueden comprobar con un mismo experimento barato: células de la piel del paciente, midiendo BUBR1 antes y después del fármaco. Todo el código está en GitHub.
+**7 · The proposal (40 s)**
+We propose two treatments in parallel. Cyclophosphamide continues as part of the treatment the patient already receives for the tumor. For the rest of the disease, which no treatment addresses today, we propose a long-term combination of three approved drugs. Oral sirolimus, to dampen the mTOR pathway. Arimoclomol, to help BUBR1 fold. And niacin, through a pathway that regulates BUBR1 in mice; this last one is a speculative hypothesis. None has been tested in this disease, but all three can be checked with one inexpensive experiment: skin cells from the patient, measuring BUBR1 before and after each drug. All the code is on GitHub.
 
-## Para grabar
+## Recording tips
 
-- Leer el guion en voz alta y cronometrarlo antes de grabar. Si pasa de 3:00, acortar el bloque 6.
-- Cada imagen debe estar en pantalla al menos 15 segundos para que se pueda leer.
-- Antes de subirlo, revisar cuadro por cuadro que no aparezcan datos del VCF ni del paciente.
-- Nombre del equipo para la portada y los créditos: **A3 EMBS ITBA**.
+- Read the script aloud and time it before recording. If it runs over 3:00, shorten block 6.
+- Keep each image on screen for at least 15 seconds so it can be read.
+- Before uploading, check frame by frame that no VCF data or patient information appears.
+- Team name for the title and credits: **A3 EMBS ITBA**.

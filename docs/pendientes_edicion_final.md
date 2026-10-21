@@ -51,4 +51,4 @@ Archivo: `docs/report_track2_en.md` · PDF de revisión: `docs/report_track2_en_
 - Notebooks 01 y 02: revisar fechas y tablas con genotipos antes de hacer público el repositorio.
 - Repositorio: hacerlo público cuando termine el hackathon.
 - Borrado de datos del paciente: dentro de los 30 días posteriores al cierre (~23 nov 2026), incluida la copia en Drive.
-- Video: el guion v2 (`docs/paquete_video.md`) está en español; si el video va en inglés, hay que traducirlo y usar las figuras de `results/en/`.
+- Video: el guion y las figuras del video ya están en inglés (`docs/paquete_video.md`, `results/video/`).
