@@ -166,16 +166,33 @@ El paper de Nishitani-Isa es un **caso clínico de una niña con MVA1 (*BUB1B*) 
 
 ### 7.2 Nab-sirolimus (Fyarro) vs. sirolimus oral
 
+> **Corrección (15 oct, noche).** La primera versión de esta sección decía que el uso pediátrico de nab-sirolimus "no está establecido" y que no tenía "ventaja demostrada en un niño". **Las dos afirmaciones eran incompletas.** Existe un fase 1 del Children's Oncology Group con dosis máxima tolerada definida en niños (ADVL1514, Cramer 2024, PMID 39487711) y hay datos preclínicos de acumulación tumoral que respaldan el argumento que planteó `tbussozungri`. La conclusión cambia de "no aporta" a "no reemplaza al sirolimus oral, pero es un candidato condicional razonable para la línea del tumor". Detalle abajo.
+
 | | Nab-sirolimus (Fyarro) | Sirolimus oral (Rapamune) |
 |---|---|---|
 | Formulación | Nanopartículas de albúmina, **IV** (30 min, días 1 y 8 de cada ciclo de 21 días) | Oral (comprimidos o solución) |
 | Mecanismo | mTORC1 (idéntico) | mTORC1 (idéntico) |
 | Aprobación FDA | Noviembre 2021 — **solo adultos** con PEComa avanzado | Trasplante renal (≥ 13 años), malformaciones vasculares linfáticas (≥ 2 años), LAM pulmonar; **amplio uso pediátrico** (off-label para malformaciones desde < 2 años) |
-| Uso pediátrico | **No establecido** (la ficha dice "no se sabe si es seguro y eficaz en niños") | Bien documentado; dosificación pediátrica establecida con TDM |
-| Ventaja potencial | Mejor PK (menos variabilidad, sin efecto de comida), mayor exposición inicial | Crónico, oral, conocido en niños |
-| Desventaja en este paciente | Sin datos pediátricos; requiere acceso IV cada semana; indicación es PEComa adulto, no MVA | — |
+| Datos pediátricos | **Fase 1 del COG con MTD definida:** 15 mg/m²/dosis IV días 1 y 8, en combinación con temozolomida e irinotecán (ADVL1514, PMID 39487711). La **ficha de la FDA** sigue diciendo que no se estableció seguridad en niños | Bien documentado; dosificación pediátrica establecida con TDM |
+| Ventaja potencial | **Acumulación tumoral** (ver 7.2.1) y mayor exposición total que temsirolimus a igual mg/m² | Crónico, oral, conocido en niños, barato |
+| Desventaja en este paciente | La **toxicidad limitante es la trombocitopenia**, que se suma a la mielosupresión de VAC; acceso IV cada 1–2 semanas; sigue siendo fuera de indicación | — |
 
-**Conclusión:** Para este paciente, **sirolimus oral** (ya en la lista corta, 71,7 pts) tiene mejor respaldo pediátrico que Fyarro. Nab-sirolimus añade costo y complejidad sin ventaja demostrada en un niño. La forma de administración IV semanal dificulta el uso crónico.
+#### 7.2.1 El argumento de la acumulación tumoral (planteado por `tbussozungri`, 15 oct)
+
+**El argumento:** el nab-sirolimus se acumula en el tumor, así que permitiría evitar dosis altas que afecten al resto de las células del paciente.
+
+**Qué lo respalda.** El mecanismo es el de la plataforma *nab* (la misma del nab-paclitaxel): la albúmina atraviesa el endotelio por transcitosis mediada por el receptor gp60, y la proteína SPARC de la matriz tumoral retendría el complejo en el tumor. En xenoinjertos de ratón, el nab-sirolimus IV alcanzó concentraciones tumorales de sirolimus **6,2 a 68,1 veces mayores** que los inhibidores de mTOR orales, con un **AUC tumoral semanal 43 veces mayor que el sirolimus oral** y 12 veces mayor que el everolimus a igual dosis semanal (Hou 2019, resumen AACR 348). En el fase 1 pediátrico, 45 mg/m² de nab-sirolimus dieron un AUC de sirolimus de 24.564 ng·h/mL, por encima de la exposición total del temsirolimus a los mismos 45 mg/m².
+
+**Qué lo limita.**
+1. **Nivel de evidencia:** los datos de acumulación tumoral son de xenoinjertos de ratón, en un **resumen de congreso del propio laboratorio que desarrolla el fármaco** (Aadi Bioscience). **No hay datos de concentración intratumoral en humanos.** Es un mecanismo plausible y medido en ratón, no demostrado en pacientes.
+2. **Para nuestra indicación principal, la acumulación tumoral no sirve.** El sirolimus está en la lista corta por el eje **mTORC1 → sarcopenia y restricción del crecimiento**, que es un efecto **sistémico** de la poca BubR1 (músculo, crecimiento, senescencia). Para eso hace falta exposición sistémica sostenida, no concentración en el tumor. El argumento aplica a la **línea 4 (tumor)**, no a la línea 2.
+3. **La toxicidad limitante choca con la quimioterapia.** En ADVL1514 la DLT principal fue **trombocitopenia**, y los efectos grado ≥ 3 frecuentes fueron anemia, neutropenia, linfopenia y ALT alta. Nuestro paciente estaría recibiendo VAC (vincristina + actinomicina D + ciclofosfamida), ya mielosupresor, y además a intensidad reducida justamente para no castigar la médula de un paciente con inestabilidad cromosómica. Sumar un fármaco cuya DLT es plaquetaria va en contra de esa lógica.
+4. **Sin señal de eficacia en rabdomiosarcoma.** ADVL1514 incluyó **2 rabdomiosarcomas alveolares (6,3 % de la cohorte) y ninguno respondió**. La única respuesta parcial fue en un sarcoma de Ewing. Además, el alveolar suele ser **con fusión** PAX3/7-FOXO1, mientras que la línea condicional de RAS (sección 6) supone un rabdomiosarcoma **sin fusión**: el subtipo de nuestro paciente no estuvo representado en el ensayo.
+
+**Conclusión revisada.**
+- **Para la línea 2 (MVA, sarcopenia, crecimiento): sirolimus oral.** Es un efecto sistémico y crónico; el oral tiene dosificación pediátrica establecida, TDM de rutina y permite tratamiento prolongado. La acumulación tumoral no aporta nada acá.
+- **Para la línea 4 (tumor): temsirolimus sigue primero, pero nab-sirolimus es una alternativa defendible.** Temsirolimus gana por evidencia específica en rabdomiosarcoma (Mascarenhas 2019, mejor supervivencia en recaída, PMID 31513481), que el nab-sirolimus no tiene. Pero nab-sirolimus tiene MTD pediátrica definida y mejor exposición a igual mg/m², así que corresponde dejarlo documentado como opción si se confirmara el componente tumoral y hubiera motivo para preferir mayor penetración.
+- **Lo que decidiría entre los dos:** PK intratumoral en humanos (no existe) o un ensayo comparativo en rabdomiosarcoma (no existe). Con lo que hay hoy, la evidencia clínica específica del tumor manda sobre la ventaja de distribución preclínica.
 
 ### 7.3 Ciclofosfamida: ¿reposicionamiento?
 
@@ -193,7 +210,9 @@ Lo que sí es relevante del paper es la **advertencia de toxicidad**: en pacient
 
 El concepto de combinar las dos drogas de reposicionamiento (sirolimus + arimoclomol) con la quimioterapia estándar es razonable: el mTOR inhibidor reduce el ciclo celular de las células malignas (sinergia potencial) y el proteostasis agent podría proteger las células normales. Pero eso no es lo que el paper demuestra.
 
-**Recomendación:** presentar el combo como **sirolimus + arimoclomol** (reposicionamiento) en paralelo con **VAC a intensidad reducida** (oncología estándar del rabdomiosarcoma según Nishitani-Isa 2019). La ciclofosfamida es el contexto oncológico, no el candidato de reposicionamiento.
+**Recomendación:** presentar el combo como **sirolimus oral + arimoclomol** (reposicionamiento) en paralelo con **VAC a intensidad reducida** (oncología estándar del rabdomiosarcoma según Nishitani-Isa 2019). La ciclofosfamida es el contexto oncológico, no el candidato de reposicionamiento.
+
+Sobre el **nab-sirolimus** específicamente (ver 7.2.1): se mantiene el **sirolimus oral** para el eje sistémico, porque es ahí donde está nuestra hipótesis mecanística y el oral tiene dosificación pediátrica con TDM. El nab-sirolimus queda documentado como **alternativa condicional al temsirolimus en la línea del tumor**, con dos reparos concretos: su toxicidad limitante es la trombocitopenia (se suma a VAC) y en el fase 1 pediátrico no hubo respuestas en los 2 rabdomiosarcomas incluidos.
 
 ### 7.5 Farmacogenética del combo → ver `05_farmacogenetica.md`
 

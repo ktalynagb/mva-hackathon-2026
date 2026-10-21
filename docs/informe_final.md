@@ -45,14 +45,15 @@ VCF de genoma completo del paciente (GRCh38; Sentieon Haplotyper + GATK VariantF
 - Estabilidad: ΔΔG con ThermoMPNN (Dieckhaus 2024) para todas las sustituciones del dominio.
 - Revisión bibliográfica con verificación de cada cita en PubMed.
 
-### 2.4 Priorización de fármacos
+### 2.4 Priorización de fármacos y farmacogenética
 
-*Fuente: `docs/secciones/03_criterios.md`, `03b_lista_larga.md`, `04_candidatos.md` · Tareas: C1, C3–C6*
+*Fuente: `docs/secciones/03_criterios.md`, `03b_lista_larga.md`, `04_candidatos.md`, `05_farmacogenetica.md` · Tareas: C1, C3–C7*
 
 1. **Lista larga.** Cuatro líneas terapéuticas derivadas del mecanismo (subir la cantidad de BUBR1, frenar mTORC1, eliminar células senescentes y tratar el tumor sin empeorar la aneuploidía), cada una con la dirección de acción buscada. Fuentes: DGIdb v5, Open Targets (incluidos los fármacos con ensayos en rabdomiosarcoma) y una lista curada con fuente para lo que las bases no capturan. 86 fármacos.
 2. **Filtros de exclusión.** Aprobación comprobada en Drugs@FDA (openFDA) y en la EMA, no en la base de interacciones, y exclusión de los fármacos que debilitan la mitosis (inhibidores de HSP90, PLK1, Aurora, MPS1 y APC/C). Ninguno de los 162 inhibidores de esas dianas está aprobado.
 3. **Puntuación.** Seis criterios de 0 a 3, con pesos: vínculo mecanístico 25, seguridad pediátrica 20, evidencia 15, compatibilidad con el caso 15, innovación 15 y validación factible 10. Puntaje de 0 a 100. Se puntuaron 52 candidatos y se agregó uno a mano (niacina).
 4. **Verificación.** Cada afirmación sobre un fármaco se contrastó con el artículo original (PubMed) y con la ficha de la FDA. Esa revisión corrigió dos puntajes: sirolimus (un estudio asociaba, pero no había tratado, ratones con BubR1 alterada) y arimoclomol (la ficha indica que su mecanismo es desconocido y advierte de baja de peso y de efectos renales).
+5. **Farmacogenética.** Se identificaron en el VCF del paciente variantes en CYP2B6, CYP2C19, CYP3A4, CYP3A5 y ABCB1 mediante `scripts/farmacogenetica.py`; los fenotipos se asignaron según las guías CPIC y PharmGKB. Los genotipos completos quedan en `data/farmacogenetica/` (no versionado). GSTM1 no es evaluable desde un VCF de SNV.
 
 ### 2.5 Reproducibilidad
 [PENDIENTE · D2, D3] Comando único, versiones fijadas y tiempo de ejecución.
@@ -119,6 +120,8 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 [DECISIÓN DEL EQUIPO, 15 oct] Bortezomib es el candidato más cuestionable por su toxicidad y por frenar la salida de la mitosis; podría salir de la lista corta.
 
+**Formulación del inhibidor de mTORC1: oral vs. nanopartícula.** Se evaluó el **nab-sirolimus** (Fyarro, nanopartículas de albúmina IV), propuesto por el equipo porque se acumula en el tumor y permitiría bajar la exposición sistémica. En xenoinjertos alcanza concentraciones tumorales 6,2–68,1 veces mayores que los rapálogos orales (Hou 2019, resumen AACR), y tiene dosis máxima tolerada definida en niños (15 mg/m², fase 1 del COG; PMID 39487711). Se mantiene sin embargo el **sirolimus oral** para la línea 2, por dos razones: (1) nuestra hipótesis mecanística es un efecto **sistémico** (sarcopenia y restricción del crecimiento por mTORC1 hiperactivo), de modo que la concentración tumoral no aporta; y (2) la toxicidad limitante del nab-sirolimus es la **trombocitopenia**, que se suma a la mielosupresión del VAC a intensidad reducida. Para la línea 4 (tumor), **temsirolimus** sigue primero por tener evidencia específica en rabdomiosarcoma, mientras que el fase 1 pediátrico de nab-sirolimus no mostró respuestas en los 2 rabdomiosarcomas incluidos. Detalle en `04_candidatos.md` §7.2.1.
+
 #### Hipótesis innovadora: niacina (NAD⁺, SIRT2 y BubR1)
 
 *Nivel de evidencia: especulativo. Se incluye por su originalidad y porque se puede descartar rápido, no porque esté respaldada.*
@@ -138,6 +141,19 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 *Solo si la biopsia lo confirma.* Si el rabdomiosarcoma perdió la otra copia de *LZTR1* (pérdida de 22q11) o tiene la vía RAS activada (fosfo-ERK alto), un inhibidor de MEK aprobado en niños desde 1 año (**trametinib** o **selumetinib**, 65 puntos) combinado con **temsirolimus** tendría fundamento: la combinación MEK + PI3K/mTOR es letal para células de rabdomiosarcoma (PMID 23684925) y MEK + anti-IGF1R frena modelos con RAS mutado (PMID 36322002). Nunca en monoterapia: selumetinib solo no logró respuestas en niños (PMID 35363510). En PubMed hay un solo trabajo que une *LZTR1* con el rabdomiosarcoma.
 
 Quedan excluidos los inhibidores de HSP90, PLK1, Aurora y MPS1, que bajarían aún más la BUBR1 o debilitarían la mitosis.
+
+### 3.4 Farmacogenética
+
+*Fuente: `docs/secciones/05_farmacogenetica.md` · Tarea: C7 · Script: `scripts/farmacogenetica.py`*
+
+El paciente es **metabolizador intermedio de CYP2B6** (*1/*6 o similar) y de **CYP2C19** (*1/*2), lo que reduce levemente la activación de ciclofosfamida. Este resultado refuerza el argumento de usar dosis reducidas (protocolo Nishitani-Isa 2019, PMID 31184400). Para sirolimus, el fenotipo **CYP3A5 *3/*3** (no expresor) corresponde al perfil europeo estándar y no requiere ajuste de dosis inicial; se recomienda monitoreo de niveles (TDM) en las primeras dos semanas. Arimoclomol no tiene farmacogenética conocida; el riñón es el órgano centinela (la creatinina sérica sube 10–20 % por inhibición de OCT2, relevante en este paciente con nefrocalcinosis).
+
+| Gen | Fenotipo | Fármaco relevante | Recomendación |
+|-----|----------|-------------------|---------------|
+| CYP2B6 | Metabolizador intermedio | Ciclofosfamida | Dosis reducida; TDM si eficacia o toxicidad inesperada |
+| CYP2C19 | Metabolizador intermedio | Ciclofosfamida | Impacto menor; no accionable sin TDM |
+| CYP3A5 | No expresor (*3/*3) | Sirolimus | Dosis estándar; TDM primeras 2 semanas |
+| GSTM1 | No evaluable desde VCF de SNV | Ciclofosfamida | No se puede descartar GSTM1 nulo; requiere array o profundidad de lectura |
 
 ## 4. Discusión
 
@@ -184,6 +200,9 @@ Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_
 - Crose et al. 2022. *Cancer Res* 82:6056–67. PMID 36322002. *(vía RAS rabdomiosarcoma sin fusión)*
 - Elhossiny et al. 2023. *Mol Cancer Ther* 22:723–34. PMID 23684925. *(MEK + mTOR sinergia rabdomiosarcoma)*
 - Federico et al. 2022. *J Clin Oncol* 40:3622–31. PMID 35363510. *(selumetinib monoterapia sin respuestas en niños)*
+- Cramer et al. 2024. *Cancer Med* 13(21):e70376. PMID 39487711. *(ADVL1514: fase 1 COG de nab-sirolimus en tumores sólidos pediátricos; MTD 15 mg/m² en combinación, DLT trombocitopenia, 0/2 respuestas en rabdomiosarcoma alveolar)*
+- Hou et al. 2019. *Cancer Res* 79(13 Suppl):348. *(resumen AACR del laboratorio desarrollador: acumulación tumoral de nab-sirolimus en xenoinjertos; sin datos intratumorales en humanos)*
+- Nishitani-Isa et al. 2019. *Pediatr Int* 61:729–31. PMID 31184400. *(caso de MVA1 con rabdomiosarcoma tratado con VAC a intensidad reducida)*
 
 **Hallazgo secundario LZTR1**
 - Piotrowski et al. 2014. *Am J Hum Genet* 94:622–8. PMID 24362817. *(schwannomatosis LZTR1 dominante)*
