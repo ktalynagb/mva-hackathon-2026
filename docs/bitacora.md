@@ -10,6 +10,22 @@
 
 ---
 
+## 2026-10-21 (noche ter) — Tabla de uso de IA (E8): cuatro herramientas, lo verificable completado
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/E8-tabla-ia`
+
+Se informó que el equipo usó **cuatro** herramientas: Claude Code, Claude (aplicación), Gemini y Perplexity. Se completó la tabla de la sección 2.6 con todo lo que se pudo verificar en el repositorio, y se marcó explícitamente lo que no.
+
+**Verificado:**
+- **Gemini no recibió datos del paciente.** Revisado el cuaderno 06: usa `ChatGoogleGenerativeAI` vía LangChain (modelos `gemini-3.5-flash-lite` y `gemini-3.8-flash`) y el prompt pasa únicamente el nombre de la enfermedad, el gen *BUB1B* y los blancos terapéuticos. Ninguna variante, nada del VCF ni del documento clínico. Su salida fue un primer borrador descartado como lista final.
+- Detalle relevante para el formulario: Gemini se usó **por API**, no por la aplicación de consumidor. Importa porque el nivel gratuito y el pago de la API tienen políticas de datos distintas.
+- **Claude Code es la única herramienta que recibió información derivada del paciente**, y a nivel de variante (posición, alelos, lecturas); los archivos completos nunca salieron de la computadora local.
+- **De Perplexity no hay ningún rastro en el repositorio** (grep sobre todo el árbol: cero coincidencias). Tampoco de la aplicación de Claude.
+
+**No se completó, deliberadamente:** el plan o nivel de cada cuenta, el estado de la opción de entrenamiento, y para qué se usaron Perplexity y la app de Claude. Son **declaraciones de cumplimiento sobre manejo de datos del paciente**: inventarlas sería una afirmación falsa en un envío oficial. Quedan marcadas con ⚠ y con una nota que dice exactamente qué cuatro datos hace falta pedir y a quién.
+
+---
+
 ## 2026-10-21 (noche bis) — Corrección de la jefa: esquema continuo y la ciclofosfamida se queda
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C5-esquema-final`  

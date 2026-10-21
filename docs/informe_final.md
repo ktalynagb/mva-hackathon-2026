@@ -117,14 +117,19 @@ Importa porque la puntuación de los candidatos es el resultado central de la pr
 - Las APIs externas son servicios vivos: si una cambia su esquema de respuesta, el paso correspondiente puede fallar. El caché versionado localmente mitiga esto para quien ya corrió el pipeline una vez, pero no para una clonación nueva.
 
 ### 2.6 Uso de herramientas de IA
-El reto exige declarar **proveedor, plan o nivel y configuración de datos** de cada herramienta. [PENDIENTE · E8: cada persona completa su fila]
+
+El reto exige declarar **proveedor, plan o nivel y configuración de datos** de cada herramienta. Se usaron cuatro: Claude Code, Claude (aplicación), Gemini y Perplexity.
 
 | Herramienta | Proveedor | Plan o nivel | Configuración de datos (¿se usan para entrenar?) | Para qué se usó | ¿Recibió datos del paciente? | Quién |
 |---|---|---|---|---|---|---|
-| Claude Code (Sonnet y Opus) | Anthropic | Pro | Términos de consumidor; "Help improve Claude" desactivado (no se entrena con los chats) | Código de análisis, consultas a APIs, revisión de literatura, redacción de borradores | Sí, salidas a nivel de variante (posiciones, alelos, lecturas); los archivos de datos quedan en la computadora local | Ktalyna |
-| Claude Code | Anthropic | [completar] | [completar] | [completar] | [completar] | Laura |
-| Gemini (vía LangChain, cuaderno 06) | Google | [completar] | [completar] | Primer borrador de fármacos (descartado como lista final) | [completar] | [completar] |
-| [otra] | | | | | | |
+| **Claude Code** (Sonnet y Opus) | Anthropic | Pro | Términos de consumidor; "Help improve Claude" desactivado (no se entrena con los chats) | Código de análisis, consultas a APIs, revisión de literatura, redacción de borradores | **Sí**, salidas a nivel de variante (posiciones, alelos, lecturas). Los archivos de datos nunca salieron de la computadora local | Ktalyna |
+| **Gemini** 3.5-flash-lite y 3.8-flash, vía API con LangChain (cuaderno 06) | Google | ⚠ *confirmar si fue el nivel gratuito o pago de la API* | ⚠ *depende del nivel: el gratuito de la API puede usarse para mejorar el producto, el pago no* | Primer borrador de la lista de fármacos por blanco terapéutico. **Descartado como lista final**: la lista que se usa viene de `scripts/lista_larga_farmacos.py` (DGIdb y Open Targets) | **No.** Verificado en el cuaderno 06: el prompt pasa solo el nombre de la enfermedad, el gen *BUB1B* y los blancos terapéuticos. Ninguna variante, ningún dato del VCF ni del documento clínico | ⚠ *confirmar* |
+| **Claude** (aplicación) | Anthropic | ⚠ *confirmar* | ⚠ *confirmar el estado de "Help improve Claude"* | ⚠ *confirmar* | ⚠ *confirmar* | ⚠ *confirmar* |
+| **Perplexity** | Perplexity AI | ⚠ *confirmar* | ⚠ *confirmar* | ⚠ *confirmar* | ⚠ *confirmar* | ⚠ *confirmar* |
+
+> **Lo que falta y de quién depende.** Las celdas marcadas ⚠ son declaraciones de cumplimiento sobre manejo de datos: las completa la persona que usó la herramienta, no se infieren. Concretamente hacen falta cuatro datos por herramienta: **plan o nivel**, **si la cuenta tiene activada la opción de entrenar con los datos**, **para qué se usó** y **si recibió algún dato del paciente**. De Perplexity y de la aplicación de Claude no hay registro en el repositorio, así que todo su contenido depende de que lo informe quien las usó. El uso de Gemini sí está documentado en el cuaderno 06, de modo que solo falta el nivel de la API y quién la corrió.
+
+**Dato verificable y relevante:** la única herramienta que recibió información derivada del paciente fue **Claude Code**, y a nivel de variante (posición, alelos, lecturas), nunca los archivos completos. El VCF, las lecturas crudas y el documento clínico permanecieron siempre en la computadora local, según la convención de privacidad del equipo.
 
 Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria (PubMed, Drugs@FDA, gnomAD, UniProt). Las citas que no se pudieron verificar se retiraron (`02_marco_biologico.md`, sección 9).
 
