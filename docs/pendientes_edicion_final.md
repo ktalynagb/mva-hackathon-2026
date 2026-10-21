@@ -25,7 +25,7 @@ Archivo: `docs/report_track2_en.md` · PDF de revisión: `docs/report_track2_en_
 | 2 | ~~Gemini~~ **Resuelto por Ktalyna (PR #28): API nivel gratuito, sin datos del paciente.** Faltan los ajustes de datos de la app de Claude y de Perplexity | Methods I | Quien las usó |
 | 3 | ¿Lourdes es parte del equipo? (no está en la lista de 5) | — | Laura |
 | 4 | **Horas-persona** totales | Methods H | Equipo |
-| 5 | **Apellido de Lorena** (revisó los puntajes) | Methods F | Laura |
+| 5 | ~~Apellido de Lorena~~ **Resuelto: Lorena Ogas** | Methods F | — |
 | 6 | **Cita del dataset**: la referencia exacta que da la página de Synapse del reto (las reglas la exigen) | Referencia [1] | Copiarla de Synapse |
 
 ## Lo que hago yo cuando esté todo lleno

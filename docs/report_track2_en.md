@@ -107,7 +107,7 @@ The answers were combined to classify the effect (loss or gain of function), the
 
 Candidate identification was automated; scoring and selection were manual curation assisted by an AI tool (Section II-I), with every claim checked by the team against the primary source:
 
-1) *Scoring:* The team defined the six criteria and their 0–3 scales from a review of the literature and the challenge's evaluation criteria (Table II). The 55 candidates were then scored against those scales with the AI assistance declared in Section II-I, each score with a written justification and its sources (`results/candidatos_farmacos.tsv`), and the scores were reviewed by a team member (Lorena [surname]).
+1) *Scoring:* The team defined the six criteria and their 0–3 scales from a review of the literature and the challenge's evaluation criteria (Table II). The 55 candidates were then scored against those scales with the AI assistance declared in Section II-I, each score with a written justification and its sources (`results/candidatos_farmacos.tsv`), and the scores were reviewed by a team member (L. Ogas).
 
 2) *Verification:* Every statement about a drug was compared with the original article in PubMed and with its FDA label. This review corrected two scores: sirolimus, because the cited mouse study associated hyperactive mTORC1 with BubR1 deficiency but did not treat the mice; and arimoclomol, because its label states that its mechanism is unknown and warns of weight loss and renal effects.
 
