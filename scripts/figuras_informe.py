@@ -7,8 +7,12 @@ de las cuatro lineas terapeuticas.
 
 Estilo: docs/informe_final.md (guia de estilo). Paleta Okabe-Ito validada
 para daltonismo: alelo 1 bermellon, alelo 2 azul, farmacos verde.
-Uso: python scripts/figuras_informe.py
+Idiomas: "es" (informe en espanol, results/) y "en" (informe IEEE, results/en/);
+el contenido es el mismo, solo cambia el texto.
+Uso: python scripts/figuras_informe.py            # espanol
+     python scripts/figuras_informe.py --idioma en
 """
+import argparse
 from pathlib import Path
 
 import matplotlib
@@ -41,38 +45,99 @@ plt.rcParams.update({
 
 LONGITUD = 1050
 # UniProt O60566 y Zhang 2026 (docs/secciones/02_marco_biologico.md, seccion 2)
-DOMINIOS = [("TPR", 59, 219), ("Pseudoquinasa", 766, 1050)]
+DOMINIOS = [("TPR", 59, 219), ("pseudoquinasa", 766, 1050)]
 MOTIVOS = [("KEN1", 26, 28), ("D1", 224, 232), ("KEN2", 304, 306), ("GLEBS", 408, 418),
-           ("Unión\nBUB1", 440, 460), ("D2", 555, 563), ("KARD", 669, 674)]
+           ("union_bub1", 440, 460), ("D2", 555, 563), ("KARD", 669, 674)]
 # Suijkerbuijk 2010 (PMID 20516114): fila = clase
 LITERATURA = {
-    "Missense: BUBR1\nreducida": [("R727C", 727), ("R814H", 814), ("L844F", 844), ("I909T", 909), ("L1012P", 1012)],
-    "Missense: nivel\nnormal": [("Y155C", 155), ("R550Q", 550), ("Q921H", 921)],
-    "Truncantes": [("194X", 194), ("386X", 386), ("731X", 731), ("753X", 753)],
+    "reducida": [("R727C", 727), ("R814H", 814), ("L844F", 844), ("I909T", 909), ("L1012P", 1012)],
+    "normal": [("Y155C", 155), ("R550Q", 550), ("Q921H", 921)],
+    "truncantes": [("194X", 194), ("386X", 386), ("731X", 731), ("753X", 753)],
+}
+
+# Textos de las figuras por idioma. Las claves que no estan aqui (TPR, KEN1...) se dibujan tal cual.
+TEXTOS = {
+    "es": {
+        "pseudoquinasa": "Pseudoquinasa", "union_bub1": "Unión\nBUB1",
+        "reducida": "Missense: BUBR1\nreducida", "normal": "Missense: nivel\nnormal", "truncantes": "Truncantes",
+        "alelo1_detalle": "alelo 1 · parada prematura\nNMD predicho → sin proteína",
+        "alelo2_detalle": "alelo 2 · missense\nΔΔG +1,5 kcal/mol (inestable)",
+        "lit_titulo": "Variantes de MVA\nestudiadas en células\n(Suijkerbuijk 2010)", "paciente": "Paciente",
+        "ley_trunc": "truncante", "ley_red": "missense, BUBR1 reducida", "ley_norm": "missense, nivel normal",
+        "titulo_1": "BUBR1 (1050 aa): variantes del paciente y variantes de MVA caracterizadas",
+        "archivo_1": "figura_1_bubr1_variantes.png",
+        "alelo1": "p.Leu737Ter\n(alelo 1)", "alelo2": "p.Asn1002Lys\n(alelo 2)",
+        "nmd": "ARNm degradado (NMD)\nno hay proteína", "plegado": "Pseudoquinasa mal plegada\nse degrada antes",
+        "nmd_nota": "predicho (regla 50–55 nt)", "plegado_nota": "ΔΔG +1,5 · precedente en células",
+        "poca": "Poca BUBR1", "checkpoint": "Checkpoint mitótico\ndébil (MCC insuficiente)",
+        "errores": "Errores al repartir\nlos cromosomas", "aneuploidia": "Aneuploidía en mosaico",
+        "senescencia": "Senescencia celular\nmTORC1 hiperactivo (ratón)", "inestabilidad": "Inestabilidad\ncromosómica",
+        "crecimiento": "Retraso del crecimiento · talla baja\nfalla de medro · atrofia muscular",
+        "rms": "Rabdomiosarcoma",
+        "linea1": "Subir la cantidad de BUBR1\n(arimoclomol, fenilbutirato)",
+        "linea2": "Frenar mTORC1\n(sirolimus, everolimus)", "linea3": "Senolíticos\n(dasatinib)",
+        "linea4": "Tratar el tumor sin empeorar\nla aneuploidía (temsirolimus)",
+        "hsp90": "✗ Inhibir HSP90 la baja aún más", "antimit": "⚠ Antimitóticos (vincristina):\nrespuesta alterada",
+        "ley_mec": "mecanismo", "ley_linea": "punto de acción de una línea terapéutica",
+        "titulo_2": "Del genotipo al fenotipo, y dónde podría actuar cada línea terapéutica",
+        "archivo_2": "figura_2_via_mecanismo.png",
+    },
+    "en": {
+        "pseudoquinasa": "Pseudokinase", "union_bub1": "BUB1\nbinding",
+        "reducida": "Missense: reduced\nBUBR1", "normal": "Missense: normal\nlevel", "truncantes": "Truncating",
+        "alelo1_detalle": "allele 1 · premature stop\npredicted NMD → no protein",
+        "alelo2_detalle": "allele 2 · missense\nΔΔG +1.5 kcal/mol (unstable)",
+        "lit_titulo": "MVA variants\nstudied in cells\n(Suijkerbuijk 2010)", "paciente": "Patient",
+        "ley_trunc": "truncating", "ley_red": "missense, reduced BUBR1", "ley_norm": "missense, normal level",
+        "titulo_1": "BUBR1 (1050 aa): the patient's variants and characterized MVA variants",
+        "archivo_1": "fig_bubr1_variants.png",
+        "alelo1": "p.Leu737Ter\n(allele 1)", "alelo2": "p.Asn1002Lys\n(allele 2)",
+        "nmd": "mRNA degraded (NMD)\nno protein", "plegado": "Misfolded pseudokinase\ndegraded faster",
+        "nmd_nota": "predicted (50–55 nt rule)", "plegado_nota": "ΔΔG +1.5 · precedent in cells",
+        "poca": "Low BUBR1", "checkpoint": "Weak mitotic checkpoint\n(insufficient MCC)",
+        "errores": "Chromosome\nmissegregation", "aneuploidia": "Mosaic aneuploidy",
+        "senescencia": "Cellular senescence\nhigh mTORC1 (mouse)", "inestabilidad": "Chromosomal\ninstability",
+        "crecimiento": "Growth restriction · short stature\nfailure to thrive · muscle atrophy",
+        "rms": "Rhabdomyosarcoma",
+        "linea1": "Raise BUBR1 levels\n(arimoclomol, phenylbutyrate)",
+        "linea2": "Dampen mTORC1\n(sirolimus, everolimus)", "linea3": "Senolytics\n(dasatinib)",
+        "linea4": "Treat the tumor without\nworsening aneuploidy (temsirolimus)",
+        "hsp90": "✗ HSP90 inhibition lowers it further", "antimit": "⚠ Antimitotics (vincristine):\naltered response",
+        "ley_mec": "mechanism", "ley_linea": "action point of a therapeutic strategy",
+        "titulo_2": "From genotype to phenotype, and where each therapeutic strategy could act",
+        "archivo_2": "fig_mechanism_pathway.png",
+    },
 }
 
 
-def figura_1():
+def carpeta_salida(idioma):
+    carpeta = SALIDA if idioma == "es" else SALIDA / idioma
+    carpeta.mkdir(parents=True, exist_ok=True)
+    return carpeta
+
+
+def figura_1(idioma="es"):
+    t = TEXTOS[idioma]
     fig, ax = plt.subplots(figsize=(7.2, 4.2))
     y_prot = 0.0
 
     ax.add_patch(Rectangle((1, y_prot - 0.07), LONGITUD - 1, 0.14, color=GRIS_DOMINIO, lw=0))
     for nombre, ini, fin in DOMINIOS:
         ax.add_patch(Rectangle((ini, y_prot - 0.28), fin - ini, 0.56, fc=GRIS_DOMINIO, ec="white", lw=1.5))
-        ax.text((ini + fin) / 2, y_prot, nombre, ha="center", va="center", fontsize=8.5, color=TINTA)
+        ax.text((ini + fin) / 2, y_prot, t.get(nombre, nombre), ha="center", va="center", fontsize=8.5, color=TINTA)
     for i, (nombre, ini, fin) in enumerate(MOTIVOS):
         ancho = max(fin - ini, 6)
         ax.add_patch(Rectangle(((ini + fin) / 2 - ancho / 2, y_prot - 0.2), ancho, 0.4, fc=GRIS_MOTIVO, ec="white", lw=1))
         y_txt = y_prot - 0.42 - (0.32 if i % 2 else 0)
-        ax.text((ini + fin) / 2, y_txt, nombre, ha="center", va="top", fontsize=6.5, color=TINTA_2, linespacing=0.9)
+        ax.text((ini + fin) / 2, y_txt, t.get(nombre, nombre), ha="center", va="top", fontsize=6.5, color=TINTA_2, linespacing=0.9)
 
     for x in (1, 1050):
         ax.text(x, y_prot + 0.36, str(x), ha="center", va="bottom", fontsize=6.5, color=TINTA_2)
 
     # El alelo 1 se rotula a la izquierda y el 2 a la derecha para que los textos no se crucen
     pacientes = [
-        (737, ALELO1, "s", "p.Leu737Ter", "alelo 1 · parada prematura\nNMD predicho → sin proteína", "right"),
-        (1002, ALELO2, "o", "p.Asn1002Lys", "alelo 2 · missense\nΔΔG +1,5 kcal/mol (inestable)", "left"),
+        (737, ALELO1, "s", "p.Leu737Ter", t["alelo1_detalle"], "right"),
+        (1002, ALELO2, "o", "p.Asn1002Lys", t["alelo2_detalle"], "left"),
     ]
     for x, color, marca, nombre, detalle, lado in pacientes:
         ax.plot([x, x], [y_prot + 0.3, 1.85], color=color, lw=2, solid_capstyle="round", zorder=3)
@@ -86,11 +151,11 @@ def figura_1():
     for clase, variantes in LITERATURA.items():
         y = filas_y[clase]
         ax.plot([1, LONGITUD], [y, y], color="#E3E3E3", lw=0.8, zorder=0)
-        ax.text(-18, y, clase, ha="right", va="center", fontsize=7, color=TINTA_2, linespacing=1.0)
+        ax.text(-18, y, t[clase], ha="right", va="center", fontsize=7, color=TINTA_2, linespacing=1.0)
         for i, (nombre, x) in enumerate(variantes):
-            if clase.startswith("Truncantes"):
+            if clase == "truncantes":
                 ax.plot(x, y, marker="s", ms=6, color=GRIS_LIT, mec="white", mew=1, zorder=3)
-            elif "reducida" in clase:
+            elif clase == "reducida":
                 ax.plot(x, y, marker="o", ms=6.5, color=GRIS_LIT, mec="white", mew=1, zorder=3)
             else:
                 ax.plot(x, y, marker="o", ms=6.5, mfc="white", mec=GRIS_LIT, mew=1.4, zorder=3)
@@ -98,14 +163,14 @@ def figura_1():
             ax.text(x, y + (0.17 if arriba else -0.17), nombre, ha="center",
                     va="bottom" if arriba else "top", fontsize=6.5, color=TINTA_2)
 
-    ax.text(-18, -0.98, "Variantes de MVA\nestudiadas en células\n(Suijkerbuijk 2010)", ha="right", va="center",
+    ax.text(-18, -0.98, t["lit_titulo"], ha="right", va="center",
             fontsize=7, color=TINTA, fontweight="bold", linespacing=1.0)
-    ax.text(-18, 1.85, "Paciente", ha="right", va="center", fontsize=8, color=TINTA, fontweight="bold")
+    ax.text(-18, 1.85, t["paciente"], ha="right", va="center", fontsize=8, color=TINTA, fontweight="bold")
 
     leyenda = [
-        Line2D([], [], marker="s", ls="", color=GRIS_LIT, mec="white", ms=6, label="truncante"),
-        Line2D([], [], marker="o", ls="", color=GRIS_LIT, mec="white", ms=6.5, label="missense, BUBR1 reducida"),
-        Line2D([], [], marker="o", ls="", mfc="white", mec=GRIS_LIT, mew=1.4, ms=6.5, label="missense, nivel normal"),
+        Line2D([], [], marker="s", ls="", color=GRIS_LIT, mec="white", ms=6, label=t["ley_trunc"]),
+        Line2D([], [], marker="o", ls="", color=GRIS_LIT, mec="white", ms=6.5, label=t["ley_red"]),
+        Line2D([], [], marker="o", ls="", mfc="white", mec=GRIS_LIT, mew=1.4, ms=6.5, label=t["ley_norm"]),
     ]
     ax.legend(handles=leyenda, loc="lower right", bbox_to_anchor=(1.0, -0.02), frameon=False, fontsize=6.5,
               ncol=3, handletextpad=0.3, columnspacing=1.0)
@@ -113,10 +178,9 @@ def figura_1():
     ax.set_xlim(-250, 1290)
     ax.set_ylim(-4.0, 3.1)
     ax.axis("off")
-    ax.set_title("BUBR1 (1050 aa): variantes del paciente y variantes de MVA caracterizadas",
-                 fontsize=10, loc="left", x=0.0, color=TINTA, pad=2)
+    ax.set_title(t["titulo_1"], fontsize=10, loc="left", x=0.0, color=TINTA, pad=2)
     fig.tight_layout()
-    ruta = SALIDA / "figura_1_bubr1_variantes.png"
+    ruta = carpeta_salida(idioma) / t["archivo_1"]
     fig.savefig(ruta, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     return ruta
@@ -133,41 +197,41 @@ def flecha(ax, a, b, color=TINTA_2, estilo="-|>", ls="-", lw=1.2, rad=0.0):
                                  connectionstyle=f"arc3,rad={rad}", shrinkA=2, shrinkB=2, zorder=1))
 
 
-def figura_2():
+def figura_2(idioma="es"):
+    t = TEXTOS[idioma]
     fig, ax = plt.subplots(figsize=(7.2, 5.2))
     ax.set_xlim(0, 12)
     ax.set_ylim(-0.95, 7.9)
     ax.axis("off")
 
     # Variantes
-    caja(ax, 1.25, 6.7, "p.Leu737Ter\n(alelo 1)", ancho=1.9, borde=ALELO1, lw=2, peso="bold")
-    caja(ax, 1.25, 5.3, "p.Asn1002Lys\n(alelo 2)", ancho=1.9, borde=ALELO2, lw=2, peso="bold")
-    caja(ax, 3.85, 6.7, "ARNm degradado (NMD)\nno hay proteína", ancho=2.4)
-    caja(ax, 3.85, 5.3, "Pseudoquinasa mal plegada\nse degrada antes", ancho=2.4)
+    caja(ax, 1.25, 6.7, t["alelo1"], ancho=1.9, borde=ALELO1, lw=2, peso="bold")
+    caja(ax, 1.25, 5.3, t["alelo2"], ancho=1.9, borde=ALELO2, lw=2, peso="bold")
+    caja(ax, 3.85, 6.7, t["nmd"], ancho=2.4)
+    caja(ax, 3.85, 5.3, t["plegado"], ancho=2.4)
     flecha(ax, (2.2, 6.7), (2.65, 6.7), color=ALELO1, lw=1.6)
     flecha(ax, (2.2, 5.3), (2.65, 5.3), color=ALELO2, lw=1.6)
-    ax.text(3.85, 6.28, "predicho (regla 50–55 nt)", ha="center", va="top", fontsize=6.5, style="italic", color=TINTA_2)
-    ax.text(3.85, 4.88, "ΔΔG +1,5 · precedente en células", ha="center", va="top", fontsize=6.5, style="italic", color=TINTA_2)
+    ax.text(3.85, 6.28, t["nmd_nota"], ha="center", va="top", fontsize=6.5, style="italic", color=TINTA_2)
+    ax.text(3.85, 4.88, t["plegado_nota"], ha="center", va="top", fontsize=6.5, style="italic", color=TINTA_2)
 
     # Cadena central
-    caja(ax, 6.85, 6.0, "Poca BUBR1", ancho=1.9, peso="bold", tam=9)
+    caja(ax, 6.85, 6.0, t["poca"], ancho=1.9, peso="bold", tam=9)
     flecha(ax, (5.05, 6.6), (5.9, 6.15))
     flecha(ax, (5.05, 5.4), (5.9, 5.85))
-    caja(ax, 9.6, 6.0, "Checkpoint mitótico\ndébil (MCC insuficiente)", ancho=2.5)
+    caja(ax, 9.6, 6.0, t["checkpoint"], ancho=2.5)
     flecha(ax, (7.8, 6.0), (8.35, 6.0))
-    caja(ax, 9.6, 4.6, "Errores al repartir\nlos cromosomas", ancho=2.5)
+    caja(ax, 9.6, 4.6, t["errores"], ancho=2.5)
     flecha(ax, (9.6, 5.69), (9.6, 4.91))
-    caja(ax, 9.6, 3.2, "Aneuploidía en mosaico", ancho=2.5, peso="bold")
+    caja(ax, 9.6, 3.2, t["aneuploidia"], ancho=2.5, peso="bold")
     flecha(ax, (9.6, 4.29), (9.6, 3.51))
 
     # Ramas al fenotipo
-    caja(ax, 6.0, 1.75, "Senescencia celular\nmTORC1 hiperactivo (ratón)", ancho=2.6)
-    caja(ax, 10.3, 1.75, "Inestabilidad\ncromosómica", ancho=2.2)
+    caja(ax, 6.0, 1.75, t["senescencia"], ancho=2.6)
+    caja(ax, 10.3, 1.75, t["inestabilidad"], ancho=2.2)
     flecha(ax, (8.9, 2.89), (6.6, 2.06), rad=-0.1)
     flecha(ax, (10.0, 2.89), (10.3, 2.06))
-    caja(ax, 6.0, 0.55, "Retraso del crecimiento · talla baja\nfalla de medro · atrofia muscular",
-         ancho=3.3, fondo="white", borde=TINTA)
-    caja(ax, 10.3, 0.55, "Rabdomiosarcoma", ancho=2.2, fondo="white", borde=TINTA, peso="bold")
+    caja(ax, 6.0, 0.55, t["crecimiento"], ancho=3.3, fondo="white", borde=TINTA)
+    caja(ax, 10.3, 0.55, t["rms"], ancho=2.2, fondo="white", borde=TINTA, peso="bold")
     flecha(ax, (6.0, 1.44), (6.0, 0.86))
     flecha(ax, (10.3, 1.44), (10.3, 0.86))
 
@@ -177,33 +241,34 @@ def figura_2():
                 bbox=dict(boxstyle="round,pad=0.25,rounding_size=0.15", fc="white", ec=FARMACO, lw=1.3), zorder=4)
         flecha(ax, desde, hasta, color=FARMACO, ls=(0, (3, 2)), lw=1.4, rad=rad)
 
-    linea("1", "Subir la cantidad de BUBR1\n(arimoclomol, fenilbutirato)", (6.85, 7.35), (6.85, 6.33))
-    linea("2", "Frenar mTORC1\n(sirolimus, everolimus)", (2.3, 1.75), (4.68, 1.75))
-    linea("3", "Senolíticos\n(dasatinib)", (2.3, 2.95), (5.0, 2.08), rad=-0.15)
-    linea("4", "Tratar el tumor sin empeorar\nla aneuploidía (temsirolimus)", (10.3, -0.6), (10.3, 0.22))
+    linea("1", t["linea1"], (6.85, 7.35), (6.85, 6.33))
+    linea("2", t["linea2"], (2.3, 1.75), (4.68, 1.75))
+    linea("3", t["linea3"], (2.3, 2.95), (5.0, 2.08), rad=-0.15)
+    linea("4", t["linea4"], (10.3, -0.6), (10.3, 0.22))
 
     # Advertencias
-    ax.text(3.85, 4.35, "✗ Inhibir HSP90 la baja aún más", ha="center", va="center", fontsize=7, color=TINTA,
+    ax.text(3.85, 4.35, t["hsp90"], ha="center", va="center", fontsize=7, color=TINTA,
             fontweight="bold", bbox=dict(boxstyle="round,pad=0.2", fc="white", ec=TINTA_2, lw=0.8, ls="--"))
-    ax.text(10.75, 7.15, "⚠ Antimitóticos (vincristina):\nrespuesta alterada", ha="center", va="center", fontsize=7,
+    ax.text(10.75, 7.15, t["antimit"], ha="center", va="center", fontsize=7,
             color=TINTA, fontweight="bold", linespacing=1.1,
             bbox=dict(boxstyle="round,pad=0.2", fc="white", ec=TINTA_2, lw=0.8, ls="--"))
 
     leyenda = [
-        Line2D([], [], color=TINTA_2, lw=1.2, label="mecanismo"),
-        Line2D([], [], color=FARMACO, lw=1.4, ls=(0, (3, 2)), label="punto de acción de una línea terapéutica"),
+        Line2D([], [], color=TINTA_2, lw=1.2, label=t["ley_mec"]),
+        Line2D([], [], color=FARMACO, lw=1.4, ls=(0, (3, 2)), label=t["ley_linea"]),
     ]
     ax.legend(handles=leyenda, loc="lower left", bbox_to_anchor=(0.0, 0.0), frameon=False, fontsize=7)
-    ax.set_title("Del genotipo al fenotipo, y dónde podría actuar cada línea terapéutica",
-                 fontsize=10, loc="left", color=TINTA, pad=2)
+    ax.set_title(t["titulo_2"], fontsize=10, loc="left", color=TINTA, pad=2)
     fig.tight_layout()
-    ruta = SALIDA / "figura_2_via_mecanismo.png"
+    ruta = carpeta_salida(idioma) / t["archivo_2"]
     fig.savefig(ruta, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     return ruta
 
 
 if __name__ == "__main__":
-    SALIDA.mkdir(exist_ok=True)
-    for f in (figura_1(), figura_2()):
+    ap = argparse.ArgumentParser(description="Figuras 1 y 2 del informe")
+    ap.add_argument("--idioma", choices=sorted(TEXTOS), default="es")
+    idioma = ap.parse_args().idioma
+    for f in (figura_1(idioma), figura_2(idioma)):
         print("Guardada", f.relative_to(RAIZ))
