@@ -22,7 +22,7 @@ Archivo: `docs/report_track2_en.md` · PDF de revisión: `docs/report_track2_en_
 | # | Qué | Dónde | Quién |
 |---|---|---|---|
 | 1 | **Tu línea de IA**: configuración de datos, con la fecha en que se apagó "Help improve Claude"; confirmar que nunca se dieron pulgares | Methods I (busca `TO COMPLETE BY LAURA`) | Laura, a mano |
-| 2 | Plan y configuración de **Gemini**, y quién lo usó | Methods I | Preguntar a Lourdes Aybar (subió el notebook 06) |
+| 2 | ~~Gemini~~ **Resuelto por Ktalyna (PR #28): API nivel gratuito, sin datos del paciente.** Faltan los ajustes de datos de la app de Claude y de Perplexity | Methods I | Quien las usó |
 | 3 | ¿Lourdes es parte del equipo? (no está en la lista de 5) | — | Laura |
 | 4 | **Horas-persona** totales | Methods H | Equipo |
 | 5 | **Apellido de Lorena** (revisó los puntajes) | Methods F | Laura |
