@@ -26,6 +26,12 @@ CONFIG = RAIZ / "config" / "lineas_terapeuticas.json"
 CACHE = RAIZ / "results" / "cache" / "c3"
 SALIDA = RAIZ / "results" / "candidatos_farmacos.tsv"
 
+# C4 puntuo editando SALIDA a mano, asi que estas columnas no las produce este script.
+# Al regenerar hay que devolverlas o se borra la puntuacion que sostiene la lista corta
+# del informe (sirolimus 71,7, temsirolimus 70,0, ...). Ver preservar_curacion().
+COLUMNAS_MANUALES = ["f3", "f4", "k1", "k2", "k3", "k4", "k5", "k6",
+                     "puntaje", "fuentes", "quien_puntua", "notas"]
+
 DGIDB = "https://dgidb.org/api/graphql"
 OT = "https://api.platform.opentargets.org/api/v4/graphql"
 OPENFDA = "https://api.fda.gov/drug/drugsfda.json"
@@ -179,6 +185,38 @@ def tabla_ema():
 
 
 # ── Construccion de la lista ──────────────────────────────────────────────────
+def preservar_curacion(df):
+    """Devuelve a df la curacion manual de C4 que vive en el TSV ya versionado.
+
+    Sin esto, cada corrida del pipeline deja las columnas de puntaje vacias y borra
+    tambien las filas que se agregaron a mano y que ninguna fuente produce (niacina).
+    Para cada columna manual gana el valor guardado si no esta vacio; lo nuevo solo
+    rellena huecos. Consecuencia aceptada: una nota automatica nueva no reemplaza a
+    la nota ya curada de ese farmaco.
+    """
+    if not SALIDA.exists():
+        return df
+    viejo = pd.read_csv(SALIDA, sep="\t", dtype=str).fillna("")
+    if "farmaco" not in viejo.columns:
+        return df
+    viejo = viejo.drop_duplicates(subset="farmaco", keep="last")
+    guardado = viejo.set_index("farmaco")
+    for col in COLUMNAS_MANUALES:
+        if col in guardado.columns:
+            previo = df["farmaco"].map(guardado[col]).fillna("")
+            df[col] = previo.where(previo != "", df.get(col, ""))
+
+    curadas_a_mano = viejo[~viejo["farmaco"].isin(df["farmaco"])]
+    if len(curadas_a_mano):
+        print(f"  conservadas {len(curadas_a_mano)} filas curadas a mano: "
+              f"{', '.join(sorted(curadas_a_mano['farmaco']))}", file=sys.stderr)
+        df = pd.concat([df, curadas_a_mano.reindex(columns=df.columns).fillna("")],
+                       ignore_index=True)
+    con_puntaje = (df["puntaje"].fillna("") != "").sum()
+    print(f"  curacion de C4 preservada: {con_puntaje} filas con puntaje", file=sys.stderr)
+    return df
+
+
 def main():
     global USAR_CACHE
     ap = argparse.ArgumentParser()
@@ -282,7 +320,7 @@ def main():
         })
     print(file=sys.stderr)
 
-    df = pd.DataFrame(filas)
+    df = preservar_curacion(pd.DataFrame(filas))
     df["_orden"] = (df["excluido_por"] != "").astype(int) * 2 + (df["categoria"] != "candidato").astype(int)
     df = df.sort_values(["_orden", "linea", "farmaco"]).drop(columns="_orden")
     SALIDA.parent.mkdir(parents=True, exist_ok=True)
