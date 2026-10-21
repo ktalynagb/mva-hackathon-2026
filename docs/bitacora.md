@@ -10,6 +10,29 @@
 
 ---
 
+## 2026-10-21 (noche bis) — Corrección de la jefa: esquema continuo y la ciclofosfamida se queda
+
+**Quién:** Ktalyna (con Claude Code) · rama `tarea/C5-esquema-final`  
+**Disparador:** la jefa planteó: "por eso dejábamos ciclofosfamida, y hacíamos un tratamiento continuo con sirolimus oral, arimoclomol y niacinamida".
+
+**Se adopta el encuadre, que es mejor que el anterior.** La propuesta ahora separa explícitamente dos tratamientos con objetivos distintos:
+- **Oncología estándar:** el rabdomiosarcoma lo trata el **VAC a intensidad reducida**, con ciclofosfamida. No es reposicionamiento ni necesita serlo.
+- **Reposicionamiento (nuestro aporte):** esquema **continuo** de sirolimus oral + arimoclomol + niacina, dirigido a la enfermedad de fondo, que es lo que hoy no trata nadie.
+
+**Consecuencia: el rapálogo pasa a ser sirolimus oral, no temsirolimus.** Como el tumor ya está cubierto por la quimioterapia, el rapálogo no necesita efecto antitumoral propio, y conviene el que sirve para tratamiento prolongado: oral, el más barato, con dosificación pediátrica establecida y TDM de rutina, y el de mejor puntaje de la lista (71,7). Esto invierte la decisión que habíamos cerrado horas antes a favor de temsirolimus; el criterio que cambia es quién trata el tumor. Temsirolimus queda documentado como la opción en recaída o si se busca sumar efecto antitumoral propio, y dasatinib como senolítico para después de la quimioterapia.
+
+**Se corrigió la sección 8.1,** que decía "por qué la ciclofosfamida no va como candidata" y podía leerse como que no se usaba. Ahora dice lo correcto: la ciclofosfamida **trata el tumor y se mantiene**; lo que no corresponde es presentarla como propuesta de reposicionamiento, porque tratar un rabdomiosarcoma es exactamente su indicación aprobada.
+
+**Punto técnico que NO se adoptó, con fundamento: niacinamida → se mantiene niacina.** La jefa dijo "niacinamida". Son distintas y para esta hipótesis son opuestas:
+- La **nicotinamida (niacinamida)** es el **producto** de la reacción de las sirtuinas y su **inhibidor por retroalimentación**: inhibe de forma no competitiva a Sir2 y SIRT1 *in vitro* (IC50 SIRT1 ≈ 50–180 µM). En el mismo trabajo, el **ácido nicotínico (niacina) no tuvo efecto** sobre SIRT1 (Bitterman 2002, *J Biol Chem* 277(47):45099–107, PMID 12297502).
+- Toda nuestra hipótesis depende de que **SIRT2 esté activa** para mantener BubR1 sin acetilar en K668. Dar el inhibidor propio de la enzima es ambiguo: en células la nicotinamida se convierte rápido en NAD⁺ y podría estimular (Hwang 2017, *Cell Mol Life Sci* 74(18):3347–62, PMID 28417163), pero esa indefinición es el problema.
+- **Tampoco pasa F1:** la nicotinamida solo figura en multivitamínicos inyectables, no como fármaco aprobado por sí misma. La niacina sí (Niacor, ANDA040378).
+- Probablemente sea un uso indistinto de los nombres (las dos son vitamina B3). Queda documentado en la ficha 2.6 y en la conclusión del informe para que el equipo decida con los datos.
+
+Actualizados el Resumen, la Discusión, las secciones 8.1 y 8.4, la decisión 1 de la sección 4 y las referencias.
+
+---
+
 ## 2026-10-21 (noche) — Cerrada la decisión sirolimus vs. temsirolimus: el esquema queda en 3 fármacos
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C5-esquema-final`
