@@ -2,6 +2,12 @@
 
 **MVA Hackathon 2026 · Deadline: 24 de octubre de 2026, 23:59 UTC**
 
+> ⚠️ **Documento histórico: el plan original por fases, escrito al arrancar el proyecto.** Los estados ⬜ de abajo reflejan cómo estaban las cosas entonces y no se fueron actualizando, porque el seguimiento pasó al tablero por tareas.
+>
+> **Para el estado real, ver el [plan de equipo por tareas](plan_equipo_tareas.md)** (y la [bitácora](bitacora.md) para el detalle diario). Al 23 de octubre de 2026 las cinco fases están completas: variante identificada, mecanismo caracterizado, fármacos priorizados, pipeline reproducible e informe, formulario y video terminados. Lo único que falta es el envío.
+>
+> Se conserva porque muestra cómo se planificó el trabajo al principio y cuánto se desvió de eso.
+
 > Quién hace qué está en el **[plan de equipo por tareas](plan_equipo_tareas.md)**. La columna *Tarea* de las tablas de abajo remite a los IDs de ese tablero (A1, B2…).
 
 ---

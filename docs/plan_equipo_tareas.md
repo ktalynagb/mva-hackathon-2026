@@ -41,9 +41,9 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 | Semana | Fechas | Pregunta que respondemos | Áreas activas | Estado |
 |---|---|---|---|---|
 | **1** | 1 – 7 oct | ¿Qué variante causa el MVA? | A | ✅ Respondida (1 oct) |
-| **2** | 8 – 14 oct | ¿Qué le hace esa variante a la proteína, a la célula y al paciente? | B, C (inicio), D, E | 🔄 En curso |
-| **3** | 15 – 21 oct | ¿Qué fármacos aprobados actúan sobre ese mecanismo? | C, E | ⬜ |
-| **4** | 22 – 24 oct | ¿Está todo reproducible, grabado y enviado? | D, E | ⬜ |
+| **2** | 8 – 14 oct | ¿Qué le hace esa variante a la proteína, a la célula y al paciente? | B, C (inicio), D, E | ✅ Respondida: pérdida de función por falta de cantidad de BUBR1 |
+| **3** | 15 – 21 oct | ¿Qué fármacos aprobados actúan sobre ese mecanismo? | C, E | ✅ Respondida: sirolimus oral + arimoclomol + niacina, continuo; la ciclofosfamida del VAC trata el tumor |
+| **4** | 22 – 24 oct | ¿Está todo reproducible, grabado y enviado? | D, E | 🔄 Reproducible y grabado; falta el envío |
 
 | Hito | Fecha | Qué debe existir | Tarea | Estado |
 |---|---|---|---|---|
@@ -51,9 +51,9 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 | **H2** | lun 12 oct | Resumen de mecanismo de 1 página | B4 | 👀 PR #6 |
 | **H3** | mié 14 oct | Mecanismo completo + figura de la vía | B5 | 👀 figura lista (8 oct) |
 | **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos con ficha | C5 | 👀 borrador 8 oct |
-| **H5** | mié 21 oct | Borrador completo del informe | E5 | ⬜ |
-| **H6** | vie 23 oct, 12:00 UTC | Código congelado + tag `v1.0-entrega` | D6 | ⬜ |
-| **H7** | sáb 24 oct, 18:00 UTC | Entrega enviada | E7 | ⬜ |
+| **H5** | mié 21 oct | Borrador completo del informe | E5 | ✅ informe en inglés terminado y exportado a PDF (11 pág. IEEE) |
+| **H6** | vie 23 oct, 12:00 UTC | Código congelado + tag `v1.0-entrega` | D6 | 🔄 corrida limpia de los 8 pasos verificada (6 min 11 s, reproduce todos los números); **falta crear el tag** |
+| **H7** | sáb 24 oct, 18:00 UTC | Entrega enviada | E7 | 🔄 todo listo en `envios/track2/`; envía Laura |
 
 ---
 
