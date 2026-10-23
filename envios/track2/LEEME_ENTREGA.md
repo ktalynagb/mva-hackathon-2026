@@ -2,7 +2,7 @@
 
 Equipo **A3 EMBS ITBA** · fecha límite **24 de octubre de 2026, 18:00 UTC**
 
-El reto acepta **un solo envío por equipo** y el panel revisa **solo el de la persona designada**. Antes de enviar, confirmar en el canal del equipo quién lo hace.
+**Envía Laura Vargas** (decidido el 23 de octubre). El reto acepta un solo envío por equipo y el panel revisa solo el de la persona designada, así que nadie más debe enviar.
 
 ## Los cuatro entregables
 

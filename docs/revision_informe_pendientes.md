@@ -24,7 +24,7 @@ Revisión de `docs/informe_final.md` con los cambios de Ktalyna hasta el PR #26 
 | A2 | 2.6 Uso de IA | **Fila de Laura**: plan, configuración de datos, para qué se usó y si recibió datos del paciente. La escribe Laura, con la fecha en que apagó "Help improve Claude" | Laura |
 | A3 | 2.6 Uso de IA | **Fila de Gemini**: plan, configuración, si recibió datos del paciente y quién lo usó | Quien hizo el cuaderno 06 |
 | A4 | 2.6 Uso de IA | Fila `[otra]` vacía y la marca `[PENDIENTE · E8]`: se completan o se borran | Equipo |
-| A5 | Repositorio | El repo **sigue privado**. Tiene que ser público cuando empiece la evaluación, después de comprobar que no tenga datos del paciente | Ktalyna (dueña) |
+| A5 | Repositorio | ~~El repo sigue privado.~~ **Resuelto el 23 oct: es público**, después de auditar el historial completo y confirmar que no contiene datos del paciente más allá de las dos variantes de *BUB1B* | Hecho |
 
 Las notas internas (línea "Estado: borrador v0", recuadro "Cómo se usa este archivo", líneas "Fuente/Tarea" y "Guía de estilo") **no hace falta borrarlas a mano**: `python scripts/exportar_informe_pdf.py --final` las quita al generar el PDF de entrega.
 

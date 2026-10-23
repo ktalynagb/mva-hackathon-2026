@@ -10,6 +10,27 @@
 
 ---
 
+## 2026-10-23 (cierre) — Todo listo para entregar: envía Laura
+
+**E1 cerrada, con 18 días de demora:** **envía Laura Vargas**. Era lo único que podía dejar al equipo sin entrega, porque el reto acepta un solo envío y el panel revisa solo el de la persona designada.
+
+**Los cuatro entregables, reunidos en `envios/track2/`:**
+
+| Entregable | Archivo o enlace |
+|---|---|
+| Informe | `A3-EMBS-ITBA_track2_report.pdf` — 11 páginas IEEE, 7 figuras, 47 referencias verificadas contra PubMed |
+| Formulario de métodos | `A3_EMBS_ITBA_methods_description_form.xlsx` — las 11 preguntas de la hoja Track 2 |
+| Video | https://www.youtube.com/watch?v=J1OovR5hoWQ |
+| Repositorio | https://github.com/ktalynagb/mva-hackathon-2026 — público desde el 23 oct |
+
+El PDF estaba en `docs/` y se movió a `envios/track2/`, donde quien envía lo encuentra junto al formulario. Se agregó `envios/track2/LEEME_ENTREGA.md` con la lista de lo que hay que subir, para que el envío no dependa de reconstruirlo de una conversación.
+
+**Limpieza del repositorio público:** se quitaron tres archivos (el PDF de revisión con los huecos en amarillo, una copia byte-idéntica del formulario y el guion de video superado por el paquete en inglés) y se les puso encabezado a `pendientes_edicion_final.md` y `revision_informe_pendientes.md`, que estaban escritos como listas de tareas abiertas y en un repo público se podían leer como trabajo inconcluso. Se verificó además que los tres puntos que seguían marcados "Pendiente" (C2, C3 y C5) ya estaban resueltos en el informe en inglés: se referían al borrador en español, que no es lo que se entrega.
+
+**Queda solo el envío.** Y, después del cierre, borrar los datos del paciente dentro de los 30 días (~23 nov) y notificarlo a `MVAHackathon2026@synapse.org`.
+
+---
+
 ## 2026-10-23 — Historial de git limpiado antes de hacer público el repositorio
 
 **Quién:** Ktalyna (con Claude Code) · directo en `master`
@@ -45,7 +66,7 @@ Clon nuevo del remoto: 119 commits, 107 archivos, los cuatro entregables present
 ### Pendiente
 
 - Los dos archivos eliminados son **salidas regenerables** con el pipeline a partir del VCF; están en el respaldo si alguna vez se necesitan.
-- El repositorio **sigue privado**: hacerlo público es un paso aparte, para cuando el equipo decida.
+- El repositorio **se hizo público** ese mismo día, una vez verificado el historial.
 
 ---
 

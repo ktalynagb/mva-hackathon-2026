@@ -8,7 +8,7 @@ El archivo tiene 2 hojas, una por track. Para cada pregunta: dónde está la res
 
 | # | Pregunta | Dónde está la respuesta | Tarea de origen |
 |---|---|---|---|
-| 1 | Team name | **A3 EMBS ITBA** (lo definió Laura en el README el 21 oct). Ojo: el nombre del equipo ya está, pero **sigue sin designarse quién envía**, que es la otra mitad de E1 | E1 ✅ parcial |
+| 1 | Team name | **A3 EMBS ITBA**. Envía **Laura Vargas** (23 oct), con lo que E1 queda cerrada | E1 ✅ |
 | 2 | Describí el enfoque en detalle (de variante/mecanismo a fármaco candidato) | `01_variante_causante.md` → `02_marco_biologico.md` → `02b_resumen_mecanismo.md` → `03_criterios.md` → `03b_lista_larga.md` → `04_candidatos.md`: es el recorrido completo del repo, resumido | A2/A3/A8, B1–B4, C1, C3, C5 |
 | 3 | **(obligatoria)** Si se usó IA generativa: proveedor, plan y configuración de datos | Sección 2.6 de `informe_final.md`. **Cuatro herramientas:** Claude Code, Claude (app), Gemini y Perplexity. Claude Code está completa; de Gemini está documentado el uso (cuaderno 06) y que **no recibió datos del paciente**, falta el nivel de la API; de Claude app y Perplexity falta todo porque no hay registro en el repo | E8 |
 | 4 | ¿Identificación de candidatos automatizada (consulta a base de datos / LLM) o revisión manual/curación experta? | Ambas: `scripts/lista_larga_farmacos.py` consulta DGIdb v5 y Open Targets de forma automática (C3); la puntuación K1–K6 (C4) y la lista curada de `config/lineas_terapeuticas.json` son curación manual asistida por IA | C3, C4 |
@@ -24,8 +24,10 @@ El archivo tiene 2 hojas, una por track. Para cada pregunta: dónde está la res
 
 Mismo patrón; preguntas equivalentes ya resueltas en el repo salvo: modelo/número de corrida, tiempo/costo estimado y si el enfoque distingue heterocigota compuesta (sí: `scripts/diagnostico_diferencial.py` identifica el par). Fila 1 (team name) y la de IA generativa son las obligatorias. No se detalla fila por fila porque A7 sigue vencida y sin decidir si se envía.
 
-## Qué sigue
+## Estado (23 oct) — cerrado
 
-- [ ] **E1 primero**: sin saber quién envía, no se puede llenar "Team name" ni la fila de IA de forma definitiva.
-- [ ] La pregunta 10 (tiempo/esfuerzo) la tiene que estimar el equipo; no está en ningún documento.
-- [ ] Llenar el `.xlsx` en sí es tarea de E7 (24 oct), cuando ya haya una sola persona designada y el informe esté cerrado — este mapa solo deja listo *de dónde sacar cada respuesta*.
+- [x] **E1**: equipo A3 EMBS ITBA, envía Laura Vargas.
+- [x] **Pregunta 10** (tiempo/esfuerzo): estimado por el equipo en 42 horas-persona, con el desglose por integrante.
+- [x] **El `.xlsx` está lleno**: las 11 preguntas de la hoja "Track 2 methods", en `envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx`.
+
+Este mapa cumplió su función —dejar asentado de dónde sale cada respuesta— y se conserva como constancia de ese trabajo.
