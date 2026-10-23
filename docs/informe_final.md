@@ -1,7 +1,7 @@
 # Reposicionamiento de fármacos para la aneuploidía variegada en mosaico por *BUB1B*: de la variante al mecanismo
 
 **MVA Hackathon 2026 · Track 2** · Equipo: **A3 EMBS ITBA** · Repositorio: https://github.com/ktalynagb/mva-hackathon-2026
-**Estado: borrador v0 (8 oct).** Tareas E2 (plantilla) y E5 (integración, Hito H5, 21 oct). Exportar a PDF como `<usuario>_track2_report.pdf`.
+**Estado: borrador v0 (8 oct).** Tareas E2 (plantilla) y E5 (integración, Hito H5, 21 oct). Exportar a PDF como `A3-EMBS-ITBA_track2_report.pdf`.
 
 > **Cómo se usa este archivo.** Cada sección dice de qué archivo sale y quién la cierra. Los bloques `[PENDIENTE]` se rellenan cuando la tarea de origen se fusiona. Las secciones de origen pueden ser más largas: aquí va la versión resumida. Antes de exportar, borrar estas notas y las líneas "Fuente/Tarea".
 
@@ -17,13 +17,7 @@ El análisis dominante sobre 92 genes de PanelApp identificó un hallazgo secund
 
 ## 1. Introducción
 
-*Fuente: `docs/secciones/02_marco_biologico.md` (secciones 1 y 3) · Tarea: B1*
-
-- Qué es el MVA: enfermedad recesiva rara con aneuploidías en mosaico, retraso del crecimiento, microcefalia y predisposición a cáncer infantil (Hanks 2004).
-- Genes: *BUB1B* (la mayoría de los casos), *CEP57*, *TRIP13* (Sieben 2020).
-- El checkpoint mitótico y el papel de BUBR1 en el MCC, en un párrafo.
-- El caso: fenotipo en términos HPO (rabdomiosarcoma HP:0002859, nefrocalcinosis HP:0000121, talla baja HP:0004322, falla de medro HP:0001508, atrofia muscular HP:0003202, prematuridad HP:0001622, pequeño para la edad gestacional HP:0001518; abortos recurrentes en los progenitores HP:0200067).
-- Pregunta del trabajo: ¿qué mecanismo explica la enfermedad y qué fármacos aprobados podrían actuar sobre él?
+El caso es un paciente pediátrico con aneuploidía variegada en mosaico (MVA), rabdomiosarcoma, nefrocalcinosis y retraso del crecimiento. Para el MVA no existe un tratamiento dirigido al defecto de base. Este trabajo responde dos preguntas: **¿qué mecanismo molecular explica la enfermedad en este paciente?** y **¿qué fármacos ya aprobados por la FDA o la EMA podrían actuar sobre ese mecanismo?**
 
 ## 2. Métodos
 
@@ -141,6 +135,8 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 
 *Fuente: `docs/secciones/01_variante_causante.md` · Tareas: A1–A4 · Figura: A5 (lollipop)*
 
+Transcrito MANE Select de *BUB1B*: ENST00000287598.
+
 | | Alelo 1 | Alelo 2 |
 |---|---|---|
 | Cambio | c.2210T>G · p.Leu737Ter | c.3006T>G · p.Asn1002Lys |
@@ -183,7 +179,7 @@ Todas las afirmaciones generadas con IA se verificaron contra la fuente primaria
 | **Dasatinib** | 3 · senolítico | 60,0 | Elimina células senescentes junto con quercetina (PMID 25754370); evidencia indirecta | Mielosupresión que se suma a la de la quimioterapia |
 | **Bortezomib** | 1 · proteasoma | 60,0 | El inhibidor de laboratorio MG132 sube la BUBR1 mutante en células (Suijkerbuijk 2010, PMID 20516114) | Neuropatía con vincristina; retrasa la salida de la mitosis |
 
-[DECISIÓN DEL EQUIPO, 15 oct] Bortezomib es el candidato más cuestionable por su toxicidad y por frenar la salida de la mitosis; podría salir de la lista corta.
+Esta tabla es la lista corta puntuada. La propuesta final (abajo) deja fuera a bortezomib y reubica a temsirolimus y dasatinib.
 
 #### Conclusión: dos tratamientos en paralelo, con objetivos distintos
 
@@ -300,14 +296,14 @@ El paciente es **metabolizador intermedio de CYP2B6** (*1/*6 o similar) y de **C
 
 ## 5. Referencias
 
-Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_candidatos.md`. Existencia verificada en PubMed; texto completo no siempre leído (indicado).
+Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_candidatos.md`. Autor, revista, volumen y páginas contrastados con PubMed (E-utilities) el 21 oct 2026; texto completo no siempre leído (indicado).
 
 **Variante y diagnóstico**
 - Hanks et al. 2004. *Nat Genet* 36:1159–61. PMID 15475955. *(Artículo fundacional MVA — BUB1B; texto completo)*
-- Matsuura et al. 2006. *Am J Med Genet A* 140A:1337–41. PMID 16411201.
-- Sieben et al. 2020. *J Clin Invest* 130:736–50. PMID 31738183. *(BubR1 mTORC1 sarcopenia; texto completo)*
-- Qu et al. 2025. *Zhonghua Yi Xue Yi Chuan Xue Za Zhi* 42. PMID 40555658. *(caso combinado regulatorio; solo resumen)*
-- Wei et al. 2026. *Front Endocrinol* 17. PMID 42434306.
+- Matsuura et al. 2006. *Am J Med Genet A* 140:358–67. PMID 16411201.
+- Sieben et al. 2020. *J Clin Invest* 130:171–88. PMID 31738183. *(BubR1 mTORC1 sarcopenia; texto completo)*
+- Qu et al. 2025. *Zhonghua Yi Xue Yi Chuan Xue Za Zhi* 42:446–53. PMID 40555658. *(caso combinado regulatorio; solo resumen)*
+- Wei et al. 2026. *Front Endocrinol* 17:1838559. PMID 42434306.
 
 **Clasificación ACMG/AMP**
 - Richards et al. 2015. *Genet Med* 17:405–24. PMID 25741868.
@@ -317,23 +313,23 @@ Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_
 
 **Mecanismo**
 - Suijkerbuijk et al. 2010. *Cancer Res* 70:4891–900. PMID 20516114. *(missenses BubR1 reducen cantidad de proteína; texto completo)*
-- North et al. 2014. *Cell* 156:408–19. PMID 24825348. *(NAD⁺/SIRT2/BubR1; texto completo)*
-- Wu et al. 2023. *Aging Cell* 22:e13812. PMID 38009412. *(SIRT2 no alarga vida en ratones normales)*
-- Suematsu et al. 2014. *Oncotarget* 5:8148–59. PMID 25285631. *(SIRT2 BubR1 en células humanas)*
+- North et al. 2014. *EMBO J* 33:1438–53. PMID 24825348. *(NAD⁺/SIRT2/BubR1; texto completo)*
+- Wu et al. 2023. *Aging Cell* 22:e14027. PMID 38009412. *(SIRT2 no alarga vida en ratones normales)*
+- Suematsu et al. 2014. *Biochem Biophys Res Commun* 453:588–94. PMID 25285631. *(SIRT2 BubR1 en células humanas)*
 - Bitterman et al. 2002. *J Biol Chem* 277(47):45099–107. PMID 12297502. *(la nicotinamida inhibe de forma no competitiva a Sir2 y SIRT1; el ácido nicotínico no tuvo efecto — base de la distinción niacina / niacinamida)*
 - Hwang et al. 2017. *Cell Mol Life Sci* 74(18):3347–62. PMID 28417163. *(la nicotinamida inhibe SIRT1 in vitro pero en células puede estimular)*
 
 **Fármacos candidatos**
-- Ham et al. 2020. *Aging* 12:20240–51. PMID 32908143. *(rapamicina frena sarcopenia en ratón normal)*
-- Mascarenhas et al. 2019. *Cancer* 125:4058–66. PMID 31513481. *(temsirolimus fase II rabdomiosarcoma recaída)*
-- Hawthorne et al. 2024. *J Clin Oncol* 42:1890–9. PMID 38936378. *(temsirolimus fase III rabdomiosarcoma)*
-- Zhu et al. 2015. *Aging Cell* 14:72–7. PMID 25754370. *(dasatinib + quercetina senolíticos)*
-- Crose et al. 2022. *Cancer Res* 82:6056–67. PMID 36322002. *(vía RAS rabdomiosarcoma sin fusión)*
-- Elhossiny et al. 2023. *Mol Cancer Ther* 22:723–34. PMID 23684925. *(MEK + mTOR sinergia rabdomiosarcoma)*
-- Federico et al. 2022. *J Clin Oncol* 40:3622–31. PMID 35363510. *(selumetinib monoterapia sin respuestas en niños)*
+- Ham et al. 2020. *Nat Commun* 11:4510. PMID 32908143. *(rapamicina frena sarcopenia en ratón normal)*
+- Mascarenhas et al. 2019. *J Clin Oncol* 37:2866–74. PMID 31513481. *(temsirolimus fase II rabdomiosarcoma recaída)*
+- Gupta et al. 2024. *Lancet Oncol* 25:912–21. PMID 38936378. *(temsirolimus fase III rabdomiosarcoma)*
+- Zhu et al. 2015. *Aging Cell* 14:644–58. PMID 25754370. *(dasatinib + quercetina senolíticos)*
+- Hebron et al. 2023. *Clin Cancer Res* 29:472–87. PMID 36322002. *(trametinib + ganitumab en rabdomiosarcoma sin fusión con RAS mutado)*
+- Guenther et al. 2013. *Cancer Lett* 337:200–9. PMID 23684925. *(MEK + mTOR sinergia rabdomiosarcoma)*
+- Eckstein et al. 2022. *J Clin Oncol* 40:2235–45. PMID 35363510. *(selumetinib monoterapia sin respuestas en niños)*
 - Cramer et al. 2024. *Cancer Med* 13(21):e70376. PMID 39487711. *(ADVL1514: fase 1 COG de nab-sirolimus en tumores sólidos pediátricos; MTD 15 mg/m² en combinación, DLT trombocitopenia, 0/2 respuestas en rabdomiosarcoma alveolar)*
 - Hou et al. 2019. *Cancer Res* 79(13 Suppl):348. *(resumen AACR del laboratorio desarrollador: acumulación tumoral de nab-sirolimus en xenoinjertos; sin datos intratumorales en humanos)*
-- Nishitani-Isa et al. 2019. *Pediatr Int* 61:729–31. PMID 31184400. *(caso de MVA1 con rabdomiosarcoma tratado con VAC a intensidad reducida)*
+- Nishitani-Isa et al. 2019. *Pediatr Int* 61:613–6. PMID 31184400. *(caso de MVA1 con rabdomiosarcoma tratado con VAC a intensidad reducida)*
 - Defachelles et al. 2021. *J Clin Oncol* 39(27):2979–90. PMID 34343032. *(VIT-0910: vincristina-irinotecán ± temozolomida en rabdomiosarcoma en recaída; VIT es el estándar del EpSSG)*
 
 **Checkpoint mitótico y sensibilidad a antimitóticos**
@@ -345,11 +341,11 @@ Compiladas de `01_variante_causante.md` §9, `02_marco_biologico.md` §10 y `04_
 - Nakano et al. 2024. *Clin Cancer Res* 30(22):5009–20. PMID 39264246. *(recomendaciones de vigilancia en trastornos de inestabilidad genómica, incluido MVA; espectro MVA1: Wilms y rabdomiosarcoma, también MDS, LMA y LLA)*
 
 **Hallazgo secundario LZTR1**
-- Piotrowski et al. 2014. *Am J Hum Genet* 94:622–8. PMID 24362817. *(schwannomatosis LZTR1 dominante)*
-- Perrino et al. 2025. *Am J Med Genet A* 197. PMID 39937237. *(seguimiento LZTR1 en niños)*
+- Piotrowski et al. 2014. *Nat Genet* 46:182–7. PMID 24362817. *(schwannomatosis LZTR1 dominante)*
+- Perrino et al. 2025. *Clin Cancer Res* 31:1400–6. PMID 39937237. *(vigilancia pediátrica en predisposición por NF2, SMARCB1 y LZTR1)*
 
 **Nefrocalcinosis**
-- Oh y Butani 2024. *Pediatr Nephrol* 39:1259–70. PMID 38296790. *(nefrocalcinosis en prematuros)*
+- Oh et al. 2024. *NeoReviews* 25:e88–98. PMID 38296790. *(nefrocalcinosis en prematuros)*
 
 ---
 
