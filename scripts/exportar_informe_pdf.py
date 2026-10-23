@@ -19,6 +19,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 import markdown
@@ -62,6 +63,8 @@ h1 { font-size: 22pt; font-weight: normal; text-align: center; line-height: 1.15
 h1 + p { text-align: center; font-size: 10pt; margin-bottom: 10pt; }
 hr { display: none; }
 .cabecera p { font-size: 9pt; text-align: justify; margin: 0 0 6pt; }
+.cabecera h1 + p { font-size: 11pt; text-align: center; margin-bottom: 3pt; }
+.cabecera h1 + p + p { text-align: center; margin-bottom: 10pt; }
 .cols { column-count: 2; column-gap: 0.25in; text-align: justify; hyphens: auto; }
 .cols p { margin: 0 0 5pt; text-indent: 0; }
 h2 { font-size: 10pt; font-weight: normal; font-variant: small-caps; text-align: center; letter-spacing: 0.3pt;
@@ -179,9 +182,22 @@ def main() -> None:
         ruta_html = Path(tmp) / "informe.html"
         ruta_html.write_text(html, encoding="utf-8")
         salida = salida.resolve()
+        antes = salida.stat().st_mtime if salida.exists() else None
+        # Perfil propio: si el navegador ya está abierto, sin esto la orden se entrega a esa ventana
+        # y el PDF no se escribe.
         subprocess.run([buscar_navegador(), "--headless", "--disable-gpu", "--no-pdf-header-footer",
-                        f"--print-to-pdf={salida}", ruta_html.as_uri()],
+                        f"--user-data-dir={Path(tmp) / 'perfil'}", f"--print-to-pdf={salida}", ruta_html.as_uri()],
                        check=True, capture_output=True)
+        # Edge puede devolver el control antes de escribir el PDF: se espera dentro del bloque
+        # para que el HTML temporal siga existiendo mientras lo lee.
+        listo = lambda: salida.exists() and salida.stat().st_mtime != antes and salida.stat().st_size > 0
+        for _ in range(120):
+            if listo():
+                time.sleep(1)  # que termine de escribir
+                break
+            time.sleep(0.5)
+    if not listo():
+        sys.exit(f"El navegador no escribió el PDF: {salida}")
     print(f"PDF generado: {salida}")
 
 
