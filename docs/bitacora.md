@@ -7,6 +7,7 @@
 
 > Registra qué se hizo, quién lo hizo, qué se decidió y qué sigue.  
 > Cada entrada nueva va **arriba**. Formato: `## YYYY-MM-DD — Título`.
+> **Los demás participantes trabajan por fuera y nos enviaban los cambios y sugerencias ya que no manejaban bien github**. 
 
 ---
 
