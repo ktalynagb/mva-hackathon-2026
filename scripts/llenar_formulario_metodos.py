@@ -170,6 +170,7 @@ def main() -> None:
         if previa and "TO COMPLETE BY LAURA" not in previa:
             respuestas[9] = previa
     wb = load_workbook(PLANTILLA)
+    del wb["Track 1 methods"]  # el equipo solo participa en el Track 2
     hoja = wb["Track 2 methods"]
     for fila, texto in respuestas.items():
         celda = hoja.cell(row=fila, column=2)
