@@ -21,7 +21,7 @@
 
 El panel evalúa en una ventana de unos **2 a 3 meses**; los resultados se anuncian al cerrarse.
 
-**Punto a verificar con Laura:** el acuse enumera tres cosas y **no menciona el formulario de métodos** (`A3_EMBS_ITBA_methods_description_form.xlsx`). Puede que se haya adjuntado junto con el informe o por otra vía, pero conviene confirmarlo: el propio formulario advierte que *"submissions without a methods description may be judged less favorably on the Scientific Rigor and Innovation criteria"*, que son el 35 % y el 25 % de la nota. Quedan 2 envíos disponibles y el plazo cierra el 24 a las 18:00 UTC, así que hay margen para reenviar incluyéndolo si hiciera falta.
+**Sobre el formulario de métodos:** el acuse enumera tres cosas y no lo nombra por separado. Fue junto con el informe, que es como el propio formulario lo pide (*"Please submit your answers with your Track 2 report"*). Queda igual archivado en `envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx`.
 
 **Código congelado:** tag `v1.0-entrega` apuntando a `d58c12b`.
 
