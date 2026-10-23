@@ -1,5 +1,7 @@
 # Drug Repurposing for *BUB1B*-Associated Mosaic Variegated Aneuploidy: From Variant to Mechanism to Approved Drugs
 
+Ktalyna García, Laura Vargas, Josefina Wohlfeiler, Thomas German, and Lorena Ogas
+
 **Team A3 EMBS ITBA** · MVA Hackathon 2026, Track 2 (Drug Repurposing) · Code: https://github.com/ktalynagb/mva-hackathon-2026
 
 ---
@@ -126,7 +128,7 @@ Candidate identification was automated; scoring and selection were manual curati
 
 The whole analysis runs with one command, `python run_pipeline.py`, which executes eight steps in order and stops at the first failure: gene panel, recessive funnel, dominant model, team-proposed genes, allele 2 structural evidence, drug long list, pharmacogenetics, and figures. Exact package versions are pinned in `requirements-lock.txt` (Python 3.13.14). Responses from external APIs are cached in `data/cache/`, so that a second run gives the same result even if a database is updated. The patient VCF is not in the repository; it is downloaded with each user's own credentials by `scripts/download_data.py`.
 
-A reference run on Windows 11 took 6 min 11 s with the cache already built and reproduced every number in this report. A clean run without the cache takes considerably longer, because about 35,000 variants must be annotated through public APIs. Five team members worked on the project over five weeks (17 Sep–24 Oct 2026), about 8 hours per person per week, for a total of approximately 200 person-hours.
+A reference run on Windows 11 took 6 min 11 s with the cache already built and reproduced every number in this report. A clean run without the cache takes considerably longer, because about 35,000 variants must be annotated through public APIs. Five team members worked on the project over five weeks (17 Sep–24 Oct 2026), for a total of approximately 42 person-hours (K. García 10, L. Vargas 10, J. Wohlfeiler 8, L. Ogas 8, and T. German 6).
 
 ### I. Use of Generative AI
 <!-- Form Q9 (required): provider, plan, data setting -->

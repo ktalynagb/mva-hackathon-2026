@@ -120,8 +120,8 @@ RESPUESTAS = {
 
     # Time / effort
     16: (
-        "Five team members over five weeks (17 Sep - 24 Oct 2026), about 8 hours per person per week: approximately "
-        "200 person-hours. Full pipeline re-run: 6 min 11 s with cached API queries (Windows 11, Python 3.13); "
+        "Five team members over five weeks (17 Sep - 24 Oct 2026): approximately 42 person-hours in total "
+        "(K. García 10, L. Vargas 10, J. Wohlfeiler 8, L. Ogas 8, T. German 6). Full pipeline re-run: 6 min 11 s with cached API queries (Windows 11, Python 3.13); "
         "a clean run without the cache takes considerably longer (about 35,000 variants annotated through public APIs)."
     ),
 

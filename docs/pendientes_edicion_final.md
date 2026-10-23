@@ -17,22 +17,15 @@ Archivo: `docs/report_track2_en.md` · PDF de revisión: `docs/report_track2_en_
 | 9 | V. Conclusion | ✏️ Escrito, falta tu revisión |
 | 10 | Acknowledgment (texto oficial de las reglas) + 47 referencias IEEE verificadas en PubMed | ✅ Hecho |
 
-## Lo que tiene que llenar alguien del equipo (en amarillo en el PDF)
+## Huecos del informe
 
-| # | Qué | Dónde | Quién |
-|---|---|---|---|
-| 1 | **Tu línea de IA**: configuración de datos, con la fecha en que se apagó "Help improve Claude"; confirmar que nunca se dieron pulgares | Methods I (busca `TO COMPLETE BY LAURA`) | Laura, a mano |
-| 2 | ~~Gemini~~ **Resuelto por Ktalyna (PR #28): API nivel gratuito, sin datos del paciente.** Faltan los ajustes de datos de la app de Claude y de Perplexity | Methods I | Quien las usó |
-| 3 | ~~Integrantes~~ **Resuelto:** el equipo son 5 personas; Gemini se declara como usado por el equipo, sin nombre | — | — |
-| 4 | **Horas-persona** totales | Methods H | Equipo |
-| 5 | ~~Apellido de Lorena~~ **Resuelto: Lorena Ogas** | Methods F | — |
-| 6 | ~~Cita del dataset~~ **Resuelto:** se cita el dataset oficial de Hugging Face (no hay página de Synapse con cita). Si más adelante el equipo publica un artículo, usar la cita de Synapse | Referencia [1] | — |
+Todos resueltos (22 oct): línea de IA de Laura (la escribió ella), Gemini (API gratuita, uso del equipo), app de Claude y Perplexity (planes gratuitos, configuración no verificada), autores (Ktalyna García, Laura Vargas, Josefina Wohlfeiler, Thomas German y Lorena Ogas), horas (42 horas-persona: García 10, Vargas 10, Wohlfeiler 8, Ogas 8, German 6) y cita del dataset (ficha de Hugging Face).
 
-## Lo que hago yo cuando esté todo lleno
+## Archivos de entrega
 
-- Copiar tu línea de IA, las horas y el apellido al Excel (`scripts/llenar_formulario_metodos.py`). El resto del Excel ya está sincronizado con el informe.
-- Generar el PDF final a doble columna IEEE (`python scripts/exportar_informe_pdf.py --final --ieee --entrada docs/report_track2_en.md --salida docs/A3-EMBS-ITBA_track2_report.pdf`) y revisarlo página por página.
-- Subir todo en un PR para que Ktalyna lo revise, después de tu visto bueno.
+- Informe: `docs/A3-EMBS-ITBA_track2_report.pdf` (doble columna IEEE, 11 páginas). Se regenera con `python scripts/exportar_informe_pdf.py --final --ieee --entrada docs/report_track2_en.md --salida docs/A3-EMBS-ITBA_track2_report.pdf`.
+- Formulario: `envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx` (copia de `docs/methods_description_form.xlsx`). No correr `scripts/llenar_formulario.py`, que escribe otra versión en esa ruta.
+- Falta: fusionar el PR #30, decidir quién envía, grabar y subir el video.
 
 ## Para verificar antes de entregar
 
