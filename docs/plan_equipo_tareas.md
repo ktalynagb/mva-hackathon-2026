@@ -52,7 +52,7 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 | **H3** | mié 14 oct | Mecanismo completo + figura de la vía | B5 | 👀 figura lista (8 oct) |
 | **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos con ficha | C5 | 👀 borrador 8 oct |
 | **H5** | mié 21 oct | Borrador completo del informe | E5 | ✅ informe en inglés terminado y exportado a PDF (11 pág. IEEE) |
-| **H6** | vie 23 oct, 12:00 UTC | Código congelado + tag `v1.0-entrega` | D6 | 🔄 corrida limpia de los 8 pasos verificada (6 min 11 s, reproduce todos los números); **falta crear el tag** |
+| **H6** | vie 23 oct, 12:00 UTC | Código congelado + tag `v1.0-entrega` | D6 | ✅ corrida limpia de los 8 pasos verificada (6 min 11 s, reproduce todos los números) y tag `v1.0-entrega` creado |
 | **H7** | sáb 24 oct, 18:00 UTC | Entrega enviada | E7 | 🔄 todo listo en `envios/track2/`; envía Laura |
 
 ---
@@ -119,7 +119,7 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | D4 | Tests con pytest para las funciones críticas y caché local de las consultas a APIs | `tests/` pasando | 💻 | 17 oct | D2 | | ⬜ |
 | D2b | Agregar al pipeline los análisis que faltaban (A10, C7, C8) y arreglar el borrado silencioso de los genes manuales de C8 al regenerar desde PanelApp | `run_pipeline.py` 8 pasos + `config/genes_dominante_extra.tsv` | 💻 | 21 oct | D2 | Ktalyna (con Claude) | 🔄 PR pendiente; corrida completa medida |
 | D5 | Sección "Escalabilidad" del README: cómo correr el pipeline con otro paciente | README actualizado | 💻✍️ | 20 oct | D2 | Ktalyna | 👀 PR #12 |
-| D6 | **(H6)** Corrida limpia completa, congelación y tag `v1.0-entrega` | release en GitHub | 💻 | **23 oct 12:00 UTC** | todas las D | | 🔄 corrida completa de los 8 pasos verificada el 21 oct (6 min 11 s, reprodujo todos los números del informe); **falta** el tag y la release |
+| D6 | **(H6)** Corrida limpia completa, congelación y tag `v1.0-entrega` | release en GitHub | 💻 | **23 oct 12:00 UTC** | todas las D | Ktalyna (con Claude) | ✅ corrida completa de los 8 pasos verificada (6 min 11 s, reprodujo todos los números del informe) y **tag `v1.0-entrega` creado y pusheado** el 23 oct. La release de GitHub es opcional: el tag ya fija el commit entregado |
 
 ### Área E — Informe, video y entrega ✍️
 
