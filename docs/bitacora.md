@@ -3,7 +3,7 @@
 **Track 2 — Reposicionamiento de Fármacos**  
 **Repo:** https://github.com/ktalynagb/mva-hackathon-2026  
 **Deadline:** 24 de octubre de 2026, 23:59 UTC  
-**Equipo:** Ktalyna · Laura · Josefina · (completar)
+
 
 > Registra qué se hizo, quién lo hizo, qué se decidió y qué sigue.  
 > Cada entrada nueva va **arriba**. Formato: `## YYYY-MM-DD — Título`.
