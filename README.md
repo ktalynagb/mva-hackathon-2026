@@ -138,17 +138,26 @@ python run_pipeline.py --listar   # ver los pasos
 python run_pipeline.py --solo farmacos,figuras
 ```
 
-| Paso | Script | Salida | Necesita el VCF |
-|---|---|---|---|
-| `genes` | `scripts/unir_grupos_genes.py` | `config/genes_candidatos.txt` | no |
-| `diagnostico` | `scripts/diagnostico_diferencial.py` | `results/diagnostico_diferencial_*.tsv` (no se versionan) | **sí** |
-| `alelo2` | `scripts/evidencia_alelo2.py` | `results/evidencia_alelo2.json` | no |
-| `farmacos` | `scripts/lista_larga_farmacos.py` | `results/candidatos_farmacos.tsv` | no |
-| `figuras` | `scripts/figuras_informe.py` | `results/figura_1_*.png`, `figura_2_*.png` | no |
+Los ocho pasos corren en orden y el pipeline se detiene en el primero que falle, imprimiendo al final el estado y la duración de cada uno.
+
+| Paso | Script | Salida | Necesita el VCF | Tiempo |
+|---|---|---|---|---|
+| `genes` | `scripts/unir_grupos_genes.py` | `config/genes_candidatos.txt` | no | < 1 s |
+| `diagnostico` | `scripts/diagnostico_diferencial.py` | `results/diagnostico_diferencial_*.tsv` (no se versionan) | **sí** | 158 s |
+| `dominante` | `scripts/modelo_dominante.py` | `data/dominante/` (no se versiona) | **sí** | 107 s |
+| `genes_equipo` | `scripts/analisis_genes_equipo.py` | `data/genes_equipo/` (no se versiona) | **sí** | 13 s |
+| `alelo2` | `scripts/evidencia_alelo2.py` | `results/evidencia_alelo2.json` | no | 73 s |
+| `farmacos` | `scripts/lista_larga_farmacos.py` | `results/candidatos_farmacos.tsv` | no | 6 s |
+| `farmacogenetica` | `scripts/farmacogenetica.py` | `data/farmacogenetica/` (no se versiona) | **sí** | 10 s |
+| `figuras` | `scripts/figuras_informe.py` | `results/figura_1_*.png`, `figura_2_*.png` | no | 4 s |
 
 El cálculo de estabilidad (`scripts/estabilidad_alelo2.py`) usa la salida de ThermoMPNN, que se corre aparte (instrucciones en el propio script). Se agrega con `--thermompnn DIR`.
 
-Todos los pasos consultan APIs públicas y guardan una caché local. Para la reproducción exacta, instala `requirements-lock.txt`, que fija las versiones con las que se generaron los resultados (Python 3.13).
+**Corrida de referencia:** los 8 pasos en **6 min 11 s** (21 oct 2026, Windows 11, Python 3.13.14, con la caché ya construida), reproduciendo todos los números del informe: 24.604 variantes PASS → 14 funcionales en MANE; 11.808 → 1 candidata dominante en *LZTR1*; 874 → 0 en los genes del equipo; 86 fármacos → 73 pasan los filtros de aprobación.
+
+Todos los pasos consultan APIs públicas y guardan una caché local en `data/cache/`, que no se versiona: una clonación limpia la reconstruye desde las APIs y tarda bastante más, pero así se verifica que el pipeline no dependa de estado local. Para la reproducción exacta, instala `requirements-lock.txt`, que fija las versiones con las que se generaron los resultados (Python 3.13).
+
+**Dos archivos guardan curación manual y el pipeline los preserva al regenerar:** `config/genes_modelo_dominante.tsv` reinyecta los genes de `config/genes_dominante_extra.tsv`, y `results/candidatos_farmacos.tsv` conserva la puntuación de los seis criterios y las filas agregadas a mano. Si se editan a mano, los cambios sobreviven a la siguiente corrida.
 
 ---
 
