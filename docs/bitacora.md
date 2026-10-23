@@ -124,7 +124,7 @@ Se informó que el equipo usó **cuatro** herramientas: Claude Code, Claude (apl
 ## 2026-10-21 (noche bis) — Corrección de la jefa: esquema continuo y la ciclofosfamida se queda
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C5-esquema-final`  
-**Disparador:** la jefa planteó: "por eso dejábamos ciclofosfamida, y hacíamos un tratamiento continuo con sirolimus oral, arimoclomol y niacinamida".
+**Disparador:** Lore planteó: "por eso dejábamos ciclofosfamida, y hacíamos un tratamiento continuo con sirolimus oral, arimoclomol y niacinamida".
 
 **Se adopta el encuadre, que es mejor que el anterior.** La propuesta ahora separa explícitamente dos tratamientos con objetivos distintos:
 - **Oncología estándar:** el rabdomiosarcoma lo trata el **VAC a intensidad reducida**, con ciclofosfamida. No es reposicionamiento ni necesita serlo.
