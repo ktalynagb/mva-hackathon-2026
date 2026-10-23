@@ -10,6 +10,45 @@
 
 ---
 
+## 2026-10-23 — Historial de git limpiado antes de hacer público el repositorio
+
+**Quién:** Ktalyna (con Claude Code) · directo en `master`
+
+**⚠️ IMPORTANTE PARA EL EQUIPO: el historial se reescribió. Quien tenga un clon debe volver a clonar** (`git clone` de cero) o hacer `git fetch origin && git reset --hard origin/master`. Un `git pull` normal va a dar conflictos irreconciliables. Nadie tenía commits sin pushear al momento de la reescritura (se verificó que el remoto estaba en `14316e7`, el último push propio).
+
+### Qué se encontró
+
+Un barrido de los **116 archivos que alguna vez existieron** en el historial, con cinco patrones (posición genómica, genotipo con profundidades alélicas, zigosidad + genotipo, fila de tabla VCF y fila de CSV), encontró datos del paciente en 8 rutas. Tres de ellas solo contenían **las dos variantes de *BUB1B***, que la convención del equipo permite, y no se tocaron: `01_variante_causante.md`, `envios/track1/Ktalyna_track1_report.md` y `envios/track1/Ktalyna_bub1b-mane-panel.csv`.
+
+Las cinco restantes sí había que limpiar:
+
+| Ruta | Qué contenía |
+|---|---|
+| `notebooks/candidatos_genomicos_mva_priorizados.csv` | **388 posiciones no permitidas y 358 genotipos.** Subido por tbussozungri en `034d993` y borrado del árbol ese mismo día en `a1ed26c`, pero seguía recuperable del historial |
+| `results/hito_H1_anotacion_completa.json` | 1 posición no permitida; salida vieja del hito H1, ya no estaba en el árbol |
+| `notebooks/02b_sensibilidad_nonpass_genes_mva.ipynb` | 24 genotipos en versiones anteriores |
+| `notebooks/04_priorizacion_gnomad_variante_causante.ipynb` | 1 posición no permitida en una versión anterior |
+| `notebooks/03_exploracion_Laura_201_genes.ipynb` | 1 genotipo en un comentario |
+
+### Cómo se hizo
+
+Respaldo completo primero: `git bundle --all` verificado con `git bundle verify`, en `Downloads/respaldo_mva_20261023_113025.bundle` (4,9 MB, historia completa). **Fuera del repositorio, así que conviene guardarlo en otro lado y no borrarlo hasta que el reto termine.**
+
+Después, dos pasadas de `git-filter-repo`: la primera eliminó del historial las dos rutas que ya no estaban en el árbol; la segunda, con un `--blob-callback`, vació las salidas de los notebooks y redactó las líneas del código fuente con genotipos.
+
+La segunda pasada vació también las salidas de tres notebooks **sin** datos del paciente (03b, 04 y 06). Se verificó que sus versiones actuales estaban limpias y se restauraron, de modo que el árbol de trabajo quedó **idéntico al respaldo** (mismo `tree c49c4fd`): no cambió ni un archivo del estado actual, solo el historial.
+
+### Verificación
+
+Clon nuevo del remoto: 119 commits, 107 archivos, los cuatro entregables presentes y **cero datos del paciente en todo el historial**. El CSV de 358 variantes ya no existe. `git fsck` sin errores y los 8 notebooks siguen siendo JSON válido con todas sus celdas.
+
+### Pendiente
+
+- Los dos archivos eliminados son **salidas regenerables** con el pipeline a partir del VCF; están en el respaldo si alguna vez se necesitan.
+- El repositorio **sigue privado**: hacerlo público es un paso aparte, para cuando el equipo decida.
+
+---
+
 ## 2026-10-21 (cierre) — Tabla de IA completada con los datos del equipo
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/E8-tabla-ia-datos`
