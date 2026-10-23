@@ -1,6 +1,18 @@
-# Pendientes de la edición final · informe en inglés
+# Edición final del informe en inglés · registro cerrado
 
-Archivo: `docs/report_track2_en.md` · PDF de revisión: `docs/report_track2_en_revision.pdf` (los huecos salen en amarillo) · rama `tarea/E6-cierre-entrega` · nada subido a GitHub todavía.
+> **Registro histórico del cierre del informe. No quedan pendientes de edición.**
+>
+> Esta hoja se escribió mientras se redactaba el informe en inglés y se conserva como constancia del proceso. Estado al 23 de octubre de 2026:
+>
+> - El informe está terminado: `docs/report_track2_en.md` y su PDF de entrega `docs/A3-EMBS-ITBA_track2_report.pdf` (11 páginas, doble columna IEEE, 7 figuras, 47 referencias verificadas contra PubMed).
+> - El PR #30 se fusionó y la rama `tarea/E6-cierre-entrega` ya no existe: todo está en `master`.
+> - El PDF de revisión con los huecos en amarillo se eliminó del repositorio, para que no se confunda con el entregable.
+> - El video está publicado: https://www.youtube.com/watch?v=J1OovR5hoWQ
+> - El repositorio es público y su historial fue auditado: no contiene datos del paciente más allá de las dos variantes de *BUB1B*.
+>
+> Lo único que quedaba sin resolver cuando se escribió esta hoja —designar quién envía— es una decisión del equipo, no una tarea de edición.
+
+Archivo: `docs/report_track2_en.md` · PDF de entrega: `docs/A3-EMBS-ITBA_track2_report.pdf`
 
 ## Avance por bloque
 
@@ -24,7 +36,7 @@ Todos resueltos (22 oct): línea de IA de Laura (la escribió ella), Gemini (API
 ## Archivos de entrega
 
 - Informe: `docs/A3-EMBS-ITBA_track2_report.pdf` (doble columna IEEE, 11 páginas). Se regenera con `python scripts/exportar_informe_pdf.py --final --ieee --entrada docs/report_track2_en.md --salida docs/A3-EMBS-ITBA_track2_report.pdf`.
-- Formulario: `envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx` (copia de `docs/methods_description_form.xlsx`). No correr `scripts/llenar_formulario.py`, que escribe otra versión en esa ruta.
+- Formulario: `envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx`, generado con `scripts/llenar_formulario_metodos.py` a partir de la plantilla oficial en `docs/plantillas/`. (La copia duplicada que había en `docs/` se eliminó, y también el script alternativo que escribía en esa misma ruta y podía sobrescribir el entregable.)
 - Falta: fusionar el PR #30, decidir quién envía, grabar y subir el video.
 
 ## Para verificar antes de entregar

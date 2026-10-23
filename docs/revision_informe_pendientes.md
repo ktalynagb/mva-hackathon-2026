@@ -1,6 +1,20 @@
 # Revisión del informe final · 21 oct 2026
 
-Revisión de `docs/informe_final.md` con los cambios de Ktalyna hasta el PR #26 (fusionado el 21 oct). Esta hoja va **solo en el PDF de revisión**. En el texto del informe, los huecos aparecen **resaltados en amarillo**.
+> **Registro cerrado de control de calidad. No es una lista de tareas abiertas.**
+>
+> Esta hoja documenta la revisión interna que se le hizo al borrador en español (`docs/informe_final.md`) el 21 de octubre. Se conserva porque muestra qué se auditó y qué se corrigió, no porque quede algo por hacer.
+>
+> **Todos los puntos quedaron resueltos en el entregable**, que es el informe en inglés `docs/report_track2_en.md` y su PDF `A3-EMBS-ITBA_track2_report.pdf`. Verificado el 23 de octubre:
+> - **C1** (16 de 32 referencias con metadatos erróneos) → corregidas contra PubMed; el informe final tiene 47 referencias en formato IEEE con DOI y PMID.
+> - **C2** ("desestabiliza" afirmado como hecho) → el informe en inglés dice *"predicted to make the protein unstable"* y *"we predicted the change in folding stability"*.
+> - **C3** ("diagnóstico con alta confianza") → el informe en inglés dice *"the most likely diagnosis"*.
+> - **C4** (cifras de vigilancia de Wilms sin confirmar en texto completo) → se retiraron del informe en inglés, justamente por no haberse podido verificar.
+> - **C5** (resultado del análisis de sensibilidad ausente en Resultados) → el informe en inglés lo reporta: seis variantes no-PASS en los seis genes del checkpoint, cinco en *MAD1L1* y una en *BUB1B*.
+> - **A1–A5** y **B1–B3** → resueltos; ver las notas de cada fila.
+>
+> Los puntos marcados "Pendiente" más abajo se refieren al **borrador en español**, que se mantiene como documento de trabajo y no es lo que se entrega.
+
+Revisión de `docs/informe_final.md` con los cambios de Ktalyna hasta el PR #26 (fusionado el 21 oct).
 
 ## A. Lo que falta llenar (bloquea la entrega)
 

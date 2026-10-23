@@ -1,6 +1,6 @@
 # Video package · Track 2 · Team A3 EMBS ITBA
 
-Material for whoever records and edits the Track 2 video. It replaces the first script draft (`guion_pitch.md`, 8 Oct), whose numbers and drugs were out of date.
+Material for whoever records and edits the Track 2 video. It replaces an earlier script draft from 8 Oct, whose numbers and drug list were out of date; that draft was removed from the repository once this package superseded it.
 
 ## What the rules require
 
