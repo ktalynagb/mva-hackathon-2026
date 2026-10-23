@@ -55,10 +55,12 @@ Hackaton_MVA_/
 
 | # | Entregable | Estado |
 |---|-----------|--------|
-| 1 | Informe PDF/Markdown con mecanismo + candidatos | ✅ [`docs/A3-EMBS-ITBA_track2_report.pdf`](docs/A3-EMBS-ITBA_track2_report.pdf) (11 pág., IEEE) |
+| 1 | Informe PDF/Markdown con mecanismo + candidatos | ✅ [`envios/track2/A3-EMBS-ITBA_track2_report.pdf`](envios/track2/A3-EMBS-ITBA_track2_report.pdf) (11 pág., IEEE) |
 | 2 | Código documentado y reproducible | ✅ `python run_pipeline.py` (8 pasos, 6 min 11 s) |
 | 3 | Video pitch 3 min | ✅ [YouTube](https://www.youtube.com/watch?v=J1OovR5hoWQ) |
-| 4 | Formulario de descripción de métodos | ✅ [`envios/track2/`](envios/track2/) |
+| 4 | Formulario de descripción de métodos | ✅ [`envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx`](envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx) |
+
+Los cuatro están reunidos en **[`envios/track2/`](envios/track2/)**, con la lista de qué subir en [`LEEME_ENTREGA.md`](envios/track2/LEEME_ENTREGA.md). El texto fuente del informe queda en [`docs/report_track2_en.md`](docs/report_track2_en.md).
 
 ---
 
