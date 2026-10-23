@@ -2,7 +2,15 @@
 
 Equipo **A3 EMBS ITBA** · fecha límite **24 de octubre de 2026, 18:00 UTC**
 
-**Envía Laura Vargas** (decidido el 23 de octubre). El reto acepta un solo envío por equipo y el panel revisa solo el de la persona designada, así que nadie más debe enviar.
+> ## ✅ ENVIADO — 23 de octubre de 2026
+>
+> Lo envió **Laura Vargas** (`LauraVargas091`), **envío 1** de los 3 posibles, un día antes del cierre. El acuse del reto confirma haber recibido el repositorio, el video y el informe en PDF.
+>
+> El fallo del panel se anuncia tras una ventana de evaluación de unos **2 a 3 meses**.
+>
+> **Nadie más debe enviar:** el reto acepta un solo envío por equipo y revisa solo el de la persona designada.
+
+Lo que sigue abajo es la lista de lo que se subió, conservada como constancia.
 
 ## Los cuatro entregables
 

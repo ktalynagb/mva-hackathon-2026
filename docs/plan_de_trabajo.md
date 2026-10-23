@@ -2,7 +2,7 @@
 
 **MVA Hackathon 2026 · Deadline: 24 de octubre de 2026, 23:59 UTC**
 
-> **Las cinco fases están completas (estado al 23 de octubre de 2026).** Variante identificada, mecanismo caracterizado, fármacos priorizados, pipeline reproducible, e informe, formulario y video terminados. **Lo único que falta es el envío**, que hace Laura Vargas.
+> **Las cinco fases están completas (estado al 23 de octubre de 2026).** Variante identificada, mecanismo caracterizado, fármacos priorizados, pipeline reproducible, e informe, formulario y video terminados. **La entrega se envió el 23 de octubre de 2026** y el reto la confirmó.
 >
 > Este documento es el plan original por fases, escrito al arrancar el proyecto; el seguimiento diario pasó después al [tablero por tareas](plan_equipo_tareas.md) y a la [bitácora](bitacora.md). Se conserva, con los estados al día, porque muestra el recorrido completo de principio a fin.
 
@@ -98,7 +98,7 @@
 
 ---
 
-## Fase 5 — Informe y Entrega ✅ Todo listo; falta el envío
+## Fase 5 — Informe y Entrega ✅ Completada y enviada
 
 | Entregable | Archivo | Estado |
 |-----------|---------|--------|
@@ -106,7 +106,7 @@
 | Formulario de métodos | [`envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx`](../envios/track2/A3_EMBS_ITBA_methods_description_form.xlsx) | ✅ las 11 preguntas de la hoja Track 2 |
 | Video pitch 3 min | https://www.youtube.com/watch?v=J1OovR5hoWQ | ✅ publicado |
 | Código documentado y reproducible | `python run_pipeline.py` | ✅ 8 pasos en 6 min 11 s, reproduce todos los números del informe |
-| **Envío** | sitio del reto · **envía Laura Vargas** | 🔄 **24 oct, 18:00 UTC** |
+| **Envío** | sitio del reto · Laura Vargas (`LauraVargas091`) | ✅ **confirmado el 23 oct**, envío 1 |
 
 Qué subir y en qué orden: [`envios/track2/LEEME_ENTREGA.md`](../envios/track2/LEEME_ENTREGA.md).
 

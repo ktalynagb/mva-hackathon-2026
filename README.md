@@ -55,6 +55,8 @@ Hackaton_MVA_/
 
 | # | Entregable | Estado |
 |---|-----------|--------|
+> **✅ Entregado el 23 de octubre de 2026** por Laura Vargas (`LauraVargas091`), envío 1. Código congelado en el tag [`v1.0-entrega`](https://github.com/ktalynagb/mva-hackathon-2026/releases/tag/v1.0-entrega). Resultados tras una ventana de evaluación de 2 a 3 meses.
+
 | 1 | Informe PDF/Markdown con mecanismo + candidatos | ✅ [`envios/track2/A3-EMBS-ITBA_track2_report.pdf`](envios/track2/A3-EMBS-ITBA_track2_report.pdf) (11 pág., IEEE) |
 | 2 | Código documentado y reproducible | ✅ `python run_pipeline.py` (8 pasos, 6 min 11 s) |
 | 3 | Video pitch 3 min | ✅ [YouTube](https://www.youtube.com/watch?v=J1OovR5hoWQ) |

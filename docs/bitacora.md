@@ -10,6 +10,25 @@
 
 ---
 
+## 2026-10-23 (final) — ENTREGADO ✅
+
+**Laura Vargas (`LauraVargas091`) envió el Track 2 el 23 de octubre**, un día antes del cierre. El reto confirmó la recepción: **envío 1** de los 3 posibles, equipo **A3 EMBS ITBA**.
+
+**Lo que el acuse lista como recibido:**
+- Repositorio: https://github.com/ktalynagb/mva-hackathon-2026.git
+- Video: https://www.youtube.com/watch?v=J1OovR5hoWQ
+- Informe: `A3-EMBS-ITBA_track2_report.pdf`
+
+El panel evalúa en una ventana de unos **2 a 3 meses**; los resultados se anuncian al cerrarse.
+
+**Punto a verificar con Laura:** el acuse enumera tres cosas y **no menciona el formulario de métodos** (`A3_EMBS_ITBA_methods_description_form.xlsx`). Puede que se haya adjuntado junto con el informe o por otra vía, pero conviene confirmarlo: el propio formulario advierte que *"submissions without a methods description may be judged less favorably on the Scientific Rigor and Innovation criteria"*, que son el 35 % y el 25 % de la nota. Quedan 2 envíos disponibles y el plazo cierra el 24 a las 18:00 UTC, así que hay margen para reenviar incluyéndolo si hiciera falta.
+
+**Código congelado:** tag `v1.0-entrega` apuntando a `d58c12b`.
+
+**Queda, después del cierre:** borrar los datos del paciente dentro de los 30 días (~23 nov 2026), incluidas las copias en la nube, y notificarlo a `MVAHackathon2026@synapse.org`. También conviene conservar el respaldo `respaldo_mva_20261023_113025.bundle` hasta que se anuncien los resultados.
+
+---
+
 ## 2026-10-23 (cierre) — Todo listo para entregar: envía Laura
 
 **E1 cerrada, con 18 días de demora:** **envía Laura Vargas**. Era lo único que podía dejar al equipo sin entrega, porque el reto acepta un solo envío y el panel revisa solo el de la persona designada.

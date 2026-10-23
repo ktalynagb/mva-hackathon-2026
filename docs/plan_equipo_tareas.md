@@ -43,7 +43,7 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 | **1** | 1 – 7 oct | ¿Qué variante causa el MVA? | A | ✅ Respondida (1 oct) |
 | **2** | 8 – 14 oct | ¿Qué le hace esa variante a la proteína, a la célula y al paciente? | B, C (inicio), D, E | ✅ Respondida: pérdida de función por falta de cantidad de BUBR1 |
 | **3** | 15 – 21 oct | ¿Qué fármacos aprobados actúan sobre ese mecanismo? | C, E | ✅ Respondida: sirolimus oral + arimoclomol + niacina, continuo; la ciclofosfamida del VAC trata el tumor |
-| **4** | 22 – 24 oct | ¿Está todo reproducible, grabado y enviado? | D, E | 🔄 Reproducible y grabado; falta el envío |
+| **4** | 22 – 24 oct | ¿Está todo reproducible, grabado y enviado? | D, E | ✅ **Enviado el 23 oct** por Laura Vargas (`LauraVargas091`), envío 1 |
 
 | Hito | Fecha | Qué debe existir | Tarea | Estado |
 |---|---|---|---|---|
@@ -53,7 +53,7 @@ No necesitas programar para aportar: más de la mitad de las tareas son de lectu
 | **H4** | sáb 17 oct | Lista corta de 3 a 5 fármacos con ficha | C5 | 👀 borrador 8 oct |
 | **H5** | mié 21 oct | Borrador completo del informe | E5 | ✅ informe en inglés terminado y exportado a PDF (11 pág. IEEE) |
 | **H6** | vie 23 oct, 12:00 UTC | Código congelado + tag `v1.0-entrega` | D6 | ✅ corrida limpia de los 8 pasos verificada (6 min 11 s, reproduce todos los números) y tag `v1.0-entrega` creado |
-| **H7** | sáb 24 oct, 18:00 UTC | Entrega enviada | E7 | 🔄 todo listo en `envios/track2/`; envía Laura |
+| **H7** | sáb 24 oct, 18:00 UTC | Entrega enviada | E7 | ✅ **enviada el 23 oct**, un día antes del cierre |
 
 ---
 
@@ -131,7 +131,7 @@ Base: **`docs/secciones/02b_resumen_mecanismo.md` (B4, PR #6)**, que reemplaza e
 | E4 | Guion del video v1 (3 min: problema · caso · variante · mecanismo · fármacos · escalabilidad) | `docs/paquete_video.md` | ✍️ | 14 oct | — | Ktalyna | ✅ el borrador v1 del 8 oct quedó desactualizado y se reemplazó por el paquete en inglés de Laura (guion + figuras en `results/video/`) |
 | E5 | **(H5)** Integrar el borrador completo del informe | `docs/informe_final.md` completo | ✍️ | **21 oct** | A2, B4, C5 | Ktalyna | 🔄 borrador v2 (15 oct madrugada): Resumen, Resultados (3.1–3.4), Discusión y Referencias completos; falta 2.5 reproducibilidad (D2/D3) y tabla IA 2.6 (equipo) |
 | E6 | Grabar y editar el video final | enlace al video | ✍️ | 23 oct | E4, C5 | | ✅ https://www.youtube.com/watch?v=J1OovR5hoWQ |
-| E7 | **(H7)** Completar el formulario de métodos, exportar el informe a PDF y enviar por el sitio del reto: informe `<usuario>_track2_report.pdf`, enlace al repositorio GitHub y enlace al video (YouTube o Vimeo) | entrega enviada | ✍️ | **24 oct 18:00 UTC** | E5, E6, D6 | Laura | 🔄 todo listo en `envios/track2/` (informe, formulario, enlaces del video y del repo, ver `LEEME_ENTREGA.md`); **falta el envío en sí** |
+| E7 | **(H7)** Completar el formulario de métodos, exportar el informe a PDF y enviar por el sitio del reto: informe `<usuario>_track2_report.pdf`, enlace al repositorio GitHub y enlace al video (YouTube o Vimeo) | entrega enviada | ✍️ | **24 oct 18:00 UTC** | E5, E6, D6 | Laura | ✅ **enviada y confirmada el 23 oct** por `LauraVargas091`, envío 1 de los 3 posibles. El acuse lista repositorio, video e informe PDF. Fallo del panel en una ventana de ~2 a 3 meses |
 | E8 | Bitácora semanal y registro de uso de IA. El reto exige, para cada herramienta de IA: **proveedor, plan o nivel, y configuración de datos** (por ejemplo, si se usa para entrenar) | `docs/bitacora.md` + tabla de la sección 2.6 de `informe_final.md` | ✍️ | cada jueves | — | | 🔄 continuo; la tabla de IA está en PR #8 y **cada persona completa su fila** |
 
 ---
