@@ -55,10 +55,10 @@ Hackaton_MVA_/
 
 | # | Entregable | Estado |
 |---|-----------|--------|
-| 1 | Informe PDF/Markdown con mecanismo + candidatos | 🔲 Pendiente |
-| 2 | Código documentado y reproducible | 🔲 Pendiente |
-| 3 | Video pitch 3 min (referenciado, no subido) | 🔲 Pendiente |
-| 4 | Formulario de descripción de métodos | 🔲 Pendiente |
+| 1 | Informe PDF/Markdown con mecanismo + candidatos | ✅ [`docs/A3-EMBS-ITBA_track2_report.pdf`](docs/A3-EMBS-ITBA_track2_report.pdf) (11 pág., IEEE) |
+| 2 | Código documentado y reproducible | ✅ `python run_pipeline.py` (8 pasos, 6 min 11 s) |
+| 3 | Video pitch 3 min | ✅ [YouTube](https://www.youtube.com/watch?v=J1OovR5hoWQ) |
+| 4 | Formulario de descripción de métodos | ✅ [`envios/track2/`](envios/track2/) |
 
 ---
 
@@ -167,7 +167,9 @@ Ningún paso sube datos del paciente al repositorio. Las cachés con variantes d
 
 ## Video pitch
 
-> [Enlace al video — se agrega antes de la entrega]
+**https://www.youtube.com/watch?v=J1OovR5hoWQ**
+
+Guion y figuras en [`docs/paquete_video.md`](docs/paquete_video.md) y `results/video/`.
 
 ---
 
