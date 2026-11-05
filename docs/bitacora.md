@@ -3,10 +3,11 @@
 **Track 2 — Reposicionamiento de Fármacos**  
 **Repo:** https://github.com/ktalynagb/mva-hackathon-2026  
 **Deadline:** 24 de octubre de 2026, 23:59 UTC  
-**Equipo:** Ktalyna · Laura · Josefina · (completar)
+
 
 > Registra qué se hizo, quién lo hizo, qué se decidió y qué sigue.  
 > Cada entrada nueva va **arriba**. Formato: `## YYYY-MM-DD — Título`.
+> **Los demás participantes trabajan por fuera y nos enviaban los cambios y sugerencias ya que no manejaban bien github**. 
 
 ---
 
@@ -149,7 +150,7 @@ Se informó que el equipo usó **cuatro** herramientas: Claude Code, Claude (apl
 ## 2026-10-21 (noche bis) — Corrección de la jefa: esquema continuo y la ciclofosfamida se queda
 
 **Quién:** Ktalyna (con Claude Code) · rama `tarea/C5-esquema-final`  
-**Disparador:** la jefa planteó: "por eso dejábamos ciclofosfamida, y hacíamos un tratamiento continuo con sirolimus oral, arimoclomol y niacinamida".
+**Disparador:** Lore planteó: "por eso dejábamos ciclofosfamida, y hacíamos un tratamiento continuo con sirolimus oral, arimoclomol y niacinamida".
 
 **Se adopta el encuadre, que es mejor que el anterior.** La propuesta ahora separa explícitamente dos tratamientos con objetivos distintos:
 - **Oncología estándar:** el rabdomiosarcoma lo trata el **VAC a intensidad reducida**, con ciclofosfamida. No es reposicionamiento ni necesita serlo.
