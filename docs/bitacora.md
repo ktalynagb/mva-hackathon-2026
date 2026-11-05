@@ -10,6 +10,31 @@
 
 ---
 
+## 2026-11-05 — Exposición residual en GitHub: repositorio puesto en privado
+
+**La limpieza del 23 de octubre fue incompleta y hay que corregirla.**
+
+**Qué pasó.** Reescribir el historial con `git-filter-repo` y hacer force-push deja los commits viejos **inalcanzables**, pero GitHub **no los borra**: los conserva y los sigue sirviendo por SHA directo hasta que corre su recolección de basura. La verificación del 23 oct se hizo sobre un **clon nuevo** —que salía limpio, y sigue saliendo limpio— pero **no se probó el acceso por SHA directo**, que es justamente la vía que quedaba abierta. La conclusión de aquel día ("cero datos del paciente en todo el historial") valía para los clones, no para la API.
+
+**Lo verificado hoy:** el archivo con las 358 variantes seguía descargándose por la API de GitHub (44.834 bytes) indicando el SHA del commit, pese a no aparecer en ningún clon.
+
+**Agravante:** la entrada del 23 oct de esta misma bitácora **nombraba la ruta del archivo y el SHA del commit**, con el detalle de lo que contenía. Estando el repositorio público, eso funcionaba como un índice para encontrarlo. Esas referencias se quitaron hoy.
+
+**Ventana de exposición:** del 23 de octubre al 5 de noviembre, unos 13 días.
+
+**Hecho hoy:**
+- Repositorio puesto en **privado**; comprobado que el archivo ya devuelve 404 sin autenticación.
+- Quitadas de la bitácora la ruta y el SHA.
+
+**Pendiente:**
+- Pedir a GitHub Support que purgue los objetos inalcanzables y las vistas en caché. Es el procedimiento que la propia documentación de GitHub indica tras reescribir un historial con datos sensibles, y **no requiere borrar el repositorio**.
+- Volver a hacerlo público recién cuando Support confirme la purga, porque el jurado necesita el enlace.
+- Evaluar con el equipo si corresponde informar a Sage Bionetworks, dado que hubo exposición efectiva de datos de acceso controlado.
+
+> **Nota sobre el remedio propuesto por fuera.** Circuló una indicación de **borrar el repositorio y recrearlo**. Es técnicamente efectiva, pero destruye la entrega evaluada: rompe el enlace que el jurado tiene durante la ventana de evaluación, borra los PR y sus comentarios, y cualquier fallo en la secuencia deja sin repositorio. La vía de Support consigue lo mismo sin ese riesgo.
+
+---
+
 ## 2026-10-23 (final) — ENTREGADO ✅
 
 **Laura Vargas (`LauraVargas091`) envió el Track 2 el 23 de octubre**, un día antes del cierre. El reto confirmó la recepción: **envío 1** de los 3 posibles, equipo **A3 EMBS ITBA**.
@@ -64,7 +89,7 @@ Las cinco restantes sí había que limpiar:
 
 | Ruta | Qué contenía |
 |---|---|
-| `notebooks/candidatos_genomicos_mva_priorizados.csv` | **388 posiciones no permitidas y 358 genotipos.** Subido por tbussozungri en `034d993` y borrado del árbol ese mismo día en `a1ed26c`, pero seguía recuperable del historial |
+| Una tabla de variantes priorizadas, en `notebooks/` | **388 posiciones no permitidas y 358 genotipos.** Subida y borrada del árbol el mismo día (15 oct), pero seguía recuperable del historial |
 | `results/hito_H1_anotacion_completa.json` | 1 posición no permitida; salida vieja del hito H1, ya no estaba en el árbol |
 | `notebooks/02b_sensibilidad_nonpass_genes_mva.ipynb` | 24 genotipos en versiones anteriores |
 | `notebooks/04_priorizacion_gnomad_variante_causante.ipynb` | 1 posición no permitida en una versión anterior |
@@ -325,7 +350,7 @@ El equipo propuso sumar ciclofosfamida. **Se descartó como candidata, con dos m
 - 💡 **Hipótesis innovadora:** si el rabdomiosarcoma perdió la otra copia de *LZTR1*, la vía RAS estaría activa. Eso abriría el uso de un inhibidor de MEK (trametinib o selumetinib, FDA desde 1 año) junto con temsirolimus (PMID 23684925, 36322002), nunca solo (PMID 35363510). Se comprueba en la biopsia. Hay un solo trabajo que une *LZTR1* con el rabdomiosarcoma
 - ✅ **Nefrocalcinosis:** ningún gen renal la explica (92 dominantes y 48 recesivos). Lo más probable es la prematuridad (hasta 40 % de los prematuros; PMID 38296790)
 - ⚠️ La missense de *MAD1L1* que figuraba como patogénica en la tabla subida al repo es benigna en las evaluaciones germinales recientes (el registro patogénico es de 2001, somático y sin criterios)
-- ⚠️ **Privacidad:** la tabla `notebooks/candidatos_genomicos_mva_priorizados.csv` (358 variantes del paciente) se movió a `data/equipo/` (PR #19). Sigue en el historial de git: hay que limpiarlo antes de hacer público el repo
+- ⚠️ **Privacidad:** la tabla con 358 variantes del paciente se movió a `data/equipo/` (PR #19). Quedó en el historial de git; se limpió el 23 oct antes de hacer público el repo
 
 **Pendiente:**
 - [ ] Decidir si el hallazgo de *LZTR1* se informa como hallazgo secundario en el Track 1 (la posición exacta iría solo al envío, no al repo)
