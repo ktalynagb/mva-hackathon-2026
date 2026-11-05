@@ -27,10 +27,23 @@
 - Repositorio puesto en **privado**; comprobado que el archivo ya devuelve 404 sin autenticación.
 - Quitadas de la bitácora la ruta y el SHA.
 
+**Resuelto el mismo día: repositorio borrado y recreado limpio.**
+
+El equipo optó por borrar y recrear en vez de esperar a GitHub Support. Al preparar la operación apareció el **origen real de la fuga**, que era más amplio que el CSV: GitHub conserva los commits anteriores en las **referencias de los pull requests** (`refs/pull/*`), y ahí seguían, además del CSV, **cuatro versiones de tres notebooks** con genotipos. Un clon normal nunca las ve —por eso la verificación del 23 oct salía limpia— pero estaban en el servidor. El historial de `master` sí estaba limpio: cero coincidencias en sus 136 commits.
+
+Procedimiento seguido:
+1. **Respaldo doble verificado** antes de tocar nada: clon espejo (250 commits, con todo el historial original) y bundle, ambos comprobados. Contienen datos del paciente, así que **entran en la lista de borrado del 23 de noviembre**.
+2. Copia limpia a partir de un segundo espejo: `filter-repo` para el CSV, eliminación de las 30 `refs/pull/*` y `gc --prune=now`. Resultado: 136 commits, 105 archivos, tag `v1.0-entrega`, cero datos del paciente.
+3. Repositorio borrado en GitHub y recreado con el mismo nombre, en **privado**.
+4. Subidos `master` y el tag; `master` como rama por defecto.
+
+**Verificado sobre un clon nuevo del repositorio recreado:** 136 commits, 105 archivos, los entregables presentes, el commit viejo responde 422/404 y el barrido de cinco patrones no encuentra ningún dato del paciente.
+
+**Costo asumido:** se perdieron los 30 pull requests y sus comentarios. El enlace del repositorio, el historial de `master` y el tag de entrega se conservan.
+
 **Pendiente:**
-- Pedir a GitHub Support que purgue los objetos inalcanzables y las vistas en caché. Es el procedimiento que la propia documentación de GitHub indica tras reescribir un historial con datos sensibles, y **no requiere borrar el repositorio**.
-- Volver a hacerlo público recién cuando Support confirme la purga, porque el jurado necesita el enlace.
-- Evaluar con el equipo si corresponde informar a Sage Bionetworks, dado que hubo exposición efectiva de datos de acceso controlado.
+- Volver a hacer público el repositorio, porque el jurado necesita el enlace. Ya no hay motivo técnico para mantenerlo privado.
+- Evaluar con el equipo si corresponde informar a Sage Bionetworks de la exposición del 23 oct al 5 nov.
 
 > **Nota sobre el remedio propuesto por fuera.** Circuló una indicación de **borrar el repositorio y recrearlo**. Es técnicamente efectiva, pero destruye la entrega evaluada: rompe el enlace que el jurado tiene durante la ventana de evaluación, borra los PR y sus comentarios, y cualquier fallo en la secuencia deja sin repositorio. La vía de Support consigue lo mismo sin ese riesgo.
 
